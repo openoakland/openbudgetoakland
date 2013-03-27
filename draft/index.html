@@ -21,6 +21,14 @@
   <link rel="stylesheet" href="stylesheets/app.css">
 
   <script src="javascripts/modernizr.foundation.js"></script>
+  
+  <style>
+  #featured { background: url(spinner.gif) center center #f4f4f4 no-repeat; height: 300px; }
+#featured img { display: none; }
+
+#featured.orbit { background: none; }
+#featured.orbit img { display: block; }
+  </style>
 </head>
 <body>
 
@@ -73,11 +81,9 @@
   <div class="row">
     <div class="twelve columns">
       <div id="featured">
-<!-- 
-        <a href="http://www.google.com"><img src="images/OS_image2.png"></a>
- -->
-        <img src="holder.js/1200x250/text:Slide_2" alt="slide image">
-        <img src="holder.js/1200x250/text:Slide_3" alt="slide image">
+        <img src="images/treemapOrbit.png" alt="slide image">
+        <img src="images/bubbleOrbit.png" alt="slide image">
+        <img src="images/sankeyOrbit.png" alt="slide image">
       </div>
     </div>
   </div>
