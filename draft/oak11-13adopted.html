@@ -104,35 +104,7 @@
   
   <!-- Included JS Files (Uncompressed) -->
     <script src="javascripts/jquery.js"></script><script src="javascripts/jquery.foundation.mediaQueryToggle.js"></script><script src="javascripts/jquery.foundation.forms.js"></script><script src="javascripts/jquery.foundation.reveal.js"></script><script src="javascripts/jquery.foundation.orbit.js"></script><script src="javascripts/jquery.foundation.navigation.js"></script><script src="javascripts/jquery.foundation.buttons.js"></script><script src="javascripts/jquery.foundation.tabs.js"></script><script src="javascripts/jquery.foundation.tooltips.js"></script><script src="javascripts/jquery.foundation.accordion.js"></script><script src="javascripts/jquery.placeholder.js"></script><script src="javascripts/jquery.foundation.alerts.js"></script><script src="javascripts/jquery.foundation.topbar.js"></script><script src="javascripts/jquery.foundation.joyride.js"></script><script src="javascripts/jquery.foundation.clearing.js"></script><script src="js/jquery.foundation.magellan.js"></script>
- 
- <script type="text/javascript" src="http://openspending.org/static/openspendingjs/prod/boot.js"></script>
-    <script defer="defer">
-      OpenSpending.scriptRoot = "http://openspending.org/static/openspendingjs";
-      OpenSpending.localeGroupSeparator = ",";
-      OpenSpending.localeDecimalSeparator = ".";
-    </script>
-    <script type="text/javascript" src="http://openspending.org/static/openspendingjs/lib/widgets.js"></script>
-    <script type="text/javascript" src="http://openspending.org/static/openspendingjs/app/bob/bob.js"></script>
-    <script type="text/javascript" src="http://openspending.org/static/openspendingjs/widgets/treemap/main.js"></script>
-    <script type="text/javascript">
-    $(function() {
-        var state = {
-          "drilldowns": [
-            "Department",
-            "Program"
-          ],
-          "cuts": {},
-          "year": 2011
-        };
-        var context = {
-          dataset: "oakland_adopted_budget_fy2011-12",
-          siteUrl: "http://openspending.org",
-          embed: true
-          };
-        window.wdg_widget = new OpenSpending.Treemap($('#widget'), context, state);
-    });
-    </script>
-    <a id="credit" target="_blank" href="http://www.openspending.org/">Visualised with OpenSpending</a>
+    
   
   <!-- Included JS Files (Compressed) -->
   <script src="js/jquery.js"></script>
@@ -173,5 +145,32 @@
         </div>
       </div>
     </div>
+     <script type="text/javascript" src="http://openspending.org/static/openspendingjs/prod/boot.js"></script>
+    <script defer="defer">
+      OpenSpending.scriptRoot = "http://openspending.org/static/openspendingjs";
+      OpenSpending.localeGroupSeparator = ",";
+      OpenSpending.localeDecimalSeparator = ".";
+    </script>
+    <script type="text/javascript" src="http://openspending.org/static/openspendingjs/lib/widgets.js"></script>
+    <script type="text/javascript" src="http://openspending.org/static/openspendingjs/app/bob/bob.js"></script>
+    <script type="text/javascript" src="http://openspending.org/static/openspendingjs/widgets/treemap/main.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var state = {
+          "drilldowns": [
+            "Department",
+            "Program"
+          ],
+          "cuts": {},
+          "year": 2011
+        };
+        var context = {
+          dataset: "oakland_adopted_budget_fy2011-12",
+          siteUrl: "http://openspending.org",
+          embed: true
+          };
+        window.wdg_widget = new OpenSpending.Treemap($('#widget'), context, state);
+    });
+    </script>
 </body>
 </html>
