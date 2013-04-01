@@ -25,13 +25,13 @@
 
 
   <style>
- body, html, #widget {
+ body, html, #treewidget {
             padding: 0px;
             margin: 0px;
             width: 100%;
             height: 100%;
         }
-        #widget {
+        #treewidget {
             width: 800px;
             height: 500px;
         }
@@ -126,7 +126,7 @@ END NAV
 			  <dd><a href="#table">Data</a></dd>
 			</dl>
 			<ul class="tabs-content">
-			  <li class="active" id="treemapTab"><div id="widget"></div></li>
+			  <li class="active" id="treemapTab"><div id="treewidget"></div></li>
 			  <li id="bubbletreeTab">This is simple tab 2s content. Now you see it!</li>
 			  <li id="tableTab">This is simple tab 3s content.</li>
 			</ul>
@@ -210,7 +210,7 @@ END NAV
 				  siteUrl: "http://openspending.org",
 				  embed: true
 				  };
-				window.wdg_widget = new OpenSpending.Treemap($('#widget'), context, state);
+				window.wdg_widget = new OpenSpending.Treemap($('#treewidget'), context, state);
 			});
 			</script>
 
