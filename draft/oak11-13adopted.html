@@ -213,6 +213,9 @@ END NAV
 				  embed: true
 				  };
 				window.wdg_widget = new OpenSpending.Treemap($('#treewidget'), context, state);
+				window.wdg_widget = new OpenSpending.bubbletree($('#bubblewidget'), context, state);
+				window.wdg_widget = new OpenSpending.aggregate_table($('#tablewidget'), context, state);
+
 			});
 			</script>
 
