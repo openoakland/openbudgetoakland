@@ -1,3 +1,0 @@
-[submodule "js/openspendingjs"]
-	path = js/openspendingjs
-	url = git://github.com/openspending/openspendingjs.git
