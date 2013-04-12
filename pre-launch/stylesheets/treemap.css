@@ -1,4 +1,4 @@
-.treemap-widget {
+.treewidget11-13-widget {
     position: relative;
     overflow: hidden;
     cursor: pointer;
@@ -9,14 +9,14 @@
     font-weight: bold;
 }
 
-.treemap-widget div.desc {
+.treewidget11-13-widget div.desc {
     padding: 0.8em;
     font-weight: normal;
     overflow: hidden;
     font-family: 'OpenSansRegular';
 }
 
-.treemap-widget .desc .amount {
+.treewidget11-13-widget .desc .amount {
     /*font-family: OpenSans, Georgia, serif;*/
     font-size: 1em;
     color: #fff;
@@ -24,7 +24,7 @@
     margin: 0.1em;
 }
 
-.treemap-widget .desc .lbl {
+.treewidget11-13-widget .desc .lbl {
     font-size: 11px;
     line-height: 15px;
     padding-left: 2px;
