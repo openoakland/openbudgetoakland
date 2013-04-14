@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>Open Budget Oakland</title>
+  
+  <!-- Included CSS Files (Uncompressed) -->
+  <!--
+  <link rel="stylesheet" href="stylesheets/foundation.css">
+  -->
+  
+  <!-- Included CSS Files (Compressed) -->
+  <link rel="stylesheet" href="stylesheets/foundation.min.css">
+  <link rel="stylesheet" href="stylesheets/app.css">
+
+  <script src="javascripts/modernizr.foundation.js"></script>
+</head>
+<body>
+
+<div>
+
+    <nav class="top-bar">
+      <ul>
+        <!-- Title Area -->
+        <li class="name">
+          <h1>
+            <a href="#">
+              Open Budget Oakland
+            </a>
+          </h1>
+        </li>
+        <li class="toggle-topbar"><a href="#"></a></li>
+      </ul>
+
+    	<section>
+			<ul class="right">
+            	
+            	<li class="divider"></li>
+            	<li><a href="/draft/oak11-13adopted.html">Visuals</a></li>
+            	<li class="divider"></li>
+            	<li><a href="#">Data</a></li>
+            	<li class="divider"></li>
+            		<li><a href="">Blog</a></li>
+            	<li class="divider"></li>
+            	<li class="has-dropdown"><a href="">Resources</a>
+            		<ul class="dropdown">
+
+                  		<li><a href="#">Visualization tools</a></li>
+                  		<li><a href="#">Related Projects</a></li>
+                  		</ul>
+                   
+            	<li class="divider"></li>
+			
+              	<li class="has-dropdown"><a href="">About</a>
+              		<ul class="dropdown">
+						<li><a href="#">Why Open Budget?</a></li>
+						<li><a href="#">Participatory Budgeting</a></li>
+                		<li><a href="#">Contact Us</a></li>
+                	</ul>
+            
+    		</ul>
+    	</section>
+    </nav>
+  </div>
+
+  <div class="row">
+    <div class="twelve columns">
+      <div id="featured">
+<!-- 
+        <a href="http://www.google.com"><img src="images/OS_image2.png"></a>
+ -->
+        <img src="holder.js/1200x250/text:Slide_2" alt="slide image">
+        <img src="holder.js/1200x250/text:Slide_3" alt="slide image">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    
+    <div class="twelve columns">
+      <h2 class="subheader">Explore your budget.</h2>
+      <hr />
+    </div>
+  
+  </div>
+
+  <div class="row">
+    
+    <div class="eight columns">
+
+      <!-- Grid Example -->
+      
+      <div class="row">
+        <div class="twelve columns">
+          <div>
+            <p><strong>Open Budget Oakland</strong> promotes a deeper understanding of the city budget, enabling citizens, officials, and other stakeholders to engage in more informed dialogue about how the City of Oakland currently works and how it should in the future.</p> 
+
+<h4 class="subheader">Help build this!</h4>
+<p>Developers and data geeks needed. We meet Tuesdays 6–9:30pm at City Hall as part of OpenOakland hack night.</p>
+
+
+          </div>
+        </div>
+      </div>
+      
+      
+      
+
+  
+      
+ 
+    </div>
+
+		<div class="four columns">
+			<div class="panel">
+			<h4 class="subheader">How would you use Open Budget?</h4>
+			<p>We're trying to build a tool that's useful to average citizens, community advocates, and city officials. We want your ideas. What would you visualize? Who should be part of the discussion?</p>
+		<p><a href="#" class="success button">TELL US!</a></p>
+		</div>
+		</div>
+  
+  
+  
+  
+  </div>
+
+  	  <div id="copyright">
+      <div class="row">
+        <div class="twelve columns">
+          <p>Open Budget &copy; 2013</p>
+        </div>
+      </div>
+    </div>
+
+
+  
+  
+  <!-- Included JS Files (Uncompressed) -->
+  <!--
+  <script src="javascripts/jquery.js"></script><script src="javascripts/jquery.foundation.mediaQueryToggle.js"></script><script src="javascripts/jquery.foundation.forms.js"></script><script src="javascripts/jquery.foundation.reveal.js"></script><script src="javascripts/jquery.foundation.orbit.js"></script><script src="javascripts/jquery.foundation.navigation.js"></script><script src="javascripts/jquery.foundation.buttons.js"></script><script src="javascripts/jquery.foundation.tabs.js"></script><script src="javascripts/jquery.foundation.tooltips.js"></script><script src="javascripts/jquery.foundation.accordion.js"></script><script src="javascripts/jquery.placeholder.js"></script><script src="javascripts/jquery.foundation.alerts.js"></script><script src="javascripts/jquery.foundation.topbar.js"></script><script src="javascripts/jquery.foundation.joyride.js"></script><script src="javascripts/jquery.foundation.clearing.js"></script><script src="js/jquery.foundation.magellan.js"></script>
+  -->
+  
+  <!-- Included JS Files (Compressed) -->
+  <script src="js/jquery.js"></script>
+  <script src="js/foundation.min.js"></script>
+  
+  <!-- Initialize JS Plugins -->
+  <script src="js/app.js"></script>
+
+  
+    <script>
+    $(window).load(function(){
+      $("#featured").orbit({
+  animation: 'fade',                  // fade, horizontal-slide, vertical-slide, horizontal-push
+  animationSpeed: 800,                // how fast animtions are
+  timer: false,                        // true or false to have the timer
+  resetTimerOnClick: false,           // true resets the timer instead of pausing slideshow progress
+  advanceSpeed: 4000,                 // if timer is enabled, time between transitions
+  pauseOnHover: false,                // if you hover pauses the slider
+  startClockOnMouseOut: false,        // if clock should start on MouseOut
+  startClockOnMouseOutAfter: 1000,    // how long after MouseOut should the timer start again
+  directionalNav: true,               // manual advancing directional navs
+  captions: true,                     // do you want captions?
+  captionAnimation: 'fade',           // fade, slideOpen, none
+  captionAnimationSpeed: 800,         // if so how quickly should they animate in
+  bullets: false,                     // true or false to activate the bullet navigation
+  bulletThumbs: false,                // thumbnails for the bullets
+  bulletThumbLocation: '',            // location from this file where thumbs will be
+  afterSlideChange: function(){},     // empty function
+  fluid: true                         // or set a aspect ratio for content slides (ex: '4x3')
+});
+    });
+    </script> 
+  
+</body>
+</html>
