@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Open Budget Oakland (beta) Explore your budget!" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <style type="text/css">
+      #oaklandiframe {
+          overflow:none;
+      }
+    </style>
+
+    <title>Open Budget Oakland (beta)</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+
+          <h1 id="project_title">Open Budget Oakland</h1>
+    <!--  <h2 id="project_tagline">Explore your budget!</h2> -->
+
+          
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+              <iframe width='650' height='300' src='http://openspending.org/oakland-adopted-budget-fy-2011-13-expenditures/embed?widget=treemap&state=%7B%22drilldowns%22%3A%5B%22department%22%2C%22unit%22%2C%22child-fund%22%5D%2C%22year%22%3A2011%2C%22cuts%22%3A%7B%7D%7D&width=650&height=300' frameborder='0' scrolling="no" id="oaklandiframe"></iframe>
+<p align="right">[<a href="javascript:backHome();">Department level</a>.]</p>
+
+
+
+<h2>Launch Date: April 15, 2013</h2>
+
+
+<p>Open Budget Oakland will officially launch with the release of Mayor Jean Quan's proposed budget, which we'll visualize for discussion here. Stay tuned.</p>
+
+<p><strong>Questions?</strong> Want to be notified when we launch? Contact us at open.budget.oakland at gmail.com</p>
+
+<p><small>Above: "City of Oakland Adopted Budget FY 2011-12 (Dept. Program Expenditures)." For demo purposes only.</small></p>
+
+<h4>What we do</h4>
+
+		<p>Open Budget Oakland promotes a deeper understanding of the city budget, enabling citizens, officials, and other stakeholders to engage in more informed dialogue about how the City of Oakland currently works and how it should in the future.</p> 
+
+<h4>How we do it</h4>
+		<ul>
+				<li>We work with <strong>community organizations</strong> to learn what aspect of the budget is most relevant to them, and how it would be best shared with the public.</li>
+
+				<li>We work with <strong>Oakland’s Budget Office</strong> to access budget data and present it in a simple, useful format.</li>
+
+				<li>We <strong>visualize</strong> Oakland budget data, and <strong>share resources</strong> for people to create their own visualizations and analyses.</li> 
+				<li>We prioritize tools that are <strong>free, open-source, and require minimum technical skill</strong>.</li>
+
+				<li>We <strong>stimulate dialogue and provide a forum</strong> for all of Oakland to discuss the budget.</li>
+		</ul>
+
+<h2>Help build this!</h2>
+
+<p>Developers and data geeks needed. We <a href="http://www.meetup.com/cfabrigade/Open-Oakland/">meet</a> Tuesdays 6–9:30pm at City Hall as part of <a href="http://openoakland.org/">OpenOakland</a> hack night. </p>
+
+<!-- DISQUS  -->
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        // Would probably be better to use some nice jQuery :-)
+        function backHome() {
+            document.getElementById('oaklandiframe').src = document.getElementById('oaklandiframe').src;
+        }
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'openbudgetoakland'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+
+      </section>
+    </div>
+
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Open Budget Oakland maintained by <a href="https://github.com/adstiles">adstiles</a></p>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>
