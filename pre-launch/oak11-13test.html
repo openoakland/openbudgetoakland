@@ -121,7 +121,7 @@ END NAV
 		<div class="ten columns">
 		<div><h4 class="subheader">FY 2011-13 City of Oakland Expenditures, Adopted</h4></div>
 			
-			<div id="treewidget11-13"></div><p align="right">[<a href="javascript:backHome();">Department level</a>.]</p>
+			<div id="treewidget11-13"></div><p id="breadcrumbs" align="right"></p>
 			
 			<!-- 
 <dl class="tabs">
@@ -202,80 +202,13 @@ END NAV
 			</script>
 			<script type="text/javascript" src="http://openspending.org/static/openspendingjs/lib/widgets.js"></script>
 			<script type="text/javascript" src="http://openspending.org/static/openspendingjs/app/bob/bob.js"></script>
-			<script type="text/javascript" src="http://openspending.org/static/openspendingjs/widgets/treemap/main.js"></script>
+			<script type="text/javascript" src="/javascripts/treemap.js"></script>
 <!-- 
 			<script type="text/javascript" src="http://openspending.org/static/openspendingjs/widgets/bubbletree/main.js"></script>
  -->
 			<script type="text/javascript" src="http://openspending.org/static/openspendingjs/widgets/aggregate_table/main.js"></script>
-			<script type="text/javascript">
-			$(function() {
-				var state = {
-				  "drilldowns": [
-					"department",
-					"unit",
-					"child-fund"
-				  ],
-				  "cuts": {"time.year": "2011|time.year:2012"}
-				};
-				var context = {
-				  dataset: "oakland-adopted-budget-fy-2011-13-expenditures",
-				  siteUrl: "http://openspending.org",
-				  embed: true
-				  };
-				window.wdg_widget = new OpenSpending.Treemap($('#treewidget11-13'), context, state);	
-			});
-			$(function() {
-				var state = {
-				  "drilldowns": [
-					"department",
-					"unit",
-					"child-fund"
-				  ],
-				  "cuts": {},
-				  "year": 2011
-				};
-				var context = {
-				  dataset: "oakland-adopted-budget-fy-2011-13-expenditures",
-				  siteUrl: "http://openspending.org",
-				  embed: true
-				  };
-				window.wdg_widget = new OpenSpending.Treemap($('#treewidget11-12'), context, state);	
-			});
-			$(function() {
-				var state = {
-				  "drilldowns": [
-					"department",
-					"unit",
-					"child-fund"
-				  ],
-				  "cuts": {},
-				  "year": 2012
-				};
-				var context = {
-				  dataset: "oakland-adopted-budget-fy-2011-13-expenditures",
-				  siteUrl: "http://openspending.org",
-				  embed: true
-				  };
-				window.wdg_widget = new OpenSpending.Treemap($('#treewidget12-13'), context, state);	
-			});			
-// 			$(function() {
-// 				var state = {
-// 				  "drilldowns": [
-// 					"department",
-// 					"unit",
-// 					"child-fund"
-// 				  ],
-// 				  "cuts": {},
-// 				  "year": 2012
-// 				};
-// 				var context = {
-// 				  dataset: "oakland-adopted-budget-fy-2011-13-expenditures",
-// 				  siteUrl: "http://openspending.org",
-// 				  embed: true
-// 				  };
-// 				window.wdg_widget = new OpenSpending.AggregateTable($('#tablewidget'), context, state);
-// 			});			
-			</script>
+			<script type="text/javascript" src="/javascripts/purl.js"></script>
+			<script type="text/javascript" src="/javascripts/main.js"></script>
 
   <link rel="stylesheet" href="stylesheets/treemap.css">
   <link rel="stylesheet" href="stylesheets/bubbletree.css">
