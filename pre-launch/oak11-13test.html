@@ -207,24 +207,7 @@ END NAV
 			<script type="text/javascript" src="http://openspending.org/static/openspendingjs/widgets/bubbletree/main.js"></script>
  -->
 			<script type="text/javascript" src="http://openspending.org/static/openspendingjs/widgets/aggregate_table/main.js"></script>
-			<script type="text/javascript">
-			$(function() {
-				var state = {
-				  "drilldowns": [
-					"department",
-					"unit",
-					"child-fund"
-				  ],
-				  "cuts": {"time.year": "2011|time.year:2012"}
-				};
-				var context = {
-				  dataset: "oakland-adopted-budget-fy-2011-13-expenditures",
-				  siteUrl: "http://openspending.org",
-				  embed: true
-				  };
-				window.wdg_widget = new OpenSpending.Treemap($('#treewidget11-13'), context, state);	
-			});		
-			</script>
+			<script type="text/javascript" src="/javascripts/main.js"></script>
 
   <link rel="stylesheet" href="stylesheets/treemap.css">
   <link rel="stylesheet" href="stylesheets/bubbletree.css">
