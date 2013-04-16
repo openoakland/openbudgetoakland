@@ -66,3 +66,4 @@ $(function() {
 	}};
     // Create the Treemap
     window.wdg_widget = new OpenSpending.Treemap($('#treewidget11-13'), context, state);	
+});
