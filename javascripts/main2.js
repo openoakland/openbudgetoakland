@@ -53,8 +53,7 @@ $(function() {
 		// The url parameter is of the form dimension=name
 		var new_location = [window.location.href,
 				    window.location.search ? '&' : '?',
-				    drilldowns[0], '=', 
-				    encodeURIComponent(node.name)];
+					drilldowns[0], '=', node.name];
 		// Go to the new location
 		window.location.href = new_location.join('');
 	    }
