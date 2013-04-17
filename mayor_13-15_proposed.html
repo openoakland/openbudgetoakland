@@ -212,28 +212,8 @@ END NAV
 			<script type="text/javascript" src="http://openspending.org/static/openspendingjs/widgets/aggregate_table/main.js"></script>
 			
 			<script type="text/javascript" src="/javascripts/purl.js"></script>
-			<script type="text/javascript">
-			$(function() {
-    var state = {
-	"drilldowns": [
-	    "department",
-	    "unit",
-	    "fund"
-	],
-	"cuts": {"time.year": "2013|time.year:2014"}
-    };
-    var context = {
-	dataset: "mayor_s_proposed_policy_budget_fy2013-15",
-	siteUrl: "http://openspending.org",
-	embed: true
-    };
-    window.wdg_widget = new OpenSpending.Treemap($('#treewidget13-15'), context, state);	
-});
-</script>
+			<script type="text/javascript" src="/javascripts/main2.js"></script>
 
-<!-- 
-			<script type="text/javascript" src="/javascripts/main.js"></script>
- -->
 
   <link rel="stylesheet" href="stylesheets/treemap.css">
   <link rel="stylesheet" href="stylesheets/bubbletree.css">
