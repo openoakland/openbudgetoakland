@@ -166,19 +166,18 @@ END NAV
 
 <!-- 		DISQUS script -->
 			<script type="text/javascript">
-			function backHome() {
-            document.getElementById('treewidget11-13').src = document.getElementById('treewidget11-13').src;
-        }
-				/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-				var disqus_shortname = 'openbudgetoakland'; // required: replace example with your forum shortname
-// 				var disqus_identifier = '2011-13 Oakland Expenditures Adopted Treemap';
-			    var disqus_identifier = window.location.href
-				/* * * DON'T EDIT BELOW THIS LINE * * */
-				(function() {
-					var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-					dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-				})();
+				function backHome() {
+				document.getElementById('treewidget11-13').src = document.getElementById('treewidget11-13').src;
+			}
+					/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+					var disqus_shortname = 'openbudgetoakland'; // required: replace example with your forum shortname
+					var disqus_identifier = window.location.href;
+					/* * * DON'T EDIT BELOW THIS LINE * * */
+					(function() {
+						var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+					})();
     		</script>
     		
     		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
