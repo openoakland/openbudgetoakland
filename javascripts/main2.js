@@ -62,7 +62,7 @@ $(function() {
 	    else 
 	    { 
 		// This can be made more beautiful
-		alert("Sorry, we can't dig deeper");
+		alert("That's as low as we go.");
 	    }
 	}};
     // Create the Treemap
