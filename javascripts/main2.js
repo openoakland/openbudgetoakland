@@ -68,5 +68,4 @@ $(function() {
     // Create the Treemap
     // HACK: Override $jit.Trans.Expo.easeOut transition when it's loaded to eliminate animation
     window.wdg_widget = new OpenSpending.Treemap($('#treewidget13-15'), context, state);
-    wdg_widget.done(function(){$jit.Trans.Expo.easeOut = function(){return 1;};});
 });
