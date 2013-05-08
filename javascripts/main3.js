@@ -1,6 +1,6 @@
 $(function() {
     // Default drilldowns and cuts
-    var drilldowns = ["department", "unit", "fund"];
+    var drilldowns = ["fund", "department", "unit"];
     var cuts = {"time.year": "2013|time.year:2014"};
 
     // Get url parameters (this could be easily parsed, but we use purl)
@@ -66,6 +66,5 @@ $(function() {
 	    }
 	}};
     // Create the Treemap
-    // HACK: Override $jit.Trans.Expo.easeOut transition when it's loaded to eliminate animation
     window.wdg_widget = new OpenSpending.Treemap($('#treewidget13-15'), context, state);
 });
