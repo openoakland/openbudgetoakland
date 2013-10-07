@@ -45,7 +45,7 @@ $(function() {
 		});
 		//apply the formatted cuts string
 		cuts = {"time.year": cutString};
-		headerText += " Mayor's Proposed Spending (Treemap)";
+		headerText += " Mayor's Proposed Spending";
 	}
 
 
