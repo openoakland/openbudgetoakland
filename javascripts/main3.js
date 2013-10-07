@@ -1,12 +1,55 @@
 $(function() {
-    // Default drilldowns and cuts
-    var drilldowns = ["fund", "department", "unit"];
+    // Default drilldowns and cuts and year
+	var defaultYear = 2013;
+    var drilldowns = ["department", "unit", "fund"];
+
+	//Default year cuts
     var cuts = {"time.year": "2013|time.year:2014"};
+	//Default header text
+	var headerText = "2013-15 Mayor's Proposed Spending (Treemap)"
+
 
     // Get url parameters (this could be easily parsed, but we use purl)
     // Purl is available here: https://github.com/allmarkedup/jQuery-URL-Parser
     var parameters = $.url().param();
 
+
+	//check for 'reference_years' in URL parameters
+	//argument must be formatted with four digit years, eg. 2012
+	//separate multiple years with a '+' symbol, but you need only supply one
+	//the cuts used by default would correspond to: reference_years=2013+2014
+
+	if(parameters['reference_years'])
+	{
+		//initialize the string to be formatted, and separate the years from the argument
+
+		var cutString = "";
+		headerText = "";
+		var years = parameters['reference_years'].split(" ");
+		var i = 0;
+
+		//loop through the list of years
+
+		$.each(years, function(index, value){
+			//the first argument has nothing preceding it
+			if(i!=0)
+			{
+				//after the first, prepend the new cut and the '|' to perform and addition
+				cutString += "|time.year:";
+				headerText += "-";
+			}
+			//add the year
+			cutString += value;
+			headerText += value;
+			i++;
+		});
+		//apply the formatted cuts string
+		cuts = {"time.year": cutString};
+		headerText += " budget (Treemap)";
+	}
+
+
+	$('#year-header').html(headerText);
     // Start collecting breadcrumbs. We begin with Departments (base url)
     var path = $.url().attr('path');
     var crumbs = [{path:path, title:'Departments'}];
@@ -66,5 +109,6 @@ $(function() {
 	    }
 	}};
     // Create the Treemap
+    // HACK: Override $jit.Trans.Expo.easeOut transition when it's loaded to eliminate animation
     window.wdg_widget = new OpenSpending.Treemap($('#treewidget13-15'), context, state);
 });
