@@ -45,14 +45,14 @@ $(function() {
 		});
 		//apply the formatted cuts string
 		cuts = {"time.year": cutString};
-		headerText += " budget (Treemap)";
+		headerText += " Mayor's Proposed Spending (Treemap)";
 	}
 
 
 	$('#year-header').html(headerText);
     // Start collecting breadcrumbs. We begin with Departments (base url)
     var path = $.url().attr('path');
-    var crumbs = [{path:path, title:'Departments'}];
+    var crumbs = [{path:path, title:'Funds'}];
 
     // While the first drilldown is in the url parameters
     // we move it to the cuts instead
