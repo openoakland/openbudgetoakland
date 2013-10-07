@@ -1,7 +1,7 @@
 $(function() {
     // Default drilldowns and cuts and year
 	var defaultYear = 2013;
-    var drilldowns = ["department", "unit", "fund"];
+    var drilldowns = ["fund", "department", "unit"];
 
 	//Default year cuts
     var cuts = {"time.year": "2013|time.year:2014"};
