@@ -6,7 +6,7 @@ $(function() {
 	//Default year cuts
     var cuts = {"time.year": "2013|time.year:2014"};
 	//Default header text
-	var headerText = "2013-15 Mayor's Proposed Spending (Treemap)"
+	var headerText = "Mayor's Proposed Spending (Treemap)"
 
 
     // Get url parameters (this could be easily parsed, but we use purl)
