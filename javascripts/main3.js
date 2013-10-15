@@ -36,7 +36,7 @@ $(function() {
 			{
 				//after the first, prepend the new cut and the '|' to perform and addition
 				cutString += "|time.year:";
-				headerText += "-";
+				headerText += "&";
 			}
 			//add the year
 			cutString += value;
