@@ -4,9 +4,9 @@ $(function() {
     var drilldowns = ["fund", "department", "unit"];
 
 	//Default year cuts
-    var cuts = {"time.year": "2013|time.year:2014"};
+    var cuts = {"time.year": "2013"};
 	//Default header text
-	var headerText = "Mayor's Proposed Two-Year Spending (2013-15)"
+	var headerText = "2013 Mayor's Proposed Spending"
 
 
     // Get url parameters (this could be easily parsed, but we use purl)
