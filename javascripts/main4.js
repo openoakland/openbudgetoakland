@@ -4,7 +4,7 @@ $(function() {
     var drilldowns = ["fund", "department", "unit"];
 
 	//Default year cuts
-    var cuts = {"time.year": "2013|time.year:2014"};
+    var cuts = {"time.year": "2013"};
 	//Default header text
 	var headerText = "Mayor's Proposed Two-Year Spending (2013-15)"
 
