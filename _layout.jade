@@ -1,6 +1,81 @@
 doctype
 html
   head
-    link(rel="stylesheet" href="/main.css")
+    link(rel="stylesheet" href="/css/main.css")
   body
+    nav
+      .navbar.navbar-inverse.navbar-fixed-top
+        .container
+          .navbar-header
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.nav-collapse')
+              span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+            a.navbar-brand(href='/') Open Budget: Oakland
+          .navbar-collapse.collapse
+            ul.nav.navbar-nav.navbar-right
+
+              li.dropdown
+                a.dropdown-toggle(href='#', data-toggle='dropdown')
+                  | About 
+                  b.caret
+                ul.dropdown-menu
+                  li
+                    a(href='what-how.html') What and How
+                  li
+                    a(href='whois.html') Who We Are
+                  li
+                    a(href='news.html') News
+                  li
+                    a(href='contact.html') Contact Us
+
+              li.dropdown
+                a.dropdown-toggle(href='#', data-toggle='dropdown')
+                  | Visuals
+                  b.caret
+                ul.dropdown-menu
+                  li
+                    a(href='mayor_13-15_proposed.html') 2013-15 Mayor's Proposed Spending (Treemap)
+                  li
+                    a(href='2012-2013-sankey.html') 2012-13 Adopted Revenues &amp; Spending (Sankey)
+                  li
+                    a(href='oak11-13adopted.html') 2011-13 Adopted Spending (Treemap)
+
+              li
+                a(href='http://data.openoakland.org/dataset/city-of-oakland-budget', target='_blank') Data
+
+              li.dropdown
+                a.dropdown-toggle(href='#', data-toggle='dropdown')
+                  | Resources
+                  b.caret
+                ul.dropdown-menu
+                  li
+                    a(href='oaklandbudget101.html') Oakland Budget 101
+                  li
+                    a(href='toolsprojects.html') Tools and Projects
+
+                li
+                  a(href='discuss.html') Discuss
+
+                li
+                  a(href='blog.html') Blog
+
+                li
+                  a(href='feedback.html') Feedback
+
+
+
+
+
+
+
     != yield
+
+    footer
+      script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js")
+      script(src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js")
+      //- script(src="/js/main.js")
+      
+      iframe#rufous-sandbox(scrolling='no', frameborder='0', allowtransparency='true', style='display: none;')
+      script(src='https://cdn.syndication.twimg.com/widgets/timelines/324560527676276736?domain=html2jade.org&lang=en&t=1552904&callback=twttr.tfw.callbacks.tl_324560527676276736_1&suppress_response_codes=true', async='')

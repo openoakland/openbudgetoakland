@@ -1,56 +1,40 @@
-!!! 5
-.navbar.navbar-inverse.navbar-fixed-top
-  .navbar-inner
-    .container-fluid
-      a.btn.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      a.brand(href='http://bootply.com') Open Budget
-      .nav-collapse.collapse
-        ul.nav
-          li.active
-            a(href='#', contenteditable='false') About
-          li
-            a(href='#', contenteditable='false') Visuals
-          li
-            a(href='#', contenteditable='false') Data
-          li
-            a(href='#', contenteditable='false') Resources
-.container-fluid
-  .row-fluid
-    .span8
-      .well
-        h1 Mayor's Proposed Spending for 2013-15 (Version 2)
-        img(src='http://openbudgetoakland.org/images/13-15v2%20thumb.png')
+
+.container
+  .row
+    .col-md-8
+      h1 Mayor's Proposed Spending for 2013-15 (Version 2)
+      img(class="img-responsive", src="http://openbudgetoakland.org/images/13-15v2%20thumb.png")
+      p
+        | As we await data for the FY 2013-15 Adopted Budget, we've moved into research mode. Our first round of usability testing is complete and we're now working on improvements based on people's feedback. Here's a preview. We still want to hear from you -- community advocates, coders, journalists, city staff. Get in touch to take the test and/or join us on Tuesdays, 6:30 p.m. at City Hall, hearing room 3.
+        
+    .col-md-4
+      //- 2nd column
+
+      //- Lockerz Share BEGIN 
+      .a2a_kit.a2a_default_style(style='text-align: right;')
+        a(href='https://twitter.com/openbudgetOAK', target='_blank')
+          img(src='/images/twitter.png', height='20', width='20')
+        a(href='https://www.facebook.com/openbudgetoak', target='_blank')
+          img(src='/images/facebook.png', height='20', width='20')
+        a(href='https://github.com/adstiles/openbudgetoakland/tree/gh-pages', target='_blank')
+          img(src='/images/github-logo.png', height='20', width='20')
+        a.a2a_dd(href='http://www.addtoany.com/share_save') Share
+        script(type='text/javascript', src='http://static.addtoany.com/menu/page.js')
         p
-          | As we await data for the FY 2013-15 Adopted Budget, we've moved into research mode. Our first round of usability testing is complete and we're now working on improvements based on people's feedback. Here's a preview. We still want to hear from you -- community advocates, coders, journalists, city staff. Get in touch to take the test and/or join us on Tuesdays, 6:30 p.m. at City Hall, hearing room 3.
-        a.btn.btn-primary(href='http://www.bootply.com/63275') View
-        span.badge.pull-right 100
-    .span4
-      // 2nd column
-      #midCol(data-spy='affix', data-offset-top='250')
-        p
-          iframe#twitter-widget-0.twitter-timeline.twitter-timeline-rendered(scrolling='no', frameborder='0', allowtransparency='true', style='width: 1px; height: 0px; border: none; position: absolute; visibility: hidden;')
-          a.twitter-timeline(href='https://twitter.com/search?q=%23OAKbudget', data-widget-id='324560527676276736', data-twttr-rendered='true') Tweets about "#OAKbudget"
-          script#twitter-wjs(src='http://platform.twitter.com/widgets.js')
+      //- Lockerz Share END 
+
+
+
+      p
+        a.twitter-timeline(href='https://twitter.com/search?q=%23OAKbudget', data-widget-id='324560527676276736') Tweets about "#OAKbudget"
           script
             !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-        hr
-        h2
-          | Open Budget Presented to Mayor, City Council
-          img(src='http://openbudgetoakland.org/images/Open%20Budget%20at%20City%20Council.jpg', contenteditable='false')
-        h4.caption
-          | Shawn McDougal explains the mission of Open Budget, April 30, 2013 (Photo: Sonya Rifkin)
-          span.pull-right
-            i.icon-twitter
-      // /middleCol
-    // /span3
-script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js')
-script(type='text/javascript', src='http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js')
-// JavaScript jQuery code from Bootply.com editor
-script(type='text/javascript')
-  $(document).ready(function() {
-  });
-iframe#rufous-sandbox(scrolling='no', frameborder='0', allowtransparency='true', style='display: none;')
-script(src='https://cdn.syndication.twimg.com/widgets/timelines/324560527676276736?domain=html2jade.org&lang=en&t=1552904&callback=twttr.tfw.callbacks.tl_324560527676276736_1&suppress_response_codes=true', async='')
+
+
+      h2.h3
+        | Open Budget Presented to Mayor, City Council
+      img(class="img-responsive", src='/images/open_budget_city_council.jpg')
+      p.caption
+        | Shawn McDougal explains the mission of Open Budget, April 30, 2013 (Photo: Sonya Rifkin)
+
+      //- end 2nd column
