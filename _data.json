@@ -1,7 +1,12 @@
 
-
 {
+  "globals": {
+    "title": "Open Budget: Oakland",
+    "uri": "http://openbudgetoakland.com"
+  },
   "index": {
-    "title": "Open Budget: Oakland"
+    "title": ""
+  },
+  "mayor_13-15_proposed": {
   }
 }
