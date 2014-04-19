@@ -1,28 +1,31 @@
-# Starter boilerplate for Harp
+# Open Budget: Oakland
 
-__This boilerplate shows you the basics of Harp__
+__Fork me!__
 
 ---
 
-## Clone this boilerplate
+## Harp
 
-Create a copy of this boilerplate to your computer
-
-```
-$ git clone git@github.com:harp-boilerplates/hb-start.git
-```
+This site is built on Harp using Node.js That means you can run it locally with minimal setup!
 
 ## Install & Run Local Server
 
 [Harp APF](http://github.com/sintaxi/harp) provides you with a local server to run and customize this boilerplate.
 
 ```
-$ sudo npm install harp -g
-$ sudo harp server -p 80
+$ npm install harp -g
+$ harp server
 ```
 
-Visit the Harp APF server documentation site to learn about other options.
+## Making Changes
 
-## View in browser
+- sass
+- bootstrap (overrides/customizations)
+- jade
 
-Open [harp.nu/readme](http://harp.nu/readme) in your browser.
+## Compile
+
+In order to serve this site on gh-pages, you must compile the site to static assets first.
+```
+$ harp compile
+```
