@@ -3,12 +3,18 @@
 __Fork me!__
 
 ---
+## Developing Locally
 
-## Harp
+### Harp
 
 This site is built on Harp using Node.js That means you can run it locally with minimal setup!
 
-## Install & Run Local Server
+What you'll need: 
+- Node
+- npm
+- Harp
+
+### Install & Run Harp
 
 [Harp APF](http://github.com/sintaxi/harp) provides you with a local server to run and customize this boilerplate.
 
@@ -23,9 +29,19 @@ $ harp server
 - bootstrap (overrides/customizations)
 - jade
 
-## Compile
+## Publishing Changes
+### Compile Static Files
 
-In order to serve this site on gh-pages, you must compile the site to static assets first.
+Once you have made all your changes, you'll need to compile everything in order for it to run on gh-pages.
 ```
 $ harp compile
 ```
+Easy!
+### Commit and Push
+Now just make your final commit, and push your changes to the gh-pages branch.
+```
+$ git add -A
+$ git commit -m "[your commit message]"
+$ git push
+```
+_If we stick with GitHub for publishing, and have more contributors, we probably won't want to develop directly onto the gh-pages branch._
