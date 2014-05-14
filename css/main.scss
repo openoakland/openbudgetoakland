@@ -22,7 +22,10 @@ body {
   padding: 20px 0;
 }
 
-
+.inline {
+  width: auto;
+  display: inline-block;
+}
 // Overwrite default dropdown styles on inverse navbars
 .navbar-inverse {
   .dropdown-menu {
