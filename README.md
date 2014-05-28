@@ -29,6 +29,12 @@ $ harp server
 - bootstrap (overrides/customizations)
 - jade
 
+
+## Adding & Editing Pages
+
+- update metadata in _data.json (page title, ...)
+
+
 ## Publishing Changes
 ### Compile Static Files
 

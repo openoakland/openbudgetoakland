@@ -1,21 +1,31 @@
 
+
 {
   "globals": {
-    "title": "Open Budget: Oakland",
+    "title": "Open Budget Oakland",
     "uri": "http://openbudgetoakland.com"
   },
+
   "index": {
-    "title": ""
+    "title": "Open Budget Oakland"
   },
+
+  "what-we-do": {
+    "title": "What and How - Open Budget Oakland"
+  },
+
   "mayor_13-15_proposed": {
     "title": "2013-15 Mayor's Proposed Spending (Treemap) - Open Budget Oakland"
   },
+
   "oak11-13adopted": {
     "title": "2011-13 Adopted Spending (Treemap) - Open Budget Oakland"
   },
+
   "2012-2013-sankey": {
     "title": "2012-13 Adopted Revenues & Spending (Sankey) - Open Budget Oakland"
   },
+
   "updated_mayor_13_15_proposed": {
     "title": "UPDATED: 2013-15 Mayor's Proposed Spending (Treemap) v2 - Open Budget Oakland"
   }
