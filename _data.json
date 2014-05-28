@@ -10,14 +10,32 @@
     "title": "Open Budget Oakland"
   },
 
+
   "what-we-do": {
     "title": "What and How - Open Budget Oakland"
   },
 
+  "who": {
+    "title": "Who We Are - Open Budget Oakland"
+  },
+
   "news": {
     "title": "News - Open Budget Oakland"
-
   },
+
+  "contact": {
+    "title": "Contact Us - Open Budget Oakland"
+  },
+
+
+  "oakland-budget-101": {
+    "title": "Oakland Budget 101 - Open Budget Oakland"
+  },
+  "tools-projects": {
+    "title": "Tools & Projects - Open Budget Oakland"
+  },
+
+
 
   "mayor_13-15_proposed": {
     "title": "2013-15 Mayor's Proposed Spending (Treemap) - Open Budget Oakland"

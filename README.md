@@ -32,7 +32,7 @@ $ harp server
 
 ## Adding & Editing Pages
 
-- update metadata in _data.json (page title, ...)
+- update metadata in _data.json (page title, page slug (url), ...)
 
 
 ## Publishing Changes
