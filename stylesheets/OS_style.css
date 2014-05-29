@@ -1,0 +1,209 @@
+
+html {
+  background-color: #222222;
+}
+
+body {
+  min-height: 80%;
+}
+
+body, p, blockquote p {
+  font-family: Palatino, georgia, 'times new roman', serif;
+  font-size: 16px;
+  line-height: 25px;
+}
+
+blockquote p {
+  font-style: italic;
+  margin-bottom: 1em;
+}
+
+a {
+  color: #830242;
+}
+
+.spaced {
+  margin-top: 3em;
+  margin-bottom: 0em;
+}
+
+#logo {
+  padding-top: 1em;
+  padding-bottom: 0em;
+}
+
+#logo #claim {
+  margin-top: -10px;
+  font-style: italic;
+  /*letter-spacing: 1px;*/
+  color: #999999;
+  font-size: 1.1em;
+}
+
+#logo a:hover {
+  text-decoration: none;
+}
+
+.main-header {
+  text-align: center;
+}
+
+/* 
+ * Nav and Footer styles based on OKFN brand design. 
+ */
+
+nav ul li, 
+footer,
+footer p {
+  font-family: "OpenSansLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+nav ul.nav.nav-tabs li {
+  float: right;
+}
+
+nav ul.nav.nav-tabs li a.active {
+  color: #000;
+  font-weight: bold;
+  font-family: OpenSansSemibold, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+footer {
+  background: #222222 url('http://assets.okfn.org/web/images/okfn-watermark.png') top right no-repeat;
+  margin-top: 50px;
+  padding: 0;
+}
+
+footer > .inner {
+  background: url('http://assets.okfn.org/web/images/footer-bevel.png') top repeat-x;
+  padding: 10px 0 30px 0;
+  color: #fff;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.2);
+  min-height: 190px;
+}
+
+footer ul.footer-links {
+}
+
+footer a, footer a:hover {
+  color: #AEEBDF;
+}
+
+/* 
+ * Visualization-specific styles. 
+ */
+
+#db-frame {
+  width: 100%;
+  min-height: 20em;
+  border: none;
+}
+
+#dailybread {
+  min-height: 20em;
+}
+
+#dailbread #db-topbar div h2 {
+  text-transform: none;
+}
+
+#dailybread .db-area-title h3 {
+  font-family: "OpenSansSemibold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  line-height: 13px;
+}
+
+#browser .filters-current {
+  float: right;
+}
+
+#browser h2 {
+  display: none;
+}
+
+#browser table {
+  width: 100%;
+}
+
+#browser table th {
+  text-align: left;
+}
+
+#browser table th,
+#browser table tr {
+}
+
+.table-widget .total {
+  font-weight: bold;
+}
+
+#browser .department-facet,
+#browser .clear-search {
+  display: none;
+}
+
+#browser .num-entries {
+  float: right;
+  font-style: italic;
+}
+
+#browser input[type=text] {
+  width: 40em;
+  height: 2em;
+}
+
+#browser .pager {
+  margin-top: 1em;
+}
+
+#browser .pager ul li {
+  margin-left: 1em;
+}
+
+.row .bubbletree-wrapper {
+  height: 600px;
+  position: relative;
+}
+
+#bubbletree {
+  margin: 0 auto;
+  width: 940px;
+  height: 550px;
+}
+
+#bubbletree .label {
+  background-color: rgba(0,0,0,0);
+}
+
+#bubbletree .desc {
+  font-family: "OpenSansLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  line-height: 13px;
+}
+
+#bubbletree .amount {
+  font-family: Palatino, georgia, 'times new roman', serif;
+  font-size: 14px;
+}
+
+.okfn-ribbon {
+  background-image: url(http://assets.okfn.org/web/images/okf-ribbon.png);
+  background-repeat: no-repeat;
+  background-position: center 0px;
+  float:right;
+  width:48px;
+  height:100px;
+  margin-top: -36px;
+  display:block;
+}
+
+.dual-column-list li {
+  width: 50%;
+  float: left;
+}
+
+.single-column-list li {
+  width: 100%;
+}
