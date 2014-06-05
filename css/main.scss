@@ -1,31 +1,20 @@
 @import "bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap";
 
-html {
-  overflow-y: scroll;
-}
+
 body {
-  background: #f7f7f7;
-  color: #333332;
+  color: #333;
   padding-top: 70px; // offset fixed navbar
 }
 
-
-.well {
-  box-shadow: none;
-}
-.wrapper {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-.main {
-  padding: 20px 0;
+nav.main-nav {
+  font-family: $headings-font-family;
 }
 
 .inline {
   width: auto;
   display: inline-block;
 }
+
 // Overwrite default dropdown styles on inverse navbars
 .navbar-inverse {
   .dropdown-menu {
