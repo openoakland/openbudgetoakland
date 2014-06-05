@@ -6,7 +6,9 @@ body {
   padding-top: 70px; // offset fixed navbar
 }
 
-
+nav.main-nav {
+  font-family: $headings-font-family;
+}
 
 .inline {
   width: auto;

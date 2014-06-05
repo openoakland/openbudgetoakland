@@ -18,8 +18,8 @@ html
     script(src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.5/d3.min.js").
 
   body
-    nav
-      .navbar.navbar-inverse.navbar-fixed-top
+    nav.main-nav
+      .navbar.navbar-default.navbar-fixed-top
         .container
           .navbar-header
             button.navbar-toggle(type='button', data-toggle='collapse', data-target='.nav-collapse')
@@ -79,4 +79,6 @@ html
 
     != yield
 
-    footer
+  footer
+    link(href='http://fonts.googleapis.com/css?family=Arvo:400,700', rel='stylesheet', type='text/css')
+
