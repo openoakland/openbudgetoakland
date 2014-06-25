@@ -296,7 +296,7 @@ ob.display = ob.display || {};
 
 				/* Remove the old node when the transition is finished. */
 				t1.remove().each("end", function() {
-					_svg.style("shape-rendering", "crispEdges");
+					//_svg.style("shape-rendering", "crispEdges");
 					_transitioning = false;
 				});
 				t1.select(".depth").remove();

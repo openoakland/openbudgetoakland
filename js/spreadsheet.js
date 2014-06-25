@@ -102,21 +102,22 @@ ob.display = ob.display || {};
 			display: function() {
 				/* remove old stuff */
 				_element.select("table").remove();
-				var tbody = _element.append("table")
+				var table = _element.append("table")
 					.attr("class", "spreadsheet table")
-					.attr("width", _width)
-					.append("tbody");
+					.attr("width", _width);
+				var thead_tr = table.append("thead").append("tr");
+				var tbody = table.append("tbody");
 				_element.select("#more").remove();
-				tbody.append("th");
+				thead_tr.append("th");
 				/* TODO: make these rows configurable */
-				tbody.append("th").attr("class", "item").html("Item");
-				tbody.append("th").attr("class", "money").html("Income");
-				tbody.append("th").attr("class", "money").html("Expense");
-				tbody.append("th").attr("class", "money").html("Balance");
+				thead_tr.append("th").attr("class", "item").html("Item");
+				thead_tr.append("th").attr("class", "money").html("Income");
+				thead_tr.append("th").attr("class", "money").html("Expense");
+				thead_tr.append("th").attr("class", "money").html("Balance");
 
-				tbody.selectAll(".row").remove();
-				var rows = tbody.selectAll(".row").data(_data);
-				var row = rows.enter().append("tr").attr("class", "row")
+				tbody.selectAll("tr").remove();
+				var rows = tbody.selectAll("tr").data(_data);
+				var row = rows.enter().append("tr")
 					.on("click", function(d, i) { 
 						if (_on["click"]) {
 							_on["click"](d,i);

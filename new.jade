@@ -14,9 +14,9 @@ html
       width: 800px;
       margin: auto;
       }
-      .tooltip {
-      padding: 0px;
+      #tooltip p {
       margin: 0px;
+      padding: 0px;
       }
       .amount {
       padding: 0px;
@@ -112,13 +112,13 @@ html
       .html(function(d, i) {
       /* this creates the html content that is displayed within
       * the tooltip */
-      var display = '<p class="tooltip title">' + d.key + '</p>';
-      display += '<p class="tooltip amount">' + format.number(d[value_selector]) + '</p>';
+      var display = '<p class="treemap_tooltip title">' + d.key + '</p>';
+      display += '<p class="treemap_tooltip amount">' + format.number(d[value_selector]) + '</p>';
       var percent = 1.0;
       if (d.parent) {
       percent = d[value_selector] / d.parent[value_selector];
       }
-      display += '<p class="tooltip percentage">' + format.percent(percent) + '</p>';
+      display += '<p class="treemap_tooltip percentage">' + format.percent(percent) + '</p>';
       return display;
       });
       /* determine current view in hierarchy based on url hash */
