@@ -1,4 +1,6 @@
-@import "bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap";
+@import "variables";
+@import "bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap";
+
 @import "treemap";
 
 body {
