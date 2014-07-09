@@ -56,13 +56,17 @@ $ harp compile _harp ./
 ```
 
 ### Publishing a preview
-*stub: staging server*
+Run shell script (from the terminal)
+
+```
+bash _publish-preview.sh
+```
 
 ### Commit and Push
 Now just make your final commit, and push your changes to the gh-pages branch.
+
 ```
 $ git add -A
 $ git commit -m "[your commit message]"
 $ git push
 ```
-_If we stick with GitHub for publishing, and have more contributors, we probably won't want to develop directly onto the gh-pages branch._
