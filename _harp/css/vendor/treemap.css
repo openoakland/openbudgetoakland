@@ -1,0 +1,41 @@
+/* Old treemap styles */
+
+.treemap-widget {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    height: 100%;
+    color: #fff;
+    font-family: Share;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.treemap-widget div.desc {
+    padding: 0.8em;
+    font-weight: normal;
+    overflow: hidden;
+    font-family: 'OpenSansRegular';
+}
+
+.treemap-widget .desc .amount {
+    /*font-family: OpenSans, Georgia, serif;*/
+    font-size: 1em;
+    color: #fff;
+    font-weight: normal;
+    margin: 0.1em;
+}
+
+.treemap-widget .desc .lbl {
+    font-size: 11px;
+    line-height: 15px;
+    padding-left: 2px;
+    font-weight: 300;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+#_tooltip {
+    background-color: #333;
+    color: #fff;
+    padding: 4px 6px;
+}

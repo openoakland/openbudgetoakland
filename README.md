@@ -2,6 +2,12 @@
 
 __Fork me!__
 
+Clone the project!
+```
+git clone git@github.com:openoakland/openbudgetoakland.git
+
+- cd, checkout to branch
+
 ---
 ## Developing Locally
 
@@ -14,13 +20,17 @@ What you'll need:
 - npm
 - Harp
 
+```
+npm install -g harp
+```
+
 ### Install & Run Harp
 
 [Harp APF](http://github.com/sintaxi/harp) provides you with a local server to run and customize this boilerplate.
 
 ```
+# to install harp for the first time
 $ npm install harp -g
-$ harp server
 ```
 
 ## Making Changes
@@ -39,10 +49,15 @@ $ harp server
 ### Compile Static Files
 
 Once you have made all your changes, you'll need to compile everything in order for it to run on gh-pages.
+
 ```
-$ harp compile
+$ harp compile _harp ./
+# Make sure you are in the directory root of the repository
 ```
-Easy!
+
+### Publishing a preview
+*stub: staging server*
+
 ### Commit and Push
 Now just make your final commit, and push your changes to the gh-pages branch.
 ```
