@@ -42,7 +42,7 @@ style.
       #sankey
         p#chart
         h5
-          | Source: FY2011-2013 Adopted Policy Budget
+          | Source: FY2011-2013 Adopted Policy Budget 
           a(href='http://www2.oaklandnet.com/oakca1/groups/cityadministrator/documents/report/oak032748.pdf')
             | http://www2.oaklandnet.com/oakca1/groups/cityadministrator/documents/report/oak032748.pdf
         h5 Notes:
@@ -57,22 +57,22 @@ style.
             li
               | Bond items are generally excluded because I've had some trouble interpreting revenues vs. expenditures.
             li
-              | Built using
+              | Built using 
               a(href='http://d3js.org/') D3.js
-              |  and the
+              |  and the 
               a(href='https://github.com/d3/d3-plugins/tree/master/sankey') Sankey D3 plugin
               | .
-        p
+        //- p
           h6
-            | Copyright 2012,
+            | Copyright 2012, 
             a(href='https://www.twitter.com/allafarce') Dave Guarino
 
       #disqus_thread
 
 //- Sankey JS
-script(src='/js/d3.v2.min.js')
-script(src='/js/sankey.js')
-script(src='/js/jquery-1.8.3.min.js')
+//- script(src='/js/d3.v2.min.js')
+script(src='/js/old/sankey.js')
+//- script(src='/js/jquery-1.8.3.min.js')
 script.
   var margin = {top: 1, right: 1, bottom: 6, left: 1},
   width = 960 - margin.left - margin.right,
