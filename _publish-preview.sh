@@ -8,10 +8,13 @@ FILE="../_staging/CNAME"
 COUNTER=$((COUNTER+1))
 
 # go to the 'source file' directory
-cd $BASEDIR/_harp 
+cd $BASEDIR/_src
 # compile files to 'staging' directory
 harp compile ./ ../_staging
 # update CNAME file with staging url
 echo $URL > $FILE
+# ask for description of commit
+echo "Briefly describe your changes: "
+read MESSAGE
 # commit preview files and push to github
-cd $BASEDIR/_staging && git add -A && git commit -m "preview $COUNTER" && git push
+cd $BASEDIR/_staging && git add -A && git commit -m "$TIMESTAMP: $MESSAGE" && git push
