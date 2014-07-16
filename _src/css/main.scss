@@ -1,7 +1,9 @@
 @import "variables";
 @import "bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap";
+@import "bootstrap-overrides"; // custom styles to override Bootstrap defaults
+@import "base";
 
-@import "treemap";
+@import "treemap"; // D3 Treemap
 
 body {
   color: #333;
