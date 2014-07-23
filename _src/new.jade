@@ -56,190 +56,195 @@ html
         * The hierarchy is used in the SQL query to the fusion table as well
         * as in the data crunching portion */
         var fusion = {
-        api_key: 'AIzaSyCnWo1USrkSKnN6oy02tNeWfg6aFSg0OI8',
-        table: '1V2R7lsdg-GTbGOZ_h_DrGOa-Gfqk1PGA9h_n5zwU',
-        hierarchy: [
-        'Fund Description',
-        'Department',
-        'Division',
-        'Account Category'
-        ]
+          api_key: 'AIzaSyCnWo1USrkSKnN6oy02tNeWfg6aFSg0OI8',
+          table: '1V2R7lsdg-GTbGOZ_h_DrGOa-Gfqk1PGA9h_n5zwU',
+          hierarchy: [
+            'Fund Description',
+            'Department',
+            'Division',
+            'Account Category'
+          ]
         };
         var value_selector = 'balance';
         var max_rects = 40;
         var min_area_for_text = 0.0125;
         /* layout settings */
         var layout = {
-        width: 800,
-        height: 500,
+          width: 800,
+          height: 500,
         };
         var colors = {
-        _stack: [],
-        current: function() {
-        if (this._stack.length > 0) {
-        return this._stack[0];
-        }
-        return null;
-        },
-        shift: function() {
-        this._stack.shift();
-        },
-        unshift: function (color, count) {
-        color = d3.rgb(color);
-        this._stack.unshift(d3.scale.linear()
-        .domain([0, count])
-        .range([color, color.darker(2.0)]));
-        },
-        init: function(node) {
-        var self = this;
-        this._stack = [];
-        cruncher.path(node).forEach(function(d) {
-        if (d.parent) {
-        var i = d.parent.values.indexOf(d);
-        self.unshift(
-        self._stack[0](i),
-        Math.min(d.values.length, max_rects));
-        }
-        else {
-        self._stack.unshift(
-        d3.scale.category10()
-        .domain(d3.range(0, max_rects)));
-        }
-        });
-        }
+          _stack: [],
+          current: function() {
+            if (this._stack.length > 0) {
+              return this._stack[0];
+            }
+            return null;
+          },
+          shift: function() {
+            this._stack.shift();
+          },
+          unshift: function (color, count) {
+            color = d3.rgb(color);
+            this._stack.unshift(d3.scale.linear()
+              .domain([0, count])
+              .range([color, color.darker(2.0)]));
+          },
+          init: function(node) {
+            var self = this;
+            this._stack = [];
+            cruncher.path(node).forEach(function(d) {
+              if (d.parent) {
+                var i = d.parent.values.indexOf(d);
+                self.unshift(
+                self._stack[0](i),
+                Math.min(d.values.length, max_rects));
+              }
+              else {
+                /* set initial color pallette here */
+                var palette = [
+                  '#D9CEB2',
+                  '#948C75',
+                  '#D5DED9',
+                  '#7A6A53',
+                  '#99B2B7'
+                ];
+                var color_ordinal = d3.scale.ordinal().range(palette);
+                self._stack.unshift(color_ordinal);
+              }
+            });
+          }
         };
         /* create and configure the tooltip */
-        var tooltip = ob.display.tooltip()
-        .html(function(d, i) {
-        /* this creates the html content that is displayed within
-        * the tooltip */
-        var display = '<p class="treemap_tooltip title">' + d.key + '</p>';
-        display += '<p class="treemap_tooltip amount">' + format.number(d[value_selector]) + '</p>';
-        var percent = 1.0;
-        if (d.parent) {
-        percent = d[value_selector] / d.parent[value_selector];
-        }
-        display += '<p class="treemap_tooltip percentage">' + format.percent(percent) + '</p>';
-        return display;
+        var tooltip = ob.display.tooltip().html(function(d, i) {
+          /* this creates the html content that is displayed within
+          * the tooltip */
+          var display = '<p class="treemap_tooltip title">' + d.key + '</p>';
+          display += '<p class="treemap_tooltip amount">' + format.number(d[value_selector]) + '</p>';
+          var percent = 1.0;
+          if (d.parent) {
+            percent = d[value_selector] / d.parent[value_selector];
+          }
+          display += '<p class="treemap_tooltip percentage">' + format.percent(percent) + '</p>';
+          return display;
         });
         /* determine current view in hierarchy based on url hash */
         var hash = {
-        get: function(root) {
-        if (window.location.hash.length < 2) {
-        return root;
-        }
-        return cruncher.spelunk(
-        root,
-        window.location.hash.replace("#", "").split(".")
-        );
-        },
-        set: function(node) {
-        var hash = cruncher.path(node)
-        .slice(1)
-        .map(function(d) { return d.key; })
-        .join('.');
-        window.location.hash = hash;
-        }
+          get: function(root) {
+            if (window.location.hash.length < 2) {
+              return root;
+            }
+            return cruncher.spelunk(
+              root,
+              window.location.hash.replace("#", "").split(".")
+            );
+          },
+          set: function(node) {
+            var hash = cruncher.path(node)
+              .slice(1)
+              .map(function(d) { return d.key; })
+              .join('.');
+            window.location.hash = hash;
+          }
         };
         /* used to convert numerical data into text data */
         var format = {
-        number: d3.format("$,d"),
-        percent: d3.format(".2%")
+          number: d3.format("$,d"),
+          percent: d3.format(".2%")
         };
         /* create the url into the fusion table api to load the budget
         * data */
-        url = ob.fusion(fusion.api_key, fusion.table)
-        .url(fusion.hierarchy, 'Amount');
+        url = ob.fusion(fusion.api_key, fusion.table).url(fusion.hierarchy, 'Amount');
         /* call d3 to load the budget data, and then display the data
         * after it has loaded */
         d3.json(url, function(data) {
-        var root = cruncher.crunch(data.rows, fusion.hierarchy);
-        /* caculate data percentages */
-        cruncher.apply(root, function(node) {
-        if (node.parent) {
-        node.precentage = node.value / node.parent.value;
-        }
-        else {
-        node.percentage = 1.0;
-        }
-        });
-        var node = hash.get(root);
-        colors.init(node);
-        spreadsheet = ob.display.spreadsheet()
-        .element(d3.select("#table"))
-        .width(layout.width)
-        .value(function(d) {
-        /* have to make sure values are greater than zero, otherwise
-        * treemap layout breaks */
-        return d[value_selector] <= 0 ? 0.001 : d[value_selector];
-        });
-        /* create treemap using current color scheme */
-        treemap = ob.display.treemap().colors(colors.current());
-        /* configure treemap and display */
-        treemap.width(layout.width)
-        .height(layout.height)
-        .value(function(d) {
-        /* have to make sure values are greater than zero, otherwise
-        * treemap layout breaks */
-        return d[value_selector] <= 0 ? 0.001 : d[value_selector];
-        })
-        .rects(max_rects)
-        .rect_text(function(d, i) {
-        /* this controls the text that is displayed in the
-        * rectangles */
-        var text_width = layout.width * d.dx;
-        var text_height = layout.height * d.dy;
-        if (text_width < 100 || text_height < 40) {
-        return "";
-        }
-        var html = '<div class="amount">';
-        html += format.number(d[value_selector]);
-        html += '</div><div class="name">';
-        html += d.key;
-        html += '</div>';
-        return html;
-        })
-        .on("mouseover", function(d, i) {
-        /* when a mouse is over of rectangle, show the
-        * tooltip for that rectangle */
-        tooltip.show(d,i);
-        })
-        .on("mousemove", function(d, i) {
-        /* when a mouse is moving have the tooltip follow along */
-        tooltip.track();
-        })
-        .on("mouseout", function(d, i) {
-        /* when a mouse leaves a rectangle, hide the tooltip */
-        tooltip.hide();
-        })
-        .on("display", function(d) {
-        /* This is called when a new budget view is being
-        * displayed.  It updates the hash in the URL, as well
-        * as the spreadsheet data */
-        hash.set(d);
-        spreadsheet.data(d.values)
-        .colors(treemap.colors())
-        .display();
-        })
-        .on("transition", function(d, i, direction) {
-        /* This is called right before a transition from one
-        * budget view to the next happens. */
-        if (direction) {
-        /* add in a new set of colors */
-        colors.unshift(
-        treemap.colors()(i),
-        d.children.length);
-        }
-        else {
-        /* pop off the last used color */
-        colors.shift();
-        }
-        /* set the colors for the treemap */
-        treemap.colors(colors.current());
-        })
-        .data(root)
-        .display(d3.select("#treemap"), node);
-        /* when the spreadsheet is clicked, tell the treemap to
-        * transition */
-        spreadsheet.on("click", treemap.transition);
+          var root = cruncher.crunch(data.rows, fusion.hierarchy);
+          /* caculate data percentages */
+          cruncher.apply(root, function(node) {
+            if (node.parent) {
+              node.precentage = node.value / node.parent.value;
+            }
+            else {
+              node.percentage = 1.0;
+            }
+          });
+          var node = hash.get(root);
+          colors.init(node);
+          spreadsheet = ob.display.spreadsheet()
+            .element(d3.select("#table"))
+            .width(layout.width)
+            .value(function(d) {
+              /* have to make sure values are greater than zero, otherwise
+              * treemap layout breaks */
+              return d[value_selector] <= 0 ? 0.001 : d[value_selector];
+            });
+          /* create treemap using current color scheme */
+          treemap = ob.display.treemap().colors(colors.current());
+          /* configure treemap and display */
+          treemap.width(layout.width)
+            .height(layout.height)
+            .value(function(d) {
+              /* have to make sure values are greater than zero, otherwise
+              * treemap layout breaks */
+              return d[value_selector] <= 0 ? 0.001 : d[value_selector];
+            })
+            .rects(max_rects)
+            .rect_text(function(d, i) {
+              /* this controls the text that is displayed in the
+              * rectangles */
+              var text_width = layout.width * d.dx;
+              var text_height = layout.height * d.dy;
+              if (text_width < 100 || text_height < 40) {
+                return "";
+              }
+              var html = '<div class="amount">';
+              html += format.number(d[value_selector]);
+              html += '</div><div class="name">';
+              html += d.key;
+              html += '</div>';
+              return html;
+            })
+            .on("mouseover", function(d, i) {
+              /* when a mouse is over of rectangle, show the
+              * tooltip for that rectangle */
+              tooltip.show(d,i);
+            })
+            .on("mousemove", function(d, i) {
+              /* when a mouse is moving have the tooltip follow along */
+              tooltip.track();
+            })
+            .on("mouseout", function(d, i) {
+              /* when a mouse leaves a rectangle, hide the tooltip */
+              tooltip.hide();
+            })
+            .on("display", function(d) {
+              /* This is called when a new budget view is being
+              * displayed.  It updates the hash in the URL, as well
+              * as the spreadsheet data */
+              hash.set(d);
+              spreadsheet.data(d.values)
+              .colors(treemap.colors())
+              .display();
+            })
+            .on("transition", function(d, i, direction) {
+              /* This is called right before a transition from one
+              * budget view to the next happens. */
+              if (direction) {
+                /* add in a new set of colors */
+                colors.unshift(
+                treemap.colors()(i),
+                d.children.length);
+              }
+              else {
+                /* pop off the last used color */
+                colors.shift();
+              }
+              /* set the colors for the treemap */
+              treemap.colors(colors.current());
+            })
+            .data(root)
+            .display(d3.select("#treemap"), node);
+          /* when the spreadsheet is clicked, tell the treemap to
+          * transition */
+          spreadsheet.on("click", treemap.transition);
         });
