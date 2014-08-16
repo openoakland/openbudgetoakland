@@ -314,7 +314,7 @@ ob.display = ob.display || {};
 			if (d.values) {
 				/* only layout up to a maximum number of children */
 				d.values.sort(function(a, b) {
-					return b[value_selector] - a[value_selector];
+					return _get_value(b) - _get_value(a);
 				});
 				d.children = d.values.slice(0, _max_rects);
 				_treemap.nodes({children: d.children});
