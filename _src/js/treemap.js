@@ -46,8 +46,8 @@ ob.display = ob.display || {};
 		function _path(d) {
 			var p = [];
 			while (d.parent) {
-				p.push(d.key);
-				d= d.parent;
+				p.push(d);
+				d = d.parent;
 			}
 			p.reverse();
 			return p;
@@ -99,13 +99,50 @@ ob.display = ob.display || {};
 
 		/* display show the treemap and writes the embedded transition function */
 		function _display(d) {
+      var displayed_data = d;
 			if (_on_handlers["display"]) {
 				_on_handlers["display"](d);
 			}
-			/* TODO: some sort of on click thing */
 			var disp = _create_display(d);
 
+      _grandparent.selectAll("tspan").remove();
+
 			/* create grandparent bar at top */
+			var gp = _grandparent.datum(d)
+				.select("text")
+        .selectAll("tspan")
+        .data(function(d) {
+					var crumbs = [_root];
+					return crumbs.concat(_path(d));
+        });
+
+      gp.enter()
+        .append("tspan")
+        .text(function(d, i) { 
+          if (i > 0) {
+            return ' > ' + d.key;
+          }
+          else {
+            return d.key; 
+          }
+        })
+				.on("click", function(clicked, i) {
+          if (clicked == displayed_data) {
+            /* don't transition if they click on the same data that is already
+               being display */
+            return;
+          }
+          var levels = 0;
+          var current = displayed_data;
+          while (current && current != clicked) {
+            levels -= 1;
+            current = current.parent;
+          }
+
+					disp.transition(clicked, levels, false);
+				});
+      gp.exit().remove();
+      /*
 			_grandparent.datum(d)
 				.on("click", function(d) {
 					disp.transition(d.parent, -1, false);
@@ -116,6 +153,7 @@ ob.display = ob.display || {};
 					crumbs = crumbs.concat(_path(d));
 					return crumbs.join(' > ');
 				});
+      */
 
 			disp.g = _svg.insert("g", ".grandparent")
 				.datum(d)
@@ -204,6 +242,11 @@ ob.display = ob.display || {};
 				var span1 = d.visible ? d : small_span;
 				var span2 = disp.d.visible ? disp.d : small_span;
 
+        if (i < -1) {
+          span1 = small_span;
+          span2 = small_span;
+        }
+
 				/* create new display and update it's coordanates */
 				var disp2 = _display(d);
 				if (direction) {
@@ -217,7 +260,7 @@ ob.display = ob.display || {};
 					]);
 				}
 				else {
-					/* map the new display ata to exist around the
+					/* map the new display data to exist around the
 					 * currently displayed data */
 					disp2.x.domain([span2.x, span2.x + span2.dx]);
 					disp2.y.domain([span2.y, span2.y + span2.dy]);
@@ -449,10 +492,12 @@ ob.display = ob.display || {};
 				_grandparent = _svg.append("g")
 					.attr("class", "grandparent");
 
+        /*
 				_grandparent.append("rect")
 					.attr("y", -_margin.top)
 					.attr("width", _width)
 					.attr("height", _margin.top);
+        */
 
 				_grandparent.append("text")
 					.attr("x", 6)

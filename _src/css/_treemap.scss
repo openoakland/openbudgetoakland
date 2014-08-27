@@ -60,7 +60,8 @@
     pointer-events: none;
   }
   text {
-    pointer-events: none;
+    /*pointer-events: none;*/
+	  cursor: pointer;
   }
 }
 

@@ -111,8 +111,8 @@ ob.display = ob.display || {};
 				thead_tr.append("th");
 				/* TODO: make these rows configurable */
 				thead_tr.append("th").attr("class", "item").html("Item");
-				thead_tr.append("th").attr("class", "money").html("Income");
-				thead_tr.append("th").attr("class", "money").html("Expense");
+				thead_tr.append("th").attr("class", "money").html("Revenue");
+				thead_tr.append("th").attr("class", "money").html("Expenditure");
 				thead_tr.append("th").attr("class", "money").html("Balance");
 
 				tbody.selectAll("tr").remove();

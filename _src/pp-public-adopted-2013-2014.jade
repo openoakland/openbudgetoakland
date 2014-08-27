@@ -59,8 +59,10 @@ html
           hierarchy: [
             'Fund Description',
             'Department',
-            'Division',
+            //'Division',
+            'Org Description',
             'Account Category'
+            //'Account  Description'
           ]
         };
 
@@ -72,11 +74,13 @@ html
           .width(1100)
           .height(600)
           .count(40)
+          /* you can edit the palette by mucking with this line here 
           .palette([
             "#FF0000",
             "#00FF00",
             "#0000FF"
           ])
+          */
           .spreadsheet("#table")
           .treemap("#treemap")
           .url(url)

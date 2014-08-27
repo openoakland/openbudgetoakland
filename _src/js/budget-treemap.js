@@ -15,11 +15,11 @@ ob.display = ob.display || {};
     var _max_rects = 40;
     var _min_area_for_text = 0.0125;
     var _palette = [
-      '#D9CEB2',
-      '#948C75',
-      '#D5DED9',
-      '#7A6A53',
-      '#99B2B7'
+      '#334433',
+      '#6699aa',
+      '#88aaaa',
+      '#aacccc',
+      '#447799',
     ];
     var _spreadsheet_selector = "#table";
     var _treemap_selector = "#treemap";
@@ -259,7 +259,10 @@ ob.display = ob.display || {};
               }
               else {
                 /* pop off the last used color */
-                _color_stack.shift();
+                while (i < 0) {
+                  _color_stack.shift();
+                  i += 1;
+                }
               }
               /* set the colors for the treemap */
               _treemap.colors(_color_stack.palette());
