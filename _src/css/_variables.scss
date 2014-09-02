@@ -8,11 +8,22 @@ $bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")
 
 //== Colors
 
-// $brand-primary:         #fae3b5 !default;
-$brand-primary:         #009DB0 !default;
 
+$green-dark:            #004a37;
+$teal:                  #00e2ae;
+$gold:                  #fae3b5;
+$green-muted:           #42928f;
+
+// $brand-primary:         #fae3b5 !default;
+// $brand-primary:         #009DB0 !default; // blue
+$brand-primary:         #00E2AE !default; // emerald
 
 //== Scaffolding
+//** Global textual link color.
+$link-color:            #009DB0 !default;
+//** Link hover color set via `darken()` function.
+$link-hover-color:      darken($link-color, 15%) !default;
+
 
 //== Typography
 $font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif !default;
@@ -41,7 +52,7 @@ $headings-line-height:    1.2;
 
 //== Navbar
 
-$navbar-default-bg:                #fae3b5 !default;
+$navbar-default-bg:                $gold !default;
 $navbar-default-color:             darken($navbar-default-bg, 50%) !default;
 $navbar-default-border:            darken($navbar-default-bg, 6.5%) !default;
 

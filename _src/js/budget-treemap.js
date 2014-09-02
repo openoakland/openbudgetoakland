@@ -15,11 +15,17 @@ ob.display = ob.display || {};
     var _max_rects = 40;
     var _min_area_for_text = 0.0125;
     var _palette = [
-      '#334433',
-      '#6699aa',
-      '#88aaaa',
-      '#aacccc',
-      '#447799',
+      '#970000',
+      '#CD0059',
+      '#E23600',
+      '#F07400',
+      '#EDA400',
+      '#009F76',
+      // '#009DB0',
+      // '#00C0D7',
+      '#008F16',
+      '#395BF6',
+      '#690180'
     ];
     var _spreadsheet_selector = "#table";
     var _treemap_selector = "#treemap";
