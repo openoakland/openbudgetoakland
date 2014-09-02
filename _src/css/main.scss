@@ -39,22 +39,42 @@ nav.main-nav {
 
 
 footer {
-  // padding-top: 10px;
-  // background-color: #edebdd;
+  padding-top: 10px;
+  background-color: #F4F3EA;
   color: #c2b99e;
+  a {
+    color: darken(#c2b99e, 20%);
+    &:hover {
+      color: darken(#c2b99e, 30%);
+    }
+  }
+  ul.list-inline {
+    li {
+      margin-right: 10px;
+      a {
+        @include opacity(.8);
+        &:hover {
+          @include opacity(1);
+        }
+      }
+      img {
+        vertical-align: baseline;
+      }
+    }
+  }
 }
 
 
 // 'Responsive' sticky footer
 @mixin footer-height($height){
   #wrapper { margin-bottom: -$height; }
-  #wrapper_footer { height: $height; }
+  #wrapper-footer { height: $height; }
   #footer { min-height: $height; }
 }
-@include footer-height(120px);
+@include footer-height(130px);
 
-@media (min-width: $screen-sm-min){ 
-  @include footer-height(50px);
+@media (max-width: $screen-sm-min){ 
+  @include footer-height(200px);
 }
 
 html {
