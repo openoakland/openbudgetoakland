@@ -6,13 +6,15 @@ ob.display = ob.display || {};
     var _url = null;
     var _treemap = null;
     var _spreadsheet = null;
+    var _dropdown = null;
     /* The 'cruncher' reorganizes the budget data into a hierarchy
     * and offers some other functionality into managing the data */
     var _cruncher = ob.data.hierarchy();
     var _get_value = function(d) {
-      return d['balance'];
+      return d['data']['amount'];
     };
     var _max_rects = 40;
+    var _max_spreadsheet_rows = 10;
     var _min_area_for_text = 0.0125;
     var _palette = [
       '#334433',
@@ -23,24 +25,39 @@ ob.display = ob.display || {};
     ];
     var _spreadsheet_selector = "#table";
     var _treemap_selector = "#treemap";
+    var _dropdown_selector = "#dropdown";
     /* layout settings */
     var _layout = {
       width: 800,
       height: 500,
     };
 
-    var _hierarchy = [
-      'Fund Description',
-      'Department',
-      'Division',
-      'Account Category'
-    ];
-
     /* used to convert numerical data into text data */
     var _format = {
       number: d3.format("$,d"),
       percent: d3.format(".2%")
     };
+
+    var _config = {
+      url: function() {
+        return '';
+      }
+    };
+
+    /* interaction */
+    var _on_handlers = {};
+    /* apply all events defined in _on_handlers to an object that supports the
+     * "on" method in a d3 style
+     */
+    function _apply_handlers(d3obj) {
+      for (var event_name in _on_handlers) {
+        if (_on_handlers.hasOwnProperty(event_name)) {
+          if (_on_handlers[event_name]) {
+            d3obj.on(event_name, _on_handlers[event_name]);
+          }
+        }
+      }
+    }
 
     /* create and configure the tooltip */
     var _tooltip_function = function(d, i) {
@@ -59,20 +76,29 @@ ob.display = ob.display || {};
     /* determine current view in hierarchy based on url _hash */
     var _hash = {
       get: function(root) {
-        if (window.location.hash.length < 2) {
+        var hash = window.location.hash.replace("#", "");
+        if (_on_handlers.hasOwnProperty("get_hash")) {
+          hash = _on_handlers["get_hash"](hash);
+        }
+
+        if (hash.length < 1) {
           return root;
         }
         return _cruncher.spelunk(
           root,
-          window.location.hash.replace("#", "").split(".")
+          hash.split(".")
         );
       },
       set: function(node) {
-        var _hash = _cruncher.path(node)
+        var hash = _cruncher.path(node)
           .slice(1)
           .map(function(d) { return d.key; })
           .join('.');
-        window.location.hash = _hash;
+        if (_on_handlers.hasOwnProperty("set_hash")) {
+          hash = _on_handlers["set_hash"](hash);
+        }
+        window.location.hash = hash;
+
       }
     };
 
@@ -125,6 +151,28 @@ ob.display = ob.display || {};
         return _get_value;
 			},
 
+			on: function(eventname, eventfunc) {
+				_on_handlers[eventname] = eventfunc;
+        if (_treemap) {
+          _treemap.on(eventname, eventfunc);
+        }
+        if (_spreadsheet) {
+          _spreadsheet.on(eventname, eventfunc);
+        }
+        if (_dropdown) {
+          _dropdown.on(eventname, eventfunc);
+        }
+				return this;
+			},
+
+      config: function() {
+        if (arguments.length) {
+          _config = arguments[0];
+          return this;
+        }
+        return _config;
+      },
+
       tooltip: function() {
         if (arguments.length) {
           _tooltip_function = arguments[0];
@@ -133,12 +181,12 @@ ob.display = ob.display || {};
         return _tooltip_function;
       },
 
-      hierarchy: function() {
+      dropdown: function() {
         if (arguments.length) {
-          _hierarchy = arguments[0];
+          _dropdown_selector = arguments[0];
           return this;
         }
-        return _hierarchy;
+        return _dropdown_selector;
       },
 
       spreadsheet: function() {
@@ -161,19 +209,29 @@ ob.display = ob.display || {};
       create: function() {
         /* create initial color palette */
         var _color_stack = ob.palette.stack().palette(d3.scale.ordinal().range(_palette));
+        this._create_dropdown();
 
         /* create and configure the tooltip */
         var _tooltip = ob.display.tooltip().html(_tooltip_function);
 
         /* call d3 to load the budget data, and then display the data
         * after it has loaded */
-        d3.json(url, function(data) {
-          var root = _cruncher.crunch(data.rows, _hierarchy);
+        d3.json(_url, function(data) {
+          var root = data;
+
+          /* set parent links */
+          _cruncher.apply(root, function(node) {
+            if (node.values) {
+              node.values.forEach(function(child) {
+                child.parent = node;
+              });
+            }
+          });
 
           /* caculate data percentages */
           _cruncher.apply(root, function(node) {
             if (node.parent) {
-              node.precentage = node.value / node.parent.value;
+              node.precentage = _get_value(node) / _get_value(node.parent);
             }
             else {
               node.percentage = 1.0;
@@ -181,9 +239,16 @@ ob.display = ob.display || {};
           });
           var node = _hash.get(root);
 
+
           _cruncher.path(node).forEach(function(d) {
             if (d.parent) {
               var i = d.parent.values.indexOf(d);
+              /* TODO: color stack isn't consistent when page is refreshed because
+               * values are sorted in treemap.js and spreadsheet.js which screws up
+               * ordering of "values".  If you want this consistent, you'll have to
+               * figure out a way around that.
+               */
+              
               _color_stack.unshift(
                 _color_stack.palette()(i),
                 Math.min(d.values.length, _max_rects));
@@ -197,12 +262,74 @@ ob.display = ob.display || {};
               /* have to make sure values are greater than zero, otherwise
               * treemap layout breaks */
               return _get_value(d) <= 0 ? 0.001 : _get_value(d);
+            })
+            .columns(["", "Item", "Expense", "Revenue"])
+            .column(function(d, i, elem) {
+              if (i == 1) {
+                elem.attr("class", "item").html(d);
+              }
+              else if (i == 2) {
+                elem.attr("class", "money").html(d);
+              }
+              else if (i == 3) {
+                elem.attr("class", "money").html(d);
+              }
+
+            })
+            .cell(function(d, i, j, elem) {
+
+              if (i == 0) {
+                elem.append("div")
+                  .attr("class", "square")
+                  .style("background-color", _color_stack.palette()(j));
+              }
+              else if (i == 1) {
+                elem.attr("class", "item").html(d.key);
+              }
+              else if (i == 2) {
+                elem.attr("class", "money").html(_format.number(d.data.expense));
+              }
+              else if (i == 3) {
+                elem.attr("class", "money").html(_format.number(d.data.revenue));
+              }
+              if (i == 0) {
+                var parent_node = d3.select(elem.node().parentNode);
+                if (j > _max_spreadsheet_rows) {
+                  parent_node.style("visibility", "hidden")
+                    .style("display", "none");
+                }
+                else {
+                  parent_node.style("visibility", "visible")
+                    .style("display", "table-row");
+                }
+                if (j == (_max_spreadsheet_rows + 1)) {
+                  var spreadsheet_element = d3.select(_spreadsheet_selector);
+                  spreadsheet_element.append("button")
+                    .attr("class", "btn btn-default")
+                    .attr("id", "more")
+                    .text("Show more")
+                    .on("click", function() {
+                      spreadsheet_element.selectAll("tr")
+                        .style("visibility", "visible")
+                        .style("display", "table-row");
+                      spreadsheet_element.select("#more").remove();
+                      
+                    });
+                }
+
+              }
             });
+
+          /* apply any "on" handlers to spreadsheet */
+          _apply_handlers(_spreadsheet);
 
           /* create treemap using current color scheme */
           _treemap = ob.display.treemap()
             .colors(_color_stack.palette())
             .value(_get_value);
+
+          /* apply any "on" handlers to treemap */
+          _apply_handlers(_treemap);
 
           /* configure treemap and display */
           _treemap.width(_layout.width)
@@ -247,7 +374,6 @@ ob.display = ob.display || {};
               * as the spreadsheet data */
               _hash.set(d);
               _spreadsheet.data(d.values)
-                .colors(_treemap.colors())
                 .display();
             })
             .on("transition", function(d, i, direction) {
@@ -273,6 +399,53 @@ ob.display = ob.display || {};
           * transition */
           _spreadsheet.on("click", _treemap.transition);
         });
+      },
+
+      _create_dropdown: function() {
+        var self = this;
+        var values = [];
+        for (var key in _config.dropdown_values) {
+          if (_config.dropdown_values.hasOwnProperty(key)) {
+            values.push(key);
+          }
+        }
+        /* add dropdown */
+        _dropdown = d3.select(_dropdown_selector)
+          .selectAll("#selector")
+          .data(values)
+          .enter()
+          .append("div")
+          .attr("class", "col-md-3 dropdown")
+          .text(function(d) {
+            return d;
+          })
+          .append("select")
+          .attr("class", "form-control")
+          .on("change", function(d) {
+            _config.dropdown_choice[d] = this.options[this.selectedIndex].value;
+            self.refresh();
+          });
+        _apply_handlers(_dropdown);
+
+        /* add options to dropdown */
+        _dropdown.selectAll("option")
+          .data(function(d) { 
+            return _config.dropdown_values[d].map(function(v) { return {'key':d, 'value': v}; });
+          })
+          .enter()
+          .append("option")
+          .text(function(d) { return d['value']; })
+          .attr("selected", function (d) {
+            if (d['value'] == _config.dropdown_choice[d['key']]) { return "selected"; }
+          });
+      },
+
+      refresh: function() {
+          d3.select(_spreadsheet_selector).select("svg").remove();
+          d3.select(_treemap_selector).select("svg").remove();
+          d3.select(_dropdown_selector).selectAll(".dropdown").remove();
+          this.url(_config.url());
+          this.create();
       }
     };
   }

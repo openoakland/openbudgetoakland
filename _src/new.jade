@@ -31,10 +31,12 @@ html
       font-family: "Open Sans", Helvetica, Arial, sans-serif;
       }
       #spacer {
-      height: 30px;
+        height: 30px;
       }
+
   body
     .container
+      div#dropdown
       #treemap
       #chart
       #spacer
@@ -48,37 +50,66 @@ html
       script(src='/js/tooltip.js', charset='utf-8')
       script(src='/js/budget-treemap.js', charset='utf-8')
       script.
-        /* Budget data is stored in google's fusion tables.  Here we store
-        * specific data to acess the api, and table were interested in.
-        * The hierarchy is used in the SQL query to the fusion table as well
-        * as in the data crunching portion */
-        var fusion = {
-          api_key: 'AIzaSyCnWo1USrkSKnN6oy02tNeWfg6aFSg0OI8',
-          table: '1V2R7lsdg-GTbGOZ_h_DrGOa-Gfqk1PGA9h_n5zwU',
-          title: 'Oakland 2014-2015 Adopted Budget',
-          hierarchy: [
-            'Fund Description',
-            'Department',
-            'Division',
-            'Account Category'
-          ]
+
+        var config = {
+          dropdown_values: {
+            "Year": ["FY13-14", "FY14-15"],
+            "Account": ["Revenue", "Expense"]
+          },
+          dropdown_choice: {
+            "Year": "FY14-15",
+            "Account": "Expense"
+          },
+          url: function() {
+            var x = 'http://127.0.0.1:9000/data/' + this.dropdown_choice["Account"] + "." + this.dropdown_choice["Year"] + ".json";
+            return x;
+          }
         };
 
-        /* create the url into the fusion table api to load the budget
-        * data */
-        url = ob.fusion(fusion.api_key, fusion.table).url(fusion.hierarchy, 'Amount');
+        function _parse_hash(hash) {
+          var hash_array = hash.split(".");
+          if (hash_array.length) {
+            var x = hash_array.shift();
+            if (config.dropdown_values["Year"].indexOf(x) > -1) {
+              config.dropdown_choice["Year"] = x;
+            }
+          }
+          if (hash_array.length) {
+            var x = hash_array.shift();
+            if (config.dropdown_values["Account"].indexOf(x) > -1) {
+              config.dropdown_choice["Account"] = x;
+            }
+          }
+          return hash_array.join(".");
+        }
 
+        function _load_hash() {
+          var hash = window.location.hash.replace("#", "");
+          _parse_hash(hash);
+        }
+
+        _load_hash();
+
+        /* get width of container */
+        var parent = d3.select(".container");
+        var width = parent.node().offsetWidth - parseInt(parent.style("padding-left")) - parseInt(parent.style("padding-right"));
+
+
+        /* create display */
         ob.display.budget_treemap()
-          .width(1100)
+          .width(width)
           .height(600)
           .count(40)
-          .palette([
-            "#FF0000",
-            "#00FF00",
-            "#0000FF"
-          ])
+          .config(config)
+          .dropdown("#dropdown")
           .spreadsheet("#table")
           .treemap("#treemap")
-          .url(url)
+          .on("set_hash", function(hash) {
+            /* add year and account to hash for linking */
+            var prefix = config.dropdown_choice["Year"] + "." + config.dropdown_choice["Account"];
+            return hash.length ? prefix + "." + hash : prefix;
+          })
+          .on("get_hash", function(hash) { return _parse_hash(hash); })
+          .url(config.url())
           .create();
 
