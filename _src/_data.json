@@ -2,65 +2,65 @@
 
 {
   "globals": {
-    "title": "Open Budget Oakland",
+    "title": "Open Budget: Oakland",
     "uri": "http://openbudgetoakland.com"
   },
 
   "index": {
-    "title": "Open Budget Oakland",
+    "title": "Open Budget: Oakland",
     "slug": "home"
   },
 
 
   "what-we-do": {
-    "title": "What and How - Open Budget Oakland"
+    "title": "What and How - Open Budget: Oakland"
   },
 
   "who": {
-    "title": "Who We Are - Open Budget Oakland"
+    "title": "Who We Are - Open Budget: Oakland"
   },
 
   "news": {
-    "title": "News - Open Budget Oakland"
+    "title": "News - Open Budget: Oakland"
   },
 
   "contact": {
-    "title": "Contact Us - Open Budget Oakland"
+    "title": "Contact Us - Open Budget: Oakland"
   },
 
   "discuss": {
-    "title": "Discuss - Open Budget Oakland"
+    "title": "Discuss - Open Budget: Oakland"
   },
 
   "feedback": {
-    "title": "Feedback - Open Budget Oakland"
+    "title": "Feedback - Open Budget: Oakland"
   },
 
 
 
 
   "oakland-budget-101": {
-    "title": "Oakland Budget 101 - Open Budget Oakland"
+    "title": "Oakland Budget 101 - Open Budget: Oakland"
   },
   "tools-projects": {
-    "title": "Tools & Projects - Open Budget Oakland"
+    "title": "Tools & Projects - Open Budget: Oakland"
   },
 
 
 
   "mayor_13-15_proposed": {
-    "title": "2013-15 Mayor's Proposed Spending (Treemap) - Open Budget Oakland"
+    "title": "2013-15 Mayor's Proposed Spending (Treemap) - Open Budget: Oakland"
   },
 
   "oak11-13adopted": {
-    "title": "2011-13 Adopted Spending (Treemap) - Open Budget Oakland"
+    "title": "2011-13 Adopted Spending (Treemap) - Open Budget: Oakland"
   },
 
   "2012-2013-sankey": {
-    "title": "2012-13 Adopted Revenues & Spending (Sankey) - Open Budget Oakland"
+    "title": "2012-13 Adopted Revenues & Spending (Sankey) - Open Budget: Oakland"
   },
 
   "updated_mayor_13_15_proposed": {
-    "title": "UPDATED: 2013-15 Mayor's Proposed Spending (Treemap) v2 - Open Budget Oakland"
+    "title": "UPDATED: 2013-15 Mayor's Proposed Spending (Treemap) v2 - Open Budget: Oakland"
   }
 }
