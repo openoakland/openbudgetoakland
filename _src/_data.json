@@ -48,19 +48,19 @@
 
 
 
-  "mayor_13-15_proposed": {
+  "mayor-2013-2015-proposed": {
     "title": "2013-15 Mayor's Proposed Spending (Treemap) - Open Budget: Oakland"
   },
 
-  "oak11-13adopted": {
-    "title": "2011-13 Adopted Spending (Treemap) - Open Budget: Oakland"
+  "2011-2013-adopted-budget": {
+    "title": "2011-2013 Adopted Spending (Treemap) - Open Budget: Oakland"
   },
 
   "2012-2013-sankey": {
-    "title": "2012-13 Adopted Revenues & Spending (Sankey) - Open Budget: Oakland"
+    "title": "2012-2013 Adopted Revenues & Spending (Sankey) - Open Budget: Oakland"
   },
 
   "updated_mayor_13_15_proposed": {
-    "title": "UPDATED: 2013-15 Mayor's Proposed Spending (Treemap) v2 - Open Budget: Oakland"
+    "title": "UPDATED: 2013-2015 Mayor's Proposed Spending (Treemap) v2 - Open Budget: Oakland"
   }
 }
