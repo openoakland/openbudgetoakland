@@ -35,18 +35,20 @@ html
       }
   body
     .container
+      .row
+        div#dropdown
       #treemap
       #chart
       #spacer
       #table
       script(src='http://d3js.org/d3.v3.min.js', charset='utf-8')
-      script(src='/js/palette.js', charset='utf-8')
-      script(src='/js/source.js', charset='utf-8')
-      script(src='/js/data.js', charset='utf-8')
-      script(src='/js/treemap.js', charset='utf-8')
-      script(src='/js/spreadsheet.js', charset='utf-8')
-      script(src='/js/tooltip.js', charset='utf-8')
-      script(src='/js/budget-treemap.js', charset='utf-8')
+      script(src='js/palette.js', charset='utf-8')
+      script(src='js/source.js', charset='utf-8')
+      script(src='js/data.js', charset='utf-8')
+      script(src='js/treemap.js', charset='utf-8')
+      script(src='js/spreadsheet.js', charset='utf-8')
+      script(src='js/tooltip.js', charset='utf-8')
+      script(src='js/budget-treemap.js', charset='utf-8')
       script.
         /* Budget data is stored in google's fusion tables.  Here we store
         * specific data to acess the api, and table were interested in.
@@ -54,8 +56,8 @@ html
         * as in the data crunching portion */
         var fusion = {
           api_key: 'AIzaSyCnWo1USrkSKnN6oy02tNeWfg6aFSg0OI8',
-          table: '1SOXcBW188njE0vdICywNbcBHnmvoNMmP4cg2Jwc_',
-          title: 'Oakland 2013-2015 Adopted Budget',
+          table: '1V2R7lsdg-GTbGOZ_h_DrGOa-Gfqk1PGA9h_n5zwU',
+          title: 'Oakland 2014-2015 Adopted Budget',
           hierarchy: [
             'Fund Description',
             'Department',
@@ -72,11 +74,8 @@ html
           .width(1100)
           .height(600)
           .count(40)
-          .palette([
-            "#FF0000",
-            "#00FF00",
-            "#0000FF"
-          ])
+          .config(config)
+          .dropdown("#dropdown")
           .spreadsheet("#table")
           .treemap("#treemap")
           .url(url)

@@ -1,6 +1,7 @@
 @import "variables";
 @import "mixins";
 @import "bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap";
+@import "mid-small"; // adds mid-small breakpoint
 @import "bootstrap-overrides"; // custom styles to override Bootstrap defaults
 @import "base";
 @import "sections/sections";
@@ -16,10 +17,7 @@ nav.main-nav {
   font-family: $headings-font-family;
 }
 
-.inline {
-  width: auto;
-  display: inline-block;
-}
+
 
 // Overwrite default dropdown styles on inverse navbars
 .navbar-inverse {
@@ -40,13 +38,14 @@ nav.main-nav {
 
 
 footer {
-  padding-top: 10px;
-  background-color: #F4F3EA;
-  color: #c2b99e;
+  border-top: 1px solid $gray-lighter;
+  padding-top: 20px;
+  background-color: lighten($gray-lighter, 5%);
+  color: $gray-light;
   a {
-    color: darken(#c2b99e, 20%);
+    color: lighten($gray-light, 20%);
     &:hover {
-      color: darken(#c2b99e, 30%);
+      color: lighten($gray-light, 10%);
     }
   }
   ul.list-inline {
@@ -72,7 +71,7 @@ footer {
   #wrapper-footer { height: $height; }
   #footer { min-height: $height; }
 }
-@include footer-height(130px);
+@include footer-height(150px);
 
 @media (max-width: $screen-sm-min){ 
   @include footer-height(200px);
@@ -89,4 +88,5 @@ body {
 #wrapper {
   min-height: 100%;
   height: auto !important;
+  padding-bottom: 30px;
 }

@@ -2,3 +2,8 @@
 body.home {
   @import "home";  
 }
+
+
+a {
+  @include transition(color, .3s, ease);
+}

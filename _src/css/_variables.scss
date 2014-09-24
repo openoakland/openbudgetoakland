@@ -10,13 +10,20 @@ $bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")
 
 
 $green-dark:            #004a37;
+$green-darker:          #014e3c;
 $teal:                  #00e2ae;
 $gold:                  #fae3b5;
 $green-muted:           #42928f;
+$purple:                #6c0b61;
+
+$gray-pale:             #f9f9f9;
+$gray-dark:             #555;
+$gray-border:           #ddd; 
+
 
 // $brand-primary:         #fae3b5 !default;
 // $brand-primary:         #009DB0 !default; // blue
-$brand-primary:         #00E2AE !default; // emerald
+$brand-primary:         $green-dark !default; // emerald
 
 //== Scaffolding
 //** Global textual link color.
@@ -29,6 +36,7 @@ $link-hover-color:      darken($link-color, 15%) !default;
 $font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $headings-font-family:    'Arvo', $font-family-sans-serif;
 $headings-line-height:    1.2;
+$headings-color:          $brand-primary;
 
 //== Iconography
 //== Components
@@ -52,13 +60,13 @@ $headings-line-height:    1.2;
 
 //== Navbar
 
-$navbar-default-bg:                $gold !default;
+$navbar-default-bg:                $gray-pale !default;
 $navbar-default-color:             darken($navbar-default-bg, 50%) !default;
 $navbar-default-border:            darken($navbar-default-bg, 6.5%) !default;
 
 // Navbar links
-$navbar-default-link-color:                darken($navbar-default-bg, 60%) !default;
-// $navbar-default-link-hover-color:          #333 !default;
+// $navbar-default-link-color:                $gray-dark;
+// $navbar-default-link-hover-color:          $purple !default;
 // $navbar-default-link-hover-bg:             transparent !default;
 // $navbar-default-link-active-color:         #555 !default;
 // $navbar-default-link-active-bg:            darken($navbar-default-bg, 6.5%) !default;
@@ -66,8 +74,8 @@ $navbar-default-link-color:                darken($navbar-default-bg, 60%) !defa
 // $navbar-default-link-disabled-bg:          transparent !default;
 
 // // Navbar brand label
-// $navbar-default-brand-color:               $navbar-default-link-color !default;
-// $navbar-default-brand-hover-color:         darken($navbar-default-brand-color, 10%) !default;
+$navbar-default-brand-color:               $gray-dark !default;
+$navbar-default-brand-hover-color:         $green-dark !default;
 // $navbar-default-brand-hover-bg:            transparent !default;
 
 // // Navbar toggle
