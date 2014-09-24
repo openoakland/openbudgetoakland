@@ -26,9 +26,6 @@ ob.display = ob.display || {};
 
 		/* interactions */
 		var _on_handlers = {};
-		var _rect_text = function(d, i) {
-			return '' + d.value;
-		}
 
 		function _inner_height() {
 			return _height - _margin.top - _margin.bottom;
@@ -41,6 +38,10 @@ ob.display = ob.display || {};
 		/* data settings */
 		var _get_value = function(d) {
 			return d.value;
+		}
+
+		var _rect_text = function(d, i) {
+			return '' + _get_value(d.value);
 		}
 
 		function _path(d) {
