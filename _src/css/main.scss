@@ -1,7 +1,10 @@
 @import "variables";
+@import "mixins";
 @import "bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap";
+@import "mid-small"; // adds mid-small breakpoint
 @import "bootstrap-overrides"; // custom styles to override Bootstrap defaults
 @import "base";
+@import "sections/sections";
 
 @import "treemap"; // D3 Treemap
 
@@ -14,10 +17,7 @@ nav.main-nav {
   font-family: $headings-font-family;
 }
 
-.inline {
-  width: auto;
-  display: inline-block;
-}
+
 
 // Overwrite default dropdown styles on inverse navbars
 .navbar-inverse {
@@ -32,4 +32,61 @@ nav.main-nav {
       }
     }
   }
+}
+
+
+
+
+footer {
+  border-top: 1px solid $gray-lighter;
+  padding-top: 20px;
+  background-color: lighten($gray-lighter, 5%);
+  color: $gray-light;
+  a {
+    color: lighten($gray-light, 20%);
+    &:hover {
+      color: lighten($gray-light, 10%);
+    }
+  }
+  ul.list-inline {
+    li {
+      margin-right: 10px;
+      a {
+        @include opacity(.8);
+        &:hover {
+          @include opacity(1);
+        }
+      }
+      img {
+        vertical-align: baseline;
+      }
+    }
+  }
+}
+
+
+// 'Responsive' sticky footer
+@mixin footer-height($height){
+  #wrapper { margin-bottom: -$height; }
+  #wrapper-footer { height: $height; }
+  #footer { min-height: $height; }
+}
+@include footer-height(150px);
+
+@media (max-width: $screen-sm-min){ 
+  @include footer-height(200px);
+}
+
+html {
+  height: 100%;
+  overflow-y: scroll;
+}
+body {
+  height: 100%;
+  position: relative;
+}
+#wrapper {
+  min-height: 100%;
+  height: auto !important;
+  padding-bottom: 30px;
 }

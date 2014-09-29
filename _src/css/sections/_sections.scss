@@ -1,0 +1,9 @@
+// Page or section specific partials
+body.home {
+  @import "home";  
+}
+
+
+a {
+  @include transition(color, .3s, ease);
+}

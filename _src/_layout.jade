@@ -2,7 +2,7 @@
 html
   head
     meta(name='viewport', content='width=device-width')
-    link(rel="stylesheet" href="/css/main.css")
+    link(rel="stylesheet" href="css/main.css")
     title= title
     if environment == "production"
       script.
@@ -13,76 +13,107 @@ html
           ga('create', 'UA-35908939-3', 'openbudgetoakland.org');
           ga('send', 'pageview');
 
-    script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js").
+    script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js").
     script(src='http://code.jquery.com/jquery-migrate-1.2.1.js')
     script(src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js").
     script(src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.5/d3.min.js").
 
-  body
-    nav.main-nav
-      .navbar.navbar-default.navbar-fixed-top
-        .container
-          .navbar-header
-            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-              span.sr-only Toggle navigation
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
-            a.navbar-brand(href='/') Open Budget: Oakland
-          .navbar-collapse.collapse
-            ul.nav.navbar-nav.navbar-right
+  body(class='#{slug}')
+    #wrapper
+      nav.main-nav
+        .navbar.navbar-default.navbar-fixed-top
+          .container
+            .navbar-header
+              button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+              a.navbar-brand(href='/') Open Budget: Oakland
+            .navbar-collapse.collapse
+              ul.nav.navbar-nav.navbar-right
 
-              li.dropdown
-                a.dropdown-toggle(href='#', data-toggle='dropdown')
-                  | About
-                  b.caret
-                ul.dropdown-menu
-                  li
-                    a(href='what-we-do.html') What and How
-                  li
-                    a(href='who-we-are.html') Who We Are
-                  li
-                    a(href='news.html') News
-                  li
-                    a(href='contact.html') Contact Us
+                li.dropdown
+                  a.dropdown-toggle(href='#', data-toggle='dropdown')
+                    | About
+                    b.caret
+                  ul.dropdown-menu
+                    li
+                      a(href='what-we-do.html') What and How
+                    li
+                      a(href='who-we-are.html') Who We Are
+                    li
+                      a(href='news.html') News
+                    li
+                      a(href='contact.html') Contact Us
 
-              li.dropdown
-                a.dropdown-toggle(href='#', data-toggle='dropdown')
-                  | Oakland's Budget
-                  b.caret
-                ul.dropdown-menu
-                  li
-                    a(href='public-2013-2015.html') 2013-15 Public Adopted Budget (Treemap)
-                  li
-                    a(href='mayor_13-15_proposed.html') 2013-15 Mayor's Proposed Spending (Treemap)
-                  li
-                    a(href='2012-2013-sankey.html') 2012-13 Adopted Revenues &amp; Spending (Sankey)
-                  li
-                    a(href='oak11-13adopted.html') 2011-13 Adopted Spending (Treemap)
-                  li
-                    a(href='budget-process.html') Overview of Oakland's Budget Process
-
-              li
-                a(href='http://data.openoakland.org/dataset/city-of-oakland-budget', target='_blank') Data
-
-              li.dropdown
-                a.dropdown-toggle(href='#', data-toggle='dropdown')
-                  | Resources
-                  b.caret
-                ul.dropdown-menu
-                  li
-                    a(href='oakland-budget-101.html') Oakland Budget 101
-                  li
-                    a(href='tools-projects.html') Tools and Projects
-
-                //- li
-                //-   a(href='discuss.html') Discuss
+                li.dropdown
+                  a.dropdown-toggle(href='#', data-toggle='dropdown')
+                    | Oakland's Budget
+                    b.caret
+                  ul.dropdown-menu
+                    li
+                      a(href='2014-2015-adopted-budget.html') 2013-15 Adopted Budget
+                    li
+                      a(href='mayor-2013-2015-proposed.html') 2013-15 Mayor's Proposed Spending
+                    li
+                      a(href='2012-2013-sankey.html') 2012-13 Adopted Revenues &amp; Spending (Flow)
+                    li
+                      a(href='2011-2013-adopted-budget.html') 2011-13 Adopted Spending
+                    li
+                      a(href='budget-process.html') Overview of Oakland's Budget Process
 
                 li
-                  a(href='feedback.html') Feedback
+                  a(href='http://data.openoakland.org/dataset/city-of-oakland-budget', target='_blank') Data
+
+                li.dropdown
+                  a.dropdown-toggle(href='#', data-toggle='dropdown')
+                    | Resources
+                    b.caret
+                  ul.dropdown-menu
+                    li
+                      a(href='oakland-budget-101.html') Oakland Budget 101
+                    li
+                      a(href='tools-projects.html') Tools and Projects
+
+                  //- li
+                  //-   a(href='discuss.html') Discuss
+
+                  li
+                    a(href='feedback.html') Feedback
+
+      != yield
+      #wrapper-footer
+
+    footer#footer
+      .container
+        .row
+          //-a(rel="license", href="http://creativecommons.org/licenses/by-nc-sa/4.0/")
+            img(alt="Creative Commons License", style="border-width:0", src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png")
+          .col-md-6.col-sm-9
+            p 
+              | Open Budget: Oakland is an open-source project by 
+              a(href="http://openoakland.org") OpenOakland
+              |  to help citizens better understand Oakland's spending and budget process.
+            ul.list-inline
+              li
+                a(href="http://openoakland.org")
+                  img(src="/images/global/openoakland-logo.png")
+              li
+                a(href="http://openoakland.org")
+                  img(src="/images/global/twitter-icon.png")
+              li
+                a(href="http://openoakland.org")
+                  img(src="/images/global/github-icon.png")
 
 
-    != yield
+          .col-sm-3.col-md-push-3
+            ul.list-unstyled
+              li
+                a(href="who-we-are.html") About the Project
+              li
+                a(href="http://www.meetup.com/OpenOakland") Get Involved
+              li
+                a(href="feedback.html") Give Feedback
 
-  footer
     link(href='http://fonts.googleapis.com/css?family=Arvo:400,700', rel='stylesheet', type='text/css')
