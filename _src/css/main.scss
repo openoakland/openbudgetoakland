@@ -7,6 +7,7 @@
 @import "sections/sections";
 
 @import "treemap"; // D3 Treemap
+@import "flow"; // D3 Sankey diagram
 
 body {
   color: #333;
@@ -73,7 +74,7 @@ footer {
 }
 @include footer-height(150px);
 
-@media (max-width: $screen-sm-min){ 
+@media (max-width: $screen-sm-min){
   @include footer-height(200px);
 }
 
