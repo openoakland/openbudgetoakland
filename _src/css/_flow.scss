@@ -1,14 +1,4 @@
-body {
-  font-family: 'Arvo', 'sans-serif';
-}
-
-h1,h2,h3,h4,h5,h6 {
-  font-weight:normal;
-}
-
-#chart {
-    height: 650px;
-}
+// styles for d3 Sankey flow diagram
 
 #hover_description {
     position: absolute;
@@ -18,44 +8,62 @@ h1,h2,h3,h4,h5,h6 {
     visibility: hidden;
     transition: visibility 0s 0.1s,opacity 0.1s;
     font-size: 14px;
+
+    &.show {
+        visibility: visible;
+        opacity: 0.85;
+        transition-delay: 0s;
+    }
 }
 
-#hover_description.show {
-  visibility: visible;
-  opacity: 0.85;
-  transition-delay: 0s;
+#sankey {
+    margin-top: 30px;
 }
 
-.node rect {
-    fill-opacity: .9;
-    shape-rendering: crispEdges;
-    stroke-width: 1px;
-    transition: stroke-width 0.1s;
+svg {
+    text {
+        font-family: $headings-font-family;
+    }
+    .node {
+        rect {
+            fill-opacity: .9;
+            shape-rendering: crispEdges;
+            stroke-width: 1px;
+            transition: stroke-width 0.1s;
+        }
+        text {
+            pointer-events: none;
+            font-size: 12px;
+            transition: font-size 0.3s;
+        }
+
+        &.highlight {
+
+            text {
+              font-size: 15px;
+            }
+
+            rect {
+              stroke-width:2px;
+            }
+        }
+    }
+
+    .link {
+        fill: none;
+        stroke-opacity: .2;
+        transition: stroke-opacity 0.3s;
+
+        &.highlight {
+            stroke-opacity: .6;
+        }
+    }
+
 }
 
-.node text {
-    pointer-events: none;
-    font-size: 12px;
-    transition: font-size 0.3s;
-}
 
-.node.highlight text {
-  font-size: 15px;
-}
 
-.node.highlight rect {
-  stroke-width:2px;
-}
 
-.link {
-    fill: none;
-    stroke-opacity: .2;
-    transition: stroke-opacity 0.3s;
-}
-
-.link.highlight {
-    stroke-opacity: .6;
-}
 
 #warning{
     color: red;
