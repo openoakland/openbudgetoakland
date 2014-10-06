@@ -513,6 +513,10 @@ ob.display = ob.display || {};
 				return this;
 			},
 
+      node: function() {
+        return _current_display.d;
+      },
+
 			transition: function(d, i) {
 				_current_display.transition(d, i, true);
 				return this;

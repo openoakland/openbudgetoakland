@@ -245,7 +245,6 @@ ob.display = ob.display || {};
           });
           var node = _hash.get(root);
 
-
           _cruncher.path(node).forEach(function(d) {
             if (d.parent) {
               var i = d.parent.values.indexOf(d);
@@ -429,6 +428,7 @@ ob.display = ob.display || {};
           .attr("class", "form-control")
           .on("change", function(d) {
             _config.dropdown_choice[d] = this.options[this.selectedIndex].value;
+            _hash.set(_treemap.node());
             self.refresh();
           });
         _apply_handlers(_dropdown);
