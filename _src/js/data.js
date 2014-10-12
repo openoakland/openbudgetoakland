@@ -2,6 +2,17 @@ var ob = ob || {};
 ob.data = ob.data || {};
 
 ;(function (namespace, undefined) {
+  namespace.findIndex = function(array, value, comparitor) {
+    /* apparently this method will be part of the js array in future
+       browser releases, but it is not supported right now */
+    for (var idx = 0; idx < array.length; idx++) {
+      if (comparitor(array[idx], value) == 0) {
+        return idx;
+      }
+    }
+    return -1;
+  }
+
 	namespace.hierarchy = function() {
 
 		/* helper function for preparing data for visualization */
@@ -126,7 +137,10 @@ ob.data = ob.data || {};
 				//root.values = root.children;
 				return root;
 			},
-			spelunk: function(root, keys) {
+			spelunk: function(root, keys, cmp) {
+        if (arguments.length < 3) {
+          cmp = function(v1, v2) { v1 == v2 ? 0 : 1; }
+        }
 				var node = root;
 				/* make copy of keys */
 				var p = keys.slice();
@@ -134,7 +148,7 @@ ob.data = ob.data || {};
 					var next_key = p.shift();
 					var next_node = null;
 					node.values.forEach(function(c) {
-						if (c.key == next_key) {
+						if (cmp(c.key, next_key) == 0) {
 							next_node = c
 						}
 					});
@@ -162,6 +176,6 @@ ob.data = ob.data || {};
 					});
 				}
 			}
-		}
+		};
 	}
 })(ob.data);

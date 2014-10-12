@@ -50,6 +50,14 @@ ob.display = ob.display || {};
       }
     };
 
+    var _hash_normalize = function(s) {
+      return s;
+    }
+
+    var _hash_compare = function(v1, v2) {
+      return v1 == v2 ? 0 : 1;
+    }
+
     /* interaction */
     var _on_handlers = {};
     /* apply all events defined in _on_handlers to an object that supports the
@@ -81,6 +89,16 @@ ob.display = ob.display || {};
 
     /* determine current view in hierarchy based on url _hash */
     var _hash = {
+      _expected_hash: '',
+
+      expected: function() {
+        if (arguments.length) {
+          this._expected_hash = arguments[0];
+          return this;
+        }
+        return this._expected_hash;
+      },
+
       get: function(root) {
         var hash = window.location.hash.replace("#", "");
         if (_on_handlers.hasOwnProperty("get_hash")) {
@@ -92,21 +110,25 @@ ob.display = ob.display || {};
         }
         return _cruncher.spelunk(
           root,
-          hash.split(".")
+          hash.split("."),
+          _hash_compare
         );
       },
       set: function(node) {
         var hash = _cruncher.path(node)
           .slice(1)
-          .map(function(d) { return d.key; })
+          .map(function(d) { return _hash_normalize(d.key); })
           .join('.');
         if (_on_handlers.hasOwnProperty("set_hash")) {
           hash = _on_handlers["set_hash"](hash);
         }
+        this.expected(hash);
         window.location.hash = hash;
-
       }
     };
+
+
+
 
     return {
       width: function() {
@@ -147,6 +169,22 @@ ob.display = ob.display || {};
           return this;
         }
         return _palette;
+      },
+
+      hashnorm: function() {
+        if (arguments.length) {
+          _hash_normalize = arguments[0];
+          return this;
+        }
+        return _hash_normalize;
+      },
+
+      hashcmp: function() {
+        if (arguments.length) {
+          _hash_compare = arguments[0];
+          return this;
+        }
+        return _hash_compare;
       },
 
 			value: function() {
@@ -213,6 +251,15 @@ ob.display = ob.display || {};
 
 
       create: function() {
+
+        /* this handles changes due to backbuttons in the browser */
+        var self = this;
+        window.onhashchange = function(e) {
+          var hash = window.location.hash.replace("#", "");
+          if (hash != _hash.expected()) {
+            self.refresh();
+          }
+        };
         /* create initial color palette */
         var _color_stack = ob.palette.stack().palette(d3.scale.ordinal().range(_palette));
         this._create_dropdown();
@@ -321,7 +368,6 @@ ob.display = ob.display || {};
                       
                     });
                 }
-
               }
             });
 
