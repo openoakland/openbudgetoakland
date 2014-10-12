@@ -37,18 +37,25 @@ html
   body
     .container
       .row
+        .intro.col-md-8
+          h1 City of Oakland, Adopted Budget 2013-15
+
+          p Select year and account (revenues or expenses). Click on a fund to see the departments that receive its funding. Click on that department to see its spending or revenue.
+
+          p The <strong>General Fund</strong> — roughly 40% of Oakland's total budget -- is decided by a <a href="/budget-process.html">budget process</a> that includes private and public meetings, surveys, and negotiations. The other 60% of the budget comes from taxes, ballot measures, grants, fees, and other sources.
+      .row
         div#dropdown
       div#treemap
       div#spacer
       div#table
       script(src='http://d3js.org/d3.v3.min.js', charset='utf-8')
-      script(src='js/palette.js', charset='utf-8')
-      script(src='js/source.js', charset='utf-8')
-      script(src='js/data.js', charset='utf-8')
-      script(src='js/treemap.js', charset='utf-8')
-      script(src='js/spreadsheet.js', charset='utf-8')
-      script(src='js/tooltip.js', charset='utf-8')
-      script(src='js/budget-treemap.js', charset='utf-8')
+      script(src='/js/palette.js', charset='utf-8')
+      script(src='/js/source.js', charset='utf-8')
+      script(src='/js/data.js', charset='utf-8')
+      script(src='/js/treemap.js', charset='utf-8')
+      script(src='/js/spreadsheet.js', charset='utf-8')
+      script(src='/js/tooltip.js', charset='utf-8')
+      script(src='/js/budget-treemap.js', charset='utf-8')
       script.
         var config = {
           dropdown_values: {
