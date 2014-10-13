@@ -9,13 +9,12 @@ ob.display = ob.display || {};
 
 		/* display elements */
 		var _svg = null;
-		var _grandparent = null;
 		var _g = null;
 		var _colors = null;
 		var _current_display = null;
 
 		/* layout settings */
-		var _margin = {top: 25, right: 0, bottom: 0, left: 0};
+		var _margin = {top: 0, right: 0, bottom: 0, left: 0};
 		var _width = 800;
 		var _height = 500;
 		var _min_area_for_text = 0.0125;
@@ -105,56 +104,6 @@ ob.display = ob.display || {};
 				_on_handlers["display"](d);
 			}
 			var disp = _create_display(d);
-
-      _grandparent.selectAll("tspan").remove();
-
-			/* create grandparent bar at top */
-			var gp = _grandparent.datum(d)
-				.select("text")
-        .selectAll("tspan")
-        .data(function(d) {
-					var crumbs = [_root];
-					return crumbs.concat(_path(d));
-        });
-
-      gp.enter()
-        .append("tspan")
-        .text(function(d, i) { 
-          if (i > 0) {
-            return ' > ' + d.key;
-          }
-          else {
-            return d.key; 
-          }
-        })
-				.on("click", function(clicked, i) {
-          if (clicked == displayed_data) {
-            /* don't transition if they click on the same data that is already
-               being display */
-            return;
-          }
-          var levels = 0;
-          var current = displayed_data;
-          while (current && current != clicked) {
-            levels -= 1;
-            current = current.parent;
-          }
-
-					disp.transition(clicked, levels, false);
-				});
-      gp.exit().remove();
-      /*
-			_grandparent.datum(d)
-				.on("click", function(d) {
-					disp.transition(d.parent, -1, false);
-				})
-				.select("text")
-				.text(function(d) {
-					var crumbs = [_root.key];
-					crumbs = crumbs.concat(_path(d));
-					return crumbs.join(' > ');
-				});
-      */
 
 			disp.g = _svg.insert("g", ".grandparent")
 				.datum(d)
@@ -517,8 +466,11 @@ ob.display = ob.display || {};
         return _current_display.d;
       },
 
-			transition: function(d, i) {
-				_current_display.transition(d, i, true);
+			transition: function(d, i, dir) {
+        if (arguments.length < 3) {
+          dir = true;
+        }
+				_current_display.transition(d, i, dir);
 				return this;
 			}
 		};

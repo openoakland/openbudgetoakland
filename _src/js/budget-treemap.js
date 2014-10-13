@@ -32,6 +32,8 @@ ob.display = ob.display || {};
     var _spreadsheet_selector = "#table";
     var _treemap_selector = "#treemap";
     var _dropdown_selector = "#dropdown";
+    var _title_selector = "#title";
+    var _breadcrumbs_selector = "#breadrumbs";
     /* layout settings */
     var _layout = {
       width: 800,
@@ -72,6 +74,7 @@ ob.display = ob.display || {};
         }
       }
     }
+
 
     /* create and configure the tooltip */
     var _tooltip_function = function(d, i) {
@@ -249,6 +252,21 @@ ob.display = ob.display || {};
         return _treemap_selector;
       },
 
+      title: function() {
+        if (arguments.length) {
+          _title_selector = arguments[0];
+          return this;
+        }
+        return _title_selector;
+      },
+
+      breadcrumbs: function() {
+        if (arguments.length) {
+          _breadcrumbs_selector = arguments[0];
+          return this;
+        }
+        return _breadcrumbs_selector;
+      },
 
       create: function() {
 
@@ -260,6 +278,8 @@ ob.display = ob.display || {};
             self.refresh();
           }
         };
+
+
         /* create initial color palette */
         var _color_stack = ob.palette.stack().palette(d3.scale.ordinal().range(_palette));
         this._create_dropdown();
@@ -271,6 +291,34 @@ ob.display = ob.display || {};
         * after it has loaded */
         d3.json(_url, function(data) {
           var root = data;
+          function _create_breadcrumbs(d) {
+            var current_node = d;
+            d3.select(_breadcrumbs_selector).selectAll(".crumb").remove();
+
+            var crumbs = d3.select(_breadcrumbs_selector)
+              .selectAll(".crumb")
+              .data(ob.data.hierarchy().path(d));
+
+            crumbs.enter().append("span")
+              .attr("class", "crumb")
+              .on("click", function(clicked, i) {
+                if (clicked == current_node) {
+                  /* don't transition if they click on the same data that is already
+                     being display */
+                  return;
+                }
+                var levels = 0;
+                var current = current_node;
+                while (current && current != clicked) {
+                  levels -= 1;
+                  current = current.parent;
+                }
+                _treemap.transition(clicked, levels, false);
+              })
+              .text(function(d, i) {
+                return i > 0 ? ' > ' + d.key : d.key;
+              });
+          }
 
           /* set parent links */
           _cruncher.apply(root, function(node) {
@@ -291,6 +339,7 @@ ob.display = ob.display || {};
             }
           });
           var node = _hash.get(root);
+
 
           _cruncher.path(node).forEach(function(d) {
             if (d.parent) {
@@ -426,6 +475,9 @@ ob.display = ob.display || {};
               _hash.set(d);
               _spreadsheet.data(d.values)
                 .display();
+              d3.select(_title_selector).text(d.key);
+              /* set breadcrumbs */
+              _create_breadcrumbs(d);
             })
             .on("transition", function(d, i, direction) {
               /* This is called right before a transition from one
@@ -449,7 +501,14 @@ ob.display = ob.display || {};
           /* when the spreadsheet is clicked, tell the treemap to
           * transition */
           _spreadsheet.on("click", _treemap.transition);
+
+          /* set title */
+          d3.select(_title_selector).text(node.key);
+
+          /* set breadcrumbs */
+          _create_breadcrumbs(node);
         });
+
       },
 
       _create_dropdown: function() {
@@ -466,7 +525,7 @@ ob.display = ob.display || {};
           .data(values)
           .enter()
           .append("div")
-          .attr("class", "col-md-3 dropdown")
+          .attr("class", "col-sm-6 dropdown")
           .text(function(d) {
             return d;
           })
