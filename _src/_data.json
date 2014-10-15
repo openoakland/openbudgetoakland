@@ -16,7 +16,7 @@
     "title": "What and How - Open Budget: Oakland"
   },
 
-  "who": {
+  "who-we-are": {
     "title": "Who We Are - Open Budget: Oakland"
   },
 
@@ -37,8 +37,6 @@
   },
 
 
-
-
   "oakland-budget-101": {
     "title": "Oakland Budget 101 - Open Budget: Oakland"
   },
@@ -47,17 +45,20 @@
   },
 
 
+  "2013-2015-adopted-budget": {
+    "title": "City of Oakland, Adopted Budget 2013-15 - Open Budget: Oakland"
+  },
 
   "mayor-2013-2015-proposed": {
-    "title": "2013-15 Mayor's Proposed Spending (Treemap) - Open Budget: Oakland"
+    "title": "City of Oakland, Mayor's Proposed Spending 2013-15 (Treemap) - Open Budget: Oakland"
   },
 
   "2011-2013-adopted-budget": {
-    "title": "2011-2013 Adopted Spending (Treemap) - Open Budget: Oakland"
+    "title": "City of Oakland, Adopted Spending 2011-2013  (Treemap) - Open Budget: Oakland"
   },
 
   "2012-2013-sankey": {
-    "title": "2012-2013 Adopted Revenues & Spending (Sankey) - Open Budget: Oakland"
+    "title": "City of Oakland, Adopted Revenues & Spending 2012-2013 (Sankey) - Open Budget: Oakland"
   },
 
   "updated_mayor_13_15_proposed": {
