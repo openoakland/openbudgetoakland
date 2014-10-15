@@ -1,0 +1,36 @@
+!!! 5
+html
+  meta(charset='utf-8')
+  head
+    title Cash Flows: Revenue to Expense
+
+  body
+    .container
+        h2 Cash Flows: Revenue to Expense
+        p
+            |This diagram depicts the flow of money through Oakland's budget:
+            | from revenue sources (on the left), to the General Fund or various
+            | non-discretionary funds (in the center), and finally to the various
+            | city departments' expenses (on the right).
+        p
+            | Mouse over a flow line to highlight it; click on a bar to
+            | highlight all its flows.
+        div.row
+            div.col-md-3
+                h4 Fiscal Year
+                select#fy.form-control
+                    option(value="FY13-14") 2013-14
+                    option(value="FY14-15" selected) 2014-15
+
+        div#sankey
+          div#chart
+
+        h6
+            | Data source:&nbsp;
+            a(href = "https://data.oaklandnet.com/Financial/City-of-Oakland-Adopted-Policy-Budget-FY13-15/vmzx-e5fe") data.oaklandnet.com
+
+        div#hover_description
+
+        script(src='http://d3js.org/d3.v3.min.js', charset='utf-8')
+        script(src='js/sankey.js', charset='utf-8')
+        script(src='js/flow.js', charset='utf-8')
