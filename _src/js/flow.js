@@ -292,10 +292,36 @@ function do_with_budget(data) {
           return d.color;
       })
       .style("stroke", function(d) { return d3.rgb(d.color).darker(1); })
+      .on("mouseover", function(d){
+          var thisnode = d3.select(this.parentNode);
+
+        //   highlight node only, not flows
+          thisnode.classed("hover", true);
+
+        //   append total amount to label
+          thisnode.select("text").transition()
+            .text(function(d){
+                var text = d.name;
+                text += ': ' + format(d.value);
+                return text;
+            });
+      })
+      .on("mouseout", function(d){
+          var thisnode = d3.select(this.parentNode);
+        //   remove node highlight
+          thisnode.classed("hover", false);
+        //   remove amount from label
+        if (!thisnode.classed('highlight')) {
+            thisnode.select("text").transition()
+              .text(function(d){ return d.name; });
+        }
+
+      })
       .on("click", function(d){
           var thisnode = d3.select(this.parentNode);
           if (thisnode.classed("highlight")) {
               thisnode.classed("highlight", false);
+              thisnode.classed("hover", false);
           } else {
             //   node.classed("highlight", false);
               thisnode.classed("highlight", true);
