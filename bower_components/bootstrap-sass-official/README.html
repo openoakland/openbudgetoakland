@@ -1,0 +1,152 @@
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width"><link rel="stylesheet" href="/css/main.css"><title></title><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-35908939-3', 'openbudgetoakland.org');
+  ga('send', 'pageview');
+  </script><script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.5/d3.min.js"></script></head><body class="undefined"><div id="wrapper"><nav class="main-nav"><div class="navbar navbar-default navbar-fixed-top"><div class="container"><div class="navbar-header"><button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand">Open Budget: Oakland</a></div><div class="navbar-collapse collapse"><ul class="nav navbar-nav navbar-right"><li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a><ul class="dropdown-menu"><li><a href="what-we-do.html">What and How</a></li><li><a href="who-we-are.html">Who We Are</a></li><li><a href="news.html">News</a></li><li><a href="contact.html">Contact Us</a></li></ul></li><li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Oakland's Budget<b class="caret"></b></a><ul class="dropdown-menu"><li><a href="2013-2015-adopted-budget.html">2013-15 Adopted Budget</a></li><li><a href="2013-2015-adopted-budget-flow.html">2013-15 Adopted Budget (Flow)</a></li><li><a href="mayor-2013-2015-proposed.html">2013-15 Mayor's Proposed Spending</a></li><li><a href="2012-2013-sankey.html">2012-13 Adopted Revenues &amp; Spending (Flow)</a></li><li><a href="2011-2013-adopted-budget.html">2011-13 Adopted Spending</a></li><li><a href="budget-process.html">Overview of Oakland's Budget Process</a></li></ul></li><li><a href="http://data.openoakland.org/dataset/city-of-oakland-budget" target="_blank">Data</a></li><li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Resources<b class="caret"></b></a><ul class="dropdown-menu"><li><a href="oakland-budget-101.html">Oakland Budget 101</a></li><li><a href="tools-projects.html">Tools and Projects</a></li></ul><li><a href="feedback.html">Feedback</a></li></li></ul></div></div></div></nav><h1>Bootstrap for Sass <a href="http://badge.fury.io/rb/bootstrap-sass"><img src="https://badge.fury.io/rb/bootstrap-sass.svg" alt="Gem Version"></a> <a href="http://badge.fury.io/bo/bootstrap-sass-official"><img src="https://badge.fury.io/bo/bootstrap-sass-official.svg" alt="Bower Version"></a> <a href="http://travis-ci.org/twbs/bootstrap-sass"><img src="http://img.shields.io/travis/twbs/bootstrap-sass.svg" alt="Build Status"></a></h1>
+<p><code>bootstrap-sass</code> is a Sass-powered version of <a href="http://github.com/twbs/bootstrap">Bootstrap</a>, ready to drop right into your Sass powered applications.</p>
+<h2>Installation</h2>
+<p>Please see the appropriate guide for your environment of choice:</p>
+<h3>a. Ruby on Rails</h3>
+<p><code>bootstrap-sass</code> is easy to drop into Rails with the asset pipeline.</p>
+<p>In your Gemfile you need to add the <code>bootstrap-sass</code> gem, and ensure that the <code>sass-rails</code> gem is present - it is added to new Rails applications by default.</p>
+<pre><code class="language-ruby">gem &#39;bootstrap-sass&#39;, &#39;~&gt; 3.2.0&#39;
+gem &#39;sass-rails&#39;, &#39;&gt;= 3.2&#39;</code></pre>
+<p>It is also recommended to use <a href="https://github.com/ai/autoprefixer-rails">Autoprefixer</a> with Bootstrap
+to add browser vendor prefixes automatically. Simply add the gem:</p>
+<pre><code class="language-ruby">gem &#39;autoprefixer-rails&#39;</code></pre>
+<p><code>bundle install</code> and restart your server to make the files available through the pipeline.</p>
+<p>In <code>app/assets/application.css.sass</code>:</p>
+<pre><code class="language-sass">@import &quot;bootstrap-sprockets&quot;
+@import &quot;bootstrap&quot;</code></pre>
+<p>Do not use <code>//= require</code> in Sass or your other stylesheets will not be <a href="https://github.com/twbs/bootstrap-sass/issues/79#issuecomment-4428595">able to access</a> the Bootstrap mixins or variables.</p>
+<p>In <code>app/assets/application.js</code>:</p>
+<pre><code class="language-js">//= require jquery
+//= require bootstrap-sprockets</code></pre>
+<h4>Rails 3.2.x</h4>
+<p>Rails 3.2 is <a href="http://guides.rubyonrails.org/maintenance_policy.html">no longer maintained for bugfixes</a>, and you should upgrade as soon as possible.</p>
+<p>Starting with bootstrap-sass v3.1.1.1, due to the structural changes from upstream you will need these
+backported asset pipeline gems on Rails 3.2. There is more on why this is necessary in
+<a href="https://github.com/twbs/bootstrap-sass/issues/523">https://github.com/twbs/bootstrap-sass/issues/523</a> and <a href="https://github.com/twbs/bootstrap-sass/issues/578">https://github.com/twbs/bootstrap-sass/issues/578</a>.</p>
+<pre><code class="language-ruby">gem &#39;sprockets-rails&#39;, &#39;=2.0.0.backport1&#39;
+gem &#39;sprockets&#39;, &#39;=2.2.2.backport2&#39;
+gem &#39;sass-rails&#39;, github: &#39;guilleiguaran/sass-rails&#39;, branch: &#39;backport&#39;</code></pre>
+<h3>b. Compass without Rails</h3>
+<p>Install the gem</p>
+<pre><code class="language-sh">gem install bootstrap-sass</code></pre>
+<p>If you have an existing Compass project:</p>
+<pre><code class="language-ruby"># config.rb:
+require &#39;bootstrap-sass&#39;</code></pre>
+<pre><code class="language-console">$ bundle exec compass install bootstrap</code></pre>
+<p>If you are creating a new Compass project, you can generate it with bootstrap-sass support:</p>
+<pre><code class="language-console">$ bundle exec compass create my-new-project -r bootstrap-sass --using bootstrap</code></pre>
+<p>or, alternatively, if you&#39;re not using a Gemfile for your dependencies:</p>
+<pre><code class="language-console">$ compass create my-new-project -r bootstrap-sass --using bootstrap</code></pre>
+<p>This will create a new Compass project with the following files in it:</p>
+<ul>
+<li><a href="/templates/project/styles.sass">styles.sass</a> - main project Sass file, imports Bootstrap and variables.</li>
+<li><a href="/templates/project/_bootstrap-variables.sass.erb">_bootstrap-variables.sass</a> - all of Bootstrap variables, override them here.</li>
+</ul>
+<p>Some bootstrap-sass mixins may conflict with the Compass ones.
+If this happens, change the import order so that Compass mixins are loaded later.</p>
+<h3>c. Bower</h3>
+<p>Using bootstrap-sass as a Bower package is still being tested. It is compatible with node-sass 0.8.3+. You can install it with:</p>
+<pre><code class="language-console">$ bower install bootstrap-sass-official</code></pre>
+<p><code>bootstrap-sass</code> is taken so make sure you use the command above.</p>
+<p>Sass, JS, and all other assets are located at <a href="/assets">assets</a>.</p>
+<p>By default, <code>bower.json</code> main field list only the main <code>bootstrap.scss</code> and all the static assets (fonts and JS).
+This is compatible by default with asset managers such as <a href="https://github.com/taptapship/wiredep">wiredep</a>.</p>
+<h4>Node.js Mincer</h4>
+<p>If you use <a href="https://github.com/nodeca/mincer">mincer</a> with node-sass, import bootstrap into like so:</p>
+<p>In <code>application.css.ejs.scss</code> (NB <strong>.css.ejs.css</strong>):</p>
+<pre><code class="language-scss">// Import mincer asset paths helper integration
+@import &quot;bootstrap-mincer&quot;;
+@import &quot;bootstrap&quot;;</code></pre>
+<p>In <code>application.js</code>:</p>
+<pre><code class="language-js">//= require bootstrap-sprockets</code></pre>
+<p>See also this <a href="/test/dummy_node_mincer/manifest.js">example manifest.js</a> for mincer.</p>
+<h3>Configuration</h3>
+<h4>Sass</h4>
+<p>By default all of Bootstrap is imported.</p>
+<p>You can also import components explicitly. To start with a full list of modules copy
+<a href="assets/stylesheets/bootstrap.scss"><code>bootstrap.scss</code></a> file into your assets as <code>bootstrap-custom.scss</code>.
+Then comment out components you do not want from <code>bootstrap-custom</code>.
+In the application Sass file, replace <code>@import &#39;bootstrap&#39;</code> with:</p>
+<pre><code class="language-sass">@import &#39;bootstrap-custom&#39;</code></pre>
+<h4>Sass: Number Precision</h4>
+<p>bootstrap-sass <a href="https://github.com/twbs/bootstrap-sass/issues/409">requires</a> minimum <a href="http://sass-lang.com/documentation/Sass/Script/Number.html#precision-class_method">Sass number precision</a> of 10 (default is 5).</p>
+<p>Precision is set for Rails and Compass automatically.
+When using ruby Sass compiler standalone or with the Bower version you can set it with:</p>
+<pre><code class="language-ruby">::Sass::Script::Number.precision = [10, ::Sass::Script::Number.precision].max</code></pre>
+<p>Note that libsass and node-sass do not currently support the precision option, due to an open bug (<a href="https://github.com/sass/libsass/issues/364">bug #364</a>) in libsass.</p>
+<h4>Sass: Autoprefixer</h4>
+<p>Using <a href="https://github.com/ai/autoprefixer">Autoprefixer</a> with Bootstrap is recommended.
+<a href="https://github.com/ai/autoprefixer">Autoprefixer</a> adds vendor prefixes to CSS rules using values from <a href="http://caniuse.com/">Can I Use</a>.</p>
+<h4>JavaScript</h4>
+<p><a href="/assets/javascripts/bootstrap.js"><code>assets/javascripts/bootstrap.js</code></a> contains all of Bootstrap JavaScript,
+concatenated in the <a href="/assets/javascripts/bootstrap-sprockets.js">correct order</a>.</p>
+<h4>JavaScript with Sprockets or Mincer</h4>
+<p>If you use Sprockets or Mincer, you can require <code>bootstrap-sprockets</code> instead to load the individual modules:</p>
+<pre><code class="language-js">// Load all Bootstrap JavaScript
+//= require bootstrap-sprockets</code></pre>
+<p>You can also load individual modules, provided you also require any dependencies.
+You can check dependencies in the <a href="http://getbootstrap.com/javascript/#transitions">Bootstrap JS documentation</a>.</p>
+<pre><code class="language-js">//= require bootstrap/scrollspy
+//= require bootstrap/modal
+//= require bootstrap/dropdown</code></pre>
+<h4>Fonts</h4>
+<p>The fonts are referenced as:</p>
+<pre><code class="language-sass">&quot;#{$icon-font-path}#{$icon-font-name}.eot&quot;</code></pre>
+<p><code>$icon-font-path</code> defaults to <code>bootstrap/</code>.</p>
+<p>When using with Compass, Sprockets, or Mincer, make sure to import the relevant path helpers before Bootstrap itself, for example:.</p>
+<pre><code class="language-sass">@import bootstrap-compass
+@import bootstrap</code></pre>
+<h2>Usage</h2>
+<h3>Sass</h3>
+<p>Import Bootstrap into a Sass file (for example, application.css.scss) to get all of Bootstrap&#39;s styles, mixins and variables!</p>
+<pre><code class="language-scss">@import &quot;bootstrap&quot;;</code></pre>
+<p>You can also include optional bootstrap theme:</p>
+<pre><code class="language-scss">@import &quot;bootstrap/theme&quot;;</code></pre>
+<p>The full list of bootstrap variables can be found <a href="http://getbootstrap.com/customize/#less-variables">here</a>. You can override these by simply redefining the variable before the <code>@import</code> directive, e.g.:</p>
+<pre><code class="language-scss">$navbar-default-bg: #312312;
+$light-orange: #ff8c00;
+$navbar-default-color: $light-orange;
+
+@import &quot;bootstrap&quot;;</code></pre>
+<hr>
+<h2>Development and Contributing</h2>
+<p>If you&#39;d like to help with the development of bootstrap-sass itself, read this section.</p>
+<h3>Upstream Converter</h3>
+<p>Keeping bootstrap-sass in sync with upstream changes from Bootstrap used to be an error prone and time consuming manual process. With Bootstrap 3 we have introduced a converter that automates this.</p>
+<p><strong>Note: if you&#39;re just looking to <em>use</em> Bootstrap 3, see the <a href="#installation">installation</a> section above.</strong></p>
+<p>Upstream changes to the Bootstrap project can now be pulled in using the <code>convert</code> rake task.</p>
+<p>Here&#39;s an example run that would pull down the master branch from the main <a href="https://github.com/twbs/bootstrap">twbs/bootstrap</a> repo:</p>
+<pre><code>rake convert</code></pre>
+<p>This will convert the latest LESS to Sass and update to the latest JS.
+To convert a specific branch or version, pass the branch name or the commit hash as the first task argument:</p>
+<pre><code>rake convert[e8a1df5f060bf7e6631554648e0abde150aedbe4]</code></pre>
+<p>The latest converter script is located <a href="https://github.com/twbs/bootstrap-sass/blob/master/tasks/converter/less_conversion.rb">here</a> and does the following:</p>
+<ul>
+<li>Converts upstream bootstrap LESS files to its matching SCSS file.</li>
+<li>Copies all upstream JavaScript into <code>assets/javascripts/bootstrap</code>, an Sprockets manifest at <code>assets/javascripts/bootstrap-sprockets.js</code>, and a concatenation at <code>assets/javascripts/bootstrap.js</code>.</li>
+<li>Copies all upstream font files into <code>assets/fonts/bootstrap</code>.</li>
+<li>Sets <code>Bootstrap::BOOTSTRAP_SHA</code> in <a href="https://github.com/twbs/bootstrap-sass/blob/master/lib/bootstrap-sass/version.rb">version.rb</a> to the branch sha.</li>
+</ul>
+<p>This converter fully converts original LESS to SCSS. Conversion is automatic but requires instructions for certain transformations (see converter output).
+Please submit GitHub issues tagged with <code>conversion</code>.</p>
+<h2>Credits</h2>
+<p>bootstrap-sass has a number of major contributors:</p>
+<p><!-- feel free to make these link wherever you wish -->
+<em> <a href="https://twitter.com/thomasmcdonald_">Thomas McDonald</a>
+</em> <a href="http://www.trisweb.com">Tristan Harward</a>
+<em> Peter Gumeson
+</em> <a href="https://github.com/glebm">Gleb Mazovetskiy</a></p>
+<p>and a <a href="https://github.com/twbs/bootstrap-sass/graphs/contributors">significant number of other contributors</a>.</p>
+<h2>You&#39;re in good company</h2>
+<p>bootstrap-sass is used to build some awesome projects all over the web, including
+<a href="http://diasporaproject.org/">Diaspora</a>, <a href="https://github.com/sferik/rails_admin">rails_admin</a>,
+Michael Hartl&#39;s <a href="http://railstutorial.org/">Rails Tutorial</a>, <a href="http://gitlabhq.com/">gitlabhq</a> and
+<a href="http://kandanapp.com/">kandan</a>.</p>
+<div id="wrapper-footer"></div></div><footer id="footer"><div class="container"><div class="row"><div class="col-md-6 col-sm-9"><p> 
+Open Budget: Oakland is an open-source project by <a href="http://openoakland.org">OpenOakland</a> to help citizens better understand Oakland's spending and budget process.</p><ul class="list-inline"><li><a href="http://openoakland.org"><img src="/images/global/openoakland-logo.png"></a></li><li><a href="https://twitter.com/openbudgetoak"><img src="/images/global/twitter-icon.png"></a></li><li><a href="https://github.com/openoakland/openbudgetoakland"><img src="/images/global/github-icon.png"></a></li></ul></div><div class="col-sm-3 col-md-push-3"><ul class="list-unstyled"><li><a href="who-we-are.html">About the Project</a></li><li><a href="http://www.meetup.com/OpenOakland">Get Involved</a></li><li><a href="feedback.html">Give Feedback</a></li></ul></div></div></div></footer><link href="http://fonts.googleapis.com/css?family=Arvo:400,700" rel="stylesheet" type="text/css"></body></html>
