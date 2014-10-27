@@ -104,22 +104,31 @@ Once you have made all your changes, you'll need to compile everything in order 
 
 
 ```
-# make sure your repo is up to date
+# make sure your repo is up to date and you are on the master branch
 git fetch
-# make sure you are on the master branch
 git checkout master
+
 # merge your changes from your branch or development into master
 git merge origin/development
+
 # here's where it gets hacky - open to suggestions for an improved workflow
-# delete the gh-pages branch
+# delete the gh-pages branch and then recreate it as an orphan (untracked) branch
 git branch -D gh-pages
-# create an 'orphan' gh-pages branch
 git checkout --orphan gh-pages
-# add and commit files
+
+# move into the _src directory and compile source files to the root
+cd _src
+harp compile ./ ../
+
+# move back to the root, and add and commit files
+cd ../
 git add -A
 git commit -m "deploy"
+
 # push changes to remote gh-pages branch using *gasp* --force!
+# !!! Never push --force on any public branch besides gh-pages!
 git push --set-upstream origin gh-pages --force
+
 # make sure your changes are showing up and you didn't break anything
 ```
 
