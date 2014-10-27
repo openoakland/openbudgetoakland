@@ -30,13 +30,13 @@ Once you have npm installed, you can install Harp
 
 ```
 # to install harp for the first time
-$ npm install harp -g
+npm install harp -g
 ```
 
 ```
 # To start the Harp server, cd to the _src directory
-$ cd [repo-location]/_src
-$ harp server
+cd [repo-location]/_src
+harp server
 ```
 
 ## Making Changes
@@ -48,43 +48,54 @@ This project is coded with:
 - [Bootstrap](http://getbootstrap.com/)
 
 
+## Creating & Editing Pages
 
-## Adding & Editing Pages
+- Page content is inserted into the layout.jade file (which includes basic header and footer snippets)
+- Create your .jade file
+- Add a link to the main nav in the appropriate place
+- Add relevant metadata in _data.json (page title, page slug (url), ...)
+- If your page uses custom page-specific css, add it to a new .scss partial and import it into the main stylesheet. (Make sure to namespace it the same way the others are.)
 
-- update metadata in _data.json (page title, page slug (url), ...)
 
 
 ## Publishing Changes
+Make changes on your personal fork or branch. If you have repo access, and your changes are ready for review, you can merge them into the development branch and publish to the staging site for review. You can also publish changes to your own server and merge to development afterwards.
 
-### Publishing a preview
+### Publishing to Staging
 If you have access to the openoakland repo, you can easily publish a preview of your changes to [staging.openbudgetoakland.org](http://staging.openbudgetoakland.org) with the script below.
 
 ```
-# Run shell script
-bash _publish-preview.sh
+# Run shell script to publish changes from your current branch to the staging 
+# Because of path referencing, you'll need to run this script from inside the _src directory for now
+bash ../_publish-preview.sh
 ```
 
-### Compiling Static Files
+### Publishing to Production
 
 Even though Harp runs locally, static files need to be compiled for the live site (hosted on Github pages).
-Once you have made all your changes, you'll need to compile everything in order for it to run on gh-pages.
+Once you have made all your changes, you'll need to compile everything in order for it to run on gh-pages. Because of how Harp compiles (that it clears the target directory), this workflow gets a bit wonky. We'll try to make it a little less fragile if people begin publishing changes more often.
 
-*__make script to compile and publish to root__
 
 ```
-$ harp compile _src ./
-# Make sure you are in the directory root of the repository
+# make sure your repo is up to date
+git fetch
+# make sure you are on the master branch
+git checkout master
+# merge your changes from your branch or development into master
+git merge origin/development
+# here's where it gets hacky - open to suggestions for an improved workflow
+# delete the gh-pages branch
+git branch -D gh-pages
+# create an 'orphan' gh-pages branch
+git checkout --orphan gh-pages
+# add and commit files
+git add -A
+git commit -m "deploy"
+# push changes to remote gh-pages branch using *gasp* --force!
+git push --set-upstream origin gh-pages --force
+# make sure your changes are showing up and you didn't break anything
 ```
 
-
-### Commit and Push
-Now just make your final commit, and push your changes to the gh-pages branch.
-
-```
-$ git add -A
-$ git commit -m "[your commit message]"
-$ git push
-```
 
 If you are on a forked branch, create a pull request to have your changes reviewed for merge!
 
