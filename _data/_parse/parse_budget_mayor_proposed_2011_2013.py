@@ -11,6 +11,19 @@ import obpy.xlsx
 
 _logger = logging.getLogger(__name__)
 
+def _chain(funcs):
+    def _apply(x):
+        for f in funcs:
+            x = f(x)
+        return x
+    return _apply
+
+def _re(expression):
+    def _apply(x):
+        m = re.match(expression, x)
+        return m.group(1)
+    return _apply
+
 def _title(x):
     return x.title()
 
@@ -52,7 +65,7 @@ _xlsx_config = {
                     'patterns': [
                         re.compile(r'.*fund.*description.*', re.I)
                     ],
-                    'process': _title
+                    'process': _chain([_re(r'\d+ - (.*)'), _title])
                 },
                 {
                     'type': 'program',
@@ -80,7 +93,7 @@ _xlsx_config = {
                     'patterns': [
                         re.compile(r'.*account.*description.*', re.I)
                     ],
-                    'process': _title
+                    'process': _chain([_re(r'\d+ - (.*)'), _title])
                 },
                 {
                     'type': 'amount',
