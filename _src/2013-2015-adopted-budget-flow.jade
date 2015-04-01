@@ -82,10 +82,12 @@ script.
     drawFlow();
 
     function drawFlow(){
+        years.reverse();
         var fy = d3.select("#fy.form-control").node().value,
             fy_i = years.indexOf(fy),
             file_i = Math.floor(fy_i / 2),
             filename = datafiles[file_i];
+        years.reverse();
 
         d3.csv("data/flow/" + filename, function(error, data){
             var final_data = data_wrangle(data, fy);

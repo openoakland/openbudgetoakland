@@ -356,13 +356,3 @@ function do_with_budget(data) {
       .attr("x", 6 + sankey.nodeWidth())
       .attr("text-anchor", "start");
 };
-
-// d3.csv("data/2013-2015-public-adopted/City_of_Oakland_Adopted_Policy_Budget_FY13-15.csv", function(error, data){
-//     var oakland_data = [];
-//     oakland_data["FY13-14"] = data_wrangle(data, "FY13-14");
-//     do_with_budget(oakland_data["FY13-14"]);
-//     oakland_data["FY14-15"] = data_wrangle(data, "FY14-15");
-//     $('#fy').on("change", function(){
-//         do_with_budget(oakland_data[this.value]);
-//     })
-// });
