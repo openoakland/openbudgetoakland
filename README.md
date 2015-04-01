@@ -17,7 +17,7 @@ git clone git@github.com:[your-user]/openbudgetoakland.git
 
 This site is built on Harp using Node.js That means you can run it locally with minimal setup!
 
-What you'll need: 
+What you'll need:
 
 -  [Node](http://nodejs.org/download/)
 -  [npm](https://www.npmjs.org/)
@@ -53,6 +53,33 @@ This project is coded with:
 
 - update metadata in _data.json (page title, page slug (url), ...)
 
+### Adding additional datasets to the Flow diagram page
+
+This chart takes as input the full budget datatable from data.oaklandnet.com
+(in CSV format)
+
+To add additional datasets as they become available, follow these steps:
+
+1. add the CSV to _src/data/flow/
+1. rename the file to include the two fiscal years it includes, separated by two underscores (e.g., "FY13-14__FY14-15.csv")
+1. open the csv and make sure all column headings are standardized to the following names:
+    - budget_year
+    - department
+    - division
+    - org_code
+    - org_description
+    - fund_code
+    - fund_description
+    - project_code
+    - project_description
+    - program_code
+    - program_description
+    - account_type
+    - account_category
+    - account_code
+    - account_description
+    - amount
+1. test it in Harp in the dev branch, and it should compile properly for deployment
 
 ## Publishing Changes
 
@@ -87,4 +114,3 @@ $ git push
 ```
 
 If you are on a forked branch, create a pull request to have your changes reviewed for merge!
-
