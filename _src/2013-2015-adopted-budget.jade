@@ -7,6 +7,11 @@
     margin: auto;
     padding-top: 10px;
     }
+    #breadcrumbs {
+    margin: 0px;
+    padding: 0px;
+    cursor:pointer;
+    }
     #table {
     display: block;
     max-width: 100%;
@@ -38,11 +43,20 @@
       p Select year and account (revenues or expenses). Click on a fund to see the departments that receive its funding. Click on that department to see its spending or revenue.
 
       p The <strong>General Fund</strong> — roughly 40% of Oakland's total budget -- is decided by a <a href="/budget-process.html">budget process</a> that includes private and public meetings, surveys, and negotiations. The other 60% of the budget comes from taxes, ballot measures, grants, fees, and other sources.
+
   .row
-    #dropdown
+    .col-sm-12
+      p#breadcrumbs
+  .row
+    .col-sm-6
+      h3#title title
+    .col-sm-6#dropdown
   #treemap
   #spacer
   #table(style="margin-bottom: 30px;")
+
+
+
 
   section#comments
     .row
@@ -92,29 +106,38 @@ script.
     }
   };
 
+
+  function _hash_normalize(s) {
+    return s.toLowerCase().replace(/\s+/g, '');
+  }
+
+  function _hash_compare(v1, v2) {
+    return _hash_normalize(v1) == _hash_normalize(v2) ? 0 : 1;
+  }
+
   function _parse_hash(hash) {
+    function _parse_hash_dropdown(arr, category) {
+      if (arr.length) {
+        var x = arr.shift();
+        /* see if hash array value matches to dropdown value, and set value
+         * it matches */
+        var idx = ob.data.findIndex(
+          config.dropdown_values[category], x, _hash_compare);
+        if (idx > -1) {
+          config.dropdown_choice[category] = config.dropdown_values[category][idx];
+        }
+      }
+    }
+
     var hash_array = hash.split(".");
-    if (hash_array.length) {
-      var x = hash_array.shift();
-      if (config.dropdown_values["Year"].indexOf(x) > -1) {
-        config.dropdown_choice["Year"] = x;
-      }
-    }
-    if (hash_array.length) {
-      var x = hash_array.shift();
-      if (config.dropdown_values["Account"].indexOf(x) > -1) {
-        config.dropdown_choice["Account"] = x;
-      }
-    }
+    _parse_hash_dropdown(hash_array, "Year");
+    _parse_hash_dropdown(hash_array, "Account");
     return hash_array.join(".");
   }
 
-  function _load_hash() {
-    var hash = window.location.hash.replace("#", "");
-    _parse_hash(hash);
-  }
-
-  _load_hash();
+  /* need to parse hash on load before creating treemap to make sure we
+   * don't set the dropdown values before reading them from the hash */
+  _parse_hash(window.location.hash.replace("#",""));
 
   /* get width of container */
   var parent = d3.select(".container");
@@ -130,9 +153,15 @@ script.
     .dropdown("#dropdown")
     .spreadsheet("#table")
     .treemap("#treemap")
+    .title("#title")
+    .breadcrumbs("#breadcrumbs")
+    .hashnorm(_hash_normalize)
+    .hashcmp(_hash_compare)
     .on("set_hash", function(hash) {
       /* add year and account to hash for linking */
-      var prefix = config.dropdown_choice["Year"] + "." + config.dropdown_choice["Account"];
+      var prefix = _hash_normalize(config.dropdown_choice["Year"]) +
+        "." +
+        _hash_normalize(config.dropdown_choice["Account"]);
       return hash.length ? prefix + "." + hash : prefix;
     })
     .on("get_hash", function(hash) { return _parse_hash(hash); })

@@ -34,8 +34,14 @@ ob.display = ob.display || {};
 				return this;
 			},
 			track: function() {
+        var width = parseFloat(_tooltip.style("width"));
+        var window_width = window.innerWidth;
+        var left = event.pageX + _offset.left;
+        if ((left + width) > window_width) {
+          left = window_width - width;
+        }
 				_tooltip.style("top", (event.pageY + _offset.top)+"px")
-					.style("left",(event.pageX + _offset.left)+"px");
+					.style("left",left+"px");
 		    },
 			hide: function() {
 				_tooltip.style("visibility", "hidden");
