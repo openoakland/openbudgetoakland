@@ -32,6 +32,8 @@ ob.display = ob.display || {};
     var _spreadsheet_selector = "#table";
     var _treemap_selector = "#treemap";
     var _dropdown_selector = "#dropdown";
+    var _title_selector = "#title";
+    var _breadcrumbs_selector = "#breadrumbs";
     /* layout settings */
     var _layout = {
       width: 800,
@@ -50,6 +52,14 @@ ob.display = ob.display || {};
       }
     };
 
+    var _hash_normalize = function(s) {
+      return s;
+    }
+
+    var _hash_compare = function(v1, v2) {
+      return v1 == v2 ? 0 : 1;
+    }
+
     /* interaction */
     var _on_handlers = {};
     /* apply all events defined in _on_handlers to an object that supports the
@@ -64,6 +74,7 @@ ob.display = ob.display || {};
         }
       }
     }
+
 
     /* create and configure the tooltip */
     var _tooltip_function = function(d, i) {
@@ -81,6 +92,16 @@ ob.display = ob.display || {};
 
     /* determine current view in hierarchy based on url _hash */
     var _hash = {
+      _expected_hash: '',
+
+      expected: function() {
+        if (arguments.length) {
+          this._expected_hash = arguments[0];
+          return this;
+        }
+        return this._expected_hash;
+      },
+
       get: function(root) {
         var hash = window.location.hash.replace("#", "");
         if (_on_handlers.hasOwnProperty("get_hash")) {
@@ -92,21 +113,25 @@ ob.display = ob.display || {};
         }
         return _cruncher.spelunk(
           root,
-          hash.split(".")
+          hash.split("."),
+          _hash_compare
         );
       },
       set: function(node) {
         var hash = _cruncher.path(node)
           .slice(1)
-          .map(function(d) { return d.key; })
+          .map(function(d) { return _hash_normalize(d.key); })
           .join('.');
         if (_on_handlers.hasOwnProperty("set_hash")) {
           hash = _on_handlers["set_hash"](hash);
         }
+        this.expected(hash);
         window.location.hash = hash;
-
       }
     };
+
+
+
 
     return {
       width: function() {
@@ -147,6 +172,22 @@ ob.display = ob.display || {};
           return this;
         }
         return _palette;
+      },
+
+      hashnorm: function() {
+        if (arguments.length) {
+          _hash_normalize = arguments[0];
+          return this;
+        }
+        return _hash_normalize;
+      },
+
+      hashcmp: function() {
+        if (arguments.length) {
+          _hash_compare = arguments[0];
+          return this;
+        }
+        return _hash_compare;
       },
 
 			value: function() {
@@ -211,8 +252,34 @@ ob.display = ob.display || {};
         return _treemap_selector;
       },
 
+      title: function() {
+        if (arguments.length) {
+          _title_selector = arguments[0];
+          return this;
+        }
+        return _title_selector;
+      },
+
+      breadcrumbs: function() {
+        if (arguments.length) {
+          _breadcrumbs_selector = arguments[0];
+          return this;
+        }
+        return _breadcrumbs_selector;
+      },
 
       create: function() {
+
+        /* this handles changes due to backbuttons in the browser */
+        var self = this;
+        window.onhashchange = function(e) {
+          var hash = window.location.hash.replace("#", "");
+          if (hash != _hash.expected()) {
+            self.refresh();
+          }
+        };
+
+
         /* create initial color palette */
         var _color_stack = ob.palette.stack().palette(d3.scale.ordinal().range(_palette));
         this._create_dropdown();
@@ -224,6 +291,34 @@ ob.display = ob.display || {};
         * after it has loaded */
         d3.json(_url, function(data) {
           var root = data;
+          function _create_breadcrumbs(d) {
+            var current_node = d;
+            d3.select(_breadcrumbs_selector).selectAll(".crumb").remove();
+
+            var crumbs = d3.select(_breadcrumbs_selector)
+              .selectAll(".crumb")
+              .data(ob.data.hierarchy().path(d));
+
+            crumbs.enter().append("span")
+              .attr("class", "crumb")
+              .on("click", function(clicked, i) {
+                if (clicked == current_node) {
+                  /* don't transition if they click on the same data that is already
+                     being display */
+                  return;
+                }
+                var levels = 0;
+                var current = current_node;
+                while (current && current != clicked) {
+                  levels -= 1;
+                  current = current.parent;
+                }
+                _treemap.transition(clicked, levels, false);
+              })
+              .text(function(d, i) {
+                return i > 0 ? ' > ' + d.key : d.key;
+              });
+          }
 
           /* set parent links */
           _cruncher.apply(root, function(node) {
@@ -322,7 +417,6 @@ ob.display = ob.display || {};
                       
                     });
                 }
-
               }
             });
 
@@ -381,6 +475,9 @@ ob.display = ob.display || {};
               _hash.set(d);
               _spreadsheet.data(d.values)
                 .display();
+              d3.select(_title_selector).text(d.key);
+              /* set breadcrumbs */
+              _create_breadcrumbs(d);
             })
             .on("transition", function(d, i, direction) {
               /* This is called right before a transition from one
@@ -404,7 +501,14 @@ ob.display = ob.display || {};
           /* when the spreadsheet is clicked, tell the treemap to
           * transition */
           _spreadsheet.on("click", _treemap.transition);
+
+          /* set title */
+          d3.select(_title_selector).text(node.key);
+
+          /* set breadcrumbs */
+          _create_breadcrumbs(node);
         });
+
       },
 
       _create_dropdown: function() {
@@ -421,7 +525,7 @@ ob.display = ob.display || {};
           .data(values)
           .enter()
           .append("div")
-          .attr("class", "col-md-3 dropdown")
+          .attr("class", "col-sm-6 dropdown")
           .text(function(d) {
             return d;
           })
@@ -429,6 +533,7 @@ ob.display = ob.display || {};
           .attr("class", "form-control")
           .on("change", function(d) {
             _config.dropdown_choice[d] = this.options[this.selectedIndex].value;
+            _hash.set(_treemap.node());
             self.refresh();
           });
         _apply_handlers(_dropdown);
