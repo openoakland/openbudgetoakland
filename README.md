@@ -58,10 +58,10 @@ This project is coded with:
 This chart takes as input the full budget datatable from data.oaklandnet.com
 (in CSV format)
 
-To add additional datasets as they become available, follow these steps:
+Right now the 2015-17 Proposed page is an unpublished placeholder, pending the data release. When the data becomes available: 
 
-1. add the CSV to _src/data/flow/
-1. rename the file to include the two fiscal years it includes, separated by two underscores (e.g., "FY13-14__FY14-15.csv")
+1. add the CSV to `_src/data/proposed_1517_flow/` and **remove the placeholder file FY13-14__FY14-15.csv**
+1. rename the file to include the two fiscal years it includes, separated by two underscores ("FY15-16__FY16-17.csv")
 1. open the csv and make sure all column headings are standardized to the following names:
     - budget_year
     - department
