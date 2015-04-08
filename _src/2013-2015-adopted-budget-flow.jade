@@ -1,7 +1,7 @@
 .container 
   .row
     .intro.col-md-8
-      h2 Cash Flows: Revenue to Expense
+      h2 2013-15 Adopted Budget: Cash Flow
       p This diagram depicts the flow of money through Oakland's budget: from revenue sources (on the left), to the General Fund or various non-discretionary funds (in the center), and finally to the various city departments' expenses (on the right).
       p 
         em Mouse over a flow line to highlight it; click on a bar to highlight all its flows.
@@ -52,7 +52,7 @@ script(src='js/flow.js', charset='utf-8')
 //- which is necessary to get a list of files in the directory
 | <script type='text/javascript'>
 |   var datafiles = [];
-- for file in public.data.flow._contents
+- for file in public.data.adopted_1315_flow._contents
     | datafiles.push("
     = file
     | ");    
@@ -87,7 +87,7 @@ script.
             filename = datafiles[file_i];
         years.reverse();
 
-        d3.csv("data/flow/" + filename, function(error, data){
+        d3.csv("data/adopted_1315_flow/" + filename, function(error, data){
             var final_data = data_wrangle(data, fy);
             do_with_budget(final_data);
         });
