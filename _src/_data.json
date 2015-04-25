@@ -67,5 +67,13 @@
 
   "updated-mayor-2013-2015-proposed": {
     "title": "UPDATED: 2013-2015 Mayor's Proposed Spending (Treemap) v2 - Open Budget: Oakland"
+  }, 
+
+  "2015-17-proposed-budget": {
+    "title": "Mayor's 2015-17 Proposed Policy Budget"
+  },
+
+  "2015-17-proposed-budget-flow": {
+    "title": "Cash Flow: Mayor's 2015-17 Proposed Policy Budget"
   }
 }
