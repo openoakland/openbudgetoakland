@@ -17,14 +17,14 @@ To create the treemap data files perform the following steps:
 	> File > Save As...
 2. Create or edit a configuration file.
 	> To view an existing configuration file, open the config.json
-
+	
 	> The configuration file controls how the budget data is parsed. It tells the parser the header names, how to group data in the budget, the hierarchy ordering, and the output filenames. Generally, you'll only have to update the years if you're updating an existing configuration file for consitent budget format.
 
 	> See [Appendix: Data Processing Configuration File Details](#dataconfigappendix) for more information about the configuration file.
 
 3. Run the data processing [python](https://www.python.org/) script
 	> In the terminal:
-
+		
 		$ python treemap_process_data.py config.json budget.csv
 
 	> If your confused, try the --help option
@@ -48,7 +48,7 @@ To create the treemap data files perform the following steps:
 		mv Revenue.FY14-15.json ../_src/data/my-budget-directory/
 		mv Expense.FY13-14.json ../_src/data/my-budget-directory/
 		mv Expense.FY14-15.json ../_src/data/my-budget-directory/
-
+  
 5. Add that stuff to git
 
 		git add ../_src/data/my-budget-directory/*
@@ -58,11 +58,11 @@ Creating a Jade Template Page
 -----------------------------
 The jade template page will soon turn into your budget webpage!
 
-1. Make a copy of the treemap-template.jade file with your new filename.
+1. Make a copy of the treemap-template.jade file with your new filename.  
 	> git cp treemap-template.jade my-new-budget.jade
 2. Open your new file and update some text.
 	* Scroll down until you see the "BUDGET_TITLE" text and insert whatever title you deem appropriate.
-
+		
 			h1 BUDGET_TITLE
 
 	* Update the disqus_identifier info
@@ -117,7 +117,7 @@ Linking The New Treemap
 -----------------------
 
 To add the links to your budget open up the \_layout.jade file. Look for the section where the budget visualizations are defined, and add in yours
-
+	
 				li.dropdown
                   a.dropdown-toggle(href='#', data-toggle='dropdown')
                     | Oakland's Budget
@@ -145,8 +145,8 @@ Appendix
 
 <a name="dataconfigappendix"></a>
 ### Appendix A: Data Processing Configuration File Details
-The configuration file controls how the budget data is parsed. It tells the
-parser the header names, how to group data in the budget, the hierarchy
+The configuration file controls how the budget data is parsed. It tells the 
+parser the header names, how to group data in the budget, the hierarchy 
 ordering, and the output filenames. Generally, you'll only have to update the
 years if you're updating an existing configuration file for consitent budget format.
 
@@ -174,24 +174,24 @@ Example:
 			{
 				"values": ["Expense", "FY13-14"],
 				"hierarchy":[
-					"Budget Year Name",
-					"Fund Description",
-					"Department",
-					"Division",
-					"Account Category",
-					"Account  Description"
+					"Budget Year Name", 
+					"Fund Description", 
+					"Department", 
+					"Division", 
+					"Account Category", 
+					"Account  Description" 
 				],
 				"filename": "Expense.FY13-14.json"
 			},
 			{
 				"values": ["Expense", "FY14-15"],
 				"hierarchy":[
-					"Budget Year Name",
-					"Fund Description",
-					"Department",
-					"Division",
-					"Account Category",
-					"Account  Description"
+					"Budget Year Name", 
+					"Fund Description", 
+					"Department", 
+					"Division", 
+					"Account Category", 
+					"Account  Description" 
 				],
 				"filename": "Expense.FY14-15.json"
 			}
@@ -218,10 +218,10 @@ Description of fields:
 		"grouping_headers": [column_header, ...]
 
 * groups
-	> A list of one or more group configurations.
+	> A list of one or more group configurations.  
 	> On the treemap webpage, different "groups" show up as different dropdown menu options.
 
-		"groups" : {
+		"groups" : { 
 			"values": [value, ...],
 			"hierarcy": [column_header, ...],
 			"filename": group_filename
@@ -232,6 +232,7 @@ Description of fields:
 
 	> * hierarchy
 	> 	> A list of column headers that control the order in which budget items are summarized.
-
+	
 	> * filename
 	>	> The output filename for that group.
+

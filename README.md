@@ -92,7 +92,7 @@ Make changes on your personal fork or branch. If you have repo access, and your 
 If you have access to the openoakland repo, you can easily publish a preview of your changes to [staging.openbudgetoakland.org](http://staging.openbudgetoakland.org) with the script below.
 
 ```
-# Run shell script to publish changes from your current branch to the staging
+# Run shell script to publish changes from your current branch to the staging 
 # Because of path referencing, you'll need to run this script from inside the _src directory for now
 bash ../_publish-preview.sh
 ```
@@ -124,13 +124,17 @@ harp compile ./ ../
 cd ../
 git add -A
 git commit -m "deploy"
-
-# push changes to remote gh-pages branch using *gasp* --force!
+  
+# push changes to remote gh-pages branch using *gasp* --force! 
 # !!! Never push --force on any public branch besides gh-pages!
-git push --set-upstream origin gh-pages --force
+git push --set-upstream origin gh-pages --force  
 
 # make sure your changes are showing up and you didn't break anything
 ```
 
+# merge your changes from your branch or development into master
+git merge origin/development
+
+If you are on a forked branch, create a pull request to have your changes reviewed for merge!
 
 If you are on a forked branch, create a pull request to have your changes reviewed for merge!

@@ -20,24 +20,24 @@
 		{
 			"values": ["Expense", "FY13-14"],
 			"hierarchy":[
-				"Budget Year Name",
-				"Fund Description",
-				"Department",
-				"Division",
-				"Account Category",
-				"Account  Description"
+				"Budget Year Name", 
+				"Fund Description", 
+				"Department", 
+				"Division", 
+				"Account Category", 
+				"Account  Description" 
 			],
 			"filename": "Expense.FY13-14.json"
 		},
 		{
 			"values": ["Expense", "FY14-15"],
 			"hierarchy":[
-				"Budget Year Name",
-				"Fund Description",
-				"Department",
-				"Division",
-				"Account Category",
-				"Account  Description"
+				"Budget Year Name", 
+				"Fund Description", 
+				"Department", 
+				"Division", 
+				"Account Category", 
+				"Account  Description" 
 			],
 			"filename": "Expense.FY14-15.json"
 		}

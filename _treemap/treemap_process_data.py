@@ -73,7 +73,7 @@ def _check_field(d, f):
         raise Error({'message': 'invalid configuration'})
 
 def _validate_configuration(config, budget):
-    '''Validates the configuration for this module and makes sure all the
+    '''Validates the configuration for this module and makes sure all the 
     headers in the configuration match those found in the budget'''
     used_headers = set()
 
@@ -172,7 +172,7 @@ def _tree(data, map_func, reduce_func):
             if child_node is None:
                 child_node = {}
                 node['children'][this_key] = child_node
-
+            
             if child_node.get('key') is None:
                 child_node['data'] = value
                 child_node['key'] = full_key
@@ -183,7 +183,7 @@ def _tree(data, map_func, reduce_func):
     return out['children']['']
 
 def _squeeze(hierarchy):
-    '''If a node has only one child, and the child shares the same key, then
+    '''If a node has only one child, and the child shares the same key, then 
     the child is removed.  If the child had children, they are assigned to the parent.'''
     if 'children' in hierarchy:
         if len(hierarchy['children']) == 1:
@@ -248,7 +248,7 @@ def _group(config, budget):
             _logger.debug(
                 'unused values: {0}'.format(
                     dict(zip(config['grouping_headers'], category))))
-
+        
     return groups
 
 def _prep_for_treemap(data):
@@ -283,7 +283,7 @@ def _prepare(config_filepath, budget_filepath):
     for group in groups:
         _logger.debug('creating tree for {0}'.format(group['values']))
         group['tree'] = _tree(
-            group['budget'],
+            group['budget'], 
             _create_key_generator(group['hierarchy']),
             _reduce_lines)
         # remove silly hierarchies with single duplicate children
@@ -305,9 +305,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description='Create treemap data files from a budget in CSV format.')
     parser.add_argument(
-        'configuration',
+        'configuration', 
         action='store',
-        type=str,
+        type=str, 
         nargs=1,
         help='A configuration file describing how the data should be organized.')
     parser.add_argument(
@@ -318,4 +318,6 @@ if __name__ == '__main__':
         help='A CSV formatted budget')
 
     args = parser.parse_args()
-    _prepare(args.configuration[0], args.budget[0])
+    _prepare(args.configuration[0], args.budget[0]) 
+    
+
