@@ -2,42 +2,54 @@
 
 section.hero-unit
   .container
-    h1 Making sense of Oakland's spending and budget process
+    h1 The Mayor's 2015-17 Proposed Policy Budget
+    p.lead The mayor's proposed budget was <a href='/budget-process.html#5' title="Timeline: Proposed Policy Budget Released">released April 30</a> and will be debated by the public and City Council until the Council <a href='/budget-process.html#12' title="Timeline: Council Budget Adoption">adopts a final budget by June 30</a>.
+    .row
+      .col-md-4
+        a(href="/2015-17-proposed-budget-flow.html")
+          h3 Cash Flow
+          p Understand the big picture: where money comes from, and where it goes.
+          img.img-responsive.thumbnail(src="/images/flow-thumb.png") 
+
+      .col-md-4
+        a(href="/2015-17-proposed-budget-tree.html")
+          h3 Detailed Breakdown
+          p Drill down into detailed spending and revenue data for each department.
+          img.img-responsive.thumbnail(src="/images/treemap-thumb.png")
+
+      .col-md-4
+        a(href="/budget-process.html")
+          h3 You Are Here
+          p A timeline of Oakland's budget process. <br/>&nbsp;
+          img.img-responsive.thumbnail(src="/images/thumbnail-timeline.png")
     
-    .alert.alert-warning
-      h3 UPDATE: The mayor's 2015-17 proposed budget will be released on April 30. 
-      h4 
-        | Open Budget will publish visualizations that allow the public to explore the 
-        | budget soon after we receive budget data from the city. See Oakland's current budget 
-        | below as well as the five-year forecast. 
-      h5.
-        Follow the budget conversation at <a href="https://twitter.com/hashtag/oakbudget">#OAKbudget</a>.
 
-    span.cite
-      a(href="https://www.flickr.com/photos/tjgehling/", target="_blank")
-        | photo by TJ Gehling
+section.container
+  .col-md-6
+    .alert.alert-info
+      h3 Apples-to-apples: Help us build a tool to compare budget proposals 
+      p We can't understand what we can't see, and to see it, we need the data.
 
-section.container.featured
-  .row
-    .col-sm-4.col-ms-6.col-xs-12
-      a(href="/2013-15-adopted-budget-landing.html")
-        .panel
-          .box
-            img.img-default.img-responsive.breakdown(src="/images/home/breakdown.png")
-        .h3 See how Oakland gets and spends its money
-    .col-sm-4.col-ms-6.col-xs-12
-      a(href="/budget-process.html")
-        .panel
-          .box
-            img.img-default.img-responsive.process(src="/images/home/process.png")
-        .h3 Explore Oakland’s budget process
-    .col-sm-4.col-ms-6.col-xs-12
-      a(href="/feedback.html")
-        .panel
-          .box
-            img.img-default.img-responsive.feedback(src="/images/home/feedback.png")
-        .h3 Let us know what you want to see
+      p Tell your council members to <a href="http://speakupoakland.org/forums/improve-engagement-around-the-city-budget/ideas/apples-to-apples-help-us-build-a-tool-to-compare-budget-proposals">use the Open Budget Proposal Template</a> to enable a more informed budget debate.
 
+    h3 Budget Calendar: Key Dates
+    dl.dl-horizontal
+      dt April 30, 2015
+      dd Mayor's proposed policy budget released
+      dt May 1 – June 10, 2015
+      dd Budget town hall meetings and community input
+      dt June 1, 2015
+      dd Budget Advisory Committee report
+      dt June 17, 2015
+      dd City Council president's proposed budget
+      dt June 30, 2015
+      dd City Council budget adoption
+
+  .col-md-6
+    p
+      a.twitter-timeline(href='https://twitter.com/search?q=%23OAKbudget', data-widget-id='324560527676276736') Tweets about "#OAKbudget"
+        script.
+          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 
 //- .container
 //-   .row
