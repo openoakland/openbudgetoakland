@@ -2,17 +2,16 @@
 
 section.hero-unit
   .container
-    h1 The Mayor's 2015-17 Proposed Budget
+    h1 The Mayor's 2015-17 Proposed Policy Budget
     .row
       .col-md-6
-        p.lead The mayor's proposed budget was <a href='/budget-process.html#5' title="Timeline: Proposed Budget Released">released April 30</a> and will be debated by the public and City Council until the Council <a href='/budget-process.html#12' title="Timeline: Council Budget Adoption">adopts a final budget by June 30</a>. Open Budget will publish visualizations that allow the public to explore the budget soon after we receive data from the city. See Oakland's current budget <a href='/budget-visuals.html'>here</a>, as well as Oakland’s <a href='https://magic.piktochart.com/output/5111124-oakland-5-year-forecast-16-20-' target='_blank'>five-year forecast</a>. 
-
+	p.lead The mayor's proposed budget was <a href='/budget-process.html#5' title="Timeline: Proposed Policy Budget Released">released April 30</a> and will be debated by the public and City Council until the Council <a href='/budget-process.html#12' title="Timeline: Council Budget Adoption">adopts a final budget by June 30</a>.
       .col-md-6
-       .alert.alert-info.helpBox
-         h2 Apples-to-apples: Help us build a tool to compare budget proposals 
-         p We can't understand what we can't see, and to see it, we need the data.
+	.alert.alert-info
+	  h3 Apples-to-apples: Help us build a tool to compare budget proposals 
+	  p We can't understand what we can't see, and to see it, we need the data.
 
-         p Tell your council members to <a href="http://speakupoakland.org/forums/improve-engagement-around-the-city-budget/ideas/apples-to-apples-help-us-build-a-tool-to-compare-budget-proposals">use the Open Budget Proposal Template</a> to enable a more informed budget debate.
+      p Tell your council members to <a href="http://speakupoakland.org/forums/improve-engagement-around-the-city-budget/ideas/apples-to-apples-help-us-build-a-tool-to-compare-budget-proposals">use the Open Budget Proposal Template</a> to enable a more informed budget debate.
 
     .row
       .col-md-4
@@ -36,6 +35,12 @@ section.hero-unit
 
 section.container
   .col-md-6
+    .alert.alert-info
+      h3 Apples-to-apples: Help us build a tool to compare budget proposals 
+      p We can't understand what we can't see, and to see it, we need the data.
+
+      p Tell your council members to <a href="http://speakupoakland.org/forums/improve-engagement-around-the-city-budget/ideas/apples-to-apples-help-us-build-a-tool-to-compare-budget-proposals">use the Open Budget Proposal Template</a> to enable a more informed budget debate.
+
     h3 Budget Calendar: Key Dates
     dl.dl-horizontal
       dt April 30, 2015
