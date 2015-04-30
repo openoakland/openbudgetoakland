@@ -91,7 +91,7 @@ function data_wrangle(dataset, fy){
         "Fines & Penalties", "Parking Tax", "Transient Occupancy Tax",
         "Service Charges",
          "Transfers from Fund Balance", "Miscellaneous Revenue", "Interest Income", "Licenses & Permits",
-        "Interfund Transfers", "Grants & Subsidies","Local Tax",  "Internal Service Funds", "Gas Tax",];
+        "Interfund Transfers", "Grants & Subsidies","Local (Parcel) Taxes",  "Internal Service Funds", "Gas Tax",];
     rev = newdata.filter(function(v,i,a){
         return v.account_type == "Revenue";
     });
