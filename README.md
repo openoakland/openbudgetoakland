@@ -74,15 +74,12 @@ Right now the 2015-17 Proposed page is an unpublished placeholder, pending the d
     - org_description
     - fund_code
     - fund_description
-    - project_code
-    - project_description
-    - program_code
-    - program_description
-    - account_type
+    - account_type (this should be the Expense/Revenue column, if there are duplicate names)
     - account_category
     - account_code
     - account_description
     - amount
+    - (any other columns should be deleted)
 1. test it in Harp in the dev branch, and it should compile properly for deployment
 
 ## Publishing Changes

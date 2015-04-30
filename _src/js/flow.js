@@ -86,12 +86,27 @@ function data_wrangle(dataset, fy){
     var newdata = dataset.filter(function(v){
         return v.budget_year == fy
     })
-    rev_order = ["Property Tax", "Business License Tax", "Sales Tax",
-        "Utility Consumption Tax", "Real Estate Transfer Tax",
-        "Fines & Penalties", "Parking Tax", "Transient Occupancy Tax",
-        "Service Charges",
-         "Transfers from Fund Balance", "Miscellaneous Revenue", "Interest Income", "Licenses & Permits",
-        "Interfund Transfers", "Grants & Subsidies","Local (Parcel) Taxes",  "Internal Service Funds", "Gas Tax",];
+    rev_order = [
+      // keep variations of the same label on a single line
+      "Property Tax", 
+      "Business License Tax", 
+      "Sales Tax",
+      "Utility Consumption Tax", 
+      "Real Estate Transfer Tax",
+      "Fines & Penalties", 
+      "Parking Tax", 
+      "Transient Occupancy Tax",
+      "Service Charges", 
+      "Transfers from Fund Balance", 
+      "Miscellaneous Revenue", 
+      "Interest Income", 
+      "Licenses & Permits",
+      "Interfund Transfers", 
+      "Grants & Subsidies", 
+      "Local (Parcel) Taxes", "Local Tax", 
+      "Internal Service Funds",
+      "Gas Tax",
+    ];
     rev = newdata.filter(function(v,i,a){
         return v.account_type == "Revenue";
     });
@@ -140,22 +155,28 @@ function data_wrangle(dataset, fy){
         return v.account_type == "Expense";
     });
     exp_order = [
-        "Police Department",
-        "Fire Department",
+        // keep variations of the same label on a single line
+        "Police Department", "Police",
+        "Fire Department", "Fire",
         "City Council",
         "Administrative Services",
+        "Oakland Parks & Recreation",
+        "Human Services",
         "City Auditor",
         "Community Services",
+        "Information Technology",
+        "Finance",
         "City Clerk",
         "Capital Improvement Projects",
         "Mayor",
+        "Economic & Workforce Development",
         "City Administrator",
+        "Human Resources Management",
         "Planning & Building",
-        "Library",
         "City Attorney",
         "Housing & Community Development",
-        "Library",
-        "Public Works",
+        "Library", "Oakland Public Library",
+        "Public Works", "Oakland Public Works",
         "Debt Service & Misc."
     ];
     expdivs = d3.nest()
