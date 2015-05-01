@@ -1,45 +1,45 @@
 {
-	"amount_header": "Amount",
+	"amount_header": "Value",
 	"account_type_header": "Account Type",
 	"account_types": {
 		"revenue": "Revenue",
 		"expense": "Expense"
 	},
-	"grouping_headers": ["Account Type", "Budget Year Name"],
+	"grouping_headers": ["Account Type", "Fiscal Year"],
 	"groups": [
 		{
-			"values": ["Revenue", "FY13-14"],
-			"hierarchy":["Budget Year Name", "Fund Description", "Account Category", "Account  Description"],
-			"filename": "Revenue.FY13-14.json"
+			"values": ["Revenue", "FY15-16"],
+			"hierarchy":["Fiscal Year", "Fund - Description", "Account Category", "Account - Description"],
+			"filename": "Revenue.FY15-16.json"
 		},
 		{
-			"values": ["Revenue", "FY14-15"],
-			"hierarchy":["Budget Year Name", "Fund Description", "Account Category", "Account  Description"],
-			"filename": "Revenue.FY14-15.json"
+			"values": ["Revenue", "FY16-17"],
+			"hierarchy":["Fiscal Year", "Fund - Description", "Account Category", "Account - Description"],
+			"filename": "Revenue.FY16-17.json"
 		},
 		{
-			"values": ["Expense", "FY13-14"],
+			"values": ["Expense", "FY15-16"],
 			"hierarchy":[
-				"Budget Year Name", 
-				"Fund Description", 
+				"Fiscal Year", 
+				"Fund - Description", 
 				"Department", 
 				"Division", 
 				"Account Category", 
-				"Account  Description" 
+				"Account - Description" 
 			],
-			"filename": "Expense.FY13-14.json"
+			"filename": "Expense.FY15-16.json"
 		},
 		{
-			"values": ["Expense", "FY14-15"],
+			"values": ["Expense", "FY16-17"],
 			"hierarchy":[
-				"Budget Year Name", 
-				"Fund Description", 
+				"Fiscal Year", 
+				"Fund - Description", 
 				"Department", 
 				"Division", 
 				"Account Category", 
-				"Account  Description" 
+				"Account - Description" 
 			],
-			"filename": "Expense.FY14-15.json"
+			"filename": "Expense.FY16-17.json"
 		}
 	]
 }
