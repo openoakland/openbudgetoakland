@@ -218,7 +218,7 @@ ob.display = ob.display || {};
 				}
 				/* Fade-in entering text. */
 				disp2.g.selectAll("text").style("fill-opacity", 0);
-				disp2.g.selectAll("foreignObject div").style("display", "none");
+				//disp2.g.selectAll("foreignObject div").style("display", "none");
 
 				/* Transition to the new view. */
 				disp2.g.selectAll("text")
