@@ -1,0 +1,27 @@
+{
+	"amount_header": "FY2015 Budget",
+	"account_type_header": "AccountType",
+	"account_types": {
+    "revenue": "Revenue",
+		"expense": "Expense"
+	},
+	"grouping_headers": ["AccountType", "FiscalYear"],
+	"groups": [
+		{
+			"values": ["Revenue", "FY2015 Budget"],
+			"hierarchy":["FiscalYear", "FundDescription", "LOBName", "Account Description"],
+			"filename": "Boom.json"
+		},
+		{
+			"values": ["Expense", "FY2015 Budget"],
+			"hierarchy":[
+				"FiscalYear", 
+				"FundDescription", 
+				"OperatingUnitDescription", 
+				"LOBName", 
+				"Account Description" 
+			],
+			"filename": "Bang.json"
+		}
+	]
+}
