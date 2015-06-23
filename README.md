@@ -1,5 +1,7 @@
 # Open Budget: Oakland
 
+[![Join the chat at https://gitter.im/codeforokc/openbudgetokc](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/codeforokc/openbudgetokc?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 __Fork me!__
 
 Fork and clone the project!
