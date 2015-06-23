@@ -8,12 +8,12 @@
 	"grouping_headers": ["AccountType", "FiscalYear"],
 	"groups": [
 		{
-			"values": ["Revenue", "FY2015 Budget"],
+			"values": ["Revenue", "FY14-15"],
 			"hierarchy":["FiscalYear", "FundDescription", "LOBName", "Account Description"],
 			"filename": "Boom.json"
 		},
 		{
-			"values": ["Expense", "FY2015 Budget"],
+			"values": ["Expense", "FY14-15"],
 			"hierarchy":[
 				"FiscalYear", 
 				"FundDescription", 
