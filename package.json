@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/codeforokc/openbudgetokc/issues"
   },
-  "homepage": "https://github.com/codeforokc/openbudgetokc#readme"
+  "homepage": "https://github.com/codeforokc/openbudgetokc#readme",
+  "dependencies": {
+    "harp": "^0.17.0"
+  }
 }

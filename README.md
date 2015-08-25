@@ -29,8 +29,11 @@ What you'll need:
 Once you have npm installed,
 
 ```
-# to install dependencies
+# to install dependencies and run
 npm install && npm start
+
+# npm install can be omitted on subsequent runs
+npm start
 ```
 
 ## Making Changes
