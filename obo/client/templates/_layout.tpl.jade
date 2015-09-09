@@ -1,0 +1,87 @@
+#wrapper
+  nav.main-nav
+    .navbar.navbar-default.navbar-fixed-top
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/') Open Budget: Oakland
+        .navbar-collapse.collapse
+          ul.nav.navbar-nav.navbar-right
+
+            li.dropdown
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                | About
+                b.caret
+              ul.dropdown-menu
+                li
+                  a(href='what-we-do.html') What and How
+                li
+                  a(href='who-we-are.html') Who We Are
+                li
+                  a(href='news.html') News
+                li
+                  a(href='contact.html') Contact Us
+
+            li
+              a(href='/budget-visuals.html') Visualizations
+
+            li
+              a(href='http://data.openoakland.org/dataset/city-of-oakland-budget', target='_blank') Data
+
+            li.dropdown
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                | Resources
+                b.caret
+              ul.dropdown-menu
+                li
+                  a(href='oakland-budget-101.html') Oakland Budget 101
+                li
+                  a(href='tools-projects.html') Tools and Projects
+
+              //- li
+              //-   a(href='discuss.html') Discuss
+
+              li
+                a(href='feedback.html') Feedback
+
+  block content
+    h1 literally nothing
+
+  #wrapper-footer
+
+footer#footer
+  .container
+    .row
+      //-a(rel="license", href="http://creativecommons.org/licenses/by-nc-sa/4.0/")
+        img(alt="Creative Commons License", style="border-width:0", src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png")
+      .col-md-6.col-sm-9
+        p 
+          | Open Budget: Oakland is an open-source project by 
+          a(href="http://openoakland.org") OpenOakland
+          |  to help citizens better understand Oakland's spending and budget process.
+        ul.list-inline
+          li
+            a(href="http://openoakland.org")
+              img(src="/images/global/openoakland-logo.png" width="150")
+          li
+            a(href="https://twitter.com/openbudgetoak")
+              img(src="/images/global/twitter-icon.png")
+          li
+            a(href="https://github.com/openoakland/openbudgetoakland")
+              img(src="/images/global/github-icon.png")
+
+
+      .col-sm-3.col-md-push-3
+        ul.list-unstyled
+          li
+            a(href="who-we-are.html") About the Project
+          li
+            a(href="http://www.meetup.com/OpenOakland") Get Involved
+          li
+            a(href="feedback.html") Give Feedback
+
+link(href='http://fonts.googleapis.com/css?family=Arvo:400,700', rel='stylesheet', type='text/css')
