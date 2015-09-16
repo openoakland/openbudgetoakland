@@ -9,8 +9,9 @@ autopublish
 insecure
 mquandalle:jade
 orionjs:core
-twbs:bootstrap
 fortawesome:fontawesome
 orionjs:bootstrap
 iron:router
 fourseven:scss
+nemo64:bootstrap
+less
