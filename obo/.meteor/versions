@@ -37,6 +37,7 @@ iron:location@1.0.9
 iron:middleware-stack@1.0.9
 iron:router@1.0.9
 iron:url@1.0.9
+jeremy:selectize@0.12.1_3
 jquery@1.11.3_2
 json@1.0.3
 launch-screen@1.0.2
@@ -72,7 +73,10 @@ orionjs:collections@1.4.6
 orionjs:config@1.4.0
 orionjs:core@1.4.0
 orionjs:dictionary@1.4.0
+orionjs:filesystem@1.4.0
 orionjs:lang-en@1.4.0
+orionjs:relationships@1.4.4
+orionjs:summernote@1.4.0
 random@1.0.3
 reactive-dict@1.1.0
 reactive-var@1.0.5
@@ -86,6 +90,7 @@ softwarerero:accounts-t9n@1.1.4
 spacebars@1.0.6
 spacebars-compiler@1.0.6
 srp@1.0.3
+summernote:standalone@0.6.16
 templating@1.1.1
 tracker@1.0.7
 ui@1.0.6

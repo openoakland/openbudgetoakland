@@ -12,9 +12,9 @@
     "forms"                : false,
     "buttons"              : true,
 
-    "component-animations" : false,
+    "component-animations" : true,
     "dropdowns"            : true,
-    "button-groups"        : false,
+    "button-groups"        : true,
     "input-groups"         : false,
     "navs"                 : true,
     "navbar"               : true,
@@ -36,7 +36,7 @@
     "close"                : false,
 
     "modals"               : false,
-    "tooltip"              : false,
+    "tooltip"              : true,
     "popovers"             : false,
     "carousel"             : false,
 

@@ -15,3 +15,5 @@ iron:router
 fourseven:scss
 nemo64:bootstrap
 less
+orionjs:relationships
+orionjs:summernote
