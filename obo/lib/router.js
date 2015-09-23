@@ -1,6 +1,12 @@
-Router.map(function(){
-	this.route('home', {
-		path: '/'
-	});	
+Router.configure({
+  layoutTemplate: 'layout'
 });
 
+Router.route('/', function(){
+  this.render('home', {
+    data: {
+      page: Pages.findOne({role: "homepage"}),
+      vizlinks: HomepageVizLinks.find({}, {limit: 3}),
+    }
+  });
+})

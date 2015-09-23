@@ -1,0 +1,34 @@
+template(name="home")
+  .home
+    section.hero-unit
+      .container
+        h1.main-header #{ page.title }
+        .row
+          .col-md-7
+            p.lead !{ page.contents }
+
+            a.twitter-timeline(height="700", href='https://twitter.com/search?q=%23OAKbudget', data-widget-id='324560527676276736') Tweets about "#OAKbudget"
+              script.
+                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+        
+
+          .col-md-5
+            +each vizlinks
+              a(href="#")
+                h3 #{ title }
+                p #{ desc } <br/>&nbsp;
+                img.img-responsive.thumbnail(src="#{ img.url }")
+
+        
+
+          //- .col-md-4
+          //-   a(href="/2015-17-proposed-budget-flow.html")
+          //-     h3 Cash Flow
+          //-     p Understand the big picture: where money comes from, and where it goes.
+          //-     img.img-responsive.thumbnail(src="/images/flow-thumb-1517.jpg")
+
+          //- .col-md-4
+          //-   a(href="/2015-17-proposed-budget-tree.html")
+          //-     h3 Detailed Breakdown
+          //-     p Drill down into detailed spending and revenue data for each department.
+          //-     img.img-responsive.thumbnail(src="/images/tree-thumb-1517.jpg")

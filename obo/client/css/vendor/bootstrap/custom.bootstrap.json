@@ -26,7 +26,7 @@
     "badges"               : false,
     "jumbotron"            : false,
     "thumbnails"           : false,
-    "alerts"               : false,
+    "alerts"               : true,
     "progress-bars"        : false,
     "media"                : false,
     "list-group"           : false,

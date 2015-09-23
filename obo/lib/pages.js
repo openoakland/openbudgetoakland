@@ -13,26 +13,31 @@ Pages = new orion.collection('pages', {
    * Tabular settings for this collection
    */
   tabular: {
+    // here we set which data columns we want to appear on the data table
+    // in the CMS panel
     columns: [
-      { data: "title", title: "Title" },
-      /**
-       * If you want to show a custom orion attribute in
-       * the index table you must call this function
-       * orion.attributeColumn(attributeType, key, label)
-       */
-      // orion.attributeColumn('file', 'image', 'Image'),
-      // orion.attributeColumn('summernote', 'body', 'Content'),
-      // orion.attributeColumn('createdBy', 'createdBy', 'Created By')
+      { 
+        data: "title", 
+        title: "Title" 
+      },{ 
+        data: "contents", 
+        title: "Contents" 
+      }
     ]
   }
 
 });
 
 Pages.attachSchema(new SimpleSchema({
-	title: {
-		type: String
+	role: {
+    type: String,
+    allowedValues: ['homepage', 'vizualizations']
+  },
+  title: {
+		type: String,
+    label: 'Page Title'
 	},
-	body: orion.attribute('summernote', {
-		label: 'Body'
+	contents: orion.attribute('summernote', {
+		label: 'Page Content'
 	})
 }));
