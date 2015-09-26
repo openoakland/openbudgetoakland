@@ -18,3 +18,6 @@ less
 orionjs:relationships
 orionjs:summernote
 orionjs:image-attribute
+orionjs:filesystem
+cfs:autoform
+cfs:filesystem
