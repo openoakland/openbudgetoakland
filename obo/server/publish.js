@@ -3,6 +3,9 @@ Uploads.allow({
     // add custom authentication code here
     return true;
   }, 
+  'remove': function() {
+  	return true;
+  },
   'download': function(){
   	return true;
   }
