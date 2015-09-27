@@ -13,7 +13,14 @@ HomepageVizLinks = new orion.collection('homepage_viz_links', {
       {
         data: 'desc',
         title: 'Description'
+      },
+      {
+        data: 'order',
+        title: 'Sort Order'
       }
+    ],
+    order: [
+      [2, 'asc']
     ]
   }
 })
@@ -30,5 +37,9 @@ HomepageVizLinks.attachSchema(new SimpleSchema({
   img: orion.attribute('image', {
     label: 'Link Thumbnail',
     optional: true
-  })
+  }),
+  order: {
+    type: Number,
+    label: 'Sort Order'
+  }
 }));
