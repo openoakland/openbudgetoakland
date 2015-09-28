@@ -1,0 +1,26 @@
+{
+  "name": "openbudgetokc",
+  "version": "1.0.0",
+  "description": "code for okc open budget project",
+  "scripts": {
+    "start": "cd _src && harp server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeforokc/openbudgetokc.git"
+  },
+  "keywords": [
+    "budget",
+    "okc"
+  ],
+  "author": "codeforokc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codeforokc/openbudgetokc/issues"
+  },
+  "homepage": "https://github.com/codeforokc/openbudgetokc#readme",
+  "dependencies": {
+    "harp": "^0.17.0"
+  }
+}

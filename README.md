@@ -26,19 +26,16 @@ What you'll need:
 -  [Harp](http://harpjs.com/)
 
 
-### Install & Run Harp
+### Install & Run
 
-Once you have npm installed, you can install Harp
-
-```
-# to install harp for the first time
-npm install harp -g
-```
+Once you have npm installed,
 
 ```
-# To start the Harp server, cd to the _src directory
-cd [repo-location]/_src
-harp server
+# to install dependencies and run
+npm install && npm start
+
+# npm install can be omitted on subsequent runs
+npm start
 ```
 
 ## Making Changes
