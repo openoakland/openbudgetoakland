@@ -1,5 +1,7 @@
 # Open Budget: Oakland
 
+[![Join the chat at https://gitter.im/codeforokc/openbudgetokc](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/codeforokc/openbudgetokc?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 __Fork me!__
 
 Fork and clone the project!
@@ -24,19 +26,16 @@ What you'll need:
 -  [Harp](http://harpjs.com/)
 
 
-### Install & Run Harp
+### Install & Run
 
-Once you have npm installed, you can install Harp
-
-```
-# to install harp for the first time
-npm install harp -g
-```
+Once you have npm installed,
 
 ```
-# To start the Harp server, cd to the _src directory
-cd [repo-location]/_src
-harp server
+# to install dependencies and run
+npm install && npm start
+
+# npm install can be omitted on subsequent runs
+npm start
 ```
 
 ## Making Changes
