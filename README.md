@@ -1,4 +1,4 @@
-# Open Budget: Oakland
+# Open Budget OKC
 
 [![Join the chat at https://gitter.im/codeforokc/openbudgetokc](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/codeforokc/openbudgetokc?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -7,7 +7,7 @@ __Fork me!__
 Fork and clone the project!
 
 ```
-git clone git@github.com:[your-user]/openbudgetoakland.git
+git clone git@github.com:[your-user]/openbudgetokc.git
 ```
 
 - cd, checkout to branch
