@@ -1,6 +1,6 @@
 @import "variables";
 @import "mixins";
-@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "vendor/bootstrap/bootstrap";
 @import "mid-small"; // adds mid-small breakpoint
 @import "bootstrap-overrides"; // custom styles to override Bootstrap defaults
 @import "base";
