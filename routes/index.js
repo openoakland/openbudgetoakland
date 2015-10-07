@@ -36,6 +36,10 @@ exports = module.exports = function(app) {
 	
 	// Views
 	app.get('/', routes.views.index);
+	app.get('/feedback', routes.views.feedback);
+	app.get('/budget-visuals', routes.views.budget_visuals);
+
+	app.get('/oakland-budget-101', routes.views.budget_101);
 	
 	
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
