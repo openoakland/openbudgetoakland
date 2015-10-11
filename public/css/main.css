@@ -1034,7 +1034,7 @@ figure {
 img {
   vertical-align: middle; }
 
-.img-responsive {
+.img-responsive, .content img {
   display: block;
   max-width: 100%;
   height: auto; }

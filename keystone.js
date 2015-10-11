@@ -23,7 +23,14 @@ keystone.init({
 	'auto update': true,
 	'session': true,
 	'auth': true,
-	'user model': 'User'
+	'user model': 'User',
+
+	// Admin options
+	'wysiwyg images': true,
+	'wysiwyg cloudinary images': true,
+
+	// cloudinary options
+	// note: account info must be set in dotenv
 
 });
 

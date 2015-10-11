@@ -50,6 +50,13 @@ nav.main-nav {
   }
 }
 
+// constrain size of images uploaded via CMS
+.content {
+  img {
+    @extend .img-responsive;
+  }
+}
+
 section#comments {
   margin-top: 40px;
 }
