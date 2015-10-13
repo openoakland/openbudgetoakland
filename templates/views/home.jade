@@ -1,0 +1,25 @@
+extends ../layouts/base.jade
+
+block content
+  section.hero-unit
+    .container
+      .row
+        .col-md-12
+          h1.main-header #{page.title}
+          .lead
+            !{page.content}
+
+          //- p
+          //- a.twitter-timeline(height=700, href='https://twitter.com/search?q=%23OAKbudget', data-widget-id='324560527676276736') Tweets about "#OAKbudget"
+          //-   script.
+          //-     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+
+      each viz, index in viztypes
+        .col-md-6
+          a(href=viz.url)
+            h3 #{viz.homepage_title}
+            p #{viz.homepage_subtitle}
+            img.img-responsive.thumbnail(src=viz.homepage_image.url)
+        if (index + 1) % 2 == 0
+          .clearfix
+        

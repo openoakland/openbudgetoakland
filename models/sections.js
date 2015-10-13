@@ -1,1 +1,1 @@
-module.exports = ["about", "resources", 'viz'];
+module.exports = ["about", "resources", 'viz', 'homepage'];
