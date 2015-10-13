@@ -31,43 +31,7 @@ html
                 span.icon-bar
               a.navbar-brand(href='/') Open Budget: Oakland
             .navbar-collapse.collapse
-              ul.nav.navbar-nav.navbar-right
-
-                li.dropdown
-                  a.dropdown-toggle(href='#', data-toggle='dropdown')
-                    | About
-                    b.caret
-                  ul.dropdown-menu
-                    li
-                      a(href='what-we-do.html') What and How
-                    li
-                      a(href='who-we-are.html') Who We Are
-                    li
-                      a(href='news.html') News
-                    li
-                      a(href='contact.html') Contact Us
-
-                li
-                  a(href='/budget-visuals.html') Visualizations
-
-                li
-                  a(href='http://data.openoakland.org/dataset/city-of-oakland-budget', target='_blank') Data
-
-                li.dropdown
-                  a.dropdown-toggle(href='#', data-toggle='dropdown')
-                    | Resources
-                    b.caret
-                  ul.dropdown-menu
-                    li
-                      a(href='oakland-budget-101.html') Oakland Budget 101
-                    li
-                      a(href='tools-projects.html') Tools and Projects
-
-                  //- li
-                  //-   a(href='discuss.html') Discuss
-
-                  li
-                    a(href='feedback.html') Feedback
+              include menu.jade
 
       .container
         block content

@@ -8,29 +8,38 @@
  * modules in your project's /lib directory.
  */
 
-var _ = require('underscore');
+var _ = require('underscore'),
+	keystone = require('keystone'),
+    Page = keystone.list('Page'),
+    sections = require('../models/sections');
 
 
 /**
 	Initialises the standard view locals
-	
-	The included layout depends on the navLinks array to generate
-	the navigation in the header, you may wish to change this array
-	or replace it with your own templates / logic.
 */
 
 exports.initLocals = function(req, res, next) {
 	
 	var locals = res.locals;
+
+	// load the menu data
+	locals.sections = {};
+	var queried = 0;
+	_.each(sections, function(section){
+		locals.sections[section] = [];
+	})
 	
-	locals.navLinks = [
-		{ label: 'Home',		key: 'home',		href: '/' }
-	];
-	
-	locals.user = req.user;
-	
-	next();
-	
+	Page.model.find({section: {$ne: null}})
+		.exec(function(err, pages){
+			if (err) {
+				console.log(err);
+			} else {
+				_.each(pages, function(page){
+					locals.sections[page.section].push({title: page.title, url: '/'+page.section+'/'+page.slug })
+				});
+			}
+			next();
+		});
 };
 
 

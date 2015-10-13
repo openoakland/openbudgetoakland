@@ -1,0 +1,27 @@
+ul.nav.navbar-nav.navbar-right
+  li.dropdown
+    a.dropdown-toggle(href='#', data-toggle='dropdown')
+      | About
+      b.caret
+    ul.dropdown-menu
+      each page in sections.about
+        li
+          a(href=page.url) #{page.title}
+
+  li
+    a(href='/budget-visuals.html') Visualizations
+
+  li
+    a(href='http://data.openoakland.org/dataset/city-of-oakland-budget', target='_blank') Data
+
+  li.dropdown
+    a.dropdown-toggle(href='#', data-toggle='dropdown')
+      | Resources
+      b.caret
+    ul.dropdown-menu
+      each page in sections.resources
+        li
+          a(href=page.url) #{page.title}
+
+    li
+      a(href='/feedback') Feedback
