@@ -28,6 +28,7 @@ keystone.init({
 	// Admin options
 	'wysiwyg images': true,
 	'wysiwyg cloudinary images': true,
+	'wysiwyg additional buttons': 'formatselect removeformat',
 
 	// cloudinary options
 	// note: account info must be set in dotenv
