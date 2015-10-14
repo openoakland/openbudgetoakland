@@ -1,17 +1,13 @@
 extends ../layouts/base.jade
+
 block content
   .container
-
     .row
       .col-md-8.col-sm-6
         div
-          h2.subheader How would you use Open Budget?
-          p
-            | We're trying to build a tool that's useful to all of Oakland — community advocates, journalists, city officials, and the people they serve. We want your ideas.
-            p
-              | What part of the budget should be visualized, and how? What budget data should be accessible, and why? Who should be part of this discussion?
-              p
-                | Add your ideas — and vote on others — in the comments below. The most popular ideas will help guide the development of Open Budget.
+          h2.subheader #{title}
+          !{content}
+          
       .col-md-4.col-sm-6
         #wufoo-za3gq4n1oevxis
           | Fill out my

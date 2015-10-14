@@ -39,12 +39,11 @@ exports = module.exports = function(app) {
 	
 	// Views
 	app.get('/', routes.views.home);
-	app.get('/feedback', routes.views.feedback);
 	app.get('/budget-visuals', routes.views.budget_visuals);
 
 	// Section views
 	_.each(sections, function(section){
-		app.get('/' + section + '/:slug', routes.views.sections)
+		app.get('/' + section + '(/:slug)?', routes.views.sections)
 	})
 	
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:

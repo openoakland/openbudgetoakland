@@ -12,14 +12,20 @@ exports = module.exports = function(req, res) {
 	// get the section: /{section}/{slug}
 	var section = req.path.split('/')[1];
 	locals.section = section;
-
-	// get the page content
-	Page.model.findOne({section: section, slug: req.params.slug})
-		.exec()
+	console.log(section)
+	if (section == 'feedback') {
+		var query = Page.model.findOne({section: section});
+		var template = 'feedback';
+	} else {
+		// get the page content
+		var query = Page.model.findOne({section: section, slug: req.params.slug});
+		var template = '8col';
+	}
+	query.exec()
 		.then(function(win){
 			if (win) {
 				// Render the view
-				view.render('8col', win);	
+				view.render(template, win);	
 			} else {
 				view.render('errors/404');
 			}
