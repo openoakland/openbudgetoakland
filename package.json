@@ -7,8 +7,14 @@
     "async": "^1.4.2",
     "underscore": "^1.8.3",
     "node-sass": "^3.3.2",
-    "node-sass-middleware": "^0.5.0", 
-    "dotenv": "^1.1.0"
+    "node-sass-middleware": "^0.5.0",
+    "dotenv": "^1.1.0",
+    "moment": "~2.10.6",
+    "moment-fquarter": "git://github.com/robgallen/moment-fquarter.git",
+    "csv-parse": "~1.0.0",
+    "d3": "~3.5.6",
+    "mongodb": "~2.0.46",
+    "aws-sdk": "~2.2.10"
   },
   "engines": {
     "node": ">=0.10.22",

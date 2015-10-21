@@ -33,6 +33,8 @@ keystone.init({
 	// cloudinary options
 	// note: account info must be set in dotenv
 
+	// S3 options: in dotenv
+
 });
 
 // Load your project's Models
@@ -57,6 +59,8 @@ keystone.set('routes', require('./routes'));
 // Configure the navigation bar in Keystone's Admin UI
 
 keystone.set('nav', {
+	'data': ['viz-types', 'datasets'],
+	'content': 'pages',
 	'users': 'users'
 });
 
