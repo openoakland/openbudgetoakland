@@ -1,5 +1,15 @@
 # Open Budget: Oakland
 
+##Active Development
+
+As of October 2015, it's happening on the `keystone` branch -- we are in the process of rebuilding this project as a Node application using the [KeystoneJS](http://keystonejs.com/) content management system.
+
+Our roadmap for that, insofar as it exists, is [here](https://github.com/openoakland/openbudgetoakland/milestones/rebuild%20with%20a%20CMS).
+
+
+
+---
+
 __Fork me!__
 
 Fork and clone the project!
