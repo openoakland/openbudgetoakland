@@ -4,6 +4,7 @@
   "description": "code for okc open budget project",
   "scripts": {
     "start": "cd _src && harp server",
+    "build": "cd _src && harp compile ./ ../www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,6 +22,6 @@
   },
   "homepage": "https://github.com/codeforokc/openbudgetokc#readme",
   "dependencies": {
-    "harp": "^0.17.0"
+    "harp": "^0.19.0"
   }
 }
