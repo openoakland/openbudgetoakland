@@ -1,0 +1,98 @@
+style.
+  #treewidget13-15 {
+    width: 800px;
+    height: 300px;
+    overflow: hidden;
+    }
+
+.container
+  .row
+    .col-md-8
+      div
+        h4.subheader Mayor's Proposed Spending for 2013-15 (Version 1)
+        p
+        em
+          | UPDATE: 
+          a(href='updated-mayor-2013-2015-proposed.html') Version 2
+          |  of this visual starts at the "Fund" level to better highlight the General Fund. We also added the ability to separate this two-year budget into Year 1 and Year 2. 
+          a(href='updated-mayor-2013-2015-proposed.html') Take a look
+          |. See discussion about Version 1 below.
+
+        //- SHARE BUTTON
+        div
+          a.a2a_dd(href='http://www.addtoany.com/share_save')
+          img(src='http://static.addtoany.com/buttons/share_save_171_16.png', width='171', height='16', border='0', alt='Share')
+          script(type='text/javascript', src='http://static.addtoany.com/menu/page.js').
+        h4#breadcrumbs
+
+
+      p
+        strong
+          | Choose budget year: 
+          a(href='?reference_years=2013') 2013-14
+          |  | 
+          a(href='?reference_years=2014') 2014-15
+          |  | 
+          a(href='?reference_years=2013+2014') 2013-15 (Two-Year Budget)
+        h6#breadcrumbs
+
+      //- TREEMAP
+      #treewidget13-15
+
+
+      //- SHARE BUTTON
+      div
+        a.a2a_dd(href='http://www.addtoany.com/share_save')
+        img(src='http://static.addtoany.com/buttons/share_save_171_16.png', width='171', height='16', border='0', alt='Share')
+        script(type='text/javascript', src='http://static.addtoany.com/menu/page.js').
+      //
+        p
+          a.success.button(href='https://data.oaklandnet.com/Financial/City-of-Oakland-Proposed-Policy-Budget-FY2013-15/b8mb-8tti', target='_blank') See all data
+
+    .row
+      .col-md-8
+        iframe(width='800px', title='City of Oakland Proposed Policy Budget FY2013-15', height='300px', src='https://data.oaklandnet.com/w/b8mb-8tti/?cur=0TfLKym6A0L&from=root', frameborder='0', scrolling='no')
+        a(href='https://data.oaklandnet.com/Financial/City-of-Oakland-Proposed-Policy-Budget-FY2013-15/b8mb-8tti', title='City of Oakland Proposed Policy Budget FY2013-15', target='_blank') City of Oakland Proposed Policy Budget FY2013-15
+        p
+        a(href='http://www.socrata.com/', target='_blank') Powered by Socrata
+
+
+        #disqus_thread
+
+    script(type='text/javascript').
+      function backHome() {
+        document.getElementById('treewidget13-15').src = document.getElementById('treewidget13-15').src;
+        }
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'openbudgetoakland'; // required: replace example with your forum shortname
+        var disqus_identifier = window.location.href;
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    noscript
+      | Please enable JavaScript to view the
+      a(href='http://disqus.com/?ref_noscript') comments powered by Disqus.
+
+
+
+    //- OpenSpending scripts
+    script(src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js")
+    script(type='text/javascript', src='http://openspending.org/static/openspendingjs/prod/boot.js')
+    script(defer='defer').
+      OpenSpending.scriptRoot = "http://openspending.org/static/openspendingjs";
+      OpenSpending.localeGroupSeparator = ",";
+      OpenSpending.localeDecimalSeparator = ".";
+    script(type='text/javascript', src='http://openspending.org/static/openspendingjs/lib/widgets.js')
+    script(type='text/javascript', src='http://openspending.org/static/openspendingjs/app/bob/bob.js')
+    script(type='text/javascript', src='/js/old/treemap.js')
+    //-
+      script(type='text/javascript', src='http://openspending.org/static/openspendingjs/widgets/bubbletree/main.js')
+      script(type='text/javascript', src='http://openspending.org/static/openspendingjs/widgets/aggregate_table/main.js')
+
+    script(type='text/javascript', src='/js/old/purl.js')
+    script(type='text/javascript', src='/js/old/main2.js')
+    link(rel='stylesheet', href='css/vendor/treemap.css')
+    link(rel='stylesheet', href='css/vendor/bubbletree.css')

@@ -1,0 +1,98 @@
+.container 
+  .row
+    .intro.col-md-12
+      h2 Cash Flow: Mayor's 2015-17 Proposed Policy Budget
+      p This diagram depicts the flow of money through Oakland's budget: from revenue sources (on the left), to the General Fund or various non-discretionary funds (in the center), and finally to the various city departments' expenses (on the right).
+      p 
+        em Mouse over a flow line to highlight it; click on a bar to highlight all its flows.
+  .row
+    .col-md-3
+      h4 Fiscal Year
+      select#fy.form-control
+
+  #sankey
+    #chart
+
+  h6
+    | Data source:&nbsp;
+    a(href = "https://data.oaklandnet.com") data.oaklandnet.com
+  h6 Data transformation notes: Revenue rows are aggregated by the second "Account Type" column. Expense rows are aggregated by the "Department" column. Funds are aggregated by the "Funds - Description" column, and all values other than "1010 - General Fund: General Purpose" are grouped under the heading "Non-discretionary funds."
+
+  #hover_description
+
+  section#comments
+    .row
+      .col-md-12
+        h4 Comments
+        #disqus_thread
+
+script(type='text/javascript').
+  function backHome() {
+  document.getElementById('treewidget11-13').src = document.getElementById('treewidget11-13').src;
+  }
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'openbudgetoakland'; // required: replace example with your forum shortname
+  var disqus_identifier = "2015-17-proposed-budget-flow";
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+noscript
+  | Please enable JavaScript to view the
+  a(href='http://disqus.com/?ref_noscript') comments powered by Disqus.
+
+
+script(src='http://d3js.org/d3.v3.min.js', charset='utf-8')
+script(src='js/sankey.js', charset='utf-8')
+script(src='js/flow.js', charset='utf-8')
+
+//- this is kind of a dumb hack to allow a jade loop within the script
+//- which is necessary to get a list of files in the directory
+| <script type='text/javascript'>
+|   var datafiles = [];
+- for file in public.data.proposed_1517_flow._contents
+    | datafiles.push("
+    = file
+    | ");    
+| </script>
+script.
+    var years = []
+    datafiles.forEach(function(datafile){
+        years = years.concat(datafile.slice(0,-4).split("__"));
+    })
+    years.reverse();
+    d3.select("#fy.form-control").selectAll('option')
+        .data(years)
+        .enter()
+        .append('option')
+            .attr('value', function(d){ return d; })
+            .property('selected', function(d,i){ return i == 0;})
+            .text(function(d){return d;})
+            ;
+
+    d3.select("#fy.form-control")
+        .on('change', drawFlow)
+        ;
+
+    // run once to initially populate the chart
+    drawFlow();
+
+    function drawFlow(){
+        years.reverse();
+        var fy = d3.select("#fy.form-control").node().value,
+            fy_i = years.indexOf(fy),
+            file_i = Math.floor(fy_i / 2),
+            filename = datafiles[file_i];
+        years.reverse();
+
+        d3.csv("data/proposed_1517_flow/" + filename, function(error, data){
+            if (error) {
+                console.log('error', error);
+                return false;
+            }
+            var final_data = data_wrangle(data, fy);
+            do_with_budget(final_data);
+        });
+    }

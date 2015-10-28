@@ -1,0 +1,99 @@
+
+style.
+  #treewidget13-15 {
+    width: 800px;
+    height: 300px;
+    overflow: hidden;
+  }
+  #credit {
+    position: absolute;
+    bottom:0;
+    right:0;
+    color: #333;
+    text-decoration: underline;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 0 3px;
+    display: block;
+    font-size: 10px;
+    z-index: 9999;
+  }
+
+.container
+  .row
+    .col-md-8
+      div
+        h4#year-header.subheader Mayor's Proposed Spending
+        p
+          strong
+            | Choose budget year: 
+            a(href='?reference_years=2013') 2013-14
+            |  | 
+            a(href='?reference_years=2014') 2014-15
+            |  | 
+            a(href='?reference_years=2013+2014') 2013-15 (Two-Year Budget)
+        h4#breadcrumbs
+      //- TREEMAP
+
+      #treewidget13-15
+      p
+        p
+          | The General Fund -- roughly 40% of Oakland's total budget -- is decided by a public budget process. The other 60% is paid for by taxes, ballot measures, and grants. See
+          a(href='mayor-2013-2015-proposed.html') Version 1
+          | of this visual for more discussion of Oakland's budget and people's feedback on how to make it more accessible to the public.
+          //
+            <p>1) Choose the budget year that you would like to view. 2) Click on a fund to see which departments receive its revenue. 3) Click on a department to see types of spending.
+
+
+          //- SHARE BUTTON
+          div
+            a.a2a_dd(href='http://www.addtoany.com/share_save')
+              img(src='http://static.addtoany.com/buttons/share_save_171_16.png', width='171', height='16', border='0', alt='Share')
+            script(type='text/javascript', src='http://static.addtoany.com/menu/page.js')
+      //-
+       <p><a class="success button" href="https://data.oaklandnet.com/Financial/City-of-Oakland-Proposed-Policy-Budget-FY2013-15/b8mb-8tti" target="_blank">See all data</a></p>
+
+
+      div
+        iframe(width='800px', title='City of Oakland Proposed Policy Budget FY2013-15', height='300px', src='https://data.oaklandnet.com/w/b8mb-8tti/?cur=0TfLKym6A0L&from=root', frameborder='0', scrolling='no')
+          a(href='https://data.oaklandnet.com/Financial/City-of-Oakland-Proposed-Policy-Budget-FY2013-15/b8mb-8tti', title='City of Oakland Proposed Policy Budget FY2013-15', target='_blank') City of Oakland Proposed Policy Budget FY2013-15
+        p
+          a(href='http://www.socrata.com/', target='_blank') Powered by Socrata
+      #disqus_thread
+
+//- DISQUS script
+script(type='text/javascript').
+  function backHome() {
+  document.getElementById('treewidget13-15').src = document.getElementById('treewidget13-15').src;
+  }
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'openbudgetoakland'; // required: replace example with your forum shortname
+  var disqus_identifier = window.location.href;
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+noscript
+  | Please enable JavaScript to view the
+  a(href='http://disqus.com/?ref_noscript') comments powered by Disqus.
+//
+   OpenSpending scripts
+script(src='//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
+script(type='text/javascript', src='http://openspending.org/static/openspendingjs/prod/boot.js')
+script(defer='defer').
+  OpenSpending.scriptRoot = "http://openspending.org/static/openspendingjs";
+  OpenSpending.localeGroupSeparator = ",";
+  OpenSpending.localeDecimalSeparator = ".";
+script(type='text/javascript', src='http://openspending.org/static/openspendingjs/lib/widgets.js')
+script(type='text/javascript', src='http://openspending.org/static/openspendingjs/app/bob/bob.js')
+script(type='text/javascript', src='/js/old/treemap.js')
+//
+  <script type="text/javascript" src="http://openspending.org/static/openspendingjs/widgets/bubbletree/main.js"></script>
+
+script(type='text/javascript', src='http://openspending.org/static/openspendingjs/widgets/aggregate_table/main.js')
+script(type='text/javascript', src='/js/old/purl.js')
+script(type='text/javascript', src='/js/old/main3.js')
+link(rel='stylesheet', href='/css/vendor/treemap.css')
+link(rel='stylesheet', href='/css/vendor/bubbletree.css')
