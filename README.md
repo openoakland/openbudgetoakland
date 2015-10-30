@@ -1,6 +1,10 @@
 # Open Budget OKC
 
-[![Join the chat at https://gitter.im/codeforokc/openbudgetokc](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/codeforokc/openbudgetokc?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+## Chat
+
+Join the Code for OKC Slack room here: http://slack.codeforokc.org/. Once there, check out the #openbudgetokc channel for discussion about this project.
+
+## Getting Started
 
 __Fork me!__
 
