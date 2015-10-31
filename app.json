@@ -16,6 +16,27 @@
     },
     "HEROKU_SLUG_DESCRIPTION":{
       "required":true
+    },
+    "COOKIE_SECRET":{
+      "required":true
+    },
+    "CLOUDINARY_URL":{
+      "required":true
+    },
+    "S3_BUCKET":{
+      "required":true
+    },
+    "S3_KEY":{
+      "required":true
+    },
+    "S3_SECRET":{
+      "required":true
+    },
+    "AWS_ACCESS_KEY_ID":{
+      "required":true
+    },
+    "AWS_SECRET_ACCESS_KEY":{
+      "required":true
     }
   },
   "addons":[
