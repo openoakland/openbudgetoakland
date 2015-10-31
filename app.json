@@ -1,0 +1,24 @@
+{
+  "name":"openbudgetoakland",
+  "scripts":{},
+  "env":{
+    "HEROKU_APP_ID":{
+      "required":true
+    },
+    "HEROKU_APP_NAME":{
+      "required":true
+    },
+    "HEROKU_RELEASE_VERSION":{
+      "required":true
+    },
+    "HEROKU_SLUG_COMMIT":{
+      "required":true
+    },
+    "HEROKU_SLUG_DESCRIPTION":{
+      "required":true
+    }
+  },
+  "addons":[
+    "mongolab"
+  ]
+}
