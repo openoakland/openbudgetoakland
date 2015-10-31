@@ -19,6 +19,9 @@ keystone.init({
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
 	'view engine': 'jade',
+
+	// database opts
+	'mongo': process.env.MONGOLAB_URI || "mongodb://localhost/open-budget-oakland",
 	
 	'auto update': true,
 	'session': true,
