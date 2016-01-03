@@ -4,9 +4,10 @@
 
 Prerequisites: 
 
-- node
-- npm
-- mongo
+- node (v.0.10.x)
+- npm 
+- bower
+- MongoDB
 
 Clone this and checkout the `keystone` branch.
 
