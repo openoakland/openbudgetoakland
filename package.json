@@ -1,0 +1,29 @@
+{
+  "name": "open-budget-oakland",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "keystone": "^0.3.14",
+    "async": "^1.4.2",
+    "underscore": "^1.8.3",
+    "underscore.string": "^3.2.2",
+    "dotenv": "^1.1.0",
+    "moment": "~2.10.6",
+    "moment-fquarter": "git://github.com/robgallen/moment-fquarter.git",
+    "csv-parse": "~1.0.0",
+    "d3": "~3.5.6",
+    "mongodb": "~2.0.46",
+    "aws-sdk": "~2.2.10",
+    "bower": "~1.6.5",
+    "grunt": "~0.4.5",
+    "gulp": "~3.9.0"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "2.14.x"
+  },
+  "scripts": {
+    "start": "node keystone.js"
+  },
+  "main": "keystone.js"
+}
