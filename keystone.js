@@ -14,7 +14,7 @@ keystone.init({
 	'name': 'Open Budget: Oakland',
 	'brand': 'Open Budget: Oakland',
 	
-	'sass': 'public',
+	'less': 'public',
 	'static': 'public',
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
