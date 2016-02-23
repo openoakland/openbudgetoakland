@@ -1,9 +1,8 @@
 [
-{"account":"CONSUMABLES","fund":"BEVERAGES","unit":"SODA","key":"Coke","value":"1"},
-{"account":"CONSUMABLES","fund":"BEVERAGES","unit":"SODA","key":"Sprite","value":"1"},
-{"account":"CONSUMABLES","fund":"BEVERAGES","unit":"SODA","key":"Dr Pepper","value":"1"},
-{"account":"CONSUMABLES","fund":"BEVERAGES","unit":"SODA","key":"Cherry Coke","value":"1"},
-{"account":"CONSUMABLES","fund":"FOOD","unit":"PIZZA","key":"Dominos","value":"50"},
-{"account":"CONSUMABLES","fund":"FOOD","unit":"PIZZA","key":"Papa Murphy's","value":"10"},
-{"account":"CONSUMABLES","fund":"FOOD","unit":"PIZZA","key":"American Pizza","value":"10"}
+{"account":"CONSUMABLES","fund":"BEVERAGES","unit":"SODA","key":"Coke","value":150},
+{"account":"CONSUMABLES","fund":"BEVERAGES","unit":"SODA","key":"Sprite","value":160},
+{"account":"CONSUMABLES","fund":"BEVERAGES","unit":"SODA","key":"Dr Pepper","value":170},
+{"account":"CONSUMABLES","fund":"FOOD","unit":"PIZZA","key":"Dominos","value":500},
+{"account":"CONSUMABLES","fund":"FOOD","unit":"PIZZA","key":"Papa Murphy's","value":100},
+{"account":"CONSUMABLES","fund":"FOOD","unit":"PIZZA","key":"American Pizza","value":100}
 ]

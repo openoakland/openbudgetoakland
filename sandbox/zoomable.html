@@ -172,8 +172,8 @@ function main(o, data) {
   // the children being overwritten when when layout is computed.
   function accumulate(d) {
     return (d._children = d.values)
-        ? d.value = d.values.reduce(function(p, v) { return p + accumulate(v); }, 0)
-        : d.value;
+        ? d.value = d.values.reduce(function(p, v) { return parseInt(p) + accumulate(v); }, 0)
+        : parseInt(d.value);
   }
 
   // Compute the treemap layout recursively such that each group of siblings
@@ -316,12 +316,13 @@ function main(o, data) {
 }
 
 if (window.location.hash === "") {
-    d3.json("easy-data.json", function(err, res) {
+    d3.json("fy2015-okc-expense-budget.json", function(err, res) {
         if (!err) {
-            console.log(res);
-            var data = d3.nest().key(function(d) { return d.account; }).key(function(d) { return d.fund; }).key(function(d) { return d.unit; }).entries(res);
-            console.log(data);
-            main({title: "OKC BUDGET"}, {key: "Account", values: data});
+            var data = d3.nest()
+                         .key(function(d) { return d.fund; })
+                         .key(function(d) { return d.unit; })
+                         .entries(res);
+            main({title: "OKC BUDGET"}, {key: "Budget", values: data});
         }
     });
 }
