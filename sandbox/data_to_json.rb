@@ -55,4 +55,4 @@ csv.each do |row|
 end
 
 file = File.new("#{file_name}.json" , 'w')
-file.write data.to_json
+file.write JSON.pretty_generate(data)
