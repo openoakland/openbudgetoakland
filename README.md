@@ -89,6 +89,12 @@ Right now the 2015-17 Proposed page is an unpublished placeholder, pending the d
     - (any other columns should be deleted)
 1. test it in Harp in the dev branch, and it should compile properly for deployment
 
+## Sandbox
+
+Most of the new development on Oklahoma City data visualizations is currently occuring in the sandbox directory. Each of the charts can be viewed by opening them directly in your browser.
+
+This area is in active development so all of the graphs may not be functioning correctly.
+
 ## Publishing Changes
 Make changes on your personal fork or branch. If you have repo access, and your changes are ready for review, you can merge them into the development branch and publish to the staging site for review. You can also publish changes to your own server and merge to development afterwards.
 
@@ -138,7 +144,5 @@ git push --set-upstream origin gh-pages --force
 
 # merge your changes from your branch or development into master
 git merge origin/development
-
-If you are on a forked branch, create a pull request to have your changes reviewed for merge!
 
 If you are on a forked branch, create a pull request to have your changes reviewed for merge!
