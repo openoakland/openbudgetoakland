@@ -11,6 +11,11 @@ headers = csv.headers
 
 p headers
 
+puts "Please select the number corresponding to the agency:"
+headers.each_with_index { |header, index| puts "#{index}: #{header}"}
+
+agency = gets
+
 puts "Please select the number corresponding to the account:"
 headers.each_with_index { |header, index| puts "#{index}: #{header}"}
 
@@ -45,10 +50,12 @@ data = []
 stuff = []
 csv.each do |row|
   data << {
+    agency: row[headers[agency.to_i]], #row["Account Description"],
     account: row[headers[account.to_i]], #row["Account Description"],
     fund: row[headers[fund.to_i]], #row["FundDescription"],
     unit: row[headers[operating_unit.to_i]],  #row["OperatingUnitDescription"],
     lob: row[headers[lob.to_i]],  #row["OperatingUnitDescription"],
+    program: row[headers[program_name.to_i]],  #row["OperatingUnitDescription"],
     key: row[headers[program_name.to_i]], #row["ProgramName"],
     value: row[headers[amount.to_i]] #row["Budget"].to_i
   }
