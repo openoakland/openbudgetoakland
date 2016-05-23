@@ -11,13 +11,22 @@ __Fork me!__
 Fork and clone the project!
 
 ```
-git clone git@github.com:[your-user]/openbudgetokc.git
+$ git clone git@github.com:[your-user]/openbudgetokc.git
+$ cd openbudgetokc
 ```
-
-- cd, checkout to branch
 
 ---
 ## Developing Locally
+
+### D3 Sandbox
+
+Most of the new development on Oklahoma City data visualizations is currently occuring in the sandbox directory. Each of the charts can be viewed by opening them directly in your browser.
+
+```
+$ open openbudgetokc/sandbox/zoomable.html
+```
+
+This area is in active development so all of the graphs may not be functioning correctly!
 
 ### Harp
 
@@ -89,60 +98,13 @@ Right now the 2015-17 Proposed page is an unpublished placeholder, pending the d
     - (any other columns should be deleted)
 1. test it in Harp in the dev branch, and it should compile properly for deployment
 
-## Sandbox
+## Contributing
 
-Most of the new development on Oklahoma City data visualizations is currently occuring in the sandbox directory. Each of the charts can be viewed by opening them directly in your browser.
+If you're new to contributing to open source projects Github has a pretty great [video series](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github).
 
-This area is in active development so all of the graphs may not be functioning correctly.
-
-## Publishing Changes
-Make changes on your personal fork or branch. If you have repo access, and your changes are ready for review, you can merge them into the development branch and publish to the staging site for review. You can also publish changes to your own server and merge to development afterwards.
-
-### Publishing to Staging
-If you have access to the openoakland repo, you can easily publish a preview of your changes to [staging.openbudgetoakland.org](http://staging.openbudgetoakland.org) with the script below.
-
-```
-# Run shell script to publish changes from your current branch to the staging 
-# Because of path referencing, you'll need to run this script from inside the _src directory for now
-bash ../_publish-preview.sh
-```
-
-### Publishing to Production
-
-Even though Harp runs locally, static files need to be compiled for the live site (hosted on Github pages).
-Once you have made all your changes, you'll need to compile everything in order for it to run on gh-pages. Because of how Harp compiles (that it clears the target directory), this workflow gets a bit wonky. We'll try to make it a little less fragile if people begin publishing changes more often.
-
-
-```
-# make sure your repo is up to date and you are on the master branch
-git fetch
-git checkout master
-
-# merge your changes from your branch or development into master
-git merge origin/development
-
-# here's where it gets hacky - open to suggestions for an improved workflow
-# delete the gh-pages branch and then recreate it as an orphan (untracked) branch
-git branch -D gh-pages
-git checkout --orphan gh-pages
-
-# move into the _src directory and compile source files to the root
-cd _src
-harp compile ./ ../
-
-# move back to the root, and add and commit files
-cd ../
-git add -A
-git commit -m "deploy"
-  
-# push changes to remote gh-pages branch using *gasp* --force! 
-# !!! Never push --force on any public branch besides gh-pages!
-git push --set-upstream origin gh-pages --force  
-
-# make sure your changes are showing up and you didn't break anything
-```
-
-# merge your changes from your branch or development into master
-git merge origin/development
-
-If you are on a forked branch, create a pull request to have your changes reviewed for merge!
+If you're comfortable already, our workflow is:
+- [Fork the repo.](https://help.github.com/articles/fork-a-repo/)
+- Make your changes.
+- Commit the changes. ([How to write a great commit message!](https://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message))
+- Push them to your fork.
+- [And open a pull request.](https://help.github.com/articles/using-pull-requests/)
