@@ -319,7 +319,6 @@ if (window.location.hash === "") {
     d3.json("CODE for OKC FY16 Final.json", function(err, res) {
         if (!err) {
             var data = d3.nest()
-		         .key(function(d) { return d.fund; })
                          .key(function(d) { return d.agency; })
                          .key(function(d) { return d.lob; })
 			 .key(function(d) { return d.program })
