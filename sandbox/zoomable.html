@@ -316,14 +316,14 @@ function main(o, data) {
 }
 
 if (window.location.hash === "") {
-    d3.json("CODE-OKC-CSV-FY16-with-Agency-and-Character-added.json", function(err, res) {
+    d3.json("CODE for OKC FY16 Final.json", function(err, res) {
         if (!err) {
             var data = d3.nest()
                          .key(function(d) { return d.agency; })
                          .key(function(d) { return d.lob; })
-                         .key(function(d) { return d.program; })
+			 .key(function(d) { return d.program })
                          .entries(res);
-            main({title: "OKC BUDGET"}, {key: "Budget", values: data});
+            main({title: "City of Oklahoma City Budget - FY2016"}, {key: "Budget", values: data});
         }
     });
 }

@@ -51,12 +51,12 @@ stuff = []
 csv.each do |row|
   data << {
     agency: row[headers[agency.to_i]], #row["Account Description"],
-    account: row[headers[account.to_i]], #row["Account Description"],
+    #account: row[headers[account.to_i]], #row["Account Description"],
     fund: row[headers[fund.to_i]], #row["FundDescription"],
-    unit: row[headers[operating_unit.to_i]],  #row["OperatingUnitDescription"],
+    #unit: row[headers[operating_unit.to_i]],  #row["OperatingUnitDescription"],
     lob: row[headers[lob.to_i]],  #row["OperatingUnitDescription"],
     program: row[headers[program_name.to_i]],  #row["OperatingUnitDescription"],
-    key: row[headers[program_name.to_i]], #row["ProgramName"],
+    key: row[headers[account.to_i]], #row["ProgramName"],
     value: row[headers[amount.to_i]] #row["Budget"].to_i
   }
 end
