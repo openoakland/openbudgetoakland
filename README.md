@@ -50,6 +50,15 @@ npm install && npm start
 # npm install can be omitted on subsequent runs
 npm start
 ```
+#### Pitfalls
+
+* node version 6
+
+Currently, there is a problem with installing on node V6
+It can be fixed by changing the harp line to:
+```  "harp": "https://github.com/sintaxi/harp.git#v0.21.0-pre" ```
+in the ``` package.json ``` at the root of this project. 
+
 
 ## Making Changes
 
