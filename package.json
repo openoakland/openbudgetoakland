@@ -1,0 +1,9 @@
+{
+  "name": "openbudgetoakland",
+  "dependencies": {
+    "express": "*",
+    "express-layout": "*",
+    "jade": "*",
+    "node-sass-middleware": "*"
+  }
+}
