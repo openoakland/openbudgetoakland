@@ -74,7 +74,7 @@ rect.parent {
 
 
 window.addEventListener('message', function(e) {
-    fvar opts = e.data.opts,
+    var opts = e.data.opts,
         data = e.data.data;
 
     return main(opts, data);
