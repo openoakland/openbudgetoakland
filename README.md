@@ -15,6 +15,8 @@ $ git clone git@github.com:[your-user]/openbudgetokc.git
 $ cd openbudgetokc
 ```
 
+[Read helpful info about image sizes, data types and color schemes on the wiki.](https://github.com/codeforokc/openbudgetokc/wiki)
+
 ---
 ## Developing Locally
 
