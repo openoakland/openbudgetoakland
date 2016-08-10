@@ -58,6 +58,7 @@
   .row#chart
 script(src="http://code.jquery.com/jquery-1.7.2.min.js",charset='utf-8')
 script(src="http://d3js.org/d3.v3.min.js"              ,charset='utf-8')
+script(src="/js/data.js",charset='utf-8')
 script.
   window.addEventListener('message', function(e) {
       var opts = e.data.opts;
@@ -135,10 +136,10 @@ script.
     }
       
     initialize(root);
-    accumulate(root);
+    ob.data.accumulate(root);
     layout(root);
     display(root);
-  
+    
     if (window.parent !== window) {
       var myheight = document.documentElement.scrollHeight || document.body.scrollHeight;
       window.parent.postMessage({height: myheight}, '*');
@@ -151,15 +152,7 @@ script.
       root.depth = 0;
     }
   
-    // Aggregate the values for internal nodes. This is normally done by the
-    // treemap layout, but not here because of our custom implementation.
-    // We also take a snapshot of the original children (_children) to avoid
-    // the children being overwritten when when layout is computed.
-    function accumulate(d) {
-      return (d._children = d.values)
-          ? d.value = d.values.reduce(function(p, v) { return parseInt(p) + accumulate(v); }, 0)
-          : parseInt(d.value);
-    }
+    
   
     // Compute the treemap layout recursively such that each group of siblings
     // uses the same size (1×1) rather than the dimensions of the parent cell.
@@ -299,6 +292,8 @@ script.
           : d.key + " (" + formatNumber(d.value) + ")";
     }
   }
+  
+  
   
   if (window.location.hash === "") {
       d3.json("data/fy2016/c4okc_fy2016_final.json", function(err, res) {
