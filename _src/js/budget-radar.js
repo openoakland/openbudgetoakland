@@ -9,9 +9,9 @@ ob.display = ob.display || {};
     //      but you will see a message in the log
     //      it goes by feel, so it can give false positives!
     //--------------------------------------------------
-    var missingDeps = checkDependencies([   {target:R       ,expected:"object"},
-                                            {target:ob.hash ,expected:"function"},
-                                            {target:ob.data ,expected:"function"},
+    var missingDeps = checkDependencies([   {target:R       ,expected:"object"},     //Ramda pkg 
+                                            {target:ob.hash ,expected:"function"},   //Internal: Hash pkg
+                                            {target:ob.data ,expected:"function"},   //Internal: Data pkg
                                         ]);
     if(missingDeps.length !== 0)
     {
@@ -46,27 +46,18 @@ ob.display = ob.display || {};
       '#690180'
     ];
     
-    var _threshold = 0.7;    // The threshold comes from the page normally
-    var margin = _layout.margin;
+    var _threshold      = 0.7;    // The threshold comes from the page normally
+    var margin          = _layout.margin;
     var _radar_selector = "#radar";    
 
+
+    
     // don't want to rename and break the local convention
     // but this is a lot like a set of cursor functions
     // from XML 
     var _cruncher = ob.data.hierarchy()
-    // I am changing the getLevel function around some
-    // but this is like the get: in tree xo    
-    var getLevel  = function(root,hash) {
-      if (hash.length < 1) {
-        return root;
-      }
-      return _cruncher.spelunk (
-        root,
-        hash,
-        Hash.compare
-      );
-    };    
 
+    
 
 
 
@@ -88,22 +79,18 @@ ob.display = ob.display || {};
     
     var createFunction = function () {
       d3.json(_url, function(data_incoming) {
+
+        
         if(typeof data_incoming !== "undefined") {
 
-
-          var data = d3.nest()
-              .key(function(data_incoming) { return data_incoming.agency; })
-              .rollup(function(leaves) {
-                                      return {"amount": d3.sum(leaves, function(d) {
-                                                                           return parseInt(d.value);})
-                                             }
-              })
-          .entries(data_incoming);
+          var topLevelBudgetValues = d3.nest()
+                       .key(function(data_incoming) { return data_incoming.agency; })
+                       .rollup(function(leaves) {
+                                      return {"amount": d3.sum(leaves , function(d) {
+                                                                           return parseInt(d.value);})}
+                     }).entries(data_incoming);
 
 
-          // This is a rollup done by hand
-
-          var topLevelBudgetValues = data;
           var title = hash[0];
 
           
@@ -111,15 +98,15 @@ ob.display = ob.display || {};
           // 'has' filters to validate incoming data and eliminate anything weird
           //--------------------------------------------------
           var hasKey    = R.has("key");
-          // var hasData   = R.has("data");
           var hasAmount = R.has("amount");
 
-          // Need new things to validate against...
+
+          // combine has filters together in one check
           var validAxis = function (o) {
+                               return hasKey(o) && hasAmount(o.values); };          
 
-            return hasKey(o) && hasAmount(o.values); };
-          
 
+          // Remove any budget values that don't comport (this really shouldn't happen)
           var filteredBudgetValues = R.filter(validAxis, topLevelBudgetValues);
 
 
@@ -128,8 +115,8 @@ ob.display = ob.display || {};
             // Budget tree form, but d3 radar requires
             // Elements to have a form as below
 
-            return  { axis:  o.key
-                    , value: o.values.amount};
+            return  {  axis:  o.key
+                    , value:  o.values.amount};
             
           };
 
@@ -137,16 +124,14 @@ ob.display = ob.display || {};
  
 
           var getSum = function (arr) {
-
-            var compareIncomingTakeSum = function (x,y) {return x +  y.value;}
-            var sum = R.reduce( compareIncomingTakeSum , 0 , arr);
-            return sum;
+            
+            var compareIncomingTakeSum = function (x,y) {return x + y.value;}
+            return (R.reduce( compareIncomingTakeSum , 0 , arr));            
           }
 
 
           
           var treeDataToAxis = function (arr) {
-
             return R.map(elementToAxis,arr);}
 
           
