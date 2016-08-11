@@ -73,6 +73,10 @@ ob.display = ob.display || {};
                                       ,"expense"
                                       ,"fy2015-16"
                                       ,"generalfund"]);    
+
+
+    var title = hash[0];
+
     
     // Fetch the Data and draw the chart on return 
     // Expecting data to match the tree format    
@@ -94,12 +98,7 @@ ob.display = ob.display || {};
                        .entries(data_incoming);
 
 
-          var title = hash[0];
-
-
-          
-
-
+         
           // Remove any budget values that don't comport (this really shouldn't happen)
           var filteredBudgetValues = R.filter(validAxis, topLevelBudgetValues);
 
