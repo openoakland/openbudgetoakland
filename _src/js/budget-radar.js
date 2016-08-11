@@ -119,36 +119,11 @@ ob.display = ob.display || {};
 
  
 
-          var getSum = function (arr) {
-            
-            var compareIncomingTakeSum = function (x,y) {return x + y.value;}
-
-            // This is not a d3 reduction, it is a Ramdas one.
-            // but the only real difference is the order of the initial condition
-            // and the currying ability that Ramdas allows
-
-            return (R.reduce(compareIncomingTakeSum
-                             ,0
-                             , arr));            
-          }
-
-
           // apply the per element transform to every element in an array
           // producing our Axis
           var treeDataToAxis = function (arr) {
             return R.map(elementToAxis,arr);}
 
-          
-          var expressAsPercent = function(arr) {                                                                         
-            //Divide each value by the sum for a given array             
-            var sum  = getSum(arr);
-            var norm = function (x) { x.value = x.value / sum;
-                                      return x;};                                                 
-
-            var normArr = (R.map(norm,arr));
-            return normArr;
-            
-          };
           
 
           
@@ -215,7 +190,36 @@ ob.display = ob.display || {};
     // Standalone Functions
     //--------------------------------------------------
     
-         
+    
+    var getSum = function (arr) {      
+      var compareIncomingTakeSum = function (x,y) {return x + y.value;}
+      // This is not a d3 reduction, it is a Ramdas one.
+      // but the only real difference is the order of the initial condition
+      // and the currying ability that Ramdas allows
+      return (R.reduce(compareIncomingTakeSum
+                       ,0
+                       , arr));            
+    };
+
+
+
+    // normalize and express values as percent of the whole
+    var expressAsPercent = function(arr) {                                                                         
+      //Divide each value by the sum for a given array             
+      var sum  = getSum(arr);
+      var norm = function (x) { x.value = x.value / sum;
+                                return x;};                                                 
+
+      var normArr = (R.map(norm,arr));
+      return normArr;
+      
+    };
+    
+
+
+
+
+    
 
     // combine has filters together in one check
     var validAxis = function (o) {
