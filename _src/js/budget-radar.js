@@ -94,7 +94,7 @@ ob.display = ob.display || {};
 
 
           // Go one layer in to get right set of values          
-          var hash = Hash.parseWithDefault(["fy14-15","expense","fy14-15","generalfund"]);
+          var hash = Hash.parseWithDefault(["fy2016","expense","fy14-15","generalfund"]);
           var data = d3.nest()
               .key(function(data_incoming) { return data_incoming.agency; })
               .rollup(function(leaves) {
