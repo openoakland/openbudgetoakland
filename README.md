@@ -30,6 +30,16 @@ $ open openbudgetokc/sandbox/zoomable.html
 
 This area is in active development so all of the graphs may not be functioning correctly!
 
+#### Generating json files from a csv
+
+We have a small script written in ruby for generating a json file from a csv of city data. The script asks for the file and then steps through each required field and asks you to specify the correct header which matches. 
+
+To run the script
+```
+$ cd <project_root>/sandbox
+$ ruby data_to_json.rb
+```
+
 ### Harp
 
 This site is built on Harp using Node.js That means you can run it locally with minimal setup!
