@@ -77,7 +77,10 @@ ob.display = ob.display || {};
 
     var title = hash[0];
 
-    
+
+    //--------------------------------------------------
+    // Perform XHR request
+    //--------------------------------------------------
     // Fetch the Data and draw the chart on return 
     // Expecting data to match the tree format    
     var createFunction = function () {
@@ -104,57 +107,38 @@ ob.display = ob.display || {};
 
 
 
- 
           
 
           
-          // Threshold functions to keep Axis count from getting to be too much                         
-          var isAboveThreshold = R.curry(function (threshold,x) { return (x.value) > threshold});          
-          var isBelowThreshold = R.curry(function (threshold,x) { return (x.value) <= threshold});
-
-          
-          var thresholdArrayAndAppend = function (arr) {
-            // return an array where the smallest results are filtered out, but them summed together
-            // and turned into an extra "other" axis.
-            var aboveThresh       = R.filter (isAboveThreshold(_threshold), arr);
-            var belowThreshValArr = R.filter(isBelowThreshold(_threshold))(arr);
-            var belowThreshQty    = belowThreshValArr.length
-            var belowThreshVal    = getSum(belowThreshValArr); 
-            var newOtherPoint     = {axis:"All OTHERS (" + belowThreshQty + ")", value: belowThreshVal};
-            
-            return R.insert( 0,  newOtherPoint, aboveThresh);
-          };
-          
-
           
           var sortArrayByValue = R.sort(diffValue)          
           // Values are transformed into axis, then normalized, then thresholded. 
-          var makeAxisArray         = R.compose(       sortArrayByValue
-                                                     , thresholdArrayAndAppend
-                                                     , expressAsPercent
-                                                     , treeDataToAxis);
+          var makeAxisArray         = R.compose(   sortArrayByValue
+                                                 , thresholdArrayAndAppend
+                                                 , expressAsPercent
+                                                 , treeDataToAxis);
 
           var budgetAxis = makeAxisArray(filteredBudgetValues);
-          
+          var color = d3.scale.ordinal().range( _palette);
+          var max   = getMaximum(budgetAxis);
+
+          var radarChartOptions = {
+            w: _layout.width,
+            h: _layout.height,
+            margin: margin,
+            maxValue: max,
+            levels: 5,
+            roundStrokes: true,
+            color: color
+          };
+          //Call function to draw the Radar chart
+          RadarChart("#radar", [budgetAxis], radarChartOptions);
+        
+          //Print chart title stupidly
+          d3.select("#title").html(title);
+                    
         }
 
-        var color = d3.scale.ordinal().range( _palette);
-        var max   = getMaximum(budgetAxis);
-
-        var radarChartOptions = {
-          w: _layout.width,
-          h: _layout.height,
-          margin: margin,
-          maxValue: max,
-          levels: 5,
-          roundStrokes: true,
-          color: color
-        };
-        //Call function to draw the Radar chart
-        RadarChart("#radar", [budgetAxis], radarChartOptions);
-        
-        //Print chart title stupidly
-        d3.select("#title").html(title);
 
       });
     };
@@ -164,10 +148,42 @@ ob.display = ob.display || {};
 
     
     //--------------------------------------------------
-    // Standalone Functions
+    // Non XHR dependent functions
     //--------------------------------------------------
+ 
+
+    var thresholdArrayAndAppend = function (arr) {
+      // return an array where the smallest results are filtered out, but then summed together
+      // and turned into an extra "all others" axis.
+      
+      var aboveThresh       = R.filter (isAboveThreshold(_threshold), arr);
+      
+      var belowThreshValArr = R.filter(isBelowThreshold(_threshold))(arr);
+      
+      var belowThreshQty    = belowThreshValArr.length
+      
+      var belowThreshVal    = getSum(belowThreshValArr);
+      
+      var newOtherPoint     = {  axis:"All OTHERS (" + belowThreshQty + ")"
+                                 , value: belowThreshVal};
+      
+      return R.insert( 0,  newOtherPoint, aboveThresh);
+    };
+    
+
+
+
+
     
     var diffValue = function(o1,o2) { o1.value - o2.value}
+
+          
+    // Threshold functions to keep Axis count from getting to be too much                         
+    var isAboveThreshold = R.curry(function (threshold,x) { return (x.value) > threshold});          
+    var isBelowThreshold = R.curry(function (threshold,x) { return (x.value) <= threshold});
+
+
+
     
     var getSum = function (arr) {      
       var compareIncomingTakeSum = function (x,y) {return x + y.value;}
