@@ -18,9 +18,6 @@ ob.display = ob.display || {};
       console.log("some dependencies appaer to be missing or mis-typed", missingDeps);
     }
 
-    // I moved a lot of the hash stuff that was in tree
-    // to the hash.js location
-    // so it can be used in multiple sites
     var Hash = ob.hash();
     
 
@@ -44,15 +41,12 @@ ob.display = ob.display || {};
       '#F07400',
       '#EDA400',
       '#009F76',
-      // '#009DB0',
-      // '#00C0D7',
       '#008F16',
       '#395BF6',
       '#690180'
     ];
     
-    var _threshold = 0.7;
-    
+    var _threshold = 0.7;    // The threshold comes from the page normally
     var margin = _layout.margin;
     var _radar_selector = "#radar";    
 
@@ -83,7 +77,11 @@ ob.display = ob.display || {};
     var budgetAxis = []
     var _url = null;
     
-    
+
+    var hash = Hash.parseWithDefault(["fy2016"
+                                      ,"expense"
+                                      ,"fy14-15"
+                                      ,"generalfund"]);    
     
     // Fetch the Data and draw the chart on return 
     // Expecting data to match the tree format
@@ -93,8 +91,6 @@ ob.display = ob.display || {};
         if(typeof data_incoming !== "undefined") {
 
 
-          // Go one layer in to get right set of values          
-          var hash = Hash.parseWithDefault(["fy2016","expense","fy14-15","generalfund"]);
           var data = d3.nest()
               .key(function(data_incoming) { return data_incoming.agency; })
               .rollup(function(leaves) {
