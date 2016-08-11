@@ -123,18 +123,20 @@ ob.display = ob.display || {};
           var max   = getMaximum(budgetAxis);
 
           var radarChartOptions = {
-            w: _layout.width,
-            h: _layout.height,
-            margin: margin,
-            maxValue: max,
-            levels: 5,
+                       w: _layout.width,
+                       h: _layout.height,
+                  margin: margin,
+                maxValue: max,
+                  levels: 5,
             roundStrokes: true,
-            color: color
+                   color: color
           };
 
           
           //Call function to draw the Radar chart
-          RadarChart("#radar", [budgetAxis], radarChartOptions);
+          RadarChart(  "#radar"
+                     , [budgetAxis]
+                     , radarChartOptions);
           
           //Print chart title stupidly
           d3.select("#title").html(title);
@@ -175,7 +177,7 @@ ob.display = ob.display || {};
 
 
 
-    
+    // A difference function specialized for axis
     var diffValue = function(o1,o2) { o1.value - o2.value}
 
     
@@ -234,7 +236,7 @@ ob.display = ob.display || {};
       // Elements to have a form as below
 
       return  {  axis:  o.key
-                 , value:  o.values.amount};
+              , value:  o.values.amount};
       
     };
 
@@ -258,33 +260,32 @@ ob.display = ob.display || {};
     //--------------------------------------------------
     return { create: createFunction,
              width: function() {
-               if (arguments.length) {
-                 _layout.width = arguments[0];
-                 return this;
-               }
-               return _layout.width;
+                     if (arguments.length) {
+                        _layout.width = arguments[0];
+                     return this;
+                     }
+                    return _layout.width;
              },
              height: function() {
-               if (arguments.length) {
-                 _layout.height = arguments[0];
-                 return this;
-               }
-               return _layout.height;
+                      if (arguments.length) {
+                         _layout.height = arguments[0];
+                      return this;
+                      }
+                     return _layout.height;
              },
              url: function() {
-               if (arguments.length) {
-                 _url = arguments[0];
-                 return this;
-               }
+                   if (arguments.length) {
+                     _url = arguments[0];
+                     return this;
+                   }
                return _url;
              },
              threshold: function() {
-               if (arguments.length) {
-                 _threshold = arguments[0];
-                 return this;
-               }
-               return _threshold;
-             }
+                         if (arguments.length) {
+                           _threshold = arguments[0];
+                           return this;
+                         }
+                        return _threshold;}
              
            };
 
