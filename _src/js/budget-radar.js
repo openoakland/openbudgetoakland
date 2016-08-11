@@ -92,16 +92,16 @@ ob.display = ob.display || {};
           // convert the data into a nest structure
           // use the rollup function to accumulate amounts into a single level
           var topLevelBudgetValues = d3.nest()
-                       .key(function(data_incoming) { return data_incoming.agency; })
-                       .rollup(
-                          function(leaves) {
-                            return {"amount": d3.sum(leaves,
-                                                       function(d) {
-                                                         return parseInt(d.value);})}})
-                       .entries(data_incoming);
+              .key(function(data_incoming) { return data_incoming.agency; })
+              .rollup(
+                function(leaves) {
+                  return {"amount": d3.sum(leaves,
+                                           function(d) {
+                                             return parseInt(d.value);})}})
+              .entries(data_incoming);
 
 
-         
+          
           // Remove any budget values that don't comport (this really shouldn't happen)
           var filteredBudgetValues = R.filter(validAxis, topLevelBudgetValues);
 
@@ -114,9 +114,9 @@ ob.display = ob.display || {};
           var sortArrayByValue = R.sort(diffValue)          
           // Values are transformed into axis, then normalized, then thresholded. 
           var makeAxisArray         = R.compose(   sortArrayByValue
-                                                 , thresholdArrayAndAppend
-                                                 , expressAsPercent
-                                                 , treeDataToAxis);
+                                                   , thresholdArrayAndAppend
+                                                   , expressAsPercent
+                                                   , treeDataToAxis);
 
           var budgetAxis = makeAxisArray(filteredBudgetValues);
           var color = d3.scale.ordinal().range( _palette);
@@ -131,12 +131,14 @@ ob.display = ob.display || {};
             roundStrokes: true,
             color: color
           };
+
+          
           //Call function to draw the Radar chart
           RadarChart("#radar", [budgetAxis], radarChartOptions);
-        
+          
           //Print chart title stupidly
           d3.select("#title").html(title);
-                    
+          
         }
 
 
@@ -150,8 +152,7 @@ ob.display = ob.display || {};
     //--------------------------------------------------
     // Non XHR dependent functions
     //--------------------------------------------------
- 
-
+    
     var thresholdArrayAndAppend = function (arr) {
       // return an array where the smallest results are filtered out, but then summed together
       // and turned into an extra "all others" axis.
@@ -177,7 +178,7 @@ ob.display = ob.display || {};
     
     var diffValue = function(o1,o2) { o1.value - o2.value}
 
-          
+    
     // Threshold functions to keep Axis count from getting to be too much                         
     var isAboveThreshold = R.curry(function (threshold,x) { return (x.value) > threshold});          
     var isBelowThreshold = R.curry(function (threshold,x) { return (x.value) <= threshold});
