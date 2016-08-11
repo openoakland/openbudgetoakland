@@ -106,12 +106,6 @@ ob.display = ob.display || {};
 
 
  
-
-          // apply the per element transform to every element in an array
-          // producing our Axis
-          var treeDataToAxis = function (arr) {
-            return R.map(elementToAxis,arr);}
-
           
 
           
@@ -209,6 +203,12 @@ ob.display = ob.display || {};
       
     };
     
+
+    // apply the per element transform to every element in an array
+    // producing our Axis
+    var treeDataToAxis = function (arr) {
+      return R.map(elementToAxis,arr);}
+
 
 
     
