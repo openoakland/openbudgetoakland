@@ -105,18 +105,6 @@ ob.display = ob.display || {};
 
 
 
-          
-          var elementToAxis = function (o) {
-            // The data we are taking in is in our standard
-            // Budget tree form, but d3 radar requires
-            // Elements to have a form as below
-
-            return  {  axis:  o.key
-                    , value:  o.values.amount};
-            
-          };
-
-
  
 
           // apply the per element transform to every element in an array
@@ -145,11 +133,10 @@ ob.display = ob.display || {};
           };
           
 
-          var diffValue = function(o1,o2) { o1.value - o2.value}
-          var sortArrayByValue = R.sort(diffValue)
           
+          var sortArrayByValue = R.sort(diffValue)          
           // Values are transformed into axis, then normalized, then thresholded. 
-          var makeAxisArray         = R.compose(     sortArrayByValue
+          var makeAxisArray         = R.compose(       sortArrayByValue
                                                      , thresholdArrayAndAppend
                                                      , expressAsPercent
                                                      , treeDataToAxis);
@@ -158,15 +145,8 @@ ob.display = ob.display || {};
           
         }
 
-        var color = d3.scale.ordinal()
-            .range( _palette);
-
-        var getMaximum = function (arr) {            
-            var compareIncomingTakeMax = function (x,y) {return R.max( x, y.value);}
-            var max = R.reduce( compareIncomingTakeMax ,  0 , arr);
-            return max;
-          }
-        var max = getMaximum(budgetAxis);
+        var color = d3.scale.ordinal().range( _palette);
+        var max   = getMaximum(budgetAxis);
 
         var radarChartOptions = {
           w: _layout.width,
@@ -185,11 +165,16 @@ ob.display = ob.display || {};
 
       });
     };
+
+
+
+
     
     //--------------------------------------------------
     // Standalone Functions
     //--------------------------------------------------
     
+    var diffValue = function(o1,o2) { o1.value - o2.value}
     
     var getSum = function (arr) {      
       var compareIncomingTakeSum = function (x,y) {return x + y.value;}
@@ -203,6 +188,15 @@ ob.display = ob.display || {};
 
 
 
+    // specific form of getMaximum for axis
+    var getMaximum = function (arr) {            
+      var compareIncomingTakeMax = function (x,y) {return R.max( x, y.value);}
+      var max = R.reduce( compareIncomingTakeMax ,  0 , arr);
+      return max;
+    }
+
+    
+
     // normalize and express values as percent of the whole
     var expressAsPercent = function(arr) {                                                                         
       //Divide each value by the sum for a given array             
@@ -215,6 +209,18 @@ ob.display = ob.display || {};
       
     };
     
+
+
+    
+    var elementToAxis = function (o) {
+      // The data we are taking in is in our standard
+      // Budget tree form, but d3 radar requires
+      // Elements to have a form as below
+
+      return  {  axis:  o.key
+                 , value:  o.values.amount};
+      
+    };
 
 
 
