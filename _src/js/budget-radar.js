@@ -68,48 +68,44 @@ ob.display = ob.display || {};
     var budgetAxis = []
     var _url = null;
     
-
+    // Hash comes from window screen. 
     var hash = Hash.parseWithDefault(["fy2016"
                                       ,"expense"
-                                      ,"fy14-15"
+                                      ,"fy2015-16"
                                       ,"generalfund"]);    
     
     // Fetch the Data and draw the chart on return 
-    // Expecting data to match the tree format
-    
+    // Expecting data to match the tree format    
     var createFunction = function () {
       d3.json(_url, function(data_incoming) {
 
         
         if(typeof data_incoming !== "undefined") {
 
+          // convert the data into a nest structure
+          // use the rollup function to accumulate amounts into a single level
           var topLevelBudgetValues = d3.nest()
                        .key(function(data_incoming) { return data_incoming.agency; })
-                       .rollup(function(leaves) {
-                                      return {"amount": d3.sum(leaves , function(d) {
-                                                                           return parseInt(d.value);})}
-                     }).entries(data_incoming);
+                       .rollup(
+                          function(leaves) {
+                            return {"amount": d3.sum(leaves,
+                                                       function(d) {
+                                                         return parseInt(d.value);})}})
+                       .entries(data_incoming);
 
 
           var title = hash[0];
 
+
           
-          //--------------------------------------------------
-          // 'has' filters to validate incoming data and eliminate anything weird
-          //--------------------------------------------------
-          var hasKey    = R.has("key");
-          var hasAmount = R.has("amount");
-
-
-          // combine has filters together in one check
-          var validAxis = function (o) {
-                               return hasKey(o) && hasAmount(o.values); };          
 
 
           // Remove any budget values that don't comport (this really shouldn't happen)
           var filteredBudgetValues = R.filter(validAxis, topLevelBudgetValues);
 
 
+
+          
           var elementToAxis = function (o) {
             // The data we are taking in is in our standard
             // Budget tree form, but d3 radar requires
@@ -126,18 +122,26 @@ ob.display = ob.display || {};
           var getSum = function (arr) {
             
             var compareIncomingTakeSum = function (x,y) {return x + y.value;}
-            return (R.reduce( compareIncomingTakeSum , 0 , arr));            
+
+            // This is not a d3 reduction, it is a Ramdas one.
+            // but the only real difference is the order of the initial condition
+            // and the currying ability that Ramdas allows
+
+            return (R.reduce(compareIncomingTakeSum
+                             ,0
+                             , arr));            
           }
 
 
-          
+          // apply the per element transform to every element in an array
+          // producing our Axis
           var treeDataToAxis = function (arr) {
             return R.map(elementToAxis,arr);}
 
           
           var expressAsPercent = function(arr) {                                                                         
             //Divide each value by the sum for a given array             
-            var sum = getSum(arr);
+            var sum  = getSum(arr);
             var norm = function (x) { x.value = x.value / sum;
                                       return x;};                                                 
 
@@ -150,8 +154,9 @@ ob.display = ob.display || {};
           
           // Threshold functions to keep Axis count from getting to be too much                         
           var isAboveThreshold = R.curry(function (threshold,x) { return (x.value) > threshold});          
-          var isBelowThreshold = R.curry(function (threshold,x) { return (x.value) <= threshold})
-          ;
+          var isBelowThreshold = R.curry(function (threshold,x) { return (x.value) <= threshold});
+
+          
           var thresholdArrayAndAppend = function (arr) {
             // return an array where the smallest results are filtered out, but them summed together
             // and turned into an extra "other" axis.
@@ -205,7 +210,21 @@ ob.display = ob.display || {};
 
       });
     };
+    
+    //--------------------------------------------------
+    // Standalone Functions
+    //--------------------------------------------------
+    
+         
 
+    // combine has filters together in one check
+    var validAxis = function (o) {
+      //--------------------------------------------------
+      // 'has' filters to validate incoming data and eliminate anything weird
+      //--------------------------------------------------
+      var hasKey    = R.has("key");
+      var hasAmount = R.has("amount");
+      return hasKey(o) && hasAmount(o.values); }; 
 
     
     //--------------------------------------------------
