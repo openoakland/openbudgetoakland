@@ -68,8 +68,9 @@ script.
         "Account": "Expense"
       },
       /* create the url to the data file based on the dropdown choices */
-      url: function() {
-        return "data/fy2016/c4okc_fy2016_final.json";
+      urls: function() {
+        return ["data/fy2016/c4okc_fy2016_final.json"
+               ,"data/fy2017/c4okc_fy2017.json"];
       }
     };
   
@@ -98,6 +99,6 @@ script.
       .width(width)
       .height(600)
       .threshold(0.03)
-      .url(config.url())
+      .urls(config.urls())
       .create();
    

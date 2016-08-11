@@ -2,14 +2,16 @@
   style.
     #chart {
       background: #fff;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    }
-    
+      font-family: "Helvetica Neue"
+                 , Helvetica
+                 , Arial
+                 , sans-serif;
+    }    
     .title {
-        font-weight: bold;
-        font-size: 24px;
-        text-align: center;
-        margin-top: 6px;
+          font-weight: bold;
+            font-size: 24px;
+           text-align: center;
+           margin-top: 6px;
         margin-bottom: 6px;
     }
     text {
@@ -70,14 +72,17 @@ script.
       margin: {top: 24, right: 0, bottom: 0, left: 0},
       rootname: "TOP",
       format: ",d",
-      title: "",
-      width: 1000,
+       title: "",
+       width: 1000,
       height: 600
   };
   
   function main(o, data) {
-    var root,
-        opts = $.extend(true, {}, defaults, o),
+        var root,
+        opts = $.extend( true
+                       , {}
+                       , defaults
+                       , o),
         formatNumber = d3.format(opts.format),
         rname = opts.rootname,
         margin = opts.margin,
@@ -303,7 +308,8 @@ script.
                            .key(function(d) { return d.lob; })
                            .key(function(d) { return d.program })
                            .entries(res);
-              main({title: "City of Oklahoma City Budget - FY2016"}, {key: "Budget", values: data});
+              main({title: "City of Oklahoma City Budget - FY2016"}
+                , {key: "Budget", values: data});
           }
       });
   }

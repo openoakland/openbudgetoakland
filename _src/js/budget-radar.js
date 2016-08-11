@@ -65,8 +65,8 @@ ob.display = ob.display || {};
     //--------------------------------------------------
     //INIT NULL
     //--------------------------------------------------
-    var budgetAxis = []
-    var _url = null;
+    var allBudgetAxis = []
+    var _urls = [];
     
     // Hash comes from window screen. 
     var hash = Hash.parseWithDefault(["fy2016"
@@ -84,7 +84,16 @@ ob.display = ob.display || {};
     // Fetch the Data and draw the chart on return 
     // Expecting data to match the tree format    
     var createFunction = function () {
-      d3.json(_url, function(data_incoming) {
+      buildAxisForUrl(_urls[0]);
+      buildAxisForUrl(_urls[1]);
+    };
+
+
+    // XHR Request function
+
+
+    var buildAxisForUrl = function (u){
+      d3.json(u, function(data_incoming) {
 
         
         if(typeof data_incoming !== "undefined") {
@@ -132,10 +141,10 @@ ob.display = ob.display || {};
                    color: color
           };
 
-          
+          allBudgetAxis.push(budgetAxis);
           //Call function to draw the Radar chart
           RadarChart(  "#radar"
-                     , [budgetAxis]
+                     , allBudgetAxis
                      , radarChartOptions);
           
           //Print chart title stupidly
@@ -145,10 +154,7 @@ ob.display = ob.display || {};
 
 
       });
-    };
-
-
-
+    }
 
     
     //--------------------------------------------------
@@ -273,9 +279,9 @@ ob.display = ob.display || {};
                       }
                      return _layout.height;
              },
-             url: function() {
+             urls: function() {
                    if (arguments.length) {
-                     _url = arguments[0];
+                     _urls = arguments[0];
                      return this;
                    }
                return _url;
