@@ -55,6 +55,7 @@ script(src='/js/data.js', charset='utf-8')
 script(src='/js/tooltip.js', charset='utf-8')    
 script(src='/js/hash.js', charset='utf-8')
 script(src='/js/budget-radar.js', charset='utf-8')
+
 script.
   var config = {
       /* set values available in dropdown files */
@@ -90,7 +91,6 @@ script.
     /* need to parse hash on load before creating treemap to make sure we 
      * don't set the dropdown values before reading them from the hash */
     var hash_array = ob.hash().parse();
-    console.log("array from obj", hash_array);
     /* get width of container */
     var parent = d3.select(".container");
     var width = parent.node().offsetWidth - parseInt(parent.style("padding-left")) - parseInt(parent.style("padding-right"));

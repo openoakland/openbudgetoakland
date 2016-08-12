@@ -36,14 +36,16 @@ ob.display = ob.display || {};
 
     var _palette = [
       '#970000',
+      '#EDA400',      
       '#CD0059',
-      '#E23600',
-      '#F07400',
-      '#EDA400',
-      '#009F76',
-      '#008F16',
       '#395BF6',
-      '#690180'
+      '#E23600',
+      '#009F76',
+      '#F07400',
+      '#690180',
+      '#008F16'
+
+
     ];
     
     var _threshold      = 0.7;    // The threshold comes from the page normally
@@ -69,13 +71,10 @@ ob.display = ob.display || {};
     var _urls = [];
     
     // Hash comes from window screen. 
-    var hash = Hash.parseWithDefault(["fy2016"
-                                      ,"expense"
-                                      ,"fy2015-16"
-                                      ,"generalfund"]);    
+    var hash = Hash.parseWithDefault(["fy2016","fy2017"]);    
 
 
-    var title = hash[0];
+    var title = hash[0] + " " + hash[1];
 
 
     //--------------------------------------------------
@@ -128,7 +127,15 @@ ob.display = ob.display || {};
                                                    , treeDataToAxis);
 
           var budgetAxis = makeAxisArray(filteredBudgetValues);
+
+          // colors are incremented according to the pallete
+          // new color is selected by the position of the new data plot
+          // in the axis array
+          //
+          // color(0) -> #970000
+          // so that is the color of the first plot
           var color = d3.scale.ordinal().range( _palette);
+
           var max   = getMaximum(budgetAxis);
 
           var radarChartOptions = {
@@ -144,8 +151,9 @@ ob.display = ob.display || {};
           allBudgetAxis.push(budgetAxis);
           //Call function to draw the Radar chart
           RadarChart(  "#radar"
-                     , allBudgetAxis
-                     , radarChartOptions);
+                       , allBudgetAxis
+                       , ["fy2016","fy2017"]
+                      , radarChartOptions);
           
           //Print chart title stupidly
           d3.select("#title").html(title);
