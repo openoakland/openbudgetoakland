@@ -98,14 +98,14 @@ function data_wrangle(dataset, fy){
       "Transient Occupancy Tax",
       "Service Charges", 
       "Transfers from Fund Balance", 
-      "Miscellaneous Revenue", 
+      "Miscellaneous Revenue", "Miscellaneous",
       "Interest Income", 
       "Licenses & Permits",
       "Interfund Transfers", 
       "Grants & Subsidies", 
       "Local (Parcel) Taxes", "Local Tax", 
       "Internal Service Funds",
-      "Gas Tax",
+      "Gas Tax", "Gasoline Tax",
     ];
     rev = newdata.filter(function(v,i,a){
         return v.account_type == "Revenue";
@@ -157,6 +157,7 @@ function data_wrangle(dataset, fy){
     exp_order = [
         // keep variations of the same label on a single line
         "Police Department", "Police",
+        "Race & Equity",
         "Fire Department", "Fire",
         "City Council",
         "Administrative Services",
@@ -165,6 +166,7 @@ function data_wrangle(dataset, fy){
         "City Auditor",
         "Community Services",
         "Information Technology",
+        "Public Ethics Commission",
         "Finance",
         "City Clerk",
         "Capital Improvement Projects",
