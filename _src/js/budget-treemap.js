@@ -2,13 +2,13 @@ var ob = ob || {};
 ob.display = ob.display || {};
 
 ;(function (namespace, undefined) {
-	namespace.budget_treemap = function() {
+  namespace.budget_treemap = function() {
     var _url = null;
     var _treemap = null;
     var _spreadsheet = null;
     var _dropdown = null;
     /* The 'cruncher' reorganizes the budget data into a hierarchy
-    * and offers some other functionality into managing the data */
+     * and offers some other functionality into managing the data */
     var _cruncher = ob.data.hierarchy();
     var _get_value = function(d) {
       return d['data']['amount'];
@@ -42,7 +42,7 @@ ob.display = ob.display || {};
 
     /* used to convert numerical data into text data */
     var _format = {
-      number: d3.format("$,d"),
+      number:  d3.format("$,d") ,
       percent: d3.format(".2%")
     };
 
@@ -65,6 +65,7 @@ ob.display = ob.display || {};
     /* apply all events defined in _on_handlers to an object that supports the
      * "on" method in a d3 style
      */
+    
     function _apply_handlers(d3obj) {
       for (var event_name in _on_handlers) {
         if (_on_handlers.hasOwnProperty(event_name)) {
@@ -79,7 +80,7 @@ ob.display = ob.display || {};
     /* create and configure the tooltip */
     var _tooltip_function = function(d, i) {
       /* this creates the html content that is displayed within
-      * the tooltip */
+       * the tooltip */
       var display = '<p class="treemap_tooltip title">' + d.key + '</p>';
       display += '<p class="treemap_tooltip amount">' + _format.number(_get_value(d)) + '</p>';
       var percent = 1.0;
@@ -104,6 +105,7 @@ ob.display = ob.display || {};
 
       get: function(root) {
         var hash = window.location.hash.replace("#", "");
+        
         if (_on_handlers.hasOwnProperty("get_hash")) {
           hash = _on_handlers["get_hash"](hash);
         }
@@ -111,6 +113,7 @@ ob.display = ob.display || {};
         if (hash.length < 1) {
           return root;
         }
+
         return _cruncher.spelunk(
           root,
           hash.split("."),
@@ -119,9 +122,9 @@ ob.display = ob.display || {};
       },
       set: function(node) {
         var hash = _cruncher.path(node)
-          .slice(1)
-          .map(function(d) { return _hash_normalize(d.key); })
-          .join('.');
+            .slice(1)
+            .map(function(d) { return _hash_normalize(d.key); })
+            .join('.');
         if (_on_handlers.hasOwnProperty("set_hash")) {
           hash = _on_handlers["set_hash"](hash);
         }
@@ -190,16 +193,16 @@ ob.display = ob.display || {};
         return _hash_compare;
       },
 
-			value: function() {
-				if (arguments.length) {
-					_get_value = arguments[0];
-					return this;
-				}
+      value: function() {
+	if (arguments.length) {
+	  _get_value = arguments[0];
+	  return this;
+	}
         return _get_value;
-			},
+      },
 
-			on: function(eventname, eventfunc) {
-				_on_handlers[eventname] = eventfunc;
+      on: function(eventname, eventfunc) {
+	_on_handlers[eventname] = eventfunc;
         if (_treemap) {
           _treemap.on(eventname, eventfunc);
         }
@@ -209,8 +212,8 @@ ob.display = ob.display || {};
         if (_dropdown) {
           _dropdown.on(eventname, eventfunc);
         }
-				return this;
-			},
+	return this;
+      },
 
       config: function() {
         if (arguments.length) {
@@ -288,7 +291,7 @@ ob.display = ob.display || {};
         var _tooltip = ob.display.tooltip().html(_tooltip_function);
 
         /* call d3 to load the budget data, and then display the data
-        * after it has loaded */
+         * after it has loaded */
         d3.json(_url, function(data) {
           var root = data;
           function _create_breadcrumbs(d) {
@@ -296,8 +299,8 @@ ob.display = ob.display || {};
             d3.select(_breadcrumbs_selector).selectAll(".crumb").remove();
 
             var crumbs = d3.select(_breadcrumbs_selector)
-              .selectAll(".crumb")
-              .data(ob.data.hierarchy().path(d));
+                .selectAll(".crumb")
+                .data(ob.data.hierarchy().path(d));
 
             crumbs.enter().append("span")
               .attr("class", "crumb")
@@ -340,7 +343,7 @@ ob.display = ob.display || {};
           });
           var node = _hash.get(root);
 
-
+          
           _cruncher.path(node).forEach(function(d) {
             if (d.parent) {
               var i = d.parent.values.indexOf(d);
@@ -361,7 +364,7 @@ ob.display = ob.display || {};
             .width(_layout.width)
             .value(function(d) {
               /* have to make sure values are greater than zero, otherwise
-              * treemap layout breaks */
+               * treemap layout breaks */
               return _get_value(d) <= 0 ? 0.001 : _get_value(d);
             })
             .columns(["", "Item", "Expense", "Revenue"])
@@ -436,13 +439,13 @@ ob.display = ob.display || {};
             .height(_layout.height)
             .value(function(d) {
               /* have to make sure values are greater than zero, otherwise
-              * treemap layout breaks */
+               * treemap layout breaks */
               return _get_value(d) <= 0 ? 0.001 : _get_value(d);
             })
             .rects(_max_rects)
             .rect_text(function(d, i) {
               /* this controls the text that is displayed in the
-              * rectangles */
+               * rectangles */
               var text_width = _layout.width * d.dx;
               var text_height = _layout.height * d.dy;
               if (text_width < 100 || text_height < 40) {
@@ -457,7 +460,7 @@ ob.display = ob.display || {};
             })
             .on("mouseover", function(d, i) {
               /* when a mouse is over of rectangle, show the
-              * tooltip for that rectangle */
+               * tooltip for that rectangle */
               _tooltip.show(d,i);
             })
             .on("mousemove", function(d, i) {
@@ -470,8 +473,8 @@ ob.display = ob.display || {};
             })
             .on("display", function(d) {
               /* This is called when a new budget view is being
-              * displayed.  It updates the _hash in the URL, as well
-              * as the spreadsheet data */
+               * displayed.  It updates the _hash in the URL, as well
+               * as the spreadsheet data */
               _hash.set(d);
               _spreadsheet.data(d.values)
                 .display();
@@ -481,7 +484,7 @@ ob.display = ob.display || {};
             })
             .on("transition", function(d, i, direction) {
               /* This is called right before a transition from one
-              * budget view to the next happens. */
+               * budget view to the next happens. */
               if (direction) {
                 /* add in a new set of colors */
                 _color_stack.unshift(_treemap.colors()(i), d.children.length);
@@ -499,7 +502,7 @@ ob.display = ob.display || {};
             .data(root)
             .display(d3.select(_treemap_selector), node);
           /* when the spreadsheet is clicked, tell the treemap to
-          * transition */
+           * transition */
           _spreadsheet.on("click", _treemap.transition);
 
           /* set title */
@@ -552,11 +555,11 @@ ob.display = ob.display || {};
       },
 
       refresh: function() {
-          d3.select(_spreadsheet_selector).select("svg").remove();
-          d3.select(_treemap_selector).select("svg").remove();
-          d3.select(_dropdown_selector).selectAll(".dropdown").remove();
-          this.url(_config.url());
-          this.create();
+        d3.select(_spreadsheet_selector).select("svg").remove();
+        d3.select(_treemap_selector).select("svg").remove();
+        d3.select(_dropdown_selector).selectAll(".dropdown").remove();
+        this.url(_config.url());
+        this.create();
       }
     };
   }

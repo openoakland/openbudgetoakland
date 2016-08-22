@@ -1,1 +1,48 @@
-{"values": [{"values": [{"values": [{"values": [{"data": {"amount": 200000.0, "expense": 0.0, "revenue": 200000.0}, "key": "CAPITALIZED PROFESSIONAL SRVC"}], "data": {"amount": 200000.0, "expense": 0.0, "revenue": 200000.0}, "key": "Planning Special Purpose"}], "data": {"amount": 200000.0, "expense": 0.0, "revenue": 200000.0}, "key": "SPECIAL PURPOSE"}], "data": {"amount": 200000.0, "expense": 0.0, "revenue": 200000.0}, "key": "FY14-15"}], "data": {"amount": 200000.0, "expense": 0.0, "revenue": 200000.0}, "key": "Budget"}
+{
+  "key": "Budget",
+  "data": {
+    "revenue": 200000.0,
+    "expense": 0.0,
+    "amount": 200000.0
+  },
+  "values": [
+    {
+      "key": "FY14-15",
+      "data": {
+        "revenue": 200000.0,
+        "expense": 0.0,
+        "amount": 200000.0
+      },
+      "values": [
+        {
+          "key": "SPECIAL PURPOSE",
+          "data": {
+            "revenue": 200000.0,
+            "expense": 0.0,
+            "amount": 200000.0
+          },
+          "values": [
+            {
+              "key": "Planning Special Purpose",
+              "data": {
+                "revenue": 200000.0,
+                "expense": 0.0,
+                "amount": 200000.0
+              },
+              "values": [
+                {
+                  "key": "CAPITALIZED PROFESSIONAL SRVC",
+                  "data": {
+                    "revenue": 200000.0,
+                    "expense": 0.0,
+                    "amount": 200000.0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

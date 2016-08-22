@@ -37,7 +37,7 @@
     }
   .row
     .intro.col-md-8
-      h1 Approved Budget 2014-2015
+      h1 Approved Budget Comparison
   .row
     .col-sm-6
       h3#title title
@@ -55,8 +55,8 @@ script(src='/js/data.js', charset='utf-8')
 script(src='/js/tooltip.js', charset='utf-8')    
 script(src='/js/hash.js', charset='utf-8')
 script(src='/js/budget-radar.js', charset='utf-8')
-script.
 
+script.
   var config = {
       /* set values available in dropdown files */
       dropdown_values: {
@@ -69,8 +69,9 @@ script.
         "Account": "Expense"
       },
       /* create the url to the data file based on the dropdown choices */
-      url: function() {
-        return 'data/okc_tree/Revenue14-15.json';
+      urls: function() {
+        return ["data/fy2016/c4okc_fy2016_final.json"
+               ,"data/fy2017/c4okc_fy2017.json"];
       }
     };
   
@@ -90,7 +91,6 @@ script.
     /* need to parse hash on load before creating treemap to make sure we 
      * don't set the dropdown values before reading them from the hash */
     var hash_array = ob.hash().parse();
-    console.log("array from obj", hash_array);
     /* get width of container */
     var parent = d3.select(".container");
     var width = parent.node().offsetWidth - parseInt(parent.style("padding-left")) - parseInt(parent.style("padding-right"));
@@ -99,6 +99,6 @@ script.
       .width(width)
       .height(600)
       .threshold(0.03)
-      .url(config.url())
+      .urls(config.urls())
       .create();
    

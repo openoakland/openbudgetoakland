@@ -58,6 +58,7 @@
   .row#chart
 script(src="http://code.jquery.com/jquery-1.7.2.min.js",charset='utf-8')
 script(src="http://d3js.org/d3.v3.min.js"              ,charset='utf-8')
+script(src="/js/data.js",charset='utf-8')
 script.
   window.addEventListener('message', function(e) {
       var opts = e.data.opts;
@@ -69,14 +70,17 @@ script.
       margin: {top: 24, right: 0, bottom: 0, left: 0},
       rootname: "TOP",
       format: ",d",
-      title: "",
-      width: 1000,
+       title: "",
+       width: 1000,
       height: 600
   };
   
   function main(o, data) {
-    var root,
-        opts = $.extend(true, {}, defaults, o),
+        var root,
+        opts = $.extend( true
+                       , {}
+                       , defaults
+                       , o),
         formatNumber = d3.format(opts.format),
         rname = opts.rootname,
         margin = opts.margin,
@@ -135,10 +139,10 @@ script.
     }
       
     initialize(root);
-    accumulate(root);
+    ob.data.accumulate(root);
     layout(root);
     display(root);
-  
+    
     if (window.parent !== window) {
       var myheight = document.documentElement.scrollHeight || document.body.scrollHeight;
       window.parent.postMessage({height: myheight}, '*');
@@ -151,15 +155,7 @@ script.
       root.depth = 0;
     }
   
-    // Aggregate the values for internal nodes. This is normally done by the
-    // treemap layout, but not here because of our custom implementation.
-    // We also take a snapshot of the original children (_children) to avoid
-    // the children being overwritten when when layout is computed.
-    function accumulate(d) {
-      return (d._children = d.values)
-          ? d.value = d.values.reduce(function(p, v) { return parseInt(p) + accumulate(v); }, 0)
-          : parseInt(d.value);
-    }
+    
   
     // Compute the treemap layout recursively such that each group of siblings
     // uses the same size (1×1) rather than the dimensions of the parent cell.
@@ -300,6 +296,8 @@ script.
     }
   }
   
+  
+  
   if (window.location.hash === "") {
       d3.json("data/fy2016/c4okc_fy2016_final.json", function(err, res) {
           if (!err) {
@@ -308,7 +306,8 @@ script.
                            .key(function(d) { return d.lob; })
                            .key(function(d) { return d.program })
                            .entries(res);
-              main({title: "City of Oklahoma City Budget - FY2016"}, {key: "Budget", values: data});
+              main({title: "City of Oklahoma City Budget - FY2016"}
+                , {key: "Budget", values: data});
           }
       });
   }
