@@ -1,6 +1,3 @@
-
-
-
 var ob = ob || {};
 ob.data = ob.data || {};
 

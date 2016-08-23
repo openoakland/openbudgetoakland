@@ -3,7 +3,6 @@ ob.display = ob.display || {};
 ;(function(namespace, undefined) {
   namespace.budget_radar = function () {
 
-
     //--------------------------------------------------
     // SOFT Dependency check, some failure doesn't stop it
     //      but you will see a message in the log
@@ -29,7 +28,7 @@ ob.display = ob.display || {};
 
     // Based on the standard page view model
     var _layout = {
-      width: 800,
+      width:  800,
       height: 500,
       margin: {top: 100, right: 100, bottom: 100, left: 100}
     };
@@ -44,8 +43,6 @@ ob.display = ob.display || {};
       '#F07400',
       '#690180',
       '#008F16'
-
-
     ];
     
     var _threshold      = 0.7;    // The threshold comes from the page normally
@@ -109,24 +106,21 @@ ob.display = ob.display || {};
               .entries(data_incoming);
 
 
-          
+     
           // Remove any budget values that don't comport (this really shouldn't happen)
-          var filteredBudgetValues = R.filter(validAxis, topLevelBudgetValues);
+          var filteredBudgetValues  = R.filter(validAxis, topLevelBudgetValues);
 
-
+         
+          var sortArrayByValue      = R.sort(diffValue)
 
           
-
-          
-          
-          var sortArrayByValue = R.sort(diffValue)          
           // Values are transformed into axis, then normalized, then thresholded. 
           var makeAxisArray         = R.compose(   sortArrayByValue
-                                                   , thresholdArrayAndAppend
-                                                   , expressAsPercent
+                                                 , thresholdArrayAndAppend
+                                                 , expressAsPercent
                                                    , treeDataToAxis);
-
-          var budgetAxis = makeAxisArray(filteredBudgetValues);
+          
+          var budgetAxis            = makeAxisArray(filteredBudgetValues);
 
           // colors are incremented according to the pallete
           // new color is selected by the position of the new data plot
@@ -188,9 +182,9 @@ ob.display = ob.display || {};
     };
     
 
+   
 
-
-
+    
     // A difference function specialized for axis
     var diffValue = function(o1,o2) { o1.value - o2.value}
 
@@ -249,15 +243,19 @@ ob.display = ob.display || {};
       // Budget tree form, but d3 radar requires
       // Elements to have a form as below
 
+
+
       return  {  axis:  o.key
               , value:  o.values.amount};
       
     };
 
+    var 
 
 
-
-    
+    //--------------------------------------------------
+    // Data Validation
+    //--------------------------------------------------
 
     // combine has filters together in one check
     var validAxis = function (o) {
@@ -302,6 +300,11 @@ ob.display = ob.display || {};
                         return _threshold;}
              
            };
+
+
+
+
+
 
   }
 })(ob.display);
