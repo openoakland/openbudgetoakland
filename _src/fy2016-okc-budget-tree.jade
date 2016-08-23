@@ -1,4 +1,4 @@
-.container
+.container#chartContainer
   style.
     #chart {
       background: #fff;
@@ -295,19 +295,33 @@ script.
           : d.key + " (" + formatNumber(d.value) + ")";
     }
   }
-  
-  
-  
-  if (window.location.hash === "") {
-      d3.json("data/fy2016/c4okc_fy2016_final.json", function(err, res) {
-          if (!err) {
-              var data = d3.nest()
-                           .key(function(d) { return d.agency; })
-                           .key(function(d) { return d.lob; })
-                           .key(function(d) { return d.program })
-                           .entries(res);
-              main({title: "City of Oklahoma City Budget - FY2016"}
-                , {key: "Budget", values: data});
-          }
-      });
+
+  function buildTheChart(){
+    d3.json("data/fy2016/c4okc_fy2016_final.json", function(err, res) {
+        if (!err) {
+            var data = d3.nest()
+                         .key(function(d) { return d.agency; })
+                         .key(function(d) { return d.lob; })
+                         .key(function(d) { return d.program })
+                         .entries(res);
+            main({title: "City of Oklahoma City Budget - FY2016"}
+              , {key: "Budget", values: data});
+        }
+    });
   }
+
+  function updateDefaultSizes(){
+    defaults.width = $('#chartContainer').width();
+    defaults.height = $('#chartContainer').width() * 6 / 10;
+  }
+
+  if (window.location.hash === "") {
+    updateDefaultSizes();
+    buildTheChart();
+  }
+
+  $( window ).resize(function() {
+    $('#chart').empty();
+    updateDefaultSizes();
+    buildTheChart();
+  });
