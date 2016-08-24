@@ -92,6 +92,10 @@ Right now the 2015-17 Proposed page is an unpublished placeholder, pending the d
     - (any other columns should be deleted)
 1. test it in Harp in the dev branch, and it should compile properly for deployment
 
+### Adding additional Treemap diagram pages
+
+See instructions [here](_treemap/README.md).
+
 ## Publishing Changes
 Make changes on your personal fork or branch. If you have repo access, and your changes are ready for review, you can merge them into the development branch and publish to the staging site for review. You can also publish changes to your own server and merge to development afterwards.
 
