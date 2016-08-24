@@ -161,7 +161,7 @@ function data_wrangle(dataset, fy){
         "Fire Department", "Fire",
         "City Council",
         "Administrative Services",
-        "Oakland Parks & Recreation",
+        "Oakland Parks & Recreation", "Parks & Recreation",
         "Human Services",
         "City Auditor",
         "Community Services",
