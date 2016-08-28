@@ -106,18 +106,18 @@ ob.display = ob.display || {};
               .entries(data_incoming);
 
 
-     
+          
           // Remove any budget values that don't comport (this really shouldn't happen)
           var filteredBudgetValues  = R.filter(validAxis, topLevelBudgetValues);
 
-         
+          
           var sortArrayByValue      = R.sort(diffValue)
 
           
           // Values are transformed into axis, then normalized, then thresholded. 
           var makeAxisArray         = R.compose(   sortArrayByValue
-                                                 , thresholdArrayAndAppend
-                                                 , expressAsPercent
+                                                   , thresholdArrayAndAppend
+                                                   , expressAsPercent
                                                    , treeDataToAxis);
           
           var budgetAxis            = makeAxisArray(filteredBudgetValues);
@@ -133,13 +133,13 @@ ob.display = ob.display || {};
           var max   = getMaximum(budgetAxis);
 
           var radarChartOptions = {
-                       w: _layout.width,
-                       h: _layout.height,
-                  margin: margin,
-                maxValue: max,
-                  levels: 5,
+            w: _layout.width,
+            h: _layout.height,
+            margin: margin,
+            maxValue: max,
+            levels: 5,
             roundStrokes: true,
-                   color: color
+            color: color
           };
 
           allBudgetAxis.push(budgetAxis);
@@ -147,7 +147,7 @@ ob.display = ob.display || {};
           RadarChart(  "#radar"
                        , allBudgetAxis
                        , ["fy2016","fy2017"]
-                      , radarChartOptions);
+                       , radarChartOptions);
           
           //Print chart title stupidly
           d3.select("#title").html(title);
@@ -182,7 +182,7 @@ ob.display = ob.display || {};
     };
     
 
-   
+    
 
     
     // A difference function specialized for axis
@@ -246,34 +246,42 @@ ob.display = ob.display || {};
 
 
       return  {  axis:  o.key
-              , value:  o.values.amount};
+                 , value:  o.values.amount};
       
     };
-   
-    var makeAxisDictionary = function (d) {
+    
+    var makeAxisDictionary = function (arrayOfAxis) {
       // compute the set of axis that are valid for
       // this budget radar
       //
       // Expected form of dtaa is [[({"key":<axis-key>, "value":<axis-val>})]]
       var makePercentAxis = R.map(expressAsPercent);
       var makeArrayOfMaps = R.map(makeAxisMap);
-      
 
-       
+      var inputMaps       = R.compose(makeArrayOfMaps,makePercentAxis) (arrayOfAxis);
+
+      var finalAxisDict   = R.reduce(f
+      
+      
       return 0;
       
     }
 
-   var axisNameMatch = R.curry(function (a1,a2) {
+    var axisNameMatch = R.curry(function (a1,a2) {
       return a1.axis === a2.axis;
-   });
+    });
 
 
     var makeAxisMap = function(axisArray) {
-      var axisMap = d3.map(axisArray,function(d){
+      var fixValue = function(v,k) { return v.value;}
+      var axisMap = ob.data.map.mapWithKey(d3.map(axisArray,function(d){
         return d.axis;
-      })
-    }
+      }));
+      
+    };
+
+
+   
 
 
     
@@ -301,31 +309,31 @@ ob.display = ob.display || {};
     //--------------------------------------------------
     return { create: createFunction,
              width: function() {
-                     if (arguments.length) {
-                        _layout.width = arguments[0];
-                     return this;
-                     }
-                    return _layout.width;
+               if (arguments.length) {
+                 _layout.width = arguments[0];
+                 return this;
+               }
+               return _layout.width;
              },
              height: function() {
-                      if (arguments.length) {
-                         _layout.height = arguments[0];
-                      return this;
-                      }
-                     return _layout.height;
+               if (arguments.length) {
+                 _layout.height = arguments[0];
+                 return this;
+               }
+               return _layout.height;
              },
              urls: function() {
-                   if (arguments.length) {
-                     _urls = arguments[0];
-                     return this;
-                   }
+               if (arguments.length) {
+                 _urls = arguments[0];
+                 return this;
+               }
                return _url;
              },
              threshold: function() {
-                         if (arguments.length) {
-                           _threshold = arguments[0];
-                           return this;
-                         }
+               if (arguments.length) {
+                 _threshold = arguments[0];
+                 return this;
+               }
                return _threshold;},
              axisNameMatch: axisNameMatch
            };
