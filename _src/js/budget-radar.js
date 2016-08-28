@@ -249,10 +249,35 @@ ob.display = ob.display || {};
               , value:  o.values.amount};
       
     };
+   
+    var makeAxisDictionary = function (d) {
+      // compute the set of axis that are valid for
+      // this budget radar
+      //
+      // Expected form of dtaa is [[({"key":<axis-key>, "value":<axis-val>})]]
+      var makePercentAxis = R.map(expressAsPercent);
+      var makeArrayOfMaps = R.map(makeAxisMap);
+      
 
-    var 
+       
+      return 0;
+      
+    }
+
+   var axisNameMatch = R.curry(function (a1,a2) {
+      return a1.axis === a2.axis;
+   });
 
 
+    var makeAxisMap = function(axisArray) {
+      var axisMap = d3.map(axisArray,function(d){
+        return d.axis;
+      })
+    }
+
+
+    
+    
     //--------------------------------------------------
     // Data Validation
     //--------------------------------------------------
@@ -266,6 +291,10 @@ ob.display = ob.display || {};
       var hasAmount = R.has("amount");
       return hasKey(o) && hasAmount(o.values); }; 
 
+
+
+
+    
     
     //--------------------------------------------------
     // Return config Object
@@ -297,10 +326,9 @@ ob.display = ob.display || {};
                            _threshold = arguments[0];
                            return this;
                          }
-                        return _threshold;}
-             
+               return _threshold;},
+             axisNameMatch: axisNameMatch
            };
-
 
 
 

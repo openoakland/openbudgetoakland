@@ -1,6 +1,6 @@
 
-describe("ob.budget_radar_", function () {
-  
+describe("ob.budget_radar", function () {
+  var Radar = ob.display.budget_radar();  
   var axisVal = function (a, v) {
                                    return {    "axis" : a
                                              ,"value" : v }
@@ -25,8 +25,62 @@ describe("ob.budget_radar_", function () {
                           , axisVal("a9", 4444)    // 5.40%
                         ];
 
+  var allBudgetAxis  = [ testBudgetAxis1
+                         , testBudgetAxis2];
 
-  var allBudgetAxis   = [];
+  /* --------------------------------------------------
+     Building a correct set of axis that are pleasing to
+     the eye is more complex than it may first appear. 
+    
+     First, the 'all others' categories must be computed 
+     independently for each axis.  Then after that, each
+     element of 'all others' that is part of the difference
+     set must be set to stand on its own and subtracted from 
+     each.
+          
+  -------------------------------------------------- */
+
+
+
+
+
+  
+
+  var expectedResultAxis1 = [ axisVal("a1", 1111)    // 40.49%
+                              , axisVal("a2", 222)     // 8.09%
+                              , axisVal("a3", 300)     // 10.93%
+                              , axisVal("a4", 1111)];  // 40.49%
+  
+
+  var expectedResultAxis2 = [ [
+                                axisVal("a3"        , 22222)   // 27.02%
+                              , axisVal("a5"        , 22222)   // 27.02%                              
+                              , axisVal("a7"        , 22222)   // 27.02%
+                              , axisVal("all others", 2222)    // 2.70%  
+                              
+                              ],
+                              [  axisVal("a1", 1111)
+                                , axisVal("a2", 222)     // 8.09%
+                                , axisVal("a3", 300)     // 10.93%
+                                , axisVal("a4", 1111)    // 40.49%
+                              ]                              
+                        ];
+
+
+  var expectedResultAxisAll   = [[  axisVal("a1", 1111)    // 40.49% 
+                                  , axisVal("a2", 222)     // 8.09%
+                                  , axisVal("a3", 300)     // 10.93%
+                                  , axisVal("a4", 1111)],  // 40.49%
+                                [   axisVal("a1", 4321)    // 5.25%  -- has to stay
+                                  , axisVal("a2", 1234)    // 1.50%  -- has to stay
+                                  , axisVal("a3", 22222)   // 27.02%
+                                  , axisVal("a4", 2222)    // 2.70%  -- has to stay
+                                  , axisVal("a5", 22222)   // 27.02%                         
+                                  , axisVal("a7", 22222)   // 27.02%
+                                  , axisVal("all others", 7810)    // 9.4%                            
+                                 ]];
+         
+//  var allResultAxis = [axisVal("a1",4321)]
   
   allBudgetAxis.push(testBudgetAxis1);
   allBudgetAxis.push(testBudgetAxis2);
@@ -37,5 +91,10 @@ describe("ob.budget_radar_", function () {
       expect(testBudgetAxis2 ).toBe(testBudgetAxis2);
       expect(allBudgetAxis   ).toBe(allBudgetAxis);
   });
-  
+
+  it("has method axisNameMatch which determines axis as unique by name", function () {
+    expect(Radar.axisNameMatch(axisVal("a1",1),axisVal("a1",1))).toBe(true);
+    expect(Radar.axisNameMatch(axisVal("a1",1),axisVal("a1",0))).toBe(true);
+    expect(Radar.axisNameMatch(axisVal("a1",0),axisVal("a2",0))).toBe(false);
+  });
 });

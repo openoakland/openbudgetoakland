@@ -15,8 +15,10 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      '_src/js',
-      '_test/**'
+      {pattern:"http://d3js.org/d3.v3.min.js"},
+      {pattern:"https://d3js.org/d3-collection.v1.min.js"},
+      {pattern:'_src/js/*'},
+      {pattern:'_test/**'}
     ],
 
 
@@ -44,7 +46,7 @@ module.exports = function(config) {
 
     // enable / disable colors in the output (reporters and logs)
     colors: true,
-
+    
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG

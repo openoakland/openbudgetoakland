@@ -22,8 +22,9 @@
   },
   "homepage": "https://github.com/codeforokc/openbudgetokc#readme",
   "dependencies": {
-      "harp": "https://github.com/sintaxi/harp.git#v0.21.0-pre"
+    "harp": "https://github.com/sintaxi/harp.git#v0.21.0-pre"
+  },
+  "devDependencies": {
+    "karma-jasmine": "^1.0.2"
   }
 }
-
-
