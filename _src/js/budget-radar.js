@@ -257,8 +257,10 @@ ob.display = ob.display || {};
       // Expected form of dtaa is [[({"key":<axis-key>, "value":<axis-val>})]]
       var makePercentAxis = R.map(expressAsPercent);
       var makeArrayOfMaps = R.map(makeAxisMap);
-      var inputMapsPrime  = makePercentAxis(arrayOfAxis);
-      var inputMaps       = makeArrayOfMaps(arrayOfAxis);
+
+      var inputMaps       = R.compose( makeArrayOfMaps
+                                     , makePercentAxis) (arrayOfAxis);
+                                       
 
       var emptyMap        = d3.map();
       
