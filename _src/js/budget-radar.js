@@ -249,20 +249,52 @@ ob.display = ob.display || {};
                  , value:  o.values.amount};
       
     };
+
+    var makeAxisFromMap    = function (axisMap) {
+      // A lot of these combinations functions are
+      // easier to run on map datastructures
+      // but the radar wants [{"axis":<name>, "value":<number>}]
+
+      var finalMap = d3.map().mapWithKey(function(v,k) {
+                                                        return {"axis":k, "value":v};
+                                                       }
+                                         ,axisMap);
+      return finalMap.values();
+     
+    };
+
+    var makeInputMap       = function (arrayOfAxis) {
+      // Take an array of axisArrays and turn it into
+      // an array of axis maps
+      // Expected form of dtaa is [[({"key":<axis-key>, "value":<axis-val>})]]
+
+      
+      // These two functions are useful in transforming axisArrays of values
+      // into maps of normalized values
+      var makePercentAxis = R.map(expressAsPercent);
+      var makeArrayOfMaps = R.map(makeAxisMap);
+
+
+      var inputMaps       = R.compose( makeArrayOfMaps
+                                     , makePercentAxis) (arrayOfAxis);
+                                       
+      return inputMaps;      
+
+    }
     
     var makeAxisDictionary = function (arrayOfAxis) {
       // compute the set of axis that are valid for
       // this budget radar
       //
       // Expected form of dtaa is [[({"key":<axis-key>, "value":<axis-val>})]]
-      var makePercentAxis = R.map(expressAsPercent);
-      var makeArrayOfMaps = R.map(makeAxisMap);
 
-      var inputMaps       = R.compose( makeArrayOfMaps
-                                     , makePercentAxis) (arrayOfAxis);
-                                       
+
+
+      var inputMaps       = makeInputMap(arrayOfAxis);
 
       var emptyMap        = d3.map();
+
+
       
       var makeDictionary  = function (dict,next) {
         var outMap  = ob.data.maps().combineMapsWith(dict,next,function(v1,v2)
@@ -301,7 +333,65 @@ ob.display = ob.display || {};
 
 
     
+    var buildUpAxisList = function (axisArray) {
+      // This is where the axis from each data set
+      // are compared against each other to build up
+      // a set of axis that can be appropriate and common to all
+      // entries.
 
+      // To start with a dictionary is made (1) this allows
+      // quick lookup for all axis values.
+
+      // Then the axisArray are traversed. (2)
+      //
+      // If the axis in the array contains a value above the threshold
+      // the value is added to the map that will represent the final output
+      // map for this data
+      //
+      // If the axis in the array yields a value less than the
+      // threshold in the dictionary.  The value is added to the
+      // 'all others' entry for that map.
+
+      // at the end all the maps are converted back into axis arrays (3).
+
+
+
+      // 1. Create axis dictionary.
+      var axisDictionary = makeAxisDictionary(axisArray);
+      
+      // 2. Transform Axis array.
+      var inputMaps  = makeInputMap(axisArray);
+
+      var outputMaps = R.map(function(axisMap) {
+        var outputMap = d3.map().set("All Others",0);
+        axisMap.each(function(v,k) {
+
+          if(axisDictionary.get(k) >= _threshold)
+          {
+            outputMap.set(k,v);
+          }
+          else
+          {
+            outputMap = ob.data.maps().combineMapsWith( outputMap
+                                                      , d3.map().set("All Others",v)
+                                                      , function(v1,v2) { return v1 + v2;})
+          }
+        
+        });
+        return outputMap;
+
+      },inputMaps);
+
+      // 3. Convert back to axis array.
+
+      var outputAxisArrays = R.map(function (map) {
+                                       return makeAxisFromMap(map);
+                                   }, outputMaps);
+
+      return outputAxisArrays;
+
+
+    };
 
     
     
@@ -355,7 +445,8 @@ ob.display = ob.display || {};
                }
                return _threshold;},
              axisNameMatch: axisNameMatch,
-             makeAxisDictionary: makeAxisDictionary
+             makeAxisDictionary: makeAxisDictionary,
+             makeAxisFromMap: makeAxisFromMap
            };
 
 
