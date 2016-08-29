@@ -257,13 +257,27 @@ ob.display = ob.display || {};
       // Expected form of dtaa is [[({"key":<axis-key>, "value":<axis-val>})]]
       var makePercentAxis = R.map(expressAsPercent);
       var makeArrayOfMaps = R.map(makeAxisMap);
+      var inputMapsPrime  = makePercentAxis(arrayOfAxis);
+      var inputMaps       = makeArrayOfMaps(arrayOfAxis);
 
-      var inputMaps       = R.compose(makeArrayOfMaps,makePercentAxis) (arrayOfAxis);
+      var emptyMap        = d3.map();
+      
+      var makeDictionary  = function (dict,next) {
+        var outMap  = ob.data.maps().combineMapsWith(dict,next,function(v1,v2)
+                                                     {
+                                                       if(v1 >= v2) {
+                                                         return v1;
+                                                       }
+                                                       else
+                                                       {
+                                                         return v2;
+                                                       }
+                                                     });
+        return outMap; };
 
-      var finalAxisDict   = R.reduce(f
-      
-      
-      return 0;
+
+      var finalAxisDict   = R.reduce(makeDictionary,emptyMap,inputMaps);
+      return finalAxisDict;
       
     }
 
@@ -273,15 +287,18 @@ ob.display = ob.display || {};
 
 
     var makeAxisMap = function(axisArray) {
-      var fixValue = function(v,k) { return v.value;}
-      var axisMap = ob.data.map.mapWithKey(d3.map(axisArray,function(d){
-        return d.axis;
-      }));
       
+      var fixValue = function(v,k) { return v.value;}
+      var mapSimple = d3.map(axisArray, function (d) { return d.axis});      
+      var axisMap = ob.data.maps().mapWithKey(function(d){
+        return d.value;
+      }, mapSimple);
+
+      return axisMap;
     };
 
 
-   
+    
 
 
     
@@ -335,7 +352,8 @@ ob.display = ob.display || {};
                  return this;
                }
                return _threshold;},
-             axisNameMatch: axisNameMatch
+             axisNameMatch: axisNameMatch,
+             makeAxisDictionary: makeAxisDictionary
            };
 
 
