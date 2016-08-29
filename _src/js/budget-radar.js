@@ -288,11 +288,11 @@ ob.display = ob.display || {};
     });
 
 
-    var makeAxisMap = function(axisArray) {
-      
-      var fixValue = function(v,k) { return v.value;}
+    var makeAxisMap = function(axisArray) {      
+
+      var fixValue  = function(v,k) { return v.value;}
       var mapSimple = d3.map(axisArray, function (d) { return d.axis});      
-      var axisMap = ob.data.maps().mapWithKey(function(d){
+      var axisMap   = ob.data.maps().mapWithKey(function(d){
         return d.value;
       }, mapSimple);
 
