@@ -87,9 +87,10 @@ describe("ob.budget_radar", function () {
                      
    
   it("contains a spec for display", function () {
-    var dictionary = Radar.makeAxisDictionary([testBudgetAxis1]) ;
-    expect(dictionary.size()).toBe(testBudgetAxis1.length);
-      expect(testBudgetAxis2 ).toBe(testBudgetAxis2);
+    var dictionary1 = Radar.makeAxisDictionary([testBudgetAxis1]) ;
+    var dictionary2 = Radar.makeAxisDictionary([testBudgetAxis2]) ;
+    expect(dictionary1.size()).toBe(testBudgetAxis1.length);
+    expect(dictionary2.size() ).toBe(testBudgetAxis2.length);
       expect(allBudgetAxis   ).toBe(allBudgetAxis);
   });
 
