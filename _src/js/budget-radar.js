@@ -45,7 +45,7 @@ ob.display = ob.display || {};
       '#008F16'
     ];
     
-    var _threshold      = 0.7;    // The threshold comes from the page normally
+    var _threshold      = 0.07;    // The threshold comes from the page normally
     var margin          = _layout.margin;
     var _radar_selector = "#radar";    
 
@@ -141,7 +141,7 @@ ob.display = ob.display || {};
             roundStrokes: true,
             color: color
           };
-
+          console.log("current BA",budgetAxis);
           allBudgetAxis.push(budgetAxis);
           //Call function to draw the Radar chart
           RadarChart(  "#radar"
@@ -255,7 +255,7 @@ ob.display = ob.display || {};
       // easier to run on map datastructures
       // but the radar wants [{"axis":<name>, "value":<number>}]
 
-      var finalMap = d3.map().mapWithKey(function(v,k) {
+      var finalMap = ob.data.maps().mapWithKey(function(v,k) {
                                                         return {"axis":k, "value":v};
                                                        }
                                          ,axisMap);
@@ -368,6 +368,7 @@ ob.display = ob.display || {};
 
           if(axisDictionary.get(k) >= _threshold)
           {
+
             outputMap.set(k,v);
           }
           else
@@ -446,7 +447,9 @@ ob.display = ob.display || {};
                return _threshold;},
              axisNameMatch: axisNameMatch,
              makeAxisDictionary: makeAxisDictionary,
-             makeAxisFromMap: makeAxisFromMap
+             makeAxisFromMap: makeAxisFromMap,
+             buildUpAxisList: buildUpAxisList,
+             expressAsPercent: expressAsPercent
            };
 
 

@@ -70,28 +70,37 @@ describe("ob.budget_radar", function () {
   var expectedResultAxisAll   = [[  axisVal("a1", 1111)    // 40.49% 
                                   , axisVal("a2", 222)     // 8.09%
                                   , axisVal("a3", 300)     // 10.93%
-                                  , axisVal("a4", 1111)],  // 40.49%
+                                    , axisVal("a4", 1111)
+                                    , axisVal("All Others", 0)  
+                                 ],  // 40.49%
                                 [   axisVal("a1", 4321)    // 5.25%  -- has to stay
                                   , axisVal("a2", 1234)    // 1.50%  -- has to stay
                                   , axisVal("a3", 22222)   // 27.02%
                                   , axisVal("a4", 2222)    // 2.70%  -- has to stay
                                   , axisVal("a5", 22222)   // 27.02%                         
                                   , axisVal("a7", 22222)   // 27.02%
-                                  , axisVal("all others", 7810)    // 9.4%                            
-                                 ]];
+                                  , axisVal("All Others", 7810)    // 9.4%                            
+                                ]];
+  var expectedResultAxisAsPercent = R.map(Radar.expressAsPercent, expectedResultAxisAll);
          
 //  var allResultAxis = [axisVal("a1",4321)]
   
-  allBudgetAxis.push(testBudgetAxis1);
-  allBudgetAxis.push(testBudgetAxis2);
+//  allBudgetAxis.push(testBudgetAxis1);
+//  allBudgetAxis.push(testBudgetAxis2);
                      
    
   it("contains a spec for display", function () {
-    var dictionary1 = Radar.makeAxisDictionary([testBudgetAxis1]) ;
-    var dictionary2 = Radar.makeAxisDictionary([testBudgetAxis2]) ;
+    var dictionary1   = Radar.makeAxisDictionary([testBudgetAxis1]) ;
+    var dictionary2   = Radar.makeAxisDictionary([testBudgetAxis2]) ;
+
+    var resultAxis    = Radar.buildUpAxisList(allBudgetAxis);
+                                                 
+
     expect(dictionary1.size()).toBe(testBudgetAxis1.length);
     expect(dictionary2.size() ).toBe(testBudgetAxis2.length);
-      expect(allBudgetAxis   ).toBe(allBudgetAxis);
+    expect(resultAxis.length).toBe(expectedResultAxisAsPercent.length);
+    
+    
   });
 
   it("has method axisNameMatch which determines axis as unique by name", function () {
