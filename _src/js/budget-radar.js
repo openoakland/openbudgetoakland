@@ -90,7 +90,7 @@ ob.display = ob.display || {};
 
     var buildAxisForUrl = function (u){
       d3.json(u, function(data_incoming) {
-
+        
         
         if(typeof data_incoming !== "undefined") {
 
@@ -132,11 +132,27 @@ ob.display = ob.display || {};
 
 
           // Add this set of data to the list of axis to consider
+
+
           allBudgetAxis.push(budgetAxis);
 
           // Format the budget axis according to our rules to make it purdy
-          var renderableAxisList = buildUpAxisList(allBudgetAxis);
-
+          var renderableAxisListUnsorted = buildUpAxisList(allBudgetAxis);
+          var renderableAxisList = R.map(function(arr) {
+            // sort the data so the axis line up the same 
+            arr.sort(function(a,b) {
+              if (a.axis > b.axis) {
+                return 1;
+              }
+              if (a.axis < b.axis) {
+                return -1;
+              }
+              // a must be equal to b
+              return 0;
+            });
+            
+            return arr;
+          },renderableAxisListUnsorted);
 
           
           var max   = getMaximum(renderableAxisList);
@@ -374,7 +390,7 @@ ob.display = ob.display || {};
       var inputMaps  = makeInputMap(axisArray);
 
       var outputMaps = R.map(function(axisMap) {
-      var outputMap  = d3.map().set("All Others",0);
+        var outputMap  = d3.map().set("All Others",0);
         axisMap.each(function(v,k) {
           if(axisDictionary.get(k) >= _threshold)
           {
@@ -383,17 +399,17 @@ ob.display = ob.display || {};
           else
           {
             outputMap = ob.data.maps().combineMapsWith( outputMap
-                                                      , d3.map().set("All Others",v)
-                                                      , function(v1,v2) { return v1 + v2;})
-             
+                                                        , d3.map().set("All Others",v)
+                                                        , function(v1,v2) { return v1 + v2;})
+            
           }
 
-        
+          
           
         });
 
         return outputMap;
-           
+        
       },inputMaps);
 
       
@@ -405,9 +421,9 @@ ob.display = ob.display || {};
 
       
       var axisAdjustedOutputMaps = R.map(function(map) {
-                                      var final = ob.data.maps().unionMaps(map, nullMergeDictionary);
-                                      return final;
-                                      },outputMaps);
+        var final = ob.data.maps().unionMaps(map, nullMergeDictionary);
+        return final;
+      },outputMaps);
 
 
       
