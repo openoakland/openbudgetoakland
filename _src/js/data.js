@@ -334,8 +334,20 @@ ob.data = ob.data || {};
       
     }
 
+    var unionMaps = function (map1,map2) {
+      // combineMapsWith using a default function to combine
+      // two maps with the following rules.
+      // kL == kR -> vL
+      // kL == null , kR == v -> v
+      // kL == v , kR == null -> v
+      var final = combineMapsWith(map1,map2, function(v1,v2) { return v1});
+      return final;
+    };
+   
+    
     mapsOutput.combineMapsWith = combineMapsWith;
     mapsOutput.mapWithKey      = mapWithKey;
+    mapsOutput.unionMaps       = unionMaps;
     return mapsOutput;
 
 

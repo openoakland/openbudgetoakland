@@ -115,10 +115,10 @@ ob.display = ob.display || {};
 
           
           // Values are transformed into axis, then normalized, then thresholded. 
-          var makeAxisArray         = R.compose(   sortArrayByValue
-                                                   , thresholdArrayAndAppend
-                                                   , expressAsPercent
-                                                   , treeDataToAxis);
+          var makeAxisArray         = R.compose( //  sortArrayByValue
+            //                                                   , thresholdArrayAndAppend
+            //                                                   , expressAsPercent
+            treeDataToAxis);
           
           var budgetAxis            = makeAxisArray(filteredBudgetValues);
 
@@ -130,7 +130,16 @@ ob.display = ob.display || {};
           // so that is the color of the first plot
           var color = d3.scale.ordinal().range( _palette);
 
-          var max   = getMaximum(budgetAxis);
+
+          // Add this set of data to the list of axis to consider
+          allBudgetAxis.push(budgetAxis);
+
+          // Format the budget axis according to our rules to make it purdy
+          var renderableAxisList = buildUpAxisList(allBudgetAxis);
+
+
+          
+          var max   = getMaximum(renderableAxisList);
 
           var radarChartOptions = {
             w: _layout.width,
@@ -141,11 +150,11 @@ ob.display = ob.display || {};
             roundStrokes: true,
             color: color
           };
-          console.log("current BA",budgetAxis);
-          allBudgetAxis.push(budgetAxis);
+
+
           //Call function to draw the Radar chart
           RadarChart(  "#radar"
-                       , allBudgetAxis
+                       , renderableAxisList
                        , ["fy2016","fy2017"]
                        , radarChartOptions);
           
@@ -245,8 +254,8 @@ ob.display = ob.display || {};
 
 
 
-      return  {  axis:  o.key
-                 , value:  o.values.amount};
+      return  {   axis:  o.key
+                  , value:  o.value.amount};
       
     };
 
@@ -256,11 +265,11 @@ ob.display = ob.display || {};
       // but the radar wants [{"axis":<name>, "value":<number>}]
 
       var finalMap = ob.data.maps().mapWithKey(function(v,k) {
-                                                        return {"axis":k, "value":v};
-                                                       }
-                                         ,axisMap);
+        return {"axis":k, "value":v};
+      }
+                                               ,axisMap);
       return finalMap.values();
-     
+      
     };
 
     var makeInputMap       = function (arrayOfAxis) {
@@ -276,11 +285,11 @@ ob.display = ob.display || {};
 
 
       var inputMaps       = R.compose( makeArrayOfMaps
-                                     , makePercentAxis) (arrayOfAxis);
-                                       
+                                       , makePercentAxis) (arrayOfAxis);
+      
       return inputMaps;      
 
-    }
+    };
     
     var makeAxisDictionary = function (arrayOfAxis) {
       // compute the set of axis that are valid for
@@ -311,9 +320,10 @@ ob.display = ob.display || {};
 
 
       var finalAxisDict   = R.reduce(makeDictionary,emptyMap,inputMaps);
+
       return finalAxisDict;
       
-    }
+    };
 
     var axisNameMatch = R.curry(function (a1,a2) {
       return a1.axis === a2.axis;
@@ -358,17 +368,16 @@ ob.display = ob.display || {};
 
       // 1. Create axis dictionary.
       var axisDictionary = makeAxisDictionary(axisArray);
-      
+
+
       // 2. Transform Axis array.
       var inputMaps  = makeInputMap(axisArray);
 
       var outputMaps = R.map(function(axisMap) {
-        var outputMap = d3.map().set("All Others",0);
+      var outputMap  = d3.map().set("All Others",0);
         axisMap.each(function(v,k) {
-
           if(axisDictionary.get(k) >= _threshold)
           {
-
             outputMap.set(k,v);
           }
           else
@@ -376,18 +385,36 @@ ob.display = ob.display || {};
             outputMap = ob.data.maps().combineMapsWith( outputMap
                                                       , d3.map().set("All Others",v)
                                                       , function(v1,v2) { return v1 + v2;})
+             
           }
-        
-        });
-        return outputMap;
 
+        
+          
+        });
+
+        return outputMap;
+           
       },inputMaps);
 
-      // 3. Convert back to axis array.
+      
+      // Add 0 value axis to each inputMap
+      
+      // Create a zero valued dictionary 
+      var mergeDictionary     = R.reduce(ob.data.maps().unionMaps, d3.map(), outputMaps);
+      var nullMergeDictionary = ob.data.maps().mapWithKey(function (v,k) { return 0;},mergeDictionary);
 
+      
+      var axisAdjustedOutputMaps = R.map(function(map) {
+                                      var final = ob.data.maps().unionMaps(map, nullMergeDictionary);
+                                      return final;
+                                      },outputMaps);
+
+
+      
+      // 3. Convert back to axis array.
       var outputAxisArrays = R.map(function (map) {
-                                       return makeAxisFromMap(map);
-                                   }, outputMaps);
+        return makeAxisFromMap(map);
+      }, axisAdjustedOutputMaps);
 
       return outputAxisArrays;
 
@@ -407,7 +434,7 @@ ob.display = ob.display || {};
       //--------------------------------------------------
       var hasKey    = R.has("key");
       var hasAmount = R.has("amount");
-      return hasKey(o) && hasAmount(o.values); }; 
+      return hasKey(o) && hasAmount(o.value); }; 
 
 
 
