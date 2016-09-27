@@ -43,29 +43,28 @@ noscript
   a(href='http://disqus.com/?ref_noscript') comments powered by Disqus.
 
 
-script(src='http://d3js.org/d3.v3.min.js', charset='utf-8')
 script(src='js/sankey.js', charset='utf-8')
 script(src='js/flow.js', charset='utf-8')
 
-//- this is kind of a dumb hack to allow a jade loop within the script
-//- which is necessary to get a list of files in the directory
-| <script type='text/javascript'>
-|   var datafiles = [];
-- for file in public.data.flow._contents
-    | datafiles.push({filename: "
-    = file
-    | "});
-| </script>
+block get_datafiles
 
 script.
     // process filenames to generate display names
     
     datafiles = datafiles.map(function(datafile){
-        datafile.displayName = datafile.filename.slice(0,-4).replace("__", " ")
+        var nameParts = datafile.filename.slice(0,-4).split("__");
+        datafile.displayName = nameParts.join(" ");
+        datafile.fy = nameParts[0];
+        datafile.type = nameParts[1];
         return datafile;
-    })
+    });
     datafiles.sort(function(a,b){
-      return d3.descending(a.filename, b.filename);
+      // years in descending order, 
+      // types in order of (adjusted, adopted, proposed)
+      // (which happens to be ascending)
+      var sortYear = d3.descending(a.fy, b.fy);
+      var sortType = d3.ascending(a.type, b.type);
+      return sortYear !== 0 ? sortYear : sortType;
     });
 
     d3.select("#fy.form-control").selectAll('option')
