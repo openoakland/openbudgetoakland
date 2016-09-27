@@ -1,5 +1,3 @@
-
-
 {
   "globals": {
     "title": "Open Budget: Oakland",
@@ -10,7 +8,6 @@
     "title": "Open Budget: Oakland",
     "slug": "home"
   },
-
 
   "what-we-do": {
     "title": "What and How - Open Budget: Oakland"
@@ -36,22 +33,19 @@
     "title": "Feedback - Open Budget: Oakland"
   },
 
-
   "oakland-budget-101": {
     "title": "Oakland Budget 101 - Open Budget: Oakland"
   },
+
   "tools-projects": {
     "title": "Tools & Projects - Open Budget: Oakland"
   },
 
-
-  "2013-2015-adopted-budget": {
-    "title": "Adopted Budget 2013-15 - Open Budget: Oakland"
+  "budget-visuals": {
+    "title": "Budget Visualizations - Open Budget: Oakland"
   },
 
-  "2013-2015-adopted-budget-flow": {
-    "title": "Adopted Budget 2013-15 (Sankey) - Open Budget: Oakland"
-  },
+
 
   "mayor-2013-2015-proposed": {
     "title": "Mayor's Proposed Spending 2013-15 (Treemap) - Open Budget: Oakland"
@@ -73,7 +67,39 @@
     "title": "Mayor's 2015-17 Proposed Policy Budget"
   },
 
+  "2013-2015-adopted-budget-flow": {
+    "title": "Cash Flow: 2013-15 Adopted Budget - Open Budget: Oakland"
+  },
+  
+  "2013-2015-adopted-budget": {
+    "title": "Detailed Breakdown: 2013-15 Adopted Budget - Open Budget: Oakland"
+  },
+
+  "2014-15-adjusted-budget-flow": {
+    "title": "Cash Flow: 2014-15 Adjusted Budget - Open Budget: Oakland"
+  },
+
+  "2015-17-adopted-budget-flow": {
+    "title": "Cash Flow: 2015-17 Adopted Budget - Open Budget: Oakland"
+  },
+
+  "2015-17-adopted-budget-tree": {
+    "title": "Detailed Breakdown: 2015-17 Adopted Budget - Open Budget: Oakland"
+  },
+
   "2015-17-proposed-budget-flow": {
-    "title": "Cash Flow: Mayor's 2015-17 Proposed Policy Budget"
-  }
+    "title": "Cash Flow: Mayor's 2015-17 Proposed Policy Budget - Open Budget: Oakland"
+  },
+
+  "2015-17-proposed-budget-tree": {
+    "title": "Detailed Breakdown: Mayor's 2015-17 Proposed Policy Budget - Open Budget: Oakland"
+  },
+
+  "2016-17-adjusted-budget-flow": {
+    "title": "Cash Flow: 2016-17 Adjusted Budget - Open Budget: Oakland"
+  },
+
+  "2016-17-adjusted-budget-tree": {
+    "title": "Detailed Breakdown: 2016-17 Adjusted Budget - Open Budget: Oakland"
+  }  
 }
