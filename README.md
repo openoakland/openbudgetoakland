@@ -1,23 +1,5 @@
 # Open Budget: Oakland
 
-##Active Development
-
-Pull requests and feature branches should all originate from the `development` branch.
-
-
----
-
-__Fork me!__
-
-Fork and clone the project!
-
-```
-git clone git@github.com:[your-user]/openbudgetoakland.git
-```
-
-- cd, checkout to branch
-
----
 ## Developing Locally
 
 ### Harp
@@ -64,34 +46,23 @@ This project is coded with:
 - If your page uses custom page-specific css, add it to a new .scss partial and import it into the main stylesheet. (Make sure to namespace it the same way the others are.)
 
 
-### Adding additional datasets to the Flow diagram page
+### Additional instructions for "flow" diagram pages
 
-This chart takes as input the full budget datatable from data.oaklandnet.com
-(in CSV format)
-
-Right now the 2015-17 Proposed page is an unpublished placeholder, pending the data release. When the data becomes available: 
-
-1. add the CSV to `_src/data/proposed_1517_flow/` and **remove the placeholder file FY13-14__FY14-15.csv**
-1. rename the file to include the two fiscal years it includes, separated by two underscores ("FY15-16__FY16-17.csv")
-1. open the csv and make sure all column headings are standardized to the following names:
+1. Flow pages are built off a template; copy one of the `*-budget-flow.jade` pages and update the content blocks as necessary.
+1. Data files must be placed in the `data/flow` directory. Follow the naming convention seen there or your files won't load properly. You also will need to point your page at the appropriate files as seen in the `get_datafiles` content block.
+1. the following columns are required in your datafile and their names should be normalized as seen here. Other columns should be removed to minimize the data download.
     - budget_year
     - department
-    - division
-    - org_code
-    - org_description
     - fund_code
-    - fund_description
     - account_type (this should be the Expense/Revenue column, if there are duplicate names)
     - account_category
-    - account_code
-    - account_description
     - amount
-    - (any other columns should be deleted)
-1. test it in Harp in the dev branch, and it should compile properly for deployment
 
-### Adding additional Treemap diagram pages
+### Additional instructions for treemap diagram pages
 
-See instructions [here](_treemap/README.md).
+1. Treemap pages are built off a template; copy one of the `*-budget-tree.jade` pages and update the content blocks as necessary.
+1. Instructions for generating the necessary data files can be found [here](_treemap/README.md). Add them to the `data/tree/` directory following the naming convention seen in the existing files.
+1. Update the `datafiles` content block with the appropriate metadata and file path for the data files you generated.
 
 ## Publishing Changes
 Make changes on your personal fork or branch. If you have repo access, and your changes are ready for review, you can merge them into the development branch and publish to the staging site for review. You can also publish changes to your own server and merge to development afterwards.
@@ -142,7 +113,5 @@ git push --set-upstream origin gh-pages --force
 
 # merge your changes from your branch or development into master
 git merge origin/development
-
-If you are on a forked branch, create a pull request to have your changes reviewed for merge!
 
 If you are on a forked branch, create a pull request to have your changes reviewed for merge!

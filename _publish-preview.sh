@@ -17,4 +17,8 @@ echo $URL > $FILE
 echo "Briefly describe your changes: "
 read MESSAGE
 # commit preview files and push to github
-cd ../_staging && git add -A && git commit -m "$TIMESTAMP: $MESSAGE" && git push
+cd ../_staging
+git checkout gh-pages
+git add -A
+git commit -m "$TIMESTAMP: $MESSAGE"
+git push

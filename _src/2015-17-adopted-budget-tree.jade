@@ -1,3 +1,43 @@
+extends templates/tree-template.jade
+
+block title 
+  h1 Detailed Breakdown: 2015-17 Adopted Budget 
+
+block datasource
+  h6
+    | Data source:&nbsp;
+    a(href = "https://data.oaklandnet.com/Financial/Budget-Data-For-Public-Adopted-FY2015-17-Biennial/urid-amga") OakData: Budget Data For Public Adopted FY2015-17 Biennial
+
+block disqus_config
+  script(type='text/javascript').
+    var disqus_identifier = "2015-17 adopted budget tree";
+
+block datafiles
+  script.
+    var config = {
+      /* set values available in dropdown files */
+      dropdown_values: {
+        "Year": ["FY15-16", "FY16-17"],
+        "Account": ["Revenue", "Expense"]
+      },
+      /* set the default values */
+      dropdown_choice: {
+        "Year": "FY16-17",
+        "Account": "Expense"
+      },
+      /* create the url to the data file based on the dropdown choices */
+      url: function() {
+        return 'data/tree/Adopted.' + this.dropdown_choice["Account"] + "." + this.dropdown_choice["Year"] + ".json";
+      }
+    };
+
+
+
+
+
+
+
+
 
 .container
   style.
@@ -38,7 +78,7 @@
     }
   .row
     .intro.col-md-8
-      h1 Detailed Breakdown: 2015-17 Adopted Budget 
+      
 
       p Select year and account (revenues or expenses). Click on a fund to see the departments that receive its funding. Click on that department to see its spending or revenue.
 
@@ -55,9 +95,7 @@
   #spacer
   #table(style="margin-bottom: 30px;")
 
-  h6
-    | Data source:&nbsp;
-    a(href = "https://data.oaklandnet.com/Financial/Budget-Data-For-Public-Adopted-FY2015-17-Biennial/urid-amga") OakData: Budget Data For Public Adopted FY2015-17 Biennial
+  
 
 
 
@@ -71,7 +109,7 @@
 script(type='text/javascript').
   /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
   var disqus_shortname = 'openbudgetoakland'; // required: replace example with your forum shortname
-  var disqus_identifier = "2015-17 adopted budget tree";
+  
   /* * * DON'T EDIT BELOW THIS LINE * * */
   (function() {
   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
