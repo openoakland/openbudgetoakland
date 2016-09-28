@@ -115,5 +115,3 @@ git push --set-upstream origin gh-pages --force
 git merge origin/development
 
 If you are on a forked branch, create a pull request to have your changes reviewed for merge!
-
-If you are on a forked branch, create a pull request to have your changes reviewed for merge!
