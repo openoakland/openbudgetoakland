@@ -1,10 +1,47 @@
-
-
-
 var ob = ob || {};
 ob.data = ob.data || {};
 
 ;(function (namespace, undefined) {
+
+
+
+
+
+  
+
+
+
+
+  
+  /* --------------------------------------------------
+     General Nest Related functions
+
+
+     These methods are very important to understand in order to traverse the data.
+
+     The  data in the OKC Budget is in this recursive structure: 
+
+     <budget-object>
+     --------------------------------------------------
+     { key:  <string-literal> , 
+     data: { revenue: <number>,
+     expense: <number>,
+     amount:  <number>}
+     values: [<budget-object>]  }                            
+
+     --------------------------------------------------
+
+     Recursive structures can be a mess to deal with.
+
+     For this reason, the following helper functions are defined
+
+
+  */
+
+
+
+
+
 
   namespace.accumulate = function (d){
     // Aggregate the values for internal nodes. This is normally done by the
@@ -16,29 +53,8 @@ ob.data = ob.data || {};
     : parseInt(d.value);
   }
 
-  
-  /*
-
-    These methods are very important to understand in order to traverse the data.
-
-    The  data in the OKC Budget is in this recursive structure: 
-
-    <budget-object>
-    --------------------------------------------------
-    { key:  <string-literal> , 
-    data: { revenue: <number>,
-    expense: <number>,
-    amount:  <number>}
-    values: [<budget-object>]  }                            
-
-    --------------------------------------------------
-
-    Recursive structures can be a mess to deal with.
-
-    For this reason, the following helper functions are defined
 
 
-  */ 
 
   //get the index of a node that matches a given value
   // using the provided comparitor
@@ -53,10 +69,14 @@ ob.data = ob.data || {};
     return -1;
   }
 
-  /*
-    This is where you go to find functions to go down the levels.
-    
 
+
+  
+  /* -- --------------------------------------------------
+     Hierarchy (More nest but very custom)
+     
+     This is where you go to find functions to go down the levels.
+     
   */
   namespace.hierarchy = function() {
 
@@ -153,6 +173,9 @@ ob.data = ob.data || {};
       return root;
     }
 
+
+
+
     return {
       crunch: function(rows, order) {
 	/* d3.nest takes the row data given by fusion tables and converts it into
@@ -222,8 +245,113 @@ ob.data = ob.data || {};
 	}
       }
     };
+    
   }
 
 
+
+  
+
+
+  //--------------------------------------------------
+  // Map functions
+  //-------------------------------------------------- 
+  namespace.maps = function () {
+    var mapsOutput = {};
+
+
+    // mapWithKey : (f(v0,k) -> v1 ) -> Map k v0 -> Map k v1
+    // change the value of a map... I keep messing this up
+    // so abstraction!
+    var mapWithKey = function (modFunction, map) {
+      var finalmap = d3.map();
+      map.each(function(v,k,m){
+        
+        finalmap.set(  k , modFunction(v,k));
+
+        
+
+      });
+      return finalmap;
+    };
+
+
+    /* combine two d3 maps together with a comparison function */
+    /* if a key is present in both maps the comparison function:
+       f(v1,v2) -> v'  determines how the result should be combined              
+
+    */    
+    var combineMapsWith = function (map1, map2, f) {
+
+
+      var finalCombinedMap = d3.map(map1); // empty map to return final result 
+      var map2_prime = d3.map(map2);   //copy map for mutability
+
+
+
+      
+      // Run through all the keys in map1 comparing with map2
+      // run the combination function on collision 
+      map1.each(function(v,k,m) {        
+
+        var rslt2 = map2_prime.get(k);        
+
+
+        
+        if (typeof rslt2 === "undefined")
+        {
+          map2_prime.remove(k); // this is why the map is copied
+        } else
+        {
+
+          var finalResult =  f(v,rslt2);
+         
+
+
+          finalCombinedMap.set(k,finalResult);
+          map2_prime.remove(k);
+        }
+
+
+      });
+
+      
+
+
+      // Run through the keys in map2 that haven't been destroyed
+      // by the previous routine.
+      // add each of them to our finalMap
+      map2_prime.each(function(v,k,m) {        
+        var rslt2 = map2_prime.get(k);
+
+        finalCombinedMap.set(k, v);
+        
+      });
+      
+
+      return finalCombinedMap;
+
+      
+    }
+
+    var unionMaps = function (map1,map2) {
+      // combineMapsWith using a default function to combine
+      // two maps with the following rules.
+      // kL == kR -> vL
+      // kL == null , kR == v -> v
+      // kL == v , kR == null -> v
+      var final = combineMapsWith(map1,map2, function(v1,v2) { return v1});
+      return final;
+    };
+   
+    
+    mapsOutput.combineMapsWith = combineMapsWith;
+    mapsOutput.mapWithKey      = mapWithKey;
+    mapsOutput.unionMaps       = unionMaps;
+    return mapsOutput;
+
+
+
+  };
   
 })(ob.data);

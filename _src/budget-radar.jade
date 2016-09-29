@@ -48,6 +48,7 @@
 script(src='/js/ramda.min.js', charset='utf-8')
 script(src='/js/check_deps.js', charset='utf-8')
 script(src='http://d3js.org/d3.v3.min.js', charset='utf-8')
+script(src="https://d3js.org/d3-collection.v1.min.js", charset='utf-8')
 script(src='/js/palette.js', charset='utf-8')
 script(src='/js/radarChart.js', charset='utf-8')  
 script(src='/js/source.js', charset='utf-8')
@@ -98,7 +99,7 @@ script.
     ob.display.budget_radar()
       .width(width)
       .height(600)
-      .threshold(0.03)
+      .threshold(0.05)
       .urls(config.urls())
       .create();
    
