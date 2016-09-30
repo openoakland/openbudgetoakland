@@ -1,5 +1,7 @@
 # Open Budget OKC
 
+[![Build Status](https://travis-ci.org/codeforokc/openbudgetokc.svg?branch=master)](https://travis-ci.org/codeforokc/openbudgetokc)
+
 ## Chat
 
 Join the Code for OKC Slack room here: http://slack.codeforokc.org/. Once there, check out the #openbudgetokc channel for discussion about this project.
