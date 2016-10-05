@@ -95,12 +95,10 @@ git merge origin/development
 git branch -D gh-pages
 git checkout --orphan gh-pages
 
-# move into the _src directory and compile source files to the root
-cd _src
-harp compile ./ ../
+# compile the `_src` to the project root
+harp compile _src ./
 
-# move back to the root, and add and commit files
-cd ../
+# and add and commit files
 git add -A
 git commit -m "deploy"
   
