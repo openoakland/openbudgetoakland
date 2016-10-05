@@ -1,0 +1,43 @@
+{
+	"amount_header": "AMT",
+	"account_type_header": "Account Type",
+	"account_types": {
+		"revenue": "Revenue",
+		"expense": "Expense"
+	},
+	"grouping_headers": ["Account Type", "Budget Year Name"],
+	"groups": [
+		{
+			"values": ["Revenue", "FY15-16"],
+			"hierarchy":["Fund Description", "Type", "Account Description"],
+			"filename": "Revenue.FY15-16.json"
+		},
+		{
+			"values": ["Revenue", "FY16-17"],
+			"hierarchy":["Fund Description", "Type", "Account Description"],
+			"filename": "Revenue.FY16-17.json"
+		},
+		{
+			"values": ["Expense", "FY15-16"],
+			"hierarchy":[
+				"Fund Description", 
+				"Department", 
+				"Org Description", 
+				"Type", 
+				"Account Description" 
+			],
+			"filename": "Expense.FY15-16.json"
+		},
+		{
+			"values": ["Expense", "FY16-17"],
+			"hierarchy":[
+				"Fund Description", 
+				"Department", 
+				"Org Description", 
+				"Type", 
+				"Account Description" 
+			],
+			"filename": "Expense.FY16-17.json"
+		}
+	]
+}

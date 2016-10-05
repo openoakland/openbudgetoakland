@@ -1,0 +1,17 @@
+extends templates/flow-template.jade
+
+block title
+  h2 Cash Flow: 2014-15 Adjusted Budget
+
+block datasource
+  h6
+    | Data source:&nbsp;
+    a(href = "https://data.oaklandnet.com/Financial/Budget-Data-For-Public-Adopted-FY2014-15-Midcycle-/d46c-ikcm") OakData: Budget Data For Public Adopted FY2014-15 Midcycle Budget 
+
+block disqus_config
+  script(type="text/javascript").
+    var disqus_identifier = "2014-2015 adjusted budget flow";
+
+block get_datafiles
+  script(type="text/javascript").
+    var datafiles = [{filename: "FY14-15__adjusted.csv"}];
