@@ -116,8 +116,6 @@ git merge origin/development
 
 If you are on a forked branch, create a pull request to have your changes reviewed for merge!
 
-If you are on a forked branch, create a pull request to have your changes reviewed for merge!
-
 ##Dynamic Server (UNDER DEVELOPMENT)
 
 If you want to run the site as a dynamic server:
