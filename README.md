@@ -22,15 +22,10 @@ $ cd openbudgetokc
 ---
 ## Developing Locally
 
-### D3 Sandbox
+### Code Pen
+To work on a given d3 feature, we suggest [Code Pen](https://codepen.io) to work on a particular graphical feature.
+Once it is ready, branch this repo and tie it into our data.
 
-Most of the new development on Oklahoma City data visualizations is currently occuring in the sandbox directory. Each of the charts can be viewed by opening them directly in your browser.
-
-```
-$ open openbudgetokc/sandbox/zoomable.html
-```
-
-This area is in active development so all of the graphs may not be functioning correctly!
 
 #### Generating json files from a csv
 
@@ -38,7 +33,7 @@ We have a small script written in ruby for generating a json file from a csv of 
 
 To run the script
 ```
-$ cd <project_root>/sandbox
+$ cd <project_root>/data-utilities
 $ ruby data_to_json.rb
 ```
 
