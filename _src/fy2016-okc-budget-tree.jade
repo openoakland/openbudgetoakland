@@ -55,7 +55,30 @@
     .children:hover rect.child {
       fill: #bbb;
     }
+
+    table.treemap {
+      width: 980px;
+    }
+
+    table.treemap th {
+      border-bottom:2pt solid rgb(221, 221, 221);
+    }
+
+    table.treemap tr td {
+      border-top:1pt solid rgb(221, 221, 221);
+    }
+
+    table.treemap th, td {
+      padding: 4px;
+    }
+
   .row#chart
+  table.treemap
+    thead
+      th Item
+      th Expense
+    tbody
+
 script(src="http://code.jquery.com/jquery-1.7.2.min.js",charset='utf-8')
 script(src="http://d3js.org/d3.v3.min.js"              ,charset='utf-8')
 script(src="/js/data.js",charset='utf-8')
@@ -179,6 +202,11 @@ script.
     }
   
     function display(d) {
+      $('table.treemap tbody').html('')
+      d.values.sort(function(a, b) { return a.value < b.value }).forEach(function(value) {
+        $('table.treemap tbody').append("<tr><td>" + value.key + "</td><td>$" + formatNumber(value.value) + "</td></tr>")
+      });
+
       grandparent
           .datum(d.parent)
           .on("click", transition)
