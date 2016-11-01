@@ -1,0 +1,15 @@
+.social-link {
+  @include opacity(.8);
+    &:hover {
+      @include opacity(1);
+    }
+}
+
+.social-icon {
+  margin-right: 10px;
+  width: 30px;
+}
+
+a:hover {
+  text-decoration: none;
+}
