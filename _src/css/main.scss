@@ -93,3 +93,12 @@ footer {
 @media (max-width: $screen-sm-min){
   @include footer-height(200px);
 }
+
+
+.row.visualizations{
+  img{
+    max-height:214px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+}
