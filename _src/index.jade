@@ -1,9 +1,37 @@
 
 
-section.hero-unit
-  .container
-    h1.main-header 2016 Budget
-    .row
-      .col-md-6
-        p.lead <a href="/fy2016-okc-budget-tree.html">Here's the budget.</a>
 
+.container
+  .row
+    .col-md-12
+      h1 Oklahoma City 2016 Budget Visualizations
+      h4.subheader
+        | Understanding the city budget by visualizing data, providing a forum for dialogue, and sharing essential information about the budget process.
+
+  hr
+
+  .row.visualizations
+    .col-md-4
+      a(href="/fy2016-okc-budget-tree.html")
+        h3 Fiscal Year 2016 Budget
+        img.img-responsive(src="/images/fy2016-tree-thumb.png")
+        p See the entire 2016 budget and drill down into vairous departments and programs.
+    .col-md-4
+      a(href="/budget-process.html")
+        h3 OKC Budget Process Timeline
+        img.img-responsive(src="/images/fy2017-timeline-thumb.png")
+        p See the timeline that Oklahoma City uses to propose and set their budget.
+    .col-md-4
+      a(href="/budget-radar.html")
+        h3 2016 vs 2017 Budget Changes
+        img.img-responsive(src="/images/radar_screen_thumb.png")
+        p See the differences between the 2016 and 2017 fiscal year budgets.
+
+  hr
+
+  .row
+    .col-md-6
+      != partial("_what-we-do")
+
+    .col-md-6
+      != partial("_who-we-are")
