@@ -8,7 +8,12 @@ class ControlPanel extends React.Component {
     return <div className="col-sm-3">
       <Legend></Legend>
       <ComparisonRange></ComparisonRange>
-      <DataSlices></DataSlices>
+      <DataSlices accountTypes={this.props.accountTypes}
+        setAccountType={this.props.setAccountType}
+        activeAccountType={this.props.activeAccountType}
+        filter={this.props.filter} setFilter={this.props.setFilter}
+        generalFundOnly={this.props.generalFundOnly}
+        setGeneralFundOnly={this.props.setGeneralFundOnly}></DataSlices>
     </div>
   }	
 }

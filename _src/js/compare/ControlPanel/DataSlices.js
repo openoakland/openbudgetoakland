@@ -1,96 +1,66 @@
 import React from 'react';
-import {Collapse, FormControl, ListGroup, ListGroupItem, Panel} 
+import {Checkbox, FormControl, ListGroup, ListGroupItem, Panel} 
   from 'react-bootstrap';
 import ActiveViewLink from './ActiveViewLink';
 
-const detailLevels = {
-  Spending: ['Department', 'Division', 'Org', 'Account'],
-  Revenue: ['Category', 'Account']
-};
 
 class DataSlices extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      accountType: 'Spending',
-      activeView: ''
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.nestList = this.nestList.bind(this);
-    this.detailLevelClick = this.detailLevelClick.bind(this);
-    this.activeViewClick = this.activeViewClick.bind(this);
+    this.setAccountType = this.setAccountType.bind(this);
+    this.setGeneralFundOnly = this.setGeneralFundOnly.bind(this);
   }
 
-  handleChange(event){
-    this.setState({accountType: event.target.value});
+  setAccountType(event){
+    this.props.setAccountType(event.target.value);
   }
 
-  detailLevelClick(detailLevel){
-    debugger;
-    this.setState({detailLevel})
-  }
-
-  activeViewClick(activeView){
-    this.setState({
-      activeView: activeView,
-      detailLevel: detailLevels[this.state.accountType][0]
-    })
-  }
-
-  nestList(array, index){
-    // recursively nest array items in list elements
-    if (index < array.length){
-      return <ListGroup>
-        <ListGroupItem active={this.state.detailLevel === array[index]}
-        onClick={this.detailLevelClick}>
-          {array[index]}
-        </ListGroupItem>
-        {this.nestList(array, index + 1)}
-      </ListGroup>
-    }
+  setGeneralFundOnly(event){
+    this.props.setGeneralFundOnly(event.target.checked);
   }
 
   render(){
-    const accountTypes = ['Spending', 'Revenue'];
-    const options = accountTypes.map(accountType => 
+    const options = this.props.accountTypes.map(accountType => 
      <option key={accountType} value={accountType}>{accountType}</option> 
     )
 
+    const currentAccountType = this.props.accountTypes[this.props.activeAccountType];
 
-    const title = <h3>Levels of Data</h3>
+    const title = <h3>Filters</h3>
 
     return <Panel header={title}>
       <FormControl componentClass="select" 
-      value={this.state.accountType} 
-      onChange={this.handleChange}>
+      value={currentAccountType} 
+      onChange={this.setAccountType}>
         {options}
       </FormControl>
 
+      <Checkbox checked={this.props.generalFundOnly} 
+        onChange={this.setGeneralFundOnly}>
+        General Fund only
+      </Checkbox>
+
       <ListGroup fill>
 
-        <ActiveViewLink active={this.state.activeView === 'total'} 
-        updateView={this.activeViewClick} viewName="total">
-          Total {this.state.accountType}
+        <ActiveViewLink active={this.props.filter === 'total'} 
+        updateView={this.props.setFilter} viewName="total">
+          Total {currentAccountType}
         </ActiveViewLink>
 
-        <ListGroupItem disabled={true}>
-          {this.state.accountType} grouped by:
+        <ListGroupItem bsStyle="info">
+          {currentAccountType} grouped by:
         </ListGroupItem>
         
-        <ActiveViewLink active={this.state.activeView === 'dataGroups'}
-        updateView={this.activeViewClick} viewName="dataGroups">
-          {detailLevels[this.state.accountType][0]}
-          <Collapse in={this.state.activeView === 'dataGroups'}>
-            {this.nestList(detailLevels[this.state.accountType], 0)}
-          </Collapse>
+        <ActiveViewLink active={this.props.filter === 'department'}
+        updateView={this.props.setFilter} viewName="department">
+          Department
         </ActiveViewLink>
-        <ActiveViewLink active={this.state.activeView === 'accounts'}
-        updateView={this.activeViewClick} viewName="accounts">
-          Line Item
-          <Collapse in={this.state.activeView === 'accounts'}>
-            {this.nestList(detailLevels[this.state.accountType], 0)}
-          </Collapse>
+
+        <ActiveViewLink active={this.props.filter === 'accountCategory'}
+        updateView={this.props.setFilter} viewName="accountCategory">
+          {currentAccountType} Category
         </ActiveViewLink>
+        
       </ListGroup>
     </Panel>
   }
