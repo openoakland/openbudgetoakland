@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ControlPanel from './ControlPanel'
+import Chart from './Chart'
 
 class Compare extends React.Component {
   constructor(props) {
@@ -37,15 +38,9 @@ class Compare extends React.Component {
         filter={this.state.filter} setFilter={this.setFilter}
         generalFundOnly={this.state.generalFundOnly}
         setGeneralFundOnly={this.setGeneralFundOnly}></ControlPanel>
-      <Chart></Chart>
+      <Chart filter={this.state.filter}></Chart>
     </div>
 	}
-}
-
-class Chart extends React.Component {
-  render(){
-    return <div className="col-sm-9"><h2>chart area</h2></div>
-  }
 }
 
 ReactDOM.render(
