@@ -10,10 +10,14 @@
     "react": "^15.4.1",
     "react-bootstrap": "^0.30.7",
     "react-chartjs": "^0.8.0",
+    "react-chartjs-2": "^2.0.0",
     "react-dom": "^15.4.1",
     "webpack": "^1.13.3"
   },
   "scripts": {
     "watch": "node_modules/.bin/webpack --config webpack.config.js --watch"
+  },
+  "devDependencies": {
+    "babel-preset-stage-1": "^6.16.0"
   }
 }

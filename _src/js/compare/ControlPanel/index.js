@@ -15,7 +15,7 @@ class ControlPanel extends React.Component {
         generalFundOnly={this.props.generalFundOnly}
         setGeneralFundOnly={this.props.setGeneralFundOnly}></DataSlices>
     </div>
-  }	
+  }
 }
 
 module.exports = ControlPanel;

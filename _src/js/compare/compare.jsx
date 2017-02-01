@@ -32,8 +32,8 @@ class Compare extends React.Component {
 
 	render(){
 		return <div className="row">
-      <ControlPanel accountTypes={this.accountTypes} 
-        setAccountType={this.setAccountType} 
+      <ControlPanel accountTypes={this.accountTypes}
+        setAccountType={this.setAccountType}
         activeAccountType={this.state.activeAccountType}
         filter={this.state.filter} setFilter={this.setFilter}
         generalFundOnly={this.state.generalFundOnly}
