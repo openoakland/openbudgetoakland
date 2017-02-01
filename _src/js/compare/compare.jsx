@@ -6,7 +6,10 @@ import Chart from './Chart'
 class Compare extends React.Component {
   constructor(props) {
     super(props);
-    this.accountTypes = ['Spending', 'Revenue'];
+    this.accountTypes = [
+      'Spending',
+      // 'Revenue'
+    ];
     this.setAccountType = this.setAccountType.bind(this);
     this.setFilter = this.setFilter.bind(this);
     this.setGeneralFundOnly = this.setGeneralFundOnly.bind(this);

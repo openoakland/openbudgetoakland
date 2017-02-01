@@ -1,5 +1,5 @@
 import React from 'react';
-import {Checkbox, FormControl, ListGroup, ListGroupItem, Panel} 
+import {Checkbox, FormControl, ListGroup, ListGroupItem, Panel}
   from 'react-bootstrap';
 import ActiveViewLink from './ActiveViewLink';
 
@@ -20,8 +20,8 @@ class DataSlices extends React.Component {
   }
 
   render(){
-    const options = this.props.accountTypes.map(accountType => 
-     <option key={accountType} value={accountType}>{accountType}</option> 
+    const options = this.props.accountTypes.map(accountType =>
+     <option key={accountType} value={accountType}>{accountType}</option>
     )
 
     const currentAccountType = this.props.accountTypes[this.props.activeAccountType];
@@ -29,14 +29,14 @@ class DataSlices extends React.Component {
     const title = <h3>Filters</h3>
 
     return <Panel header={title}>
-      <FormControl componentClass="select" 
-      value={currentAccountType} 
+      <FormControl componentClass="select"
+      value={currentAccountType}
       onChange={this.setAccountType}>
         {options}
       </FormControl>
 
-      <Checkbox checked={this.props.generalFundOnly} 
-        onChange={this.setGeneralFundOnly}>
+      <Checkbox checked={this.props.generalFundOnly}
+        onChange={this.setGeneralFundOnly} disabled>
         General Fund only
       </Checkbox>
 
