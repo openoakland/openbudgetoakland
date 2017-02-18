@@ -1,25 +1,27 @@
+var path = require('path');
+
 module.exports = {
-  entry: './js/compare/compare.jsx',
+  entry: {
+    trend: './js/trend/index.jsx',
+    compare: './js/compare/index.jsx'
+  },
   output: {
-    filename: 'bundle.js',
-    path: './js/dist'
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'js/dist')
   },
   resolve: {
-  	extensions: ['', '.js', '.jsx']
+  	extensions: ['.js', '.jsx']
   },
   module: {
   	loaders: [
       {
         test: /\.jsx?$/,
-        // Enable caching for improved performance during development
-        // It uses default OS directory by default. If you need
-        // something more custom, pass a path to it.
-        // I.e., babel?cacheDirectory=<path>
-        loaders: ['babel?cacheDirectory'],
-        // Parse only app files! Without this it will go through
-        // the entire project. In addition to being slow,
-        // that will most likely result in an error.
-        // include: PATHS.app
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015'],
+          cacheDirectory: true
+        }
       }
     ]
   }

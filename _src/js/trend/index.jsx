@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import ControlPanel from './ControlPanel'
 import Chart from './Chart'
 
-class Compare extends React.Component {
+class Trend extends React.Component {
   constructor(props) {
     super(props);
     this.accountTypes = [
@@ -47,6 +47,6 @@ class Compare extends React.Component {
 }
 
 ReactDOM.render(
-  <Compare/>,
+  <Trend/>,
   document.getElementById('root')
 );
