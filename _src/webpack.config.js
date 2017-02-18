@@ -1,9 +1,10 @@
 var path = require('path');
 
 module.exports = {
+  context: path.resolve(__dirname, 'js'),
   entry: {
-    trend: './js/trend/index.jsx',
-    compare: './js/compare/index.jsx'
+    trend: './trend/index.jsx',
+    compare: './compare/index.jsx'
   },
   output: {
     filename: '[name].bundle.js',
