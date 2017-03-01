@@ -119,10 +119,10 @@ class Chart extends React.Component {
 
     return <div className="col-sm-9">
       <h3>Amounts</h3>
-      <Bar data={this.state.data} options={chartOpts}></Bar>
+      <Bar data={this.state.data} options={chartOpts} height={200}></Bar>
 
       <h3>Change year-over-year</h3>
-      <Bar data={this.state.deltas} options={deltaChartOpts}></Bar>
+      <Bar data={this.state.deltas} options={deltaChartOpts} height={200}></Bar>
     </div>
   }
 }

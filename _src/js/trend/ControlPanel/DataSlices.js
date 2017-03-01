@@ -35,10 +35,6 @@ class DataSlices extends React.Component {
         {options}
       </FormControl>
 
-      <Checkbox checked={this.props.generalFundOnly}
-        onChange={this.setGeneralFundOnly} disabled>
-        General Fund only
-      </Checkbox>
 
       <ListGroup fill>
 
