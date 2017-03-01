@@ -1,11 +1,7 @@
 import React from 'react';
 import {HorizontalBar} from 'react-chartjs-2';
 import {entries} from 'd3-collection';
-import {format} from 'd3-format';
-
-const asTick = format('$,.1f');
-const asDollars = format('+$,');
-const asPct = format('+.2%');
+import {asTick, asDiff, DiffStyled} from './utils';
 
 const chartOptions = {
   legend: {
@@ -22,7 +18,7 @@ const chartOptions = {
       },
     }]
   }
-}
+};
 
 export default class Total extends React.Component {
   constructor(props) {
@@ -32,14 +28,9 @@ export default class Total extends React.Component {
   render() {
     const totals = this.props.data;
     let diff = totals[0].total - totals[1].total;
-    let asDiff = asDollars;
     if (this.props.usePct) {
       diff = diff / totals[1].total;
-      asDiff = asPct;
     }
-    const diffStyle = {
-      color: diff >= 0 ? this.props.diffColors.pos : this.props.diffColors.neg,
-    };
     const data = {
       labels: ['Total'],
       datasets: totals.map((entry, i) => {
@@ -52,7 +43,10 @@ export default class Total extends React.Component {
     };
 
     return <div>
-      <h3>Total Change: <span style={diffStyle}>{asDiff(diff)}</span></h3>
+      <h3>Total Change:
+        <DiffStyled diff={diff} colors={this.props.diffColors} usePct={this.props.usePct}>
+        </DiffStyled>
+      </h3>
       <HorizontalBar data={data} height={25} options={chartOptions}></HorizontalBar>
     </div>
   }
