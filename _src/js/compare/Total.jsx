@@ -39,7 +39,7 @@ export default class Total extends React.Component {
           label: entry.key,
           backgroundColor: this.props.colors[i],
         };
-      }).reverse()
+      }),
     };
 
     return <div>
