@@ -6,6 +6,7 @@ import Total from './Total.jsx';
 import DiffTable from './DiffTable.jsx';
 import AddRemove from './AddRemove.jsx';
 import SpendingByDept from './SpendingByDept.jsx';
+import SpendingByCategory from './SpendingByCategory.jsx';
 
 const styles = [
   {color: colors[0]},
@@ -178,10 +179,8 @@ class Compare extends React.Component {
           usePct={this.state.usePct}></SpendingByDept>
       </div>
       <div className="col-sm-6">
-        {/*<h3>Spending by Category</h3>
-                <DiffTable data={budgets}
-                  colors={colors} diffColors={diffColors}
-                  usePct={this.state.usePct} diffKey={'categories'}></DiffTable>*/}
+        <SpendingByCategory colors={colors} diffColors={diffColors}
+          usePct={this.state.usePct}></SpendingByCategory>
       </div>
     </div>
   }

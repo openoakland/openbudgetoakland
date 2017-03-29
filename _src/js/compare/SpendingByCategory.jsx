@@ -6,9 +6,9 @@ import AddRemove from './AddRemove.jsx';
 import {API_URL} from './utils.jsx';
 
 // TODO: dynamically choose via props
-const YEARS = ['16-17', '14-15'];
+const YEARS = ['14-15', '13-14'];
 
-export default class SpendingByDept extends React.Component {
+export default class SpendingByCategory extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -26,7 +26,7 @@ export default class SpendingByDept extends React.Component {
     // start two concurrent requests, one per year;
     // wait for them both to return before updating state
     const urls = years.map((year) => {
-      return API_URL + `depts/FY${year}`;
+      return API_URL + `account-cats/FY${year}`;
     })
     axios.all(urls.map(url => axios.get(url)))
       .then(axios.spread((...budgets) => {
@@ -34,25 +34,19 @@ export default class SpendingByDept extends React.Component {
         // TODO: filter by budget type, API returns records from all
         this.setState({budgets: budgets.map((b,i) => b.data.reduce((acc, row) => {
           // convert to object and cast totals to numbers
-          acc[row.department] = +row.total;
+          acc[row.account_category] = +row.total;
           return acc;
           }, {}))
       });
     }));
   }
 
-  // TODO: special state when there are no differences?
   render () {
     return <div>
-      <h3>Spending by Department</h3>
+      <h3>Spending by Category</h3>
       <DiffTable data={this.state.budgets}
         colors={this.props.colors} diffColors={this.props.diffColors}
         usePct={this.props.usePct}></DiffTable>
-      <h3>Departments Added/Removed</h3>
-      <AddRemove data={this.state.budgets} years={YEARS}
-        colors={this.props.colors}>
-      </AddRemove>
     </div>
-
   }
 }
