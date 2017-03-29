@@ -5,6 +5,7 @@ import {schemeSet2 as colors} from 'd3-scale-chromatic';
 import Total from './Total.jsx';
 import DiffTable from './DiffTable.jsx';
 import AddRemove from './AddRemove.jsx';
+import SpendingByDept from './SpendingByDept.jsx';
 
 const styles = [
   {color: colors[0]},
@@ -173,18 +174,14 @@ class Compare extends React.Component {
         <Total data={budgets} colors={colors} diffColors={diffColors} usePct={this.state.usePct}></Total>
       </div>
       <div className="col-sm-6">
-        <h3>Spending by Department</h3>
-        <DiffTable data={budgets}
-          colors={colors} diffColors={diffColors}
-          usePct={this.state.usePct} diffKey={'depts'}></DiffTable>
-        <h3>Departments Added/Removed</h3>
-        <AddRemove data={budgets} colors={colors} diffKey={'depts'}></AddRemove>
+        <SpendingByDept colors={colors} diffColors={diffColors}
+          usePct={this.state.usePct}></SpendingByDept>
       </div>
       <div className="col-sm-6">
-        <h3>Spending by Category</h3>
-        <DiffTable data={budgets}
-          colors={colors} diffColors={diffColors}
-          usePct={this.state.usePct} diffKey={'categories'}></DiffTable>
+        {/*<h3>Spending by Category</h3>
+                <DiffTable data={budgets}
+                  colors={colors} diffColors={diffColors}
+                  usePct={this.state.usePct} diffKey={'categories'}></DiffTable>*/}
       </div>
     </div>
   }

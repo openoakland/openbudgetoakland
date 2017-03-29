@@ -7,6 +7,8 @@ export const asDollars = format('+$,');
 
 export const asPct = format('+.2%');
 
+export const API_URL = '//dev-open-budget-oakland-administration.pantheonsite.io/wp-json/obo/v1/fiscal-years-expenses/';
+
 export function asDiff (value, usePct) {
   if (usePct) {
     return asPct(value);

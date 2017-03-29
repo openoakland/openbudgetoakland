@@ -28,10 +28,10 @@ export default class DiffTable extends React.Component {
   }
 
   render() {
-    const diffList = entries(this.props.data[0][this.props.diffKey]).map(entry => {
+    const diffList = entries(this.props.data[0]).map(entry => {
       const res = Object.assign({}, entry);
       // if dept exists in both, and values are positive, return diff
-      res.prev = this.props.data[1][this.props.diffKey][entry.key];
+      res.prev = this.props.data[1][entry.key];
       if (res.prev) {
         res.diff = entry.value - res.prev;
         if (this.props.usePct) {

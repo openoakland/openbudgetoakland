@@ -24,12 +24,20 @@ const chartOptions = {
 export default class AddRemove extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      data: {},
+    };
+    this.processData = this.processData.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
+    this.componentWillReceiveProps = this.componentWillReceiveProps.bind(this);
   }
 
-  render() {
-    const onlyIn0 = entries(this.props.data[0][this.props.diffKey]).map(entry => {
+  processData (budgets) {
+    if (!budgets || budgets.length === 0) return;
+
+    const onlyIn0 = entries(budgets[0]).map(entry => {
       let res = null;
-      const prev = this.props.data[1][this.props.diffKey][entry.key];
+      const prev = budgets[1][entry.key];
       // collect entries whose key doesn't appear in 1
       if (typeof prev === 'undefined') {
         res = entry;
@@ -39,9 +47,9 @@ export default class AddRemove extends React.Component {
     .filter(entry => entry !== null)
     ;
 
-    const onlyIn1 = entries(this.props.data[1][this.props.diffKey]).map(entry => {
+    const onlyIn1 = entries(budgets[1]).map(entry => {
       let res = null;
-      const prev = this.props.data[0][this.props.diffKey][entry.key];
+      const prev = budgets[0][entry.key];
       // collect entries whose key doesn't appear in 0
       if (typeof prev === 'undefined') {
         res = entry;
@@ -57,19 +65,37 @@ export default class AddRemove extends React.Component {
         {
           // datasets need to be the same length; pad with zeroes
           data: onlyIn0.map(entry => entry.value).concat(onlyIn1.map(entry => 0)),
-          label: `Only in ${this.props.data[0].key}`,
+          label: `Only in ${this.props.years[0]}`,
           backgroundColor: this.props.colors[0],
         },
         {
           data: onlyIn0.map(entry => 0).concat(onlyIn1.map(entry => entry.value)),
-          label: `Only in ${this.props.data[1].key}`,
+          label: `Only in ${this.props.years[1]}`,
           backgroundColor: this.props.colors[1],
         },
       ]
     };
 
+    this.setState({data});
+  }
+
+  componentDidMount() {
+    this.processData(this.props.data);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    // check for changes first
+    const budgets = this.props.data;
+    const nextBudgets = nextProps.data;
+    if (budgets[0] !== nextBudgets[0] &&
+        budgets[1] !== nextBudgets[1]) {
+      this.processData(nextBudgets);
+    }
+  }
+
+  render() {
     return <div>
-      <HorizontalBar data={data} options={chartOptions}></HorizontalBar>
+      <HorizontalBar data={this.state.data} options={chartOptions}></HorizontalBar>
     </div>
   }
 }
