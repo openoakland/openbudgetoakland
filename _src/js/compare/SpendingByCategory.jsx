@@ -43,7 +43,6 @@ export default class SpendingByCategory extends React.Component {
 
   render () {
     return <div>
-      <h3>Spending by Category</h3>
       <DiffTable data={this.state.budgets}
         colors={this.props.colors} diffColors={this.props.diffColors}
         usePct={this.props.usePct}></DiffTable>

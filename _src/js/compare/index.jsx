@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Nav, NavItem, Tab} from 'react-bootstrap';
 import {schemeSet2 as colors} from 'd3-scale-chromatic';
 
 import Total from './Total.jsx';
@@ -147,41 +148,74 @@ class Compare extends React.Component {
   handleRadioChange (event) {
     const target = event.target;
     this.setState({
-      usePct: target.value === 'pct'
+      [event.target.name]: target.value === 'pct'
     });
   }
 
   render() {
-    return <div className="row">
-      <div className="col-sm-12">
-        <h2>Compare <strong style={styles[0]}>{budgets[0].key}</strong> with <strong style={styles[1]}>{budgets[1].key}</strong></h2>
-        <div>
-          show change as: <label>
-            <input
-              name="usePct"
-              type="radio"
-              value="usd"
-              checked={!this.state.usePct}
-              onChange={this.handleRadioChange} /> dollars
-          </label> <label>
-            <input
-              name="usePct"
-              type="radio"
-              value="pct"
-              checked={this.state.usePct}
-              onChange={this.handleRadioChange} /> percentage
-          </label>
+    return <div>
+      <div className="row">
+        <div className="col-sm-12">
+          <h1>Compare <strong style={styles[0]}>{budgets[0].key} </strong>
+            with <strong style={styles[1]}>{budgets[1].key}</strong></h1>
+          <div>
+            show change as: <label>
+              <input
+                name="usePct"
+                type="radio"
+                value="usd"
+                checked={!this.state.usePct}
+                onChange={this.handleRadioChange} /> dollars
+            </label> <label>
+              <input
+                name="usePct"
+                type="radio"
+                value="pct"
+                checked={this.state.usePct}
+                onChange={this.handleRadioChange} /> percentage
+            </label>
+          </div>
+          <Total data={budgets} colors={colors} diffColors={diffColors} usePct={this.state.usePct}></Total>
         </div>
-        <Total data={budgets} colors={colors} diffColors={diffColors} usePct={this.state.usePct}></Total>
+        <div className="col-sm-12">
+          <h2>Budget breakdowns</h2>
+          <p>Drill down blah tk</p>
+        </div>
       </div>
-      <div className="col-sm-6">
-        <SpendingByDept colors={colors} diffColors={diffColors}
-          usePct={this.state.usePct}></SpendingByDept>
-      </div>
-      <div className="col-sm-6">
-        <SpendingByCategory colors={colors} diffColors={diffColors}
-          usePct={this.state.usePct}></SpendingByCategory>
-      </div>
+      <Tab.Container id="selectBreakdown" defaultActiveKey="spendDept">
+        <div className="row">
+          <div className="col-sm-3">
+              <Nav bsStyle="pills" stacked>
+                <NavItem eventKey="spendDept">Spending by Department</NavItem>
+                <NavItem eventKey="spendCat">Spending by Category</NavItem>
+                <NavItem eventKey="revDept">Revenue by Department</NavItem>
+                <NavItem eventKey="revCat">Revenue by Category</NavItem>
+                <NavItem eventKey="addRemDept">Departments Added &amp; Removed</NavItem>
+              </Nav>
+          </div>
+          <div className="col-sm-9">
+            <Tab.Content>
+              <Tab.Pane eventKey="spendDept">
+                <SpendingByDept colors={colors} diffColors={diffColors}
+                  usePct={this.state.usePct}></SpendingByDept>
+              </Tab.Pane>
+              <Tab.Pane eventKey="spendCat">
+                <SpendingByCategory colors={colors} diffColors={diffColors}
+                  usePct={this.state.usePct}></SpendingByCategory>
+              </Tab.Pane>
+              <Tab.Pane eventKey="revDept">
+                rev by dept
+              </Tab.Pane>
+              <Tab.Pane eventKey="revCat">
+                rev by cat
+              </Tab.Pane>
+              <Tab.Pane eventKey="addRemDept">
+                depts added removed
+              </Tab.Pane>
+            </Tab.Content>
+          </div>
+        </div>
+      </Tab.Container>
     </div>
   }
 }

@@ -43,10 +43,10 @@ export default class Total extends React.Component {
     };
 
     return <div>
-      <h3>Total Change:
+      <h2>Total Change:
         <DiffStyled diff={diff} colors={this.props.diffColors} usePct={this.props.usePct}>
         </DiffStyled>
-      </h3>
+      </h2>
       <HorizontalBar data={data} height={25} options={chartOptions}></HorizontalBar>
     </div>
   }

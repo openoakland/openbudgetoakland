@@ -43,15 +43,14 @@ export default class SpendingByDept extends React.Component {
 
   // TODO: special state when there are no differences?
   render () {
+      /*<h3>Departments Added/Removed</h3>
+      <AddRemove data={this.state.budgets} years={YEARS}
+        colors={this.props.colors}>
+      </AddRemove>*/
     return <div>
-      <h3>Spending by Department</h3>
       <DiffTable data={this.state.budgets}
         colors={this.props.colors} diffColors={this.props.diffColors}
         usePct={this.props.usePct}></DiffTable>
-      <h3>Departments Added/Removed</h3>
-      <AddRemove data={this.state.budgets} years={YEARS}
-        colors={this.props.colors}>
-      </AddRemove>
     </div>
 
   }

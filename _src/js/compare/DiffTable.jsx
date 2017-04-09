@@ -23,11 +23,11 @@ const chartOptions = {
 };
 
 export default class DiffTable extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
   }
 
-  render() {
+  render () {
     const diffList = entries(this.props.data[0]).map(entry => {
       const res = Object.assign({}, entry);
       // if dept exists in both, and values are positive, return diff
@@ -76,7 +76,7 @@ export default class DiffTable extends React.Component {
       </tr>
     });
 
-    return <table>
+    return <table className="table">
       <tbody>
         {diffList}
       </tbody>
