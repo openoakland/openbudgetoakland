@@ -1312,9 +1312,9 @@ diffie-hellman@^5.0.0:
     miller-rabin "^4.0.0"
     randombytes "^2.0.0"
 
-dom-helpers@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/dom-helpers/-/dom-helpers-2.4.0.tgz#9bb4b245f637367b1fa670274272aa28fe06c367"
+dom-helpers@^3.2.0:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/dom-helpers/-/dom-helpers-3.2.1.tgz#3203e07fed217bd1f424b019735582fc37b2825a"
 
 domain-browser@^1.1.1:
   version "1.1.7"
@@ -2308,16 +2308,16 @@ rc@~1.1.6:
     minimist "^1.2.0"
     strip-json-comments "~1.0.4"
 
-react-bootstrap@^0.30.7:
-  version "0.30.7"
-  resolved "https://registry.yarnpkg.com/react-bootstrap/-/react-bootstrap-0.30.7.tgz#39da80088693ecb71e8e63b5bdc313571fd993d1"
+react-bootstrap@^0.30.8:
+  version "0.30.8"
+  resolved "https://registry.yarnpkg.com/react-bootstrap/-/react-bootstrap-0.30.8.tgz#4ceca8e138ce2351228c4a58d59db00c003ca9c0"
   dependencies:
     babel-runtime "^6.11.6"
     classnames "^2.2.5"
-    dom-helpers "^2.4.0"
+    dom-helpers "^3.2.0"
     invariant "^2.2.1"
     keycode "^2.1.2"
-    react-overlays "^0.6.10"
+    react-overlays "^0.6.12"
     react-prop-types "^0.4.0"
     uncontrollable "^4.0.1"
     warning "^3.0.0"
@@ -2336,12 +2336,12 @@ react-dom@^15.4.1:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
 
-react-overlays@^0.6.10:
-  version "0.6.10"
-  resolved "https://registry.yarnpkg.com/react-overlays/-/react-overlays-0.6.10.tgz#e7e52dad47f00a0fc784eb044428c3a9e874bfa3"
+react-overlays@^0.6.12:
+  version "0.6.12"
+  resolved "https://registry.yarnpkg.com/react-overlays/-/react-overlays-0.6.12.tgz#a079c750cc429d7db4c7474a95b4b54033e255c3"
   dependencies:
     classnames "^2.2.5"
-    dom-helpers "^2.4.0"
+    dom-helpers "^3.2.0"
     react-prop-types "^0.4.0"
     warning "^3.0.0"
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import {HorizontalBar} from 'react-chartjs-2';
 import {entries} from 'd3-collection';
-import {descending} from 'd3-array';
+import {ascending, descending} from 'd3-array';
 
 import {asTick, asDiff, DiffStyled} from './utils';
 
@@ -25,9 +25,21 @@ const chartOptions = {
 export default class DiffTable extends React.Component {
   constructor (props) {
     super(props);
+
+    this.state = {
+      sortBy: 'diff',
+    }
+    this.updateSort = this.updateSort.bind(this);
+  }
+
+  updateSort (event) {
+    const target = event.target;
+    this.setState({sortBy: target.value});
   }
 
   render () {
+    const sortFunc = this.state.sortBy === 'diff' ? descending : ascending;
+
     const diffList = entries(this.props.data[0]).map(entry => {
       const res = Object.assign({}, entry);
       // if dept exists in both, and values are positive, return diff
@@ -43,7 +55,7 @@ export default class DiffTable extends React.Component {
       return res;
     }).filter(entry => entry.diff !== null)
     .sort((a, b) => {
-      return descending(a.diff, b.diff);
+      return sortFunc(a[this.state.sortBy], b[this.state.sortBy]);
     })
     .map(entry => {
       const data = {
@@ -66,17 +78,35 @@ export default class DiffTable extends React.Component {
         <td>
           <h4>
             {entry.key}
-            <HorizontalBar data={data} options={chartOptions} height={40}></HorizontalBar>
+            <HorizontalBar data={data} options={chartOptions} height={40}>
+            </HorizontalBar>
           </h4>
         </td>
         <td>
-          <DiffStyled diff={entry.diff} colors={this.props.diffColors} usePct={this.props.usePct}>
+          <DiffStyled diff={entry.diff} colors={this.props.diffColors}
+            usePct={this.props.usePct}>
           </DiffStyled>
         </td>
       </tr>
     });
 
     return <table className="table">
+      <thead>
+        <tr>
+          <th colSpan="2" className="form-horizontal">
+            <div className="form-group">
+              <label className="col-sm-3 col-sm-offset-6 control-label" htmlFor="sortControl">sort by: </label>
+              <div className="col-sm-3">
+                <select className="form-control" id="sortControl"
+                value={this.state.sortBy} onChange={this.updateSort}>
+                  <option value="diff">amount</option>
+                  <option value="key">name</option>
+                </select>
+              </div>
+            </div>
+          </th>
+        </tr>
+      </thead>
       <tbody>
         {diffList}
       </tbody>

@@ -12,7 +12,7 @@
     "d3-format": "^1.0.2",
     "d3-scale-chromatic": "^1.1.1",
     "react": "^15.4.1",
-    "react-bootstrap": "^0.30.7",
+    "react-bootstrap": "^0.30.8",
     "react-chartjs-2": "^2.0.0",
     "react-dom": "^15.4.1",
     "webpack": "^2.2.1"
