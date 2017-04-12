@@ -139,45 +139,41 @@ class Compare extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      usePct: true
+      changeType: 'pct',
+      usePct: true,
     };
-
-    this.handleRadioChange = this.handleRadioChange.bind(this);
+    this.updateChangeType = this.updateChangeType.bind(this)
   }
 
-  handleRadioChange (event) {
+  updateChangeType (event) {
     const target = event.target;
     this.setState({
-      [event.target.name]: target.value === 'pct'
+      changeType: target.value,
     });
   }
 
   render() {
+    const usePct = this.state.changeType === 'pct';
+
     return <div>
       <div className="row">
-        <div className="col-sm-12">
+        <div className="col-sm-10">
           <h1>Compare <strong style={styles[0]}>{budgets[0].key} </strong>
             with <strong style={styles[1]}>{budgets[1].key}</strong></h1>
-          <div>
-            show change as: <label>
-              <input
-                name="usePct"
-                type="radio"
-                value="usd"
-                checked={!this.state.usePct}
-                onChange={this.handleRadioChange} /> dollars
-            </label> <label>
-              <input
-                name="usePct"
-                type="radio"
-                value="pct"
-                checked={this.state.usePct}
-                onChange={this.handleRadioChange} /> percentage
-            </label>
+        </div>
+        <div className="col-sm-2">
+          <div className="form-group">
+            <label>Show changes as:</label>
+            <select className="form-control" id="sortControl"
+              value={this.state.changeType} onChange={this.updateChangeType}>
+              <option value="pct">percentage</option>
+              <option value="usd">dollars</option>
+            </select>
           </div>
-          <Total data={budgets} colors={colors} diffColors={diffColors} usePct={this.state.usePct}></Total>
         </div>
         <div className="col-sm-12">
+          <Total data={budgets} colors={colors} diffColors={diffColors}
+            usePct={usePct}></Total>
           <h2>Budget breakdowns</h2>
           <p>Drill down blah tk</p>
         </div>
@@ -194,14 +190,14 @@ class Compare extends React.Component {
               </Nav>
           </div>
           <div className="col-sm-9">
-            <Tab.Content>
+            <Tab.Content mountOnEnter>
               <Tab.Pane eventKey="spendDept">
                 <SpendingByDept colors={colors} diffColors={diffColors}
-                  usePct={this.state.usePct}></SpendingByDept>
+                  usePct={usePct}></SpendingByDept>
               </Tab.Pane>
               <Tab.Pane eventKey="spendCat">
                 <SpendingByCategory colors={colors} diffColors={diffColors}
-                  usePct={this.state.usePct}></SpendingByCategory>
+                  usePct={usePct}></SpendingByCategory>
               </Tab.Pane>
               <Tab.Pane eventKey="revDept">
                 rev by dept
