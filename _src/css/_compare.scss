@@ -1,3 +1,7 @@
+// TODO: bundle instead of import?
+// @import '../node_modules/react-dropdown/style.css';
+@import '../node_modules/react-select/scss/default';
+
 .detail-level {
   padding-left: 1em;
 }
@@ -24,6 +28,49 @@ button.list-group-item {
     &.active {
       background-color: $list-group-bg;
       color: $text-color;
+    }
+  }
+}
+
+/* override the default react-select styles */
+.choose-budget {
+  display: inline-block;
+  vertical-align: top;
+  width: 330px;
+  border-bottom: 2px solid currentColor;
+
+  .Select {
+    width: auto;
+
+    &-control {
+      border: none;
+      padding: 0;
+      background-color: transparent;
+      outline: inherit;
+      color: inherit;
+    }
+
+    // these selectors are the worst
+    &-value {
+      padding: 0 !important;
+      color: inherit !important;
+      line-height: inherit !important;
+    }
+
+    &-value-label {
+      color: inherit !important;
+    }
+
+    &-arrow {
+      border-color: currentColor transparent transparent;
+      top: initial;
+      bottom: 8px;
+      right: 0;
+      border-width: 7px 7px 0;
+    }
+
+    &-option {
+      @extend .h5;
     }
   }
 }
