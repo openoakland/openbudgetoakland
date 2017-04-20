@@ -5,10 +5,8 @@ import Select from 'react-select';
 import {schemeSet2 as colors} from 'd3-scale-chromatic';
 
 import Total from './Total.jsx';
-import DiffTable from './DiffTable.jsx';
-import AddRemove from './AddRemove.jsx';
-import SpendingByDept from './SpendingByDept.jsx';
-import SpendingByCategory from './SpendingByCategory.jsx';
+import {BUDGET_TYPES} from './utils.jsx';
+import Breakdown from './Breakdown.jsx';
 
 const styles = [
   {color: colors[0]},
@@ -29,13 +27,6 @@ const totals = [
     total: 1182157681,
   },
 ];
-
-const BUDGET_TYPES = {
-  '1': 'Adopted',
-  '2': 'Proposed',
-  '3': 'Council Proposed', // ?? not a thing
-  '4': 'Adjusted', // to be implemented
-};
 
 function getBudgetOption (record, index) {
   return {
@@ -143,12 +134,14 @@ class Compare extends React.Component {
           <div className="col-sm-9">
             <Tab.Content mountOnEnter>
               <Tab.Pane eventKey="spendDept">
-                <SpendingByDept colors={colors} diffColors={diffColors}
-                  usePct={usePct} years={selectedYears}></SpendingByDept>
+                <Breakdown colors={colors} diffColors={diffColors}
+                  usePct={usePct} years={selectedYears} type="spending"
+                  dimension="department"></Breakdown>
               </Tab.Pane>
               <Tab.Pane eventKey="spendCat">
-                <SpendingByCategory colors={colors} diffColors={diffColors}
-                  usePct={usePct}></SpendingByCategory>
+                <Breakdown colors={colors} diffColors={diffColors}
+                  usePct={usePct} years={selectedYears} type="spending"
+                  dimension="category"></Breakdown>
               </Tab.Pane>
               <Tab.Pane eventKey="revDept">
                 rev by dept

@@ -9,7 +9,22 @@ export const asPct = format('+.2%');
 
 export const API_URL = '//dev-open-budget-oakland-administration.pantheonsite.io/wp-json/obo/v1/fiscal-years-expenses/';
 
+export const BUDGET_TYPES = {
+  '1': 'Adopted',
+  '2': 'Proposed',
+  '3': 'Council Proposed', // ?? not a thing
+  '4': 'Adjusted', // to be implemented
+};
+
 export function asDiff (value, usePct) {
+  // special handling for sentinel values
+  switch (value) {
+    case Infinity:
+      return 'Newly Added'
+    default:
+      break;
+  }
+  // otherwise choose the appropriate formatting
   if (usePct) {
     return asPct(value);
   } else {

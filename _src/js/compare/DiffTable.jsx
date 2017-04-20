@@ -1,6 +1,6 @@
 import React from 'react';
 import {HorizontalBar} from 'react-chartjs-2';
-import {entries} from 'd3-collection';
+import {entries, keys, set} from 'd3-collection';
 import {ascending, descending} from 'd3-array';
 
 import {asTick, asDiff, DiffStyled} from './utils';
@@ -25,7 +25,6 @@ const chartOptions = {
 export default class DiffTable extends React.Component {
   constructor (props) {
     super(props);
-
     this.state = {
       sortBy: 'diff',
     }
@@ -40,20 +39,37 @@ export default class DiffTable extends React.Component {
   render () {
     const sortFunc = this.state.sortBy === 'diff' ? descending : ascending;
 
-    const diffList = entries(this.props.data[0]).map(entry => {
-      const res = Object.assign({}, entry);
-      // if dept exists in both, and values are positive, return diff
-      res.prev = this.props.data[1][entry.key];
+    // get list of all possible keys from both budgets
+    const allKeys = set();
+    keys(this.props.data[0]).forEach(key => {
+      allKeys.add(key);
+    });
+    keys(this.props.data[1]).forEach(key => {
+      allKeys.add(key);
+    });
+    const diffList = allKeys.values().map(key => {
+      // check for key in both years; if one is missing,
+      // set some special value that indicates that
+      const res = {
+        key,
+        value: this.props.data[0][key],
+        prev: this.props.data[1][key],
+      };
+      // if key exists in previous, we can calculate a diff;
+      // missing values (removed entities) cast to zero for -100% diff
       if (res.prev) {
-        res.diff = entry.value - res.prev;
+        res.diff = (res.value || 0) - res.prev;
         if (this.props.usePct) {
           res.diff = res.diff / Math.abs(res.prev);
         }
       } else {
-        res.diff = null;
+        // sentinel value: indicates there was no previous budget,
+        // so this is a newly created entity. UI can handle these differently
+        // if desired, and they will sort to the top of the list.
+        res.diff = Infinity;
       }
       return res;
-    }).filter(entry => entry.diff !== null)
+    })
     .sort((a, b) => {
       return sortFunc(a[this.state.sortBy], b[this.state.sortBy]);
     })
