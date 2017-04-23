@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 
 import DiffTable from './DiffTable.jsx';
-import AddRemove from './AddRemove.jsx';
 import {fetchBreakdownData} from './api.js'
 import {BUDGET_TYPES} from './utils.jsx';
 
@@ -36,7 +35,7 @@ export default class SpendingByDept extends React.Component {
   // TODO: special state when there are no differences?
   render () {
     return <div>
-      <DiffTable data={this.state.budgets}
+      <DiffTable data={this.state.budgets} years={this.props.years}
         colors={this.props.colors} diffColors={this.props.diffColors}
         usePct={this.props.usePct}></DiffTable>
     </div>

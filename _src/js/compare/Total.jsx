@@ -1,24 +1,8 @@
 import React from 'react';
 import {HorizontalBar} from 'react-chartjs-2';
 import {entries} from 'd3-collection';
-import {asTick, asDiff, DiffStyled} from './utils';
+import {asTick, asDiff, DiffStyled, compareChartOptions} from './utils';
 
-const chartOptions = {
-  legend: {
-    display: false,
-  },
-  scales: {
-    xAxes: [{
-      ticks: {
-        beginAtZero: true,
-        callback: value => {
-          // display as currency in billions
-          return `${asTick(value / 1000000000)}B`;
-        },
-      },
-    }]
-  }
-};
 
 export default class Total extends React.Component {
   constructor(props) {
@@ -47,7 +31,7 @@ export default class Total extends React.Component {
         <DiffStyled diff={diff} colors={this.props.diffColors} usePct={this.props.usePct}>
         </DiffStyled>
       </h2>
-      <HorizontalBar data={data} height={25} options={chartOptions}></HorizontalBar>
+      <HorizontalBar data={data} height={25} options={compareChartOptions}></HorizontalBar>
     </div>
   }
 }

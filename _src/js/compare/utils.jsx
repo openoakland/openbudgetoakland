@@ -16,6 +16,32 @@ export const BUDGET_TYPES = {
   '4': 'Adjusted', // to be implemented
 };
 
+export const compareChartOptions = {
+  legend: {
+    display: false,
+  },
+  scales: {
+    xAxes: [{
+      ticks: {
+        beginAtZero: true,
+        callback: value => {
+          // display as currency in millions
+          return `${asTick(value / 1000000)}M`;
+        },
+      },
+    }]
+  },
+  tooltips: {
+    callbacks: {
+      label: (item, data) => {
+        // display as currency in millions
+        const label = data.datasets[item.datasetIndex].label;
+        return `${label}: ${asTick(item.xLabel / 1000000)}M`;
+      },
+    },
+  },
+};
+
 export function asDiff (value, usePct) {
   // special handling for sentinel values
   switch (value) {

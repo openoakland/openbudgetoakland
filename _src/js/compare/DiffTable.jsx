@@ -3,24 +3,8 @@ import {HorizontalBar} from 'react-chartjs-2';
 import {entries, keys, set} from 'd3-collection';
 import {ascending, descending} from 'd3-array';
 
-import {asTick, asDiff, DiffStyled} from './utils';
+import {asTick, asDiff, DiffStyled, compareChartOptions} from './utils';
 
-const chartOptions = {
-  legend: {
-    display: false,
-  },
-  scales: {
-    xAxes: [{
-      ticks: {
-        beginAtZero: true,
-        callback: value => {
-          // display as currency in millions
-          return `${asTick(value / 1000000)}M`;
-        },
-      },
-    }]
-  }
-};
 
 export default class DiffTable extends React.Component {
   constructor (props) {
@@ -79,12 +63,12 @@ export default class DiffTable extends React.Component {
         datasets: [
           {
             data: [entry.value],
-            label: entry.key,
+            label: this.props.years[0].fiscal_year_range,
             backgroundColor: this.props.colors[0],
           },
           {
             data: [entry.prev],
-            label: entry.key,
+            label: this.props.years[1].fiscal_year_range,
             backgroundColor: this.props.colors[1],
           },
         ]
@@ -94,7 +78,7 @@ export default class DiffTable extends React.Component {
         <td>
           <h4>
             {entry.key}
-            <HorizontalBar data={data} options={chartOptions} height={40}>
+            <HorizontalBar data={data} options={compareChartOptions} height={40}>
             </HorizontalBar>
           </h4>
         </td>
