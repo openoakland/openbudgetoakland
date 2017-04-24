@@ -50,17 +50,8 @@ class Compare extends React.Component {
         budgetChoices[2],
         budgetChoices[1]
       ];
-      const totals = [
-        mockTotals[defaultChoices[0].value],
-        mockTotals[defaultChoices[1].value],
-      ].map(record => {
-        return {
-          key: record.fiscal_year_range,
-          total: record.total,
-        };
-      });
       this.setState({
-        totals, budgetChoices, mockTotals,
+        budgetChoices, mockTotals,
         budget1Choice: defaultChoices[0].value,
         budget1: mockTotals[defaultChoices[0].value],
         budget2Choice: defaultChoices[1].value,
@@ -94,6 +85,14 @@ class Compare extends React.Component {
   render() {
     const usePct = this.state.changeType === 'pct';
     const selectedYears = [this.state.budget1, this.state.budget2];
+    const totals = selectedYears.map(record => {
+      if (record) {
+        return {
+          key: record.fiscal_year_range,
+          total: record.total,
+        };
+      }
+    });
 
     return <div>
       <div className="row">
@@ -119,7 +118,7 @@ class Compare extends React.Component {
           </div>
         </div>
         <div className="col-sm-12">
-          <Total data={this.state.totals} colors={colors} diffColors={diffColors}
+          <Total data={totals} colors={colors} diffColors={diffColors}
             usePct={usePct}></Total>
           <h2>Budget breakdowns</h2>
           <p>Drill down blah tk</p>

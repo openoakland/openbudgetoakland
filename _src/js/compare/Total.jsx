@@ -11,7 +11,7 @@ export default class Total extends React.Component {
 
   render() {
     const totals = this.props.data;
-    if (!totals.length) {
+    if (!totals.length || totals.some(record => !record)) {
       return <Spinner spinnerName="wave" noFadeIn/>
     }
 
