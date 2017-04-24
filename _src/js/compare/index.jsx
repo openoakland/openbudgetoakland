@@ -132,7 +132,6 @@ class Compare extends React.Component {
                 <NavItem eventKey="spendCat">Spending by Category</NavItem>
                 <NavItem eventKey="revDept">Revenue by Department</NavItem>
                 <NavItem eventKey="revCat">Revenue by Category</NavItem>
-                <NavItem eventKey="addRemDept">Departments Added &amp; Removed</NavItem>
               </Nav>
           </div>
           <div className="col-sm-9">
@@ -152,9 +151,6 @@ class Compare extends React.Component {
               </Tab.Pane>
               <Tab.Pane eventKey="revCat">
                 rev by cat
-              </Tab.Pane>
-              <Tab.Pane eventKey="addRemDept">
-                depts added removed
               </Tab.Pane>
             </Tab.Content>
           </div>
