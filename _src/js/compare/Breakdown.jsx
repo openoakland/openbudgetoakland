@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Spinner from 'react-spinkit';
 
 import DiffTable from './DiffTable.jsx';
 import Trend from './Trend.jsx';
@@ -11,6 +12,7 @@ export default class SpendingByDept extends React.Component {
     super(props);
     this.state = {
       budgets: [],
+      pending: true,
     };
     this.fetchData = this.fetchData.bind(this);
   }
@@ -28,13 +30,18 @@ export default class SpendingByDept extends React.Component {
   }
 
   fetchData (years) {
-    const budgets = fetchBreakdownData(years, this.props.type,
-      this.props.dimension);
-    this.setState({budgets});
+    this.setState({pending: true})
+    fetchBreakdownData(years, this.props.type, this.props.dimension)
+    .then(budgets => {
+      this.setState({budgets, pending: false});
+    });
   }
 
   // TODO: special state when there are no differences?
   render () {
+    if (this.state.pending) {
+      return <Spinner spinnerName="wave"/>
+    }
     return <div>
       <Trend data={this.state.budgets} colors={this.props.colors}
         years={this.props.years}/>
