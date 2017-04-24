@@ -14,7 +14,8 @@
     "react-spinkit": "^2.1.1"
   },
   "scripts": {
-    "watch": "node_modules/.bin/webpack --config webpack.config.js --watch"
+    "watch": "node_modules/.bin/webpack --config webpack.config.js --watch",
+    "build": "node_modules/.bin/webpack --config webpack.config.js -p"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
