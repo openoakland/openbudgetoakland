@@ -4,6 +4,8 @@ import {Nav, NavItem, Tab} from 'react-bootstrap';
 import Select from 'react-select';
 import {schemeSet2 as colors} from 'd3-scale-chromatic';
 
+import 'react-select/dist/react-select.css';
+
 import Total from './Total.jsx';
 import {BUDGET_TYPES} from './utils.jsx';
 import {fetchTotals} from './api.js';
