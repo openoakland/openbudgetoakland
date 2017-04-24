@@ -23,6 +23,10 @@ module.exports = {
           presets: ['es2015'],
           cacheDirectory: true
         }
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       }
     ]
   }
