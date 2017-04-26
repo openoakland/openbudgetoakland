@@ -36,7 +36,8 @@ export default class SpendingByDept extends React.Component {
     // until another fetch is initiated with valid years
     if (years && years.every(year => !!year)) {
       const yearNames = years.map(year => year.fiscal_year_range);
-      fetchBreakdownData(yearNames, this.props.type, this.props.dimension)
+      const yearTypes = years.map(year => year.budget_type);
+      fetchBreakdownData(yearNames, yearTypes, this.props.type, this.props.dimension)
       .then(budgets => {
         console.log(budgets);
         this.setState({budgets, pending: false});
