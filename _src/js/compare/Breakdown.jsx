@@ -31,10 +31,17 @@ export default class SpendingByDept extends React.Component {
 
   fetchData (years) {
     this.setState({pending: true})
-    fetchBreakdownData(years, this.props.type, this.props.dimension)
-    .then(budgets => {
-      this.setState({budgets, pending: false});
-    });
+    // if there aren't valid year objects,
+    // the component state will remain pending
+    // until another fetch is initiated with valid years
+    if (years && years.every(year => !!year)) {
+      const yearNames = years.map(year => year.fiscal_year_range);
+      fetchBreakdownData(yearNames, this.props.type, this.props.dimension)
+      .then(budgets => {
+        console.log(budgets);
+        this.setState({budgets, pending: false});
+      });
+    }
   }
 
   // TODO: special state when there are no differences?

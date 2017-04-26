@@ -149,10 +149,14 @@ class Compare extends React.Component {
                   dimension="category"></Breakdown>
               </Tab.Pane>
               <Tab.Pane eventKey="revDept">
-                rev by dept
+                <Breakdown colors={colors} diffColors={diffColors}
+                  usePct={usePct} years={selectedYears} type="revenue"
+                  dimension="department"></Breakdown>
               </Tab.Pane>
               <Tab.Pane eventKey="revCat">
-                rev by cat
+                <Breakdown colors={colors} diffColors={diffColors}
+                  usePct={usePct} years={selectedYears} type="revenue"
+                  dimension="category"></Breakdown>
               </Tab.Pane>
             </Tab.Content>
           </div>
