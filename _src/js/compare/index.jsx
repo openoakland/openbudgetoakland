@@ -27,6 +27,27 @@ function getBudgetOption (record, index) {
   };
 }
 
+function getBudgetDefaults (budgets) {
+  // TODO: add a more sophisiticated selection algorithm;
+  // e.g. find current year, compare adopted to proposed,
+  // or proposed to previous adopted, etc
+  let index1 = 0;
+  let index2 = 1;
+  // 17-18 proposed, if we have it
+  const currI = budgets.findIndex(record => {
+    return record.label === 'FY17-18 Proposed';
+  });
+  // 16-17 adjusted, if we have it
+  const prevI = budgets.findIndex(record => {
+    return record.label === 'FY16-17 Adjusted';
+  });
+  // if we have both, use their indexes instead
+  if (currI > -1 && prevI > -1) {
+    index1 = currI;
+    index2 = prevI;
+  } 
+  return [budgets[index1],budgets[index2]];
+}
 
 class Compare extends React.Component {
   constructor (props) {
@@ -34,7 +55,7 @@ class Compare extends React.Component {
     this.state = {
       changeType: 'pct',
       usePct: true,
-      mockTotals: [],
+      budgetChoices: [],
       totals: [],
     };
     this.updateChangeType = this.updateChangeType.bind(this);
@@ -44,20 +65,15 @@ class Compare extends React.Component {
   }
 
   componentDidMount() {
-    fetchTotals().then(mockTotals => {
-      const budgetChoices = mockTotals.map(getBudgetOption);
-      // TODO: hardcode this?
-      // or have an algorithm for choosing good defaults?
-      const defaultChoices = [
-        budgetChoices[2],
-        budgetChoices[1]
-      ];
+    fetchTotals().then(totals => {
+      const budgetChoices = totals.map(getBudgetOption);
+      const defaultChoices = getBudgetDefaults(budgetChoices);
       this.setState({
-        budgetChoices, mockTotals,
+        budgetChoices, totals,
         budget1Choice: defaultChoices[0].value,
-        budget1: mockTotals[defaultChoices[0].value],
+        budget1: totals[defaultChoices[0].value],
         budget2Choice: defaultChoices[1].value,
-        budget2: mockTotals[defaultChoices[1].value],
+        budget2: totals[defaultChoices[1].value],
       });
     });
   }
@@ -80,7 +96,7 @@ class Compare extends React.Component {
   selectBudget (key, index) {
     this.setState({
       [`${key}Choice`]: index,
-      [key]: this.state.mockTotals[index],
+      [key]: this.state.totals[index],
     });
   }
 
@@ -123,7 +139,7 @@ class Compare extends React.Component {
           <Total data={totals} colors={colors} diffColors={diffColors}
             usePct={usePct}></Total>
           <h2>Budget breakdowns</h2>
-          <p>Drill down blah tk</p>
+          <p>Get more detail on where money came from and how it was spent.</p>
         </div>
       </div>
       <Tab.Container id="selectBreakdown" defaultActiveKey="spendDept">

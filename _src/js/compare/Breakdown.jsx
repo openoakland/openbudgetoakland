@@ -39,7 +39,6 @@ export default class SpendingByDept extends React.Component {
       const yearTypes = years.map(year => year.budget_type);
       fetchBreakdownData(yearNames, yearTypes, this.props.type, this.props.dimension)
       .then(budgets => {
-        console.log(budgets);
         this.setState({budgets, pending: false});
       });
     }

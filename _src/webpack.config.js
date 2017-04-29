@@ -3,7 +3,7 @@ var path = require('path');
 module.exports = {
   context: path.resolve(__dirname, 'js'),
   entry: {
-    compare: './compare/index.jsx',
+    compare: ['babel-polyfill', './compare/index.jsx'],
   },
   output: {
     filename: '[name].bundle.js',

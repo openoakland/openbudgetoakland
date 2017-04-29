@@ -11,9 +11,8 @@ export const API_URL = '//dev-open-budget-oakland-administration.pantheonsite.io
 
 export const BUDGET_TYPES = {
   '1': 'Adopted',
-  '2': 'Proposed',
-  '3': 'Council Proposed', // ?? not a thing
-  '4': 'Adjusted', // to be implemented
+  '2': 'Adjusted',
+  '3': 'Proposed',
 };
 
 export const compareChartOptions = {
