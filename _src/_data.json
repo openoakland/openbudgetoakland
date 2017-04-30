@@ -101,5 +101,13 @@
 
   "2016-17-adjusted-budget-tree": {
     "title": "Detailed Breakdown: 2016-17 Adjusted Budget - Open Budget: Oakland"
-  }  
+  },
+
+  "compare": {
+    "title": "Compare Page (prototype)"
+  },
+
+  "trend": {
+    "title": "Trend Page (prototype)"
+  }
 }

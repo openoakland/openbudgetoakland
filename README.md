@@ -4,22 +4,22 @@
 
 ### Harp
 
-This site is built on Harp using Node.js That means you can run it locally with minimal setup!
+This site is built on Harp using Node.js. That means you can run it locally with minimal setup!
 
 What you'll need:
 
 -  [Node](http://nodejs.org/download/)
--  [npm](https://www.npmjs.org/)
+-  [Yarn](https://yarnpkg.com/en/)
 -  [Harp](http://harpjs.com/)
 
 
 ### Install & Run Harp
 
-Once you have npm installed, you can install Harp
+Once you have the Yarn package manager installed, you can install Harp globally
 
 ```
 # to install harp for the first time
-npm install harp -g
+yarn global add harp
 ```
 
 ```
@@ -35,15 +35,17 @@ This project is coded with:
 - [jade](http://jade-lang.com/)
 - [Sass](http://sass-lang.com/)
 - [Bootstrap](http://getbootstrap.com/)
+- [React](https://facebook.github.io/react/)
 
 
 ## Creating & Editing Pages
 
-- Page content is inserted into the layout.jade file (which includes basic header and footer snippets)
-- Create your .jade file
+- All development activity occurs in `_src/`. The root folder is only for compiled output for deployment.
+- Page content is inserted into the `layout.jade` file (which includes basic header and footer snippets)
+- Create your `.jade` file
 - Add a link to the main nav in the appropriate place
-- Add relevant metadata in _data.json (page title, page slug (url), ...)
-- If your page uses custom page-specific css, add it to a new .scss partial and import it into the main stylesheet. (Make sure to namespace it the same way the others are.)
+- Add relevant metadata in `_data.json` (page title, page slug (url), ...)
+- If your page uses custom page-specific css, add it to a new `.scss` partial and import it into the main stylesheet. (Make sure to namespace it the same way the others are.)
 
 
 ### Additional instructions for "flow" diagram pages
@@ -64,6 +66,12 @@ This project is coded with:
 1. Instructions for generating the necessary data files can be found [here](_treemap/README.md). Add them to the `data/tree/` directory following the naming convention seen in the existing files.
 1. Update the `datafiles` content block with the appropriate metadata and file path for the data files you generated.
 
+### Additional instructions for the Compare page
+
+1. The Compare page is mainly powered by a React application. The source files are in `_src/js/compare/` and are are bundled with [Webpack](https://webpack.js.org/).
+1. When developing on the Compare page, run `yarn` to install all the necessary node dependencies and `yarn run watch` to watch the source files for changes and rebuild the asset bundles accordingly.
+1. The Compare page communicates with a separately maintained API to fetch its data. Documentation for that API can be found [in our wiki](https://github.com/openoakland/openbudgetoakland/wiki/API-Documentation).
+
 ## Publishing Changes
 Make changes on your personal fork or branch. If you have repo access, and your changes are ready for review, you can merge them into the development branch and publish to the staging site for review. You can also publish changes to your own server and merge to development afterwards.
 
@@ -71,9 +79,9 @@ Make changes on your personal fork or branch. If you have repo access, and your 
 If you have access to the openoakland repo, you can easily publish a preview of your changes to [staging.openbudgetoakland.org](http://staging.openbudgetoakland.org) with the script below.
 
 ```
-# Run shell script to publish changes from your current branch to the staging 
-# Because of path referencing, you'll need to run this script from inside the _src directory for now
-bash ../_publish-preview.sh
+# Run shell script to publish changes from your current branch to the staging site
+cd ../  # assuming you are in _src/
+bash _publish-preview.sh
 ```
 
 ### Publishing to Production
@@ -95,23 +103,27 @@ git merge origin/development
 git branch -D gh-pages
 git checkout --orphan gh-pages
 
-# move into the _src directory and compile source files to the root
+# move into the _src directory and compile source files
 cd _src
+# build a production-optimized webpack bundle
+yarn run build
+# exclude node dependencies from harp compilation
+mv node_modules _node_modules
+# compile source files to root directory
 harp compile ./ ../
+# restore node_modules before you forget
+mv _node_modules node_modules
 
 # move back to the root, and add and commit files
 cd ../
 git add -A
 git commit -m "deploy"
-  
-# push changes to remote gh-pages branch using *gasp* --force! 
+
+# push changes to remote gh-pages branch using *gasp* --force!
 # !!! Never push --force on any public branch besides gh-pages!
-git push --set-upstream origin gh-pages --force  
+git push --set-upstream origin gh-pages --force
 
 # make sure your changes are showing up and you didn't break anything
 ```
-
-# merge your changes from your branch or development into master
-git merge origin/development
 
 If you are on a forked branch, create a pull request to have your changes reviewed for merge!
