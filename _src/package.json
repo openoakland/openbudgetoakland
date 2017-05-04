@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "axios": "^0.15.3",
+    "chart.js": "^2.3",
+    "d3-array": "^1.0.2",
+    "d3-collection": "^1.0.2",
+    "d3-format": "^1.0.2",
+    "d3-scale-chromatic": "^1.1.1",
+    "react": "^15.4.1",
+    "react-bootstrap": "^0.30.8",
+    "react-chartjs-2": "^2.0.0",
+    "react-dom": "^15.4.1",
+    "react-select": "^1.0.0-rc.3",
+    "react-spinkit": "^2.1.1"
+  },
+  "scripts": {
+    "watch": "node_modules/.bin/webpack --config webpack.config.js --watch",
+    "build": "node_modules/.bin/webpack --config webpack.config.js -p"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.16.0",
+    "css-loader": "^0.28.0",
+    "style-loader": "^0.16.1",
+    "webpack": "^2.4.1"
+  }
+}

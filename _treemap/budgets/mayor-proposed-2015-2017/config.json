@@ -1,0 +1,43 @@
+{
+	"amount_header": "Value",
+	"account_type_header": "Account Type",
+	"account_types": {
+		"revenue": "Revenue",
+		"expense": "Expense"
+	},
+	"grouping_headers": ["Account Type", "Fiscal Year"],
+	"groups": [
+		{
+			"values": ["Revenue", "FY15-16"],
+			"hierarchy":["Fund - Description", "Account Category", "Account - Description"],
+			"filename": "Revenue.FY15-16.json"
+		},
+		{
+			"values": ["Revenue", "FY16-17"],
+			"hierarchy":["Fund - Description", "Account Category", "Account - Description"],
+			"filename": "Revenue.FY16-17.json"
+		},
+		{
+			"values": ["Expense", "FY15-16"],
+			"hierarchy":[
+				"Fund - Description", 
+				"Department", 
+				"Division", 
+				"Account Category", 
+				"Account - Description" 
+			],
+			"filename": "Expense.FY15-16.json"
+		},
+		{
+			"values": ["Expense", "FY16-17"],
+			"hierarchy":[
+				"Fund - Description", 
+				"Department", 
+				"Division", 
+				"Account Category", 
+				"Account - Description" 
+			],
+			"filename": "Expense.FY16-17.json"
+		}
+	]
+}

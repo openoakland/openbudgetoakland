@@ -1,0 +1,32 @@
+extends templates/tree-template.jade
+
+block title 
+  h1 Detailed Breakdown: 2017-19 Mayor's Proposed Budget
+
+block datasource
+  h6
+    | Data source:&nbsp;
+    a(href = "http://budgetdata.oaklandca.gov/#!/view-data") Oakland Budget Explorer
+
+block disqus_config
+  script(type='text/javascript').
+    var disqus_identifier = "2017-19 proposed budget tree";
+
+block datafiles
+  script.
+    var config = {
+      /* set values available in dropdown files */
+      dropdown_values: {
+        "Year": ["FY17-18", "FY18-19"],
+        "Account": ["Revenue", "Expense"]
+      },
+      /* set the default values */
+      dropdown_choice: {
+        "Year": "FY17-18",
+        "Account": "Expense"
+      },
+      /* create the url to the data file based on the dropdown choices */
+      url: function() {
+        return 'data/tree/Proposed.' + this.dropdown_choice["Account"] + "." + this.dropdown_choice["Year"] + ".json";
+      }
+    };

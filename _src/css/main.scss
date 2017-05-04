@@ -5,6 +5,8 @@
 @import "bootstrap-overrides"; // custom styles to override Bootstrap defaults
 @import "base";
 @import "sections/sections";
+@import "compare";
+@import "homesplash";
 
 @import "treemap"; // D3 Treemap
 @import "flow"; // D3 Sankey diagram

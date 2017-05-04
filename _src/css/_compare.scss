@@ -1,0 +1,72 @@
+.detail-level {
+  padding-left: 1em;
+}
+
+// TODO: why isn't this set in bootstrap?
+button.list-group-item {
+  width: 100%;
+  text-align: left;
+}
+
+.list-group {
+  .list-group {
+    margin-bottom: 0;
+    padding-left: 10px;
+    .list-group-item {
+      padding-right: 0;
+      margin: 0;
+      background-color: transparent;
+      border-top: none;
+    }
+  }
+
+  &.active {
+    &.active {
+      background-color: $list-group-bg;
+      color: $text-color;
+    }
+  }
+}
+
+/* override the default react-select styles */
+.choose-budget {
+  display: inline-block;
+  vertical-align: top;
+  width: 330px;
+  border-bottom: 2px solid currentColor;
+
+  .Select {
+    width: auto;
+
+    &-control {
+      border: none;
+      padding: 0;
+      background-color: transparent;
+      outline: inherit;
+      color: inherit;
+    }
+
+    // these selectors are the worst
+    &-value {
+      padding: 0 !important;
+      color: inherit !important;
+      line-height: inherit !important;
+    }
+
+    &-value-label {
+      color: inherit !important;
+    }
+
+    &-arrow {
+      border-color: currentColor transparent transparent;
+      top: initial;
+      bottom: 8px;
+      right: 0;
+      border-width: 7px 7px 0;
+    }
+
+    &-option {
+      @extend .h5;
+    }
+  }
+}
