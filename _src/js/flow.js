@@ -157,11 +157,13 @@ function data_wrangle(dataset, fy){
     exp_order = [
         // keep variations of the same label on a single line
         "Police Department", "Police",
-        "Race & Equity",
+        "Police Commission",
         "Fire Department", "Fire",
         "City Council",
         "Administrative Services",
         "Oakland Parks & Recreation", "Parks & Recreation",
+        "Race & Equity",
+        "Transportation",
         "Human Services",
         "City Auditor",
         "Community Services",
@@ -177,7 +179,7 @@ function data_wrangle(dataset, fy){
         "Planning & Building",
         "City Attorney",
         "Housing & Community Development",
-        "Library", "Oakland Public Library",
+        "Library", "Oakland Public Library", "Public Library",
         "Public Works", "Oakland Public Works",
         "Debt Service & Misc."
     ];
