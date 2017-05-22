@@ -89,6 +89,8 @@ bash _publish-preview.sh
 Even though Harp runs locally, static files need to be compiled for the live site (hosted on Github pages).
 Once you have made all your changes, you'll need to compile everything in order for it to run on gh-pages. Because of how Harp compiles (that it clears the target directory), this workflow gets a bit wonky. We'll try to make it a little less fragile if people begin publishing changes more often.
 
+If you're reasonably confident you have everything set up right in your local dev environment, merge your changes into `master` and run `$bash _production-publish.sh` ... but it does some slightly dangerous stuff (force-pushing to origin, :scream emoji:) so the more cautious among us can follow the manual deployment steps as described below.
+
 
 ```
 # make sure your repo is up to date and you are on the master branch
