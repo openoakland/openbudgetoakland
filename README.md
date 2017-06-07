@@ -3,7 +3,7 @@
 **Slack:** #project-openbudgetgr
 
 **Project Description:**
-We are developing a way to better understand the budget process for the City of Grand Rapids. This will be the follow-up to the initial release of [openbudgetgr.org](http://openbudgetgr.org).
+We are developing a way to better understand the budget process for the City of Grand Rapids. This will be the follow-up to the initial 2016 release of [openbudgetgr.org](http://openbudgetgr.org).
 
 Our Open Budget project intends to promotes a deeper understanding of the city budget, so that citizens, officials, and other stakeholders can engage in more informed dialogue about how the City of Grand Rapids currently works and how it should in the future.
 
