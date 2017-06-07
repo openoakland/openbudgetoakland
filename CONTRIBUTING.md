@@ -1,4 +1,4 @@
-# Open Budget: Oakland
+# Open Budget: Grand Rapids
 
 ## Developing Locally
 
