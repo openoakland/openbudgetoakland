@@ -26,6 +26,7 @@ The Open Budget website is built using Node.js. The project is run locally on a 
 
 ### Skills
 - Documentation
+- Data collection
 - Data visualization
 - Civic Engagement
 - Design
