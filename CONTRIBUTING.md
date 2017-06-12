@@ -1,6 +1,6 @@
 # Open Budget: Grand Rapids
 
-## Developing Locally
+## 1. Develop Locally
 
 ### Harp
 
