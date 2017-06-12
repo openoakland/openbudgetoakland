@@ -1,3 +1,5 @@
+[![Stories in Ready](https://badge.waffle.io/citizenlabsgr/openbudgetgr.svg?label=ready&title=Ready)](http://waffle.io/citizenlabsgr/openbudgetgr)
+
 # Open Budget Grand Rapids
 
 **Slack:** #project-openbudgetgr
