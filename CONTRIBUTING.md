@@ -28,8 +28,6 @@ cd [repo-location]/_src
 harp server
 ```
 
-## Making Changes
-
 This project is coded with:
 
 - [jade](http://jade-lang.com/)
@@ -38,7 +36,7 @@ This project is coded with:
 - [React](https://facebook.github.io/react/)
 
 
-## Creating & Editing Pages
+## 2. Creating & Editing Pages
 
 - All development activity occurs in `_src/`. The root folder is only for compiled output for deployment.
 - Page content is inserted into the `layout.jade` file (which includes basic header and footer snippets)
@@ -47,8 +45,7 @@ This project is coded with:
 - Add relevant metadata in `_data.json` (page title, page slug (url), ...)
 - If your page uses custom page-specific css, add it to a new `.scss` partial and import it into the main stylesheet. (Make sure to namespace it the same way the others are.)
 
-
-### Additional instructions for "flow" diagram pages
+## 3. Instructions for "Flow" Diagram Pages
 
 1. Flow pages are built off a template; copy one of the `*-budget-flow.jade` pages and update the content blocks as necessary.
 1. Data files must be placed in the `data/flow` directory. Follow the naming convention seen there or your files won't load properly. You also will need to point your page at the appropriate files as seen in the `get_datafiles` content block.
@@ -60,19 +57,19 @@ This project is coded with:
     - account_category
     - amount
 
-### Additional instructions for treemap diagram pages
+## 4. Instructions for "Treemap" Diagram Pages
 
 1. Treemap pages are built off a template; copy one of the `*-budget-tree.jade` pages and update the content blocks as necessary.
 1. Instructions for generating the necessary data files can be found [here](_treemap/README.md). Add them to the `data/tree/` directory following the naming convention seen in the existing files.
 1. Update the `datafiles` content block with the appropriate metadata and file path for the data files you generated.
 
-### Additional instructions for the Compare page
+## 5. Instructions for "Compare" page
 
 1. The Compare page is mainly powered by a React application. The source files are in `_src/js/compare/` and are are bundled with [Webpack](https://webpack.js.org/).
 1. When developing on the Compare page, run `yarn` to install all the necessary node dependencies and `yarn run watch` to watch the source files for changes and rebuild the asset bundles accordingly.
 1. The Compare page communicates with a separately maintained API to fetch its data. Documentation for that API can be found [in our wiki](https://github.com/openoakland/openbudgetoakland/wiki/API-Documentation).
 
-## Publishing Changes
+## 6. Publishing Changes
 Make changes on your personal fork or branch. If you have repo access, and your changes are ready for review, you can merge them into the development branch and publish to the staging site for review. You can also publish changes to your own server and merge to development afterwards.
 
 ### Publishing to Staging
