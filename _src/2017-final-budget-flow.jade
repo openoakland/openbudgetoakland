@@ -1,0 +1,17 @@
+extends templates/flow-template.jade
+
+block title
+  h2 Cash Flow: 2017 Final Budget
+
+block datasource
+  h6
+    | Data source:&nbsp;
+    a(href = "http://data.grcity.us/dataset/gr-preliminary-budget-fy-2017") data.grcity.org
+
+block disqus_config
+  script(type="text/javascript").
+    var disqus_identifier = "2017 final budget flow";
+
+block get_datafiles
+  script(type="text/javascript").
+    var datafiles = [{filename: "FY17__final.csv"}];
