@@ -48,7 +48,7 @@ This project is coded with:
 ## 3. Instructions for "Flow" Diagram Pages
 
 1. Flow pages are built off a template; copy one of the `*-budget-flow.jade` pages and update the content blocks as necessary.
-1. Data files must be placed in the `data/flow` directory. Follow the naming convention seen there or your files won't load properly. **Note: Two underscores required in data file name.** You also will need to point your page at the appropriate files as seen in the `get_datafiles` content block.
+1. Data files must be placed in the `data/flow` directory. Follow the naming convention seen there or your files won't load properly. **Note: Two underscores required in data file name, ex: FY17__final.csv.** You also will need to point your page at the appropriate files as seen in the `get_datafiles` content block.
 1. the following columns are required in your datafile and their names should be normalized as seen here. Other columns should be removed to minimize the data download.
     - budget_year
     - department
