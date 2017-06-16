@@ -41,11 +41,11 @@
 
       p Select year and account (revenues or expenses). Click on a fund to see the departments that receive its funding. Click on that department to see its spending or revenue.
 
-      p The <strong>General Fund</strong> — roughly 40% of Oakland's total budget -- is decided by a <a href="/budget-process.html">budget process</a> that includes private and public meetings, surveys, and negotiations. The other 60% of the budget comes from taxes, ballot measures, grants, fees, and other sources.
+      p The <strong>General Fund</strong> — roughly 28% of Grand Rapid's total budget -- is decided by a <a href="/budget-process.html">budget process</a> that includes private and public meetings, surveys, and negotiations. The other 72% of the budget comes from taxes, grants, fees, and other sources.
 
   .row
     .col-sm-12
-      p#breadcrumbs 
+      p#breadcrumbs
   .row
     .col-sm-6
       h3#title title
@@ -120,7 +120,7 @@ script.
     return hash_array.join(".");
   }
 
-  /* need to parse hash on load before creating treemap to make sure we 
+  /* need to parse hash on load before creating treemap to make sure we
    * don't set the dropdown values before reading them from the hash */
   _parse_hash(window.location.hash.replace("#",""));
 
@@ -144,12 +144,11 @@ script.
     .hashcmp(_hash_compare)
     .on("set_hash", function(hash) {
       /* add year and account to hash for linking */
-      var prefix = _hash_normalize(config.dropdown_choice["Year"]) + 
-        "." + 
+      var prefix = _hash_normalize(config.dropdown_choice["Year"]) +
+        "." +
         _hash_normalize(config.dropdown_choice["Account"]);
       return hash.length ? prefix + "." + hash : prefix;
     })
     .on("get_hash", function(hash) { return _parse_hash(hash); })
     .url(config.url())
     .create();
-
