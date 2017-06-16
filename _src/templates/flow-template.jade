@@ -1,10 +1,10 @@
-.container 
+.container
   .row
     .intro.col-md-12
       block title
-        
-      p This diagram depicts the flow of money through Oakland's budget: from revenue sources (on the left), to the General Fund or various non-discretionary funds (in the center), and finally to the various city departments' expenses (on the right).
-      p 
+
+      p This diagram depicts the flow of money through the City of Grand Rapids budget: from revenue sources (on the left), to the General Fund or various non-discretionary funds (in the center), and finally to the various city departments' expenses (on the right).
+      p
         em Mouse over a flow line to highlight it; click on a bar to highlight all its flows.
   .row
     .col-md-3
@@ -29,7 +29,7 @@ block disqus_config
     var disqus_identifier = "oboDefault";
 
 script(type='text/javascript').
-  
+
   /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
   var disqus_shortname = 'openbudgetoakland';
   /* * * DON'T EDIT BELOW THIS LINE * * */
@@ -50,7 +50,7 @@ block get_datafiles
 
 script.
     // process filenames to generate display names
-    
+
     datafiles = datafiles.map(function(datafile){
         var nameParts = datafile.filename.slice(0,-4).split("__");
         datafile.displayName = nameParts.join(" ");
@@ -59,7 +59,7 @@ script.
         return datafile;
     });
     datafiles.sort(function(a,b){
-      // years in descending order, 
+      // years in descending order,
       // types in order of (adjusted, adopted, proposed)
       // (which happens to be ascending)
       var sortYear = d3.descending(a.fy, b.fy);
