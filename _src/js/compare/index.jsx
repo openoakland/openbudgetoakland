@@ -102,6 +102,11 @@ class Compare extends React.Component {
   }
 
   selectBudget (key, otherKey, index) {
+    // No change if same selection
+    if (this.state[`${key}Choice`] === index) {
+      return;
+    }
+
     const budgetOptions = this.state.budgetChoices.slice();
     budgetOptions.splice(index, 1);
     this.setState({
