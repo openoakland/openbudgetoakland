@@ -75,6 +75,14 @@ class Compare extends React.Component {
         budget2Choice: defaultChoices[1].value,
         budget2: totals[defaultChoices[1].value],
       });
+      const budget1Options = budgetChoices.slice();
+      const budget2Options = budgetChoices.slice();
+      budget1Options.splice(this.state.budget2Choice, 1);
+      budget2Options.splice(this.state.budget1Choice, 1);
+      this.setState({
+        budget1Options,
+        budget2Options,
+      });
     });
   }
 
@@ -86,17 +94,20 @@ class Compare extends React.Component {
   }
 
   selectBudget1 (option) {
-    this.selectBudget('budget1', option.value);
+    this.selectBudget('budget1', 'budget2', option.value);
   }
 
   selectBudget2 (option) {
-    this.selectBudget('budget2', option.value);
+    this.selectBudget('budget2', 'budget1', option.value);
   }
 
-  selectBudget (key, index) {
+  selectBudget (key, otherKey, index) {
+    const budgetOptions = this.state.budgetChoices.slice();
+    budgetOptions.splice(index, 1);
     this.setState({
       [`${key}Choice`]: index,
       [key]: this.state.totals[index],
+      [`${otherKey}Options`]: budgetOptions,
     });
   }
 
@@ -116,11 +127,11 @@ class Compare extends React.Component {
       <div className="row">
         <div className="col-sm-10">
           <h1>Compare <span style={styles[0]} className="choose-budget">
-            <Select options={this.state.budgetChoices} value={this.state.budget1Choice}
+            <Select options={this.state.budget1Options} value={this.state.budget1Choice}
               onChange={this.selectBudget1} searchable={false} clearable={false}/>
             </span> with <span
             style={styles[1]} className="choose-budget"><Select
-              options={this.state.budgetChoices} value={this.state.budget2Choice}
+              options={this.state.budget2Options} value={this.state.budget2Choice}
               onChange={this.selectBudget2} searchable={false}
               clearable={false}/></span>
           </h1>
