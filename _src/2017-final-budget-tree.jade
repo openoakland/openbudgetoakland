@@ -17,16 +17,16 @@ block datafiles
     var config = {
       /* set values available in dropdown files */
       dropdown_values: {
-        "Year": ["FY17-18", "FY18-19"],
+        "Year": ["FY17"],
         "Account": ["Revenue", "Expense"]
       },
       /* set the default values */
       dropdown_choice: {
-        "Year": "FY17-18",
+        "Year": "FY17",
         "Account": "Expense"
       },
       /* create the url to the data file based on the dropdown choices */
       url: function() {
-        return 'data/tree/Proposed.' + this.dropdown_choice["Account"] + "." + this.dropdown_choice["Year"] + ".json";
+        return 'data/tree/Final.' + this.dropdown_choice["Account"] + "." + this.dropdown_choice["Year"] + ".json";
       }
     };

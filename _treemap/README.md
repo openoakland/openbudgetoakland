@@ -16,7 +16,9 @@ To create the treemap data files perform the following steps:
 
 	> See [Appendix: Data Processing Configuration File Details](#dataconfigappendix) for more information about the configuration file.
 
-3. Run the data processing [python](https://www.python.org/) script
+3. Place the CSV file in the "_treemap" directory.
+
+4. Run the data processing [python](https://www.python.org/) script
 	> In the terminal:
 
 		$ python treemap_process_data.py config.json budget.csv
@@ -35,7 +37,7 @@ To create the treemap data files perform the following steps:
 
 		optional arguments:
 		  -h, --help     show this help message and exit
-4. Move the generated data files to an appropriate place with your source data.
+5. Move the generated data files to an appropriate place with your source data.
 
 		mkdir ../_src/data/my-budget-directory
 		mv Revenue.FY13-14.json ../_src/data/my-budget-directory/
@@ -43,6 +45,7 @@ To create the treemap data files perform the following steps:
 		mv Expense.FY13-14.json ../_src/data/my-budget-directory/
 		mv Expense.FY14-15.json ../_src/data/my-budget-directory/
 
+6. After running the python script the original CSV version of the budget and config.jason used can be placed in a new directory within _treemap for reference or future use.
 
 Appendix
 =============
