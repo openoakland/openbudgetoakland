@@ -11,14 +11,14 @@ To create the treemap data files perform the following steps:
 	> File > Save As...
 2. Create or edit a configuration file.
 	> To view an existing configuration file, open the config.json
-	
-	> The configuration file controls how the budget data is parsed. It tells the parser the header names, how to group data in the budget, the hierarchy ordering, and the output filenames. Generally, you'll only have to update the years if you're updating an existing configuration file for consitent budget format.
+
+	> The configuration file controls how the budget data is parsed. It tells the parser the header names, how to group data in the budget, the hierarchy ordering, and the output filenames. Generally, you'll only have to update the years if you're updating an existing configuration file for consistent budget format.
 
 	> See [Appendix: Data Processing Configuration File Details](#dataconfigappendix) for more information about the configuration file.
 
 3. Run the data processing [python](https://www.python.org/) script
 	> In the terminal:
-		
+
 		$ python treemap_process_data.py config.json budget.csv
 
 	> If your confused, try the --help option
@@ -42,7 +42,7 @@ To create the treemap data files perform the following steps:
 		mv Revenue.FY14-15.json ../_src/data/my-budget-directory/
 		mv Expense.FY13-14.json ../_src/data/my-budget-directory/
 		mv Expense.FY14-15.json ../_src/data/my-budget-directory/
-  
+
 
 Appendix
 =============
@@ -50,8 +50,8 @@ Appendix
 
 <a name="dataconfigappendix"></a>
 ### Appendix A: Data Processing Configuration File Details
-The configuration file controls how the budget data is parsed. It tells the 
-parser the header names, how to group data in the budget, the hierarchy 
+The configuration file controls how the budget data is parsed. It tells the
+parser the header names, how to group data in the budget, the hierarchy
 ordering, and the output filenames. Generally, you'll only have to update the
 years if you're updating an existing configuration file for consitent budget format.
 
@@ -79,24 +79,24 @@ Example:
 			{
 				"values": ["Expense", "FY13-14"],
 				"hierarchy":[
-					"Budget Year Name", 
-					"Fund Description", 
-					"Department", 
-					"Division", 
-					"Account Category", 
-					"Account  Description" 
+					"Budget Year Name",
+					"Fund Description",
+					"Department",
+					"Division",
+					"Account Category",
+					"Account  Description"
 				],
 				"filename": "Expense.FY13-14.json"
 			},
 			{
 				"values": ["Expense", "FY14-15"],
 				"hierarchy":[
-					"Budget Year Name", 
-					"Fund Description", 
-					"Department", 
-					"Division", 
-					"Account Category", 
-					"Account  Description" 
+					"Budget Year Name",
+					"Fund Description",
+					"Department",
+					"Division",
+					"Account Category",
+					"Account  Description"
 				],
 				"filename": "Expense.FY14-15.json"
 			}
@@ -126,7 +126,7 @@ Description of fields:
 	> A list of one or more group configurations.  
 	> On the treemap webpage, different "groups" show up as different dropdown menu options.
 
-		"groups" : { 
+		"groups" : {
 			"values": [value, ...],
 			"hierarcy": [column_header, ...],
 			"filename": group_filename
@@ -137,7 +137,6 @@ Description of fields:
 
 	> * hierarchy
 	> 	> A list of column headers that control the order in which budget items are summarized.
-	
+
 	> * filename
 	>	> The output filename for that group.
-
