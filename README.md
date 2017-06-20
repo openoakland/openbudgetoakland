@@ -1,4 +1,5 @@
 [![Stories in Ready](https://badge.waffle.io/citizenlabsgr/openbudgetgr.svg?label=ready&title=Ready)](http://waffle.io/citizenlabsgr/openbudgetgr)
+[![Build Status](https://travis-ci.org/citizenlabsgr/openbudgetgr.svg?branch=master)](https://travis-ci.org/citizenlabsgr/openbudgetgr)
 
 # Open Budget Grand Rapids
 
