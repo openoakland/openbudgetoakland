@@ -1,6 +1,0 @@
-[submodule "js/openspendingjs"]
-  path = js/openspendingjs
-	url = git://github.com/openspending/openspendingjs.git
-[submodule "_staging"]
-	path = _staging
-	url = git@github.com:openoakland/openbudgetoakland-staging.git
