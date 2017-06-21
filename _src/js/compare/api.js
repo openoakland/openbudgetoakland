@@ -2,9 +2,9 @@ import axios from 'axios';
 import {descending} from 'd3-array';
 
 
-// const API_BASE = 'https://dev-open-budget-oakland-administration.pantheonsite.io' +
-//   '/wp-json/obo/v1';
-const API_BASE = '/data/compare';
+const API_BASE = 'https://dev-open-budget-oakland-administration.pantheonsite.io' +
+  '/wp-json/obo/v1';
+// const API_BASE = '/data/compare';
 
 const typePaths = {
   spending: '/fiscal-years-expenses',
@@ -25,7 +25,8 @@ export function fetchBreakdownData (years, yearTypes, type, dimension) {
   // start two concurrent requests, one per year;
   // wait for them both to return before ending the fetch
   const urls = years.map((year) => {
-    return API_BASE + typePaths[type] + dimensionPaths[dimension] + `/${year}.json`;
+    // return API_BASE + typePaths[type] + dimensionPaths[dimension] + `/${year}.json`;
+    return API_BASE + typePaths[type] + dimensionPaths[dimension];
   });
   return axios.all(urls.map(url => axios.get(url)))
     .then(axios.spread((...budgets) => {
@@ -44,7 +45,8 @@ export function fetchBreakdownData (years, yearTypes, type, dimension) {
 }
 
 export function fetchTotals () {
-  return axios.get(API_BASE + typePaths.spending + '/totals.json')
+  // return axios.get(API_BASE + typePaths.spending + '/totals.json')
+  return axios.get(API_BASE + typePaths.spending)
   .then(response => {
     const data = response.data;
     data.sort((a,b) => {
