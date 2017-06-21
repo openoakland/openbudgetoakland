@@ -107,12 +107,12 @@ class Compare extends React.Component {
       return;
     }
 
-    const budgetOptions = this.state.budgetChoices.slice();
-    budgetOptions.splice(index, 1);
+    let otherBudgetOptions = this.state.budgetChoices.slice();
+    otherBudgetOptions.splice(index, 1);
     this.setState({
       [`${key}Choice`]: index,
       [key]: this.state.totals[index],
-      [`${otherKey}Options`]: budgetOptions,
+      [`${otherKey}Options`]: otherBudgetOptions,
     });
   }
 
