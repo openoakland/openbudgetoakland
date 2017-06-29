@@ -26,7 +26,7 @@ export function fetchBreakdownData (years, yearTypes, type, dimension) {
   // wait for them both to return before ending the fetch
   const urls = years.map((year) => {
     // return API_BASE + typePaths[type] + dimensionPaths[dimension] + `/${year}.json`;
-    return API_BASE + typePaths[type] + dimensionPaths[dimension];
+    return API_BASE + typePaths[type] + dimensionPaths[dimension] + '/' + year;
   });
   return axios.all(urls.map(url => axios.get(url)))
     .then(axios.spread((...budgets) => {
