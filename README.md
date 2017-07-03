@@ -20,6 +20,7 @@ The Open Budget website is built using Node.js. The project is run locally on a 
 **Data:**
 - Source:
   - [Grand Rapids Open Data Portal](http://data.grcity.us/)  (2016 data)
+  - At this time the City of Grand Rapids has not provided the 2017 data
 
 ### Getting started:  -- Outline each project will have it's own
 * Browse our help wanted issues. See if there is anything that interests you.
