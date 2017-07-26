@@ -2,7 +2,7 @@ import axios from 'axios';
 import {descending} from 'd3-array';
 
 
-const API_BASE = 'https://dev-open-budget-oakland-administration.pantheonsite.io' +
+const API_BASE = 'https://live-open-budget-oakland-administration.pantheonsite.io' +
   '/wp-json/obo/v1';
 // const API_BASE = '/data/compare';
 
