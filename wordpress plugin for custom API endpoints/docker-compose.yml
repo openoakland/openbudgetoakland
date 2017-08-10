@@ -1,0 +1,34 @@
+version: "3"
+
+services:
+    web:
+        image: wordpress
+        links:
+         - mysql
+        environment:
+         - WORDPRESS_DB_PASSWORD=password
+        ports:
+         - "8080:80"
+        working_dir: /var/www/html
+        volumes:
+         - ./:/var/www/html/wp-content/plugins/
+    mysql:
+        image: mysql:5.7
+        environment:
+         - MYSQL_ROOT_PASSWORD=password
+         - MYSQL_DATABASE=wordpress
+        volumes:
+         - obo_datavolume:/var/lib/mysql
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: phpmyadmin
+        restart: always
+        links:
+         - mysql:db
+        ports:
+         - 8888:80
+        volumes:
+         - /sessions
+
+volumes:
+    obo_datavolume:
