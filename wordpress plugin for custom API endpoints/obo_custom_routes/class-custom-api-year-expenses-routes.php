@@ -115,8 +115,8 @@ class OBO_Custom_API_Year_Expenses_Routes extends WP_REST_Controller {
                 SELECT budget_type, fiscal_year_range, SUM(amount_num) AS general_fund
                 FROM $table
                 WHERE account_type = %s AND fund_code = %d
-                GROUP BY budget_type, fiscal_year_range
-            ) t2 USING (budget_type, fiscal_year_range)
+                GROUP BY budget_type, fiscal_year_range) t2
+            USING (budget_type, fiscal_year_range)
         ", 'Expense', 'Expense', 1010);
         $expense_items = $wpdb->get_results( $query_e );
         // Check to see that there is something to send
@@ -144,11 +144,19 @@ class OBO_Custom_API_Year_Expenses_Routes extends WP_REST_Controller {
         $data = array();
 
         $query_e = $wpdb->prepare("
-            SELECT budget_type, fiscal_year_range, department, SUM(amount_num) AS total
-            FROM $table 
-            WHERE account_type = %s AND fiscal_year_range = %s
-            GROUP BY budget_type, department
-        ", 'Expense', $fiscal_year_range );
+            SELECT t1.budget_type, t1.fiscal_year_range, department, total, general_fund
+            FROM (
+                SELECT budget_type, fiscal_year_range, department, SUM(amount_num) AS total
+                FROM $table
+                WHERE account_type = %s AND fiscal_year_range = %s
+                GROUP BY budget_type, department) t1
+            LEFT JOIN (
+                SELECT budget_type, fiscal_year_range, department, SUM(amount_num) AS general_fund
+                FROM $table
+                WHERE account_type = %s AND fiscal_year_range = %s AND fund_code = %d
+                GROUP BY budget_type, department) t2
+            USING (budget_type, department)
+        ", 'Expense', $fiscal_year_range, 'Expense', $fiscal_year_range, 1010 );
         $expense_items = $wpdb->get_results( $query_e );
         // Check to see that there is something to send
         if ( empty($expense_items) ) {
@@ -326,6 +334,7 @@ class OBO_Custom_API_Year_Expenses_Routes extends WP_REST_Controller {
         $data['fiscal_year_range'] = ( ! empty( $schema['properties']['fiscal_year_range'] ) )? $row->fiscal_year_range : '' ;
         $data['department'] = ( ! empty( $schema['properties']['department'] ) )? $row->department : '' ;
         $data['total'] = ( ! empty( $schema['properties']['total'] ) )? $row->total : '' ;
+        $data['general_fund'] = ( ! empty( $schema['properties']['general_fund'] ) ) ? $row->general_fund : '';
         //Set context
         $data = $this->add_additional_fields_to_object( $data, $request );
         $context = ! empty( $request['context'] ) ? $request['context'] : 'view';
