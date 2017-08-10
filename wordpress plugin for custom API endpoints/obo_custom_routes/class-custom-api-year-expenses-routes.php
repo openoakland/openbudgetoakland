@@ -105,11 +105,19 @@ class OBO_Custom_API_Year_Expenses_Routes extends WP_REST_Controller {
         $data = array();
 
         $query_e = $wpdb->prepare("
-            SELECT budget_type, fiscal_year_range, SUM(amount_num) AS total
-            FROM $table 
-            WHERE account_type = %s
-            GROUP BY budget_type, fiscal_year_range
-        ", 'Expense' );
+            SELECT t1.budget_type, t1.fiscal_year_range, total, general_fund
+            FROM (
+                SELECT budget_type, fiscal_year_range, SUM(amount_num) AS total
+                FROM $table
+                WHERE account_type = %s
+                GROUP BY budget_type, fiscal_year_range) t1
+            LEFT JOIN (
+                SELECT budget_type, fiscal_year_range, SUM(amount_num) AS general_fund
+                FROM $table
+                WHERE account_type = %s AND fund_code = %d
+                GROUP BY budget_type, fiscal_year_range
+            ) t2 USING (budget_type, fiscal_year_range)
+        ", 'Expense', 'Expense', 1010);
         $expense_items = $wpdb->get_results( $query_e );
         // Check to see that there is something to send
         if ( empty($expense_items) ) {
@@ -288,6 +296,7 @@ class OBO_Custom_API_Year_Expenses_Routes extends WP_REST_Controller {
         $data['budget_type'] = ( ! empty( $schema['properties']['budget_type'] ) )? $row->budget_type : '' ;
         $data['fiscal_year_range'] = ( ! empty( $schema['properties']['fiscal_year_range'] ) )? $row->fiscal_year_range : '' ;
         $data['total'] = ( ! empty( $schema['properties']['total'] ) )? $row->total : '' ;
+        $data['general_fund'] = ( ! empty( $schema['properties']['general_fund'] ) ) ? $row->general_fund : '';
         //Set context
         $data = $this->add_additional_fields_to_object( $data, $request );
         $context = ! empty( $request['context'] ) ? $request['context'] : 'view';
@@ -464,6 +473,12 @@ class OBO_Custom_API_Year_Expenses_Routes extends WP_REST_Controller {
                     'readonly' => true
                 ),
                 'total' => array(
+                    'description' => __("Sum of all the expense line items in the General Fund."),
+                    'type' => 'integer',
+                    'context' => array('view', 'embed'),
+                    'readonly' => true
+                ),
+                'general_fund' => array(
                     'description' => __("Sum of all the expense line items in the budget"),
                     'type' => 'integer',
                     'context' => array('view', 'embed'),
