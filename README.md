@@ -141,3 +141,13 @@ The API we have built is completely independent of the Open Budget Oakland site,
 ### Using the plugin to generate the API
 
 The WordPress plugin (OBO Custom Routes) that generates our API can be installed and used on any WordPress site, providing a database table with the expected column names is present. Currently, the plugin is hard-coded to expect a table called ```oakland_budget_items```. Obviously, that would be something you'd want to change if you were to use the plugin for another project. Additionally, database queries can easily be altered to fit a different table structure and to create different kinds of endpoints with a bit of PHP skill.
+
+### Developing locally
+
+To develop new features for the API, you may want to run Wordpress locally. 
+This repo includes a configuration file for doing so with [Docker Compose](https://docs.docker.com/compose/).
+With Docker Compose installed, simply run `docker-compose up` in `wordpress plugin for custom API endpoints/` 
+to activate linked containers for Wordpress, MySQL, and PhpMyAdmin. The Wordpress container will
+mount that directory as though it were Wordpress' `plugins/` directory, allowing your edits to 
+the plugin files in `obo_custom_routes/` to be reflected in your Wordpress instance. (Additional plugins that
+are not part of this repository will appear in that directory; they should be ignored by git.)
