@@ -501,13 +501,13 @@ class OBO_Custom_API_Year_Expenses_Routes extends WP_REST_Controller {
                     'readonly' => true
                 ),
                 'total' => array(
-                    'description' => __("Sum of all the expense line items in the General Fund."),
+                    'description' => __("Sum of all the expense line items in the budget."),
                     'type' => 'integer',
                     'context' => array('view', 'embed'),
                     'readonly' => true
                 ),
                 'general_fund' => array(
-                    'description' => __("Sum of all the expense line items in the budget"),
+                    'description' => __("Sum of all the expense line items in the General Fund only."),
                     'type' => 'integer',
                     'context' => array('view', 'embed'),
                     'readonly' => true
