@@ -47,6 +47,10 @@ Add ability to expose revenue items, in addition to expenses
 
 Fix aggregation routine for some endpoints. This permits correct data to be transmitted.
 
+= 0.7.0 =
+
+Return total from General Fund, as well as overall total, for the 2 endpoints that return totals from all the budgets
+
 == Developer ==
 
 The developer can be contacted via <a href="mailto:info@go-firefly.com?subject='Custom API Routes plugin inquiry'">email</a>
