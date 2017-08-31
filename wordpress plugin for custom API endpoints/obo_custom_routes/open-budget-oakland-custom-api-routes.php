@@ -6,7 +6,7 @@
  * Author: Felicia Betancourt
  * Author URI:  http://go-firefly.com/
  * Plugin URI:  
- * Version:     0.6.1
+ * Version:     0.7.0
  * Text Domain: obo-custom-routes
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
@@ -33,7 +33,7 @@ See readme.txt for changelog.
 defined( 'ABSPATH' ) or die( 'Nice try!' );
 
 // SET PLUGIN VERSION NUMBER
-define( 'OBO_CUSTOM_ROUTES_VERSION','0.6.1' );
+define( 'OBO_CUSTOM_ROUTES_VERSION','0.7.0' );
 
 // SET PLUGIN TEXT-DOMAIN
 define('OBO_CUSTOM_ROUTES_SLUG', 'obo_custom_routes');
