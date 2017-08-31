@@ -105,11 +105,19 @@ class OBO_Custom_API_Year_Revenue_Routes extends WP_REST_Controller {
         $data = array();
 
         $query_e = $wpdb->prepare("
-            SELECT budget_type, fiscal_year_range, SUM(amount_num) AS total
-            FROM $table 
-            WHERE account_type = %s
-            GROUP BY budget_type, fiscal_year_range
-        ", 'Revenue' );
+            SELECT t1.budget_type, t1.fiscal_year_range, total, general_fund
+            FROM (
+                SELECT budget_type, fiscal_year_range, SUM(amount_num) AS total
+                FROM $table
+                WHERE account_type = %s
+                GROUP BY budget_type, fiscal_year_range) t1
+            LEFT JOIN (
+                SELECT budget_type, fiscal_year_range, SUM(amount_num) AS general_fund
+                FROM $table
+                WHERE account_type = %s AND fund_code = %d
+                GROUP BY budget_type, fiscal_year_range) t2
+            USING (budget_type, fiscal_year_range)
+        ", 'Revenue', 'Revenue', 1010 );
         $revenue_items = $wpdb->get_results( $query_e );
         // Check to see that there is something to send
         if ( empty($revenue_items) ) {
@@ -136,11 +144,19 @@ class OBO_Custom_API_Year_Revenue_Routes extends WP_REST_Controller {
         $data = array();
 
         $query_e = $wpdb->prepare("
-            SELECT budget_type, fiscal_year_range, department, SUM(amount_num) AS total
-            FROM $table 
-            WHERE account_type = %s AND fiscal_year_range = %s
-            GROUP BY budget_type, department
-        ", 'Revenue', $fiscal_year_range );
+            SELECT t1.budget_type, t1.fiscal_year_range, department, total, general_fund
+            FROM (
+                SELECT budget_type, fiscal_year_range, department, SUM(amount_num) AS total
+                FROM $table
+                WHERE account_type = %s AND fiscal_year_range = %s
+                GROUP BY budget_type, department) t1
+            LEFT JOIN (
+                SELECT budget_type, fiscal_year_range, department, SUM(amount_num) AS general_fund
+                FROM $table
+                WHERE account_type = %s AND fiscal_year_range = %s AND fund_code = %d
+                GROUP BY budget_type, department) t2
+            USING (budget_type, department)
+        ", 'Revenue', $fiscal_year_range, 'Revenue', $fiscal_year_range, 1010 );
         $revenue_items = $wpdb->get_results( $query_e );
         // Check to see that there is something to send
         if ( empty($revenue_items) ) {
@@ -167,11 +183,19 @@ class OBO_Custom_API_Year_Revenue_Routes extends WP_REST_Controller {
         $data = array();
 
         $query_e = $wpdb->prepare("
-            SELECT budget_type, fiscal_year_range, account_description, SUM(amount_num) AS total
-            FROM $table 
-            WHERE account_type = %s AND fiscal_year_range = %s
-            GROUP BY budget_type, account_description
-        ", 'Revenue', $fiscal_year_range );
+            SELECT t1.budget_type, t1.fiscal_year_range, account_description, total, general_fund
+            FROM (
+                SELECT budget_type, fiscal_year_range, account_description, SUM(amount_num) AS total
+                FROM $table
+                WHERE account_type = %s AND fiscal_year_range = %s
+                GROUP BY budget_type, account_description) t1
+            LEFT JOIN (
+                SELECT budget_type, fiscal_year_range, account_description, SUM(amount_num) AS general_fund
+                FROM $table
+                WHERE account_type = %s AND fiscal_year_range = %s AND fund_code = %d
+                GROUP BY budget_type, account_description) t2
+            USING (budget_type, account_description)
+        ", 'Revenue', $fiscal_year_range, 'Revenue', $fiscal_year_range, 1010 );
         $revenue_items = $wpdb->get_results( $query_e );
         // Check to see that there is something to send
         if ( empty($revenue_items) ) {
@@ -198,11 +222,19 @@ class OBO_Custom_API_Year_Revenue_Routes extends WP_REST_Controller {
         $data = array();
 
         $query_e = $wpdb->prepare("
-            SELECT budget_type, fiscal_year_range, account_category, SUM(amount_num) AS total
-            FROM $table 
-            WHERE account_type = %s AND fiscal_year_range = %s
-            GROUP BY budget_type, account_category
-        ", 'Revenue', $fiscal_year_range );
+            SELECT t1.budget_type, t1.fiscal_year_range, account_category, total, general_fund
+            FROM (
+                SELECT budget_type, fiscal_year_range, account_category, SUM(amount_num) AS total
+                FROM $table
+                WHERE account_type = %s AND fiscal_year_range = %s
+                GROUP BY budget_type, account_category) t1
+            LEFT JOIN (
+                SELECT budget_type, fiscal_year_range, account_category, SUM(amount_num) AS general_fund
+                FROM $table
+                WHERE account_type = %s AND fiscal_year_range = %s AND fund_code = %d
+                GROUP BY budget_type, account_category) t2
+            USING (budget_type, account_category)
+        ", 'Revenue', $fiscal_year_range, 'Revenue', $fiscal_year_range, 1010 );
         $revenue_items = $wpdb->get_results( $query_e );
         // Check to see that there is something to send
         if ( empty($revenue_items) ) {
@@ -288,6 +320,9 @@ class OBO_Custom_API_Year_Revenue_Routes extends WP_REST_Controller {
         $data['budget_type'] = ( ! empty( $schema['properties']['budget_type'] ) )? $row->budget_type : '' ;
         $data['fiscal_year_range'] = ( ! empty( $schema['properties']['fiscal_year_range'] ) )? $row->fiscal_year_range : '' ;
         $data['total'] = ( ! empty( $schema['properties']['total'] ) )? $row->total : '' ;
+        $data['general_fund'] = ( ! empty( $schema['properties']['general_fund'] ) ) ?
+                ($row->general_fund ? $row->general_fund : '0')
+            : '';
         //Set context
         $data = $this->add_additional_fields_to_object( $data, $request );
         $context = ! empty( $request['context'] ) ? $request['context'] : 'view';
@@ -317,6 +352,9 @@ class OBO_Custom_API_Year_Revenue_Routes extends WP_REST_Controller {
         $data['fiscal_year_range'] = ( ! empty( $schema['properties']['fiscal_year_range'] ) )? $row->fiscal_year_range : '' ;
         $data['department'] = ( ! empty( $schema['properties']['department'] ) )? $row->department : '' ;
         $data['total'] = ( ! empty( $schema['properties']['total'] ) )? $row->total : '' ;
+        $data['general_fund'] = ( ! empty( $schema['properties']['general_fund'] ) ) ?
+                ($row->general_fund ? $row->general_fund : '0')
+            : '';
         //Set context
         $data = $this->add_additional_fields_to_object( $data, $request );
         $context = ! empty( $request['context'] ) ? $request['context'] : 'view';
@@ -346,6 +384,9 @@ class OBO_Custom_API_Year_Revenue_Routes extends WP_REST_Controller {
         $data['fiscal_year_range'] = ( ! empty( $schema['properties']['fiscal_year_range'] ) )? $row->fiscal_year_range : '' ;
         $data['account_description'] = ( ! empty( $schema['properties']['account_description'] ) )? $row->account_description : '' ;
         $data['total'] = ( ! empty( $schema['properties']['total'] ) )? $row->total : '' ;
+        $data['general_fund'] = ( ! empty( $schema['properties']['general_fund'] ) ) ?
+                ($row->general_fund ? $row->general_fund : '0')
+            : '';
         //Set context
         $data = $this->add_additional_fields_to_object( $data, $request );
         $context = ! empty( $request['context'] ) ? $request['context'] : 'view';
@@ -375,6 +416,9 @@ class OBO_Custom_API_Year_Revenue_Routes extends WP_REST_Controller {
         $data['fiscal_year_range'] = ( ! empty( $schema['properties']['fiscal_year_range'] ) )? $row->fiscal_year_range : '' ;
         $data['account_category'] = ( ! empty( $schema['properties']['account_category'] ) )? $row->account_category : '' ;
         $data['total'] = ( ! empty( $schema['properties']['total'] ) )? $row->total : '' ;
+        $data['general_fund'] = ( ! empty( $schema['properties']['general_fund'] ) ) ?
+                ($row->general_fund ? $row->general_fund : '0')
+            : '';
         //Set context
         $data = $this->add_additional_fields_to_object( $data, $request );
         $context = ! empty( $request['context'] ) ? $request['context'] : 'view';
@@ -464,7 +508,13 @@ class OBO_Custom_API_Year_Revenue_Routes extends WP_REST_Controller {
                     'readonly' => true
                 ),
                 'total' => array(
-                    'description' => __("Sum of all the revenue line items in the budget"),
+                    'description' => __("Sum of all the revenue line items in the budget."),
+                    'type' => 'integer',
+                    'context' => array('view', 'embed'),
+                    'readonly' => true
+                ),
+                'general_fund' => array(
+                    'description' => __("Sum of all the expense line items in the General Fund only."),
                     'type' => 'integer',
                     'context' => array('view', 'embed'),
                     'readonly' => true
