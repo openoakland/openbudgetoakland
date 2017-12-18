@@ -15,7 +15,7 @@ The Open Budget website is built using Node.js. The project is run locally on a 
 **Project Guide:**  [@allen](https://citizenlabs.slack.com/messages/@allen/)
 
 **Maintainers (people with write access):**
-* None at this time
+* [@allen](https://citizenlabs.slack.com/messages/@allen/)
 
 **Data:**
 - Source:
