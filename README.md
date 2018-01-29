@@ -18,9 +18,11 @@ The Open Budget website is built using Node.js. The project is run locally on a 
 * [@allen](https://citizenlabs.slack.com/messages/@allen/)
 
 **Data:**
+Data had previously been stored on Grand Rapids' Open Data Portal which was shutdown without notice in December of 2017. Budget and other City data and other data that had been available since January 2013.
+
 - Source:
-  - [Grand Rapids Open Data Portal](http://data.grcity.us/)  (2016 data)
-  - At this time the City of Grand Rapids has not provided the 2017 data (July 2017)
+  - FY2017 Data: FY2017 data will be provided again when a new data repository is available.
+  - FY2018 Data: Data was provided by the City of Grand Rapids, FY2018 data will be provided again when a new data repository is available.
 
 ### Getting started:  -- Outline each project will have it's own
 * Browse our help wanted issues. See if there is anything that interests you.
