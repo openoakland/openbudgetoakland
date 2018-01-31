@@ -8,29 +8,19 @@
 	"grouping_headers": ["Account Type", "Fiscal Year"],
 	"groups": [
 		{
-			"values": ["Revenue", "FY18"],
-			"hierarchy":["Fund Description", "Account Category", "Account Description"],
-			"filename": "Revenue.FY18.json"
-		},
-		{
 			"values": ["Revenue", "FY17"],
-			"hierarchy":["Fund Description", "Account Category", "Account Description"],
+			"hierarchy":["Fiscal Year", "Fund Description", "Account Category", "Account Description"],
 			"filename": "Revenue.FY17.json"
 		},
 		{
-			"values": ["Expense", "FY18"],
-			"hierarchy":[
-				"Fund Description",
-				"Department",
-				"Division",
-				"Account Category",
-				"Account Description"
-			],
-			"filename": "Expense.FY18.json"
+			"values": ["Revenue", "FY18"],
+			"hierarchy":["Fiscal Year", "Fund Description", "Account Category", "Account Description"],
+			"filename": "Revenue.FY18.json"
 		},
 		{
 			"values": ["Expense", "FY17"],
 			"hierarchy":[
+				"Fiscal Year",
 				"Fund Description",
 				"Department",
 				"Division",
@@ -38,6 +28,18 @@
 				"Account Description"
 			],
 			"filename": "Expense.FY17.json"
+		},
+		{
+			"values": ["Expense", "FY18"],
+			"hierarchy":[
+				"Fiscal Year",
+				"Fund Description",
+				"Department",
+				"Division",
+				"Account Category",
+				"Account Description"
+			],
+			"filename": "Expense.FY18.json"
 		}
 	]
 }

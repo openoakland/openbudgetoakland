@@ -1,0 +1,32 @@
+extends templates/tree-template.jade
+
+block title
+  h1 Detailed Breakdown: Final Budget
+
+block datasource
+  h6
+    | Data source:&nbsp;
+    a(href = "http://data.grcity.us/dataset/gr-preliminary-budget-fy-2017") data.grcity.org
+
+block disqus_config
+  script(type='text/javascript').
+    var disqus_identifier = "2017-19 proposed budget tree";
+
+block datafiles
+  script.
+    var config = {
+      /* set values available in dropdown files */
+      dropdown_values: {
+        "Year": ["FY18"],
+        "Account": ["Revenue", "Expense"]
+      },
+      /* set the default values */
+      dropdown_choice: {
+        "Year": "FY18",
+        "Account": "Expense"
+      },
+      /* create the url to the data file based on the dropdown choices */
+      url: function() {
+        return 'data/tree/Final.' + this.dropdown_choice["Account"] + "." + this.dropdown_choice["Year"] + ".json";
+      }
+    };
