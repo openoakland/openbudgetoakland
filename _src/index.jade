@@ -1,14 +1,3 @@
-section.jumbotron.homesplash
-  .container
-    h1.main-header.homesplash__head Mayor's New Budget Proposed: What's Going to Change?
-    .row
-      .col-sm-12
-        p.lead.homesplash__text Our new Compare tool lets you put two budgets head-to-head. How much did the budget grow or shrink? How are cuts and increases distributed across spending categories? How did revenue sources change? Answers to these questions and more are now at your fingertips.
-
-        p.lead.text-center
-          a.btn.btn-primary.btn-lg(href="/compare.html") Go there now
-  .homesplash__photocredit Photo: #[a(href="https://flic.kr/p/zjBVDh") flickr/Jaegar Moore] (#[a(href="https://creativecommons.org/licenses/by-nc/2.0/") CC BY-NC 2.0])
-
 section.container
   .row
     .col-sm-4.left-col
@@ -25,18 +14,27 @@ section.container
 
 
     .col-md-8
+      a(href="/compare.html")
+        section
+          h1 Comparison
+          p Put two budgets head-to-head. How much did the budget grow or shrink? How are cuts and increases distributed across spending categories? How did revenue sources change?
+          img.img-responsive.thumbnail(src="/images/home/compare-thumb.jpg")
+
       a(href="/2017-19-proposed-budget-flow.html")
-        h3 Cash Flow
-        p Understand the big picture: where money comes from, and where it goes.
-        img.img-responsive.thumbnail(src="/images/flow-thumb-1517.jpg")
+        section
+          h1 Overview
+          p Get a bird's eye view of the big picture for a single year: where money comes from, and where it goes.
+          img.img-responsive.thumbnail(src="/images/home/flow-thumb.jpg")
 
       a(href="/2017-19-proposed-budget-tree.html")
-        h3 Detailed Breakdown
-        p Drill down into detailed spending and revenue data for each department.
-        img.img-responsive.thumbnail(src="/images/tree-thumb-1517.jpg")
+        section
+          h1 Detail
+          p Drill down into detailed spending and revenue data for each department and fund for a single year.
+          img.img-responsive.thumbnail(src="/images/home/tree-thumb.jpg")
 
       a(href="/budget-process.html")
-        h3 You Are Here
-        p A timeline of Oakland's budget process.
-        img.img-responsive.thumbnail(src="/images/thumbnail-timeline.png")
+        section
+          h1 Timeline
+          p Orient yourself within the two-year cycle of Oakland's budget process.
+          img.img-responsive.thumbnail(src="/images/home/timeline-thumb.png")
 
