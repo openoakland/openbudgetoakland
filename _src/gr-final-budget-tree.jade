@@ -1,12 +1,12 @@
 extends templates/tree-template.jade
 
 block title
-  h1 Detailed Breakdown: Final Budget
+  h1 Detailed Breakdown: Final Budget Drill Down
 
 block datasource
   h6
     | Data source:&nbsp;
-    a(href = "https://data.world/citizenlabs/city-of-grand-rapids-fy-2017-budget") City of Grand Rapids | Citizen Labs Data Library
+    a(href = "https://data.world/citizenlabs/city-of-grand-rapids-fy-2018-budget") City of Grand Rapids | Citizen Labs Data Library
 
 block disqus_config
   script(type='text/javascript').
@@ -17,12 +17,12 @@ block datafiles
     var config = {
       /* set values available in dropdown files */
       dropdown_values: {
-        "Year": ["FY17"],
+        "Year": ["FY18", "FY17"],
         "Account": ["Revenue", "Expense"]
       },
       /* set the default values */
       dropdown_choice: {
-        "Year": "FY17",
+        "Year": "FY18",
         "Account": "Expense"
       },
       /* create the url to the data file based on the dropdown choices */
