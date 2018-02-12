@@ -22,6 +22,9 @@ Once you have the Yarn package manager installed, you can install Harp globally
 yarn global add harp
 ```
 
+### Create Development Branch
+- Create a development branch from the Citizen Labs master for the [Open Budget project.](https://github.com/citizenlabsgr/openbudgetgr).
+
 ```
 # To start the Harp server, cd to the _src directory
 cd [repo-location]/_src
@@ -75,58 +78,4 @@ Make changes on your personal fork or branch. If you have repo access, and your 
 ## 7. Creating/Updating Budget Timeline
 The timeline is made using [TimelineJS](http://timeline.knightlab.com), an open-source tool that enables anyone to build visually rich, interactive timelines. Beginners can create a timeline using nothing more than a Google spreadsheet, like the one we used for the Timeline above. Experts can use their JSON skills to create custom installations, while keeping TimelineJS's core functionality.
 
-
-### Publishing to Staging
-If you have access to the openoakland repo, you can easily publish a preview of your changes to [staging.openbudgetoakland.org](http://staging.openbudgetoakland.org) with the script below.
-
-```
-# Run shell script to publish changes from your current branch to the staging site
-cd ../  # assuming you are in _src/
-bash _publish-preview.sh
-```
-
-### Publishing to Production
-
-Even though Harp runs locally, static files need to be compiled for the live site (hosted on Github pages).
-Once you have made all your changes, you'll need to compile everything in order for it to run on gh-pages. Because of how Harp compiles (that it clears the target directory), this workflow gets a bit wonky. We'll try to make it a little less fragile if people begin publishing changes more often.
-
-If you're reasonably confident you have everything set up right in your local dev environment, merge your changes into `master` and run `$bash _production-publish.sh` ... but it does some slightly dangerous stuff (force-pushing to origin, :scream emoji:) so the more cautious among us can follow the manual deployment steps as described below.
-
-
-```
-# make sure your repo is up to date and you are on the master branch
-git fetch
-git checkout master
-
-# merge your changes from your branch or development into master
-git merge origin/development
-
-# here's where it gets hacky - open to suggestions for an improved workflow
-# delete the gh-pages branch and then recreate it as an orphan (untracked) branch
-git branch -D gh-pages
-git checkout --orphan gh-pages
-
-# move into the _src directory and compile source files
-cd _src
-# build a production-optimized webpack bundle
-yarn run build
-# exclude node dependencies from harp compilation
-mv node_modules _node_modules
-# compile source files to root directory
-harp compile ./ ../
-# restore node_modules before you forget
-mv _node_modules node_modules
-
-# move back to the root, and add and commit files
-cd ../
-git add -A
-git commit -m "deploy"
-
-# push changes to remote gh-pages branch using *gasp* --force!
-# !!! Never push --force on any public branch besides gh-pages!
-git push --set-upstream origin gh-pages --force
-
-# make sure your changes are showing up and you didn't break anything
-```
-
-If you are on a forked branch, create a pull request to have your changes reviewed for merge!
+The Google spreadsheet for the current [Budget Timeline used for Grand Rapids](https://grbudget.citizenlabs.org/budget-process.html) is a Citizen Labs' shared Google Sheet, can be [viewed here.](https://docs.google.com/spreadsheets/d/1jL2_7lJSgbLchJfAGWrST16ZxKe5Z-vbOfrAu14QyG8/edit?usp=sharing)

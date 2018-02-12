@@ -6,11 +6,11 @@
 **Slack:** #project-openbudgetgr
 
 **Project Description:**
-We are developing a way to better understand the budget process for the City of Grand Rapids. This will be the follow-up to the initial 2016 release of [openbudgetgr.org](http://openbudgetgr.org).
+We are developing a way to better understand the budget process for the City of Grand Rapids. This is the follow-up to the initial 2016 release of [openbudgetgr.org](http://openbudgetgr.org). The site is now current with FY2018 data.
 
 Our Open Budget project intends to promotes a deeper understanding of the city budget, so that citizens, officials, and other stakeholders can engage in more informed dialogue about how the City of Grand Rapids currently works and how it should in the future.
 
-The Open Budget website is built using Node.js. The project is run locally on a computer. After acquiring and formatting the budget data properly you publish the website using Harp to compile the static files necessary for a Github posted website.
+The Open Budget website is built using Node.js. During development the project is run locally on a computer. After acquiring and formatting the budget data properly you publish the website using Harp to compile the static files necessary for a Github posted website.
 
 **Project Guide:**  [@allen](https://citizenlabs.slack.com/messages/@allen/)
 
@@ -19,11 +19,10 @@ The Open Budget website is built using Node.js. The project is run locally on a 
 
 **Data:**
 
-Data had previously been stored on Grand Rapids' Open Data Portal which was shutdown without notice in December of 2017. Budget and other City data and other data that had been available since January 2013.
+City of Grand Rapids, [MI Data Portal](https://www.grandrapidsmi.gov/GRData)
 
-- Source:
-  - FY2017 Data: FY2017 data will be provided again when a new data repository is available.
-  - FY2018 Data: Data was provided by the City of Grand Rapids, FY2018 data will be provided again when a new data repository is available.
+- [FY2017 Data](https://data.world/citizenlabs/city-of-grand-rapids-fy-2017-budget)
+- [FY2018 Data](https://data.world/citizenlabs/city-of-grand-rapids-fy-2018-budget)
 
 ### Getting started:  -- Outline each project will have it's own
 * Browse our help wanted issues. See if there is anything that interests you.
