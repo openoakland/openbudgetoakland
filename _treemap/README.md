@@ -31,21 +31,20 @@ To create the treemap data files perform the following steps:
 		Create treemap data files from a budget in CSV format.
 
 		positional arguments:
-		  configuration  A configuration file describing how the data should be
-						 organized.
+		  configuration  A configuration file describing how the data should be organized.
 		  budget         A CSV formatted budget
 
 		optional arguments:
 		  -h, --help     show this help message and exit
 5. Move the generated data files to an appropriate place with your source data.
 
-		mkdir ../_src/data/my-budget-directory
-		mv Revenue.FY13-14.json ../_src/data/my-budget-directory/
-		mv Revenue.FY14-15.json ../_src/data/my-budget-directory/
-		mv Expense.FY13-14.json ../_src/data/my-budget-directory/
-		mv Expense.FY14-15.json ../_src/data/my-budget-directory/
+		mkdir ../_src/data/tree/my-budget-directory .. if needed
+		mv Final.Revenue.FY18.json ../_src/data/tree/
+		mv Final.Revenue.FY18.json ../_src/data/tree/
+		mv Final.Expense.FY18.json ../_src/data/tree/
+		mv Final.Expense.FY18.json ../_src/data/tree/
 
-6. After running the python script the original CSV version of the budget and config.jason used can be placed in a new directory within _treemap for reference or future use.
+6. After running the python script the original CSV version of the budget and config.jason used can be placed in a new directory within _treemap/budgets for reference or future use. This directory includes Grand Rapids, MI and Oakland, CA examples.
 
 Appendix
 =============
