@@ -1,7 +1,7 @@
 extends templates/tree-template.jade
 
 block title
-  h1 Detailed Breakdown: Final Budgets
+  h1 Detailed Breakdown: FY2019 Preliminary Budget
 
 block datasource
   h6
@@ -17,16 +17,16 @@ block datafiles
     var config = {
       /* set values available in dropdown files */
       dropdown_values: {
-        "Year": ["FY18", "FY17"],
+        "Year": ["FY19"],
         "Account": ["Revenue", "Expense"]
       },
       /* set the default values */
       dropdown_choice: {
-        "Year": "FY18",
+        "Year": "FY19",
         "Account": "Expense"
       },
       /* create the url to the data file based on the dropdown choices */
       url: function() {
-        return 'data/tree/Final.' + this.dropdown_choice["Account"] + "." + this.dropdown_choice["Year"] + ".json";
+        return 'data/tree/Prelim.' + this.dropdown_choice["Account"] + "." + this.dropdown_choice["Year"] + ".json";
       }
     };

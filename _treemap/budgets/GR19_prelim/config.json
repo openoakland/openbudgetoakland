@@ -1,0 +1,45 @@
+{
+	"amount_header": "Amount",
+	"account_type_header": "Account Type",
+	"account_types": {
+		"revenue": "Revenue",
+		"expense": "Expense"
+	},
+	"grouping_headers": ["Account Type", "Fiscal Year"],
+	"groups": [
+		{
+			"values": ["Revenue", "FY19 Preliminary"],
+			"hierarchy":["Fiscal Year", "Fund Description", "Account Category", "Account Description"],
+			"filename": "Revenue.FY19.json"
+		},
+		{
+			"values": ["Revenue", "FY18"],
+			"hierarchy":["Fiscal Year", "Fund Description", "Account Category", "Account Description"],
+			"filename": "Revenue.FY18.json"
+		},
+		{
+			"values": ["Expense", "FY19 Preliminary"],
+			"hierarchy":[
+				"Fiscal Year",
+				"Fund Description",
+				"Department",
+				"Division",
+				"Account Category",
+				"Account Description"
+			],
+			"filename": "Expense.FY19.json"
+		},
+		{
+			"values": ["Expense", "FY18"],
+			"hierarchy":[
+				"Fiscal Year",
+				"Fund Description",
+				"Department",
+				"Division",
+				"Account Category",
+				"Account Description"
+			],
+			"filename": "Expense.FY18.json"
+		}
+	]
+}
