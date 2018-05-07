@@ -1,12 +1,12 @@
 extends templates/flow-template.jade
 
 block title
-  h2 Cash Flow: 2018 Final Budget
+  h2 Cash Flow: 2019 Preliminary Budget
 
 block datasource
   h6
     | Data source:&nbsp;
-    a(href = "https://data.world/citizenlabs/city-of-grand-rapids-fy-2018-budget") City of Grand Rapids | Citizen Labs Data Library
+    a(href = "https://data.world/citizenlabs/grand-rapids-budget") City of Grand Rapids | Citizen Labs Data Collaborative
 
 block disqus_config
   script(type="text/javascript").
@@ -15,6 +15,6 @@ block disqus_config
 block get_datafiles
   script(type="text/javascript").
     var datafiles = [
-      {filename: "FY18__final.csv"},
-      {filename: "FY17__final.csv"}
+      {filename: "FY19__prelim.csv"},
+      {filename: "FY18__final.csv"}
     ];
