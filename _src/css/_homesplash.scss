@@ -2,7 +2,6 @@ $overlay-shadow: 0 0 10px #000, 0 0px 12px #000, 0 0px 15px #000;
 
 .homesplash {
   position: relative;
-  background-image: url(/images/home/calder.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position-y: 35%;
@@ -10,11 +9,11 @@ $overlay-shadow: 0 0 10px #000, 0 0px 12px #000, 0 0px 15px #000;
 }
 
 .homesplash__head {
-  color: #fff !important;
+  color: #024208 !important;
 }
 
 .homesplash__text {
-  color: #fff;
+  color: #024208;
 }
 
 .homesplash__photocredit {
