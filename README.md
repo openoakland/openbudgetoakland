@@ -85,7 +85,7 @@ Make changes on your personal fork or branch. If you have repo access, and your 
 ### Publishing to Staging
 If you have access to the openoakland repo, you can easily publish a preview of your changes to [staging.openbudgetoakland.org](http://staging.openbudgetoakland.org) with the script below.
 
-Make sure you have initialized the git submodule in `/_staging` before doing this, or you'll wind up inadvertently committing your changes to your current branch instead of the openbudgetoakland-staging repo! (Run `git submodule init` if you're not sure ... it should either initialize it or yell at you, so you'll know what the status is either way.)
+Make sure you have initialized the git submodule in `/_staging` before doing this, or you'll wind up inadvertently committing your changes to your current branch instead of the openbudgetoakland-staging repo! (Run `git submodule init` and `git submodule update` if you're not sure ... it should either initialize it or yell at you, so you'll know what the status is either way. The submodule needs to be initialized and updated or the script will fail and print an error.)
 
 ```
 # Run shell script to publish changes from your current branch to the staging site
