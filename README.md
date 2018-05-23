@@ -47,6 +47,7 @@ This project is coded with:
 ## Creating & Editing Pages
 
 - All development activity occurs in `_src/`. The root folder is only for compiled output for deployment.
+- Make sure NODE_ENV in your shell environment is set to 'development'! Setting it to 'production' will trigger prod-only features such as Google Analytics that you don't want to run in any environment other than our live site.
 - Page content is inserted into the `layout.jade` file (which includes basic header and footer snippets)
 - Create your `.jade` file
 - Add a link to the main nav in the appropriate place
@@ -84,6 +85,8 @@ Make changes on your personal fork or branch. If you have repo access, and your 
 ### Publishing to Staging
 If you have access to the openoakland repo, you can easily publish a preview of your changes to [staging.openbudgetoakland.org](http://staging.openbudgetoakland.org) with the script below.
 
+Make sure you have initialized the git submodule in `/_staging` before doing this, or you'll wind up inadvertently committing your changes to your current branch instead of the openbudgetoakland-staging repo! (Run `git submodule init` and `git submodule update` if you're not sure ... it should either initialize it or yell at you, so you'll know what the status is either way. The submodule needs to be initialized and updated or the script will fail and print an error.)
+
 ```
 # Run shell script to publish changes from your current branch to the staging site
 cd ../  # assuming you are in _src/
@@ -99,6 +102,10 @@ If you're reasonably confident you have everything set up right in your local de
 
 
 ```
+# for the production site, we want production builds!
+# this will include Google Analytics (and maybe other stuff?)
+NODE_ENV=production
+
 # make sure your repo is up to date and you are on the master branch
 git fetch
 git checkout master
@@ -130,6 +137,10 @@ git commit -m "deploy"
 # push changes to remote gh-pages branch using *gasp* --force!
 # !!! Never push --force on any public branch besides gh-pages!
 git push --set-upstream origin gh-pages --force
+
+# set this back to development so we don't go 
+# accidentally running prod code in dev environments
+NODE_ENV=development
 
 # make sure your changes are showing up and you didn't break anything
 ```

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# for the production site, we want production builds!
+# this will include Google Analytics (and maybe other stuff?)
+NODE_ENV=production
 # delete the gh-pages branch and then recreate it as an orphan (untracked) branch
 git branch -D gh-pages
 git checkout --orphan gh-pages
@@ -25,3 +28,6 @@ git commit -m "deploy"
 git push --set-upstream origin gh-pages --force
 
 echo "http://openbudgetoakland.org updated"
+# set this back to development so we don't go 
+# accidentally running prod code in dev environments
+NODE_ENV=development

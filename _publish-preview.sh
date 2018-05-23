@@ -5,6 +5,10 @@
 URL="staging.openbudgetoakland.org"
 # BASEDIR=$(dirname $0)
 FILE="../_staging/CNAME"
+# for staging, we want a development build.
+# this will reserve certain features (e.g. Google Analytics) 
+# for the production site only
+NODE_ENV=development
 COUNTER=$((COUNTER+1))
 
 # go to the 'source file' directory
