@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {Nav, NavItem, Tab} from 'react-bootstrap';
 import Select from 'react-select';
 import {schemeSet2 as colors} from 'd3-scale-chromatic';
+import _ from 'lodash';
 
 import 'react-select/dist/react-select.css';
 
@@ -57,6 +58,7 @@ class Compare extends React.Component {
       usePct: true,
       budgetChoices: [],
       totals: [],
+      error: null
     };
     this.updateChangeType = this.updateChangeType.bind(this);
     this.selectBudget = this.selectBudget.bind(this);
@@ -83,6 +85,9 @@ class Compare extends React.Component {
         budget1Options,
         budget2Options,
       });
+    })
+    .catch(error => {
+      this.setState({error: error.response});
     });
   }
 
@@ -127,9 +132,15 @@ class Compare extends React.Component {
         };
       }
     });
+    const error = this.state.error;
+
+    const errorMessage = _.isNull(error) ?
+	  (<div></div>) :
+	  (<div className="alert alert-danger">{error}</div>);
 
     return <div>
       <div className="row">
+        {errorMessage}
         <div className="col-sm-10">
           <h1>Compare <span style={styles[0]} className="choose-budget">
             <Select options={this.state.budget1Options} value={this.state.budget1Choice}
