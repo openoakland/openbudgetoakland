@@ -16,6 +16,7 @@ The Open Budget website is built using Node.js. During development the project i
 
 **Maintainers (people with write access):**
 * [@allen](https://citizenlabs.slack.com/messages/@allen/)
+* Jace B
 
 **Data:**
 
@@ -24,7 +25,7 @@ City of Grand Rapids, [MI Data Portal](https://www.grandrapidsmi.gov/GRData)
 - [FY2017 Data](https://data.world/citizenlabs/city-of-grand-rapids-fy-2017-budget)
 - [FY2018 Data](https://data.world/citizenlabs/city-of-grand-rapids-fy-2018-budget)
 
-### Getting started:  -- Outline each project will have it's own
+### Getting started:
 * Browse our help wanted issues. See if there is anything that interests you.
 * Core maintainers and project guides are responsible for reviewing and merging all pull requests. In order to prevent frustrations with your first PR we recommend you reach out to our core maintainers who can help you through your first PR.
 * Updates to documentation or readme are greatly appreciated and make for a great first PR. They do not need to be discussed in advance and will be merged as soon as possible.
