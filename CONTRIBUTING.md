@@ -64,6 +64,7 @@ This project is coded with:
 
 1. Treemap pages are built off a template; copy one of the `*-budget-tree.jade` pages and update the content blocks as necessary.
 1. Instructions for generating the necessary data files can be found [here](_treemap/README.md). Add them to the `data/tree/` directory following the naming convention seen in the existing files.
+1. Json files should follow this naming convention, Status (Final, Preliminary, Proposed, etc).Acount Type (Revenue or Expense).Budget Year.json. Examples: `Final.Expense.FY19.json` and `Final.Revenue.FY19.json`
 1. Update the `datafiles` content block with the appropriate metadata and file path for the data files you generated.
 
 ## 5. Instructions for "Compare" page
