@@ -3,40 +3,44 @@ section.jumbotron.homesplash
     h1.main-header.homesplash__head The City of Grand Rapids Budget
     .row
       .col-sm-12
-        p.lead.homesplash__text Learn about the preliminary FY2019 city budget. How much of the budget is discretionary versus non-discretionary? Where does the money go? Where does the money come from? Answers to these questions and more are now at your fingertips.
-
-        p.lead.text-center
-          a.btn.btn-primary.btn-lg(href="/2019_prelim.html") Go there now
+        p.lead.homesplash__text #[a(href="https://citizenlabs.org/") Citizen Labs] used data from the city's open data portal to visualize where the money comes from and how it's spent. 
 
 
 section.container
   .row
     .col-sm-4.left-col
-      p.lead Open Budget: Grand Rapids visualizes the city's current and past budget data into accessible charts for the public. Data is published by the city. See
-        #[a(href='/budget-visuals.html')  previous budgets] for the City of Grand Rapids.
+      h3 How The Budget Is Created
+      p.lead July 1 of every year marks the beginning of a new Fiscal Year for the City of Grand Rapids. Learn about the steps taken prior to approval and how spending priorities are made.
 
-      .well
-        h3.blurb__title 2019 Preliminary Budget
-        p The city is currently reviewing a preliminary budget for FY2019. Public hearings will be taking place soon. #[a(href='/2019_prelim.html')  Learn more about the FY2019 preliminary budget.]
-
-      p
-      a.twitter-timeline(height=700, href='https://twitter.com/hashtag/GRbudget', data-widget-id='881905820304384000') Tweets about "#GRbudget"
-        script.
-          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-
+      a.btn.btn-info( href="/budget-process.html" ) Launch App
+      p.
 
     .col-md-8
       a(href="/budget-process.html")
-        h3 How The City Budget Is Created
-        p A timeline of Grand Rapids' budget process.
         img.img-responsive.thumbnail(src="/images/thumbnail-timeline.jpg")
 
-      a(href="/2018-final-budget-flow.html")
-        h3 Cash Flow
-        p Understand the big picture: where money comes from, and where it goes.
+  .row
+    p.
+    .col-sm-4.left-col
+      h3 Cash Flow Overview
+      p.lead Understand the big picture: where money comes from and where it goes.
+
+      a.btn.btn-info( href="/final-budget-flow.html" ) Launch App
+      p.
+
+    .col-md-8
+      a(href="/final-budget-flow.html")
         img.img-responsive.thumbnail(src="/images/flow-thumb-1517.jpg")
 
-      a(href="/gr-final-budget-tree.html")
-        h3 Detailed Breakdown
-        p Drill down into detailed spending and revenue data for each department.
+  .row
+    p.
+    .col-sm-4.left-col
+      h3 Detailed Breakdown
+      p.lead Drill down into detailed spending and revenue data for each department and fund for a single year.
+
+      a.btn.btn-info( href="/final-budget-tree.html" ) Launch App
+      p.
+
+    .col-md-8
+      a(href="/final-budget-tree.html")
         img.img-responsive.thumbnail(src="/images/tree.jpg")

@@ -1,0 +1,75 @@
+budget_year,department,division,org_code,org_description,fund_code,fund_description,account_type,account_category,account_code,account_description,amount
+FY17,Comptroller,Comptroller,1000 - Administration,Administration,1010,General Fund Operating,REVENUE,Other Revenues,6761,Reimbursements,40
+FY17,Comptroller,Comptroller,1000 - Administration,Administration,1010,General Fund Operating,REVENUE,Other Revenues,6901,Miscellaneous Other Revenue,30
+FY17,Comptroller,Comptroller,3000 - Accountants,Accountants,1010,General Fund Operating,REVENUE,Other Revenues,6761,Reimbursements,1500
+FY17,Comptroller,Comptroller,5000 - Payroll Office,Payroll Office,1010,General Fund Operating,REVENUE,Charges for Services,6260,Service Fees-General,350
+FY17,Comptroller,Comptroller,1000 - Administration,Administration,1010,General Fund Operating,EXPENSE,Personal Services,7020,Full Time Employees,225988
+FY17,Comptroller,Comptroller,1000 - Administration,Administration,1010,General Fund Operating,EXPENSE,Personal Services,7105,Employers FICA,17419
+FY17,Comptroller,Comptroller,1000 - Administration,Administration,1010,General Fund Operating,EXPENSE,Personal Services,7110,Hospitalization Insurance,36879
+FY17,Comptroller,Comptroller,1000 - Administration,Administration,1010,General Fund Operating,EXPENSE,Personal Services,7115,Retiree Health Care-OPEB,27503
+FY17,Comptroller,Comptroller,1000 - Administration,Administration,1010,General Fund Operating,EXPENSE,Personal Services,7120,Retirement Fund Contribution,53627
+FY17,Comptroller,Comptroller,1000 - Administration,Administration,1010,General Fund Operating,EXPENSE,Personal Services,7135,Unemployment Compensation,316
+FY17,Comptroller,Comptroller,1000 - Administration,Administration,1010,General Fund Operating,EXPENSE,Supplies,7520,Supplies,27775
+FY17,Comptroller,Comptroller,1000 - Administration,Administration,1010,General Fund Operating,EXPENSE,Supplies,7910,Subscriptions and Publications,750
+FY17,Comptroller,Comptroller,1000 - Administration,Administration,1010,General Fund Operating,EXPENSE,Other Services and Charges,8010,Contractual Services,25000
+FY17,Comptroller,Comptroller,1000 - Administration,Administration,1010,General Fund Operating,EXPENSE,Other Services and Charges,8240,Fees,875
+FY17,Comptroller,Comptroller,1000 - Administration,Administration,1010,General Fund Operating,EXPENSE,Other Services and Charges,8450,Claims,16395
+FY17,Comptroller,Comptroller,1000 - Administration,Administration,1010,General Fund Operating,EXPENSE,Other Services and Charges,8500,Telephone,1200
+FY17,Comptroller,Comptroller,1000 - Administration,Administration,1010,General Fund Operating,EXPENSE,Other Services and Charges,8505,Employee Phone Reimbursement,-120
+FY17,Comptroller,Comptroller,1000 - Administration,Administration,1010,General Fund Operating,EXPENSE,Other Services and Charges,8510,Postage,10000
+FY17,Comptroller,Comptroller,1000 - Administration,Administration,1010,General Fund Operating,EXPENSE,Other Services and Charges,9100,Professional Development,7500
+FY17,Comptroller,Comptroller,1000 - Administration,Administration,1010,General Fund Operating,EXPENSE,Other Services and Charges,9110,Other Travel & Training,1000
+FY17,Comptroller,Comptroller,1000 - Administration,Administration,1010,General Fund Operating,EXPENSE,Other Services and Charges,9130,Local Business Expense,110
+FY17,Comptroller,Comptroller,1000 - Administration,Administration,1010,General Fund Operating,EXPENSE,Other Services and Charges,9150,Memberships,1500
+FY17,Comptroller,Comptroller,1000 - Administration,Administration,1010,General Fund Operating,EXPENSE,Other Services and Charges,9340,Maintenance Service,1000
+FY17,Comptroller,Comptroller,1000 - Administration,Administration,1010,General Fund Operating,EXPENSE,Other Services and Charges,9410,Equipment Rentals or Lease,1578
+FY17,Comptroller,Comptroller,1000 - Administration,Administration,1010,General Fund Operating,EXPENSE,Other Services and Charges,9430,Buildings Rentals or Lease-Facility Mgmt,92905
+FY17,Comptroller,Comptroller,1000 - Administration,Administration,1010,General Fund Operating,EXPENSE,Other Services and Charges,9450,311 Call Center Services,987
+FY17,Comptroller,Comptroller,1000 - Administration,Administration,1010,General Fund Operating,EXPENSE,Other Services and Charges,9470,Employee Parking,7074
+FY17,Comptroller,Comptroller,1000 - Administration,Administration,1010,General Fund Operating,EXPENSE,Other Services and Charges,9480,Computer Services-from IT,704628
+FY17,Comptroller,Comptroller,2000 - Internal Audit,Internal Audit,1010,General Fund Operating,EXPENSE,Personal Services,7020,Full Time Employees,80649
+FY17,Comptroller,Comptroller,2000 - Internal Audit,Internal Audit,1010,General Fund Operating,EXPENSE,Personal Services,7105,Employers FICA,6231
+FY17,Comptroller,Comptroller,2000 - Internal Audit,Internal Audit,1010,General Fund Operating,EXPENSE,Personal Services,7110,Hospitalization Insurance,12293
+FY17,Comptroller,Comptroller,2000 - Internal Audit,Internal Audit,1010,General Fund Operating,EXPENSE,Personal Services,7115,Retiree Health Care-OPEB,9815
+FY17,Comptroller,Comptroller,2000 - Internal Audit,Internal Audit,1010,General Fund Operating,EXPENSE,Personal Services,7120,Retirement Fund Contribution,19138
+FY17,Comptroller,Comptroller,2000 - Internal Audit,Internal Audit,1010,General Fund Operating,EXPENSE,Personal Services,7135,Unemployment Compensation,113
+FY17,Comptroller,Comptroller,2000 - Internal Audit,Internal Audit,1010,General Fund Operating,EXPENSE,Other Services and Charges,8010,Contractual Services,10000
+FY17,Comptroller,Comptroller,2000 - Internal Audit,Internal Audit,1010,General Fund Operating,EXPENSE,Other Services and Charges,9100,Professional Development,500
+FY17,Comptroller,Comptroller,2000 - Internal Audit,Internal Audit,1010,General Fund Operating,EXPENSE,Other Services and Charges,9150,Memberships,400
+FY17,Comptroller,Comptroller,2000 - Internal Audit,Internal Audit,1010,General Fund Operating,EXPENSE,Other Services and Charges,9470,Employee Parking,1908
+FY17,Comptroller,Comptroller,3000 - Accountants,Accountants,1010,General Fund Operating,EXPENSE,Personal Services,7020,Full Time Employees,571473
+FY17,Comptroller,Comptroller,3000 - Accountants,Accountants,1010,General Fund Operating,EXPENSE,Personal Services,7105,Employers FICA,44155
+FY17,Comptroller,Comptroller,3000 - Accountants,Accountants,1010,General Fund Operating,EXPENSE,Personal Services,7110,Hospitalization Insurance,98345
+FY17,Comptroller,Comptroller,3000 - Accountants,Accountants,1010,General Fund Operating,EXPENSE,Personal Services,7115,Retiree Health Care-OPEB,69548
+FY17,Comptroller,Comptroller,3000 - Accountants,Accountants,1010,General Fund Operating,EXPENSE,Personal Services,7120,Retirement Fund Contribution,135610
+FY17,Comptroller,Comptroller,3000 - Accountants,Accountants,1010,General Fund Operating,EXPENSE,Personal Services,7135,Unemployment Compensation,800
+FY17,Comptroller,Comptroller,3000 - Accountants,Accountants,1010,General Fund Operating,EXPENSE,Supplies,7910,Subscriptions and Publications,600
+FY17,Comptroller,Comptroller,3000 - Accountants,Accountants,1010,General Fund Operating,EXPENSE,Other Services and Charges,9100,Professional Development,7500
+FY17,Comptroller,Comptroller,3000 - Accountants,Accountants,1010,General Fund Operating,EXPENSE,Other Services and Charges,9110,Other Travel & Training,4000
+FY17,Comptroller,Comptroller,3000 - Accountants,Accountants,1010,General Fund Operating,EXPENSE,Other Services and Charges,9150,Memberships,550
+FY17,Comptroller,Comptroller,3000 - Accountants,Accountants,1010,General Fund Operating,EXPENSE,Other Services and Charges,9470,Employee Parking,11232
+FY17,Comptroller,Comptroller,4000 - Accounts Payable,Accounts Payable,1010,General Fund Operating,EXPENSE,Personal Services,7020,Full Time Employees,166932
+FY17,Comptroller,Comptroller,4000 - Accounts Payable,Accounts Payable,1010,General Fund Operating,EXPENSE,Personal Services,7105,Employers FICA,12898
+FY17,Comptroller,Comptroller,4000 - Accounts Payable,Accounts Payable,1010,General Fund Operating,EXPENSE,Personal Services,7110,Hospitalization Insurance,36879
+FY17,Comptroller,Comptroller,4000 - Accounts Payable,Accounts Payable,1010,General Fund Operating,EXPENSE,Personal Services,7115,Retiree Health Care-OPEB,20316
+FY17,Comptroller,Comptroller,4000 - Accounts Payable,Accounts Payable,1010,General Fund Operating,EXPENSE,Personal Services,7120,Retirement Fund Contribution,39613
+FY17,Comptroller,Comptroller,4000 - Accounts Payable,Accounts Payable,1010,General Fund Operating,EXPENSE,Personal Services,7135,Unemployment Compensation,234
+FY17,Comptroller,Comptroller,4000 - Accounts Payable,Accounts Payable,1010,General Fund Operating,EXPENSE,Supplies,7520,Supplies,6000
+FY17,Comptroller,Comptroller,4000 - Accounts Payable,Accounts Payable,1010,General Fund Operating,EXPENSE,Other Services and Charges,8010,Contractual Services,700
+FY17,Comptroller,Comptroller,4000 - Accounts Payable,Accounts Payable,1010,General Fund Operating,EXPENSE,Other Services and Charges,8240,Fees,50
+FY17,Comptroller,Comptroller,4000 - Accounts Payable,Accounts Payable,1010,General Fund Operating,EXPENSE,Other Services and Charges,9100,Professional Development,2500
+FY17,Comptroller,Comptroller,4000 - Accounts Payable,Accounts Payable,1010,General Fund Operating,EXPENSE,Other Services and Charges,9150,Memberships,250
+FY17,Comptroller,Comptroller,4000 - Accounts Payable,Accounts Payable,1010,General Fund Operating,EXPENSE,Other Services and Charges,9340,Maintenance Service,3100
+FY17,Comptroller,Comptroller,4000 - Accounts Payable,Accounts Payable,1010,General Fund Operating,EXPENSE,Other Services and Charges,9470,Employee Parking,3036
+FY17,Comptroller,Comptroller,5000 - Payroll Office,Payroll Office,1010,General Fund Operating,EXPENSE,Personal Services,7020,Full Time Employees,166509
+FY17,Comptroller,Comptroller,5000 - Payroll Office,Payroll Office,1010,General Fund Operating,EXPENSE,Personal Services,7105,Employers FICA,12865
+FY17,Comptroller,Comptroller,5000 - Payroll Office,Payroll Office,1010,General Fund Operating,EXPENSE,Personal Services,7110,Hospitalization Insurance,24586
+FY17,Comptroller,Comptroller,5000 - Payroll Office,Payroll Office,1010,General Fund Operating,EXPENSE,Personal Services,7115,Retiree Health Care-OPEB,20264
+FY17,Comptroller,Comptroller,5000 - Payroll Office,Payroll Office,1010,General Fund Operating,EXPENSE,Personal Services,7120,Retirement Fund Contribution,39513
+FY17,Comptroller,Comptroller,5000 - Payroll Office,Payroll Office,1010,General Fund Operating,EXPENSE,Personal Services,7135,Unemployment Compensation,233
+FY17,Comptroller,Comptroller,5000 - Payroll Office,Payroll Office,1010,General Fund Operating,EXPENSE,Supplies,7520,Supplies,750
+FY17,Comptroller,Comptroller,5000 - Payroll Office,Payroll Office,1010,General Fund Operating,EXPENSE,Other Services and Charges,8010,Contractual Services,5000
+FY17,Comptroller,Comptroller,5000 - Payroll Office,Payroll Office,1010,General Fund Operating,EXPENSE,Other Services and Charges,8510,Postage,100
+FY17,Comptroller,Comptroller,5000 - Payroll Office,Payroll Office,1010,General Fund Operating,EXPENSE,Other Services and Charges,9100,Professional Development,4000
+FY17,Comptroller,Comptroller,5000 - Payroll Office,Payroll Office,1010,General Fund Operating,EXPENSE,Other Services and Charges,9150,Memberships,400
+FY17,Comptroller,Comptroller,5000 - Payroll Office,Payroll Office,1010,General Fund Operating,EXPENSE,Other Services and Charges,9470,Employee Parking,3816
