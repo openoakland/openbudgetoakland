@@ -8,12 +8,12 @@
 	"grouping_headers": ["Account Type", "Fiscal Year"],
 	"groups": [
 		{
-			"values": ["Revenue", "FY20"],
+			"values": ["Revenue", "FY19"],
 			"hierarchy":["Fund Description", "Account Category", "Account Description"],
-			"filename": "Revenue.PrelimFY20.json"
+			"filename": "Revenue.FY19.json"
 		},
 		{
-			"values": ["Expense", "FY20"],
+			"values": ["Expense", "FY19"],
 			"hierarchy":[
 				"Fund Description",
 				"Department",
@@ -21,7 +21,7 @@
 				"Account Category",
 				"Account Description"
 			],
-			"filename": "Expense.PrelimFY20.json"
+			"filename": "Expense.FY19.json"
 		}
 	]
 }

@@ -3,67 +3,43 @@ section.jumbotron.homesplash
     h1.main-header.homesplash__head The City of Grand Rapids Budget
     .row
       .col-sm-12
-        p.lead.homesplash__text #[a(href="https://citizenlabs.org/") Citizen Labs] used data from the city's open data portal to visualize where the money comes from and how it's spent.
+        p.lead.homesplash__text #[a(href="https://citizenlabs.org/") Citizen Labs] uses data from the city's open data portal to visualize where the money comes from and how it's spent.
 
 section.container
   .row
     .col-sm-4.left-col
-      p.lead Open Budget: The City of Grand Rapids visualizes the city's current and past budget data into accessible charts for the public. Data is published by the city. See previous budgets for the Grand Rapids.
+      p.lead Open Budget: The City of Grand Rapids visualizes the city's current and past budget data into accessible charts for the public. Data is published by the city. See #[a(href="budget-visuals") previous budgets] for Grand Rapids.
 
       .well
         h3.blurb__title 2020 Preliminary Budget
-        p The city is currently reviewing a preliminary budget for FY2020. Public hearings will be taking place soon.
+        img.img-responsive(src="/images/flow.jpg")
+        p
+        p The City of Grand Rapids is currently reviewing a preliminary budget for FY2020.
+        p View the #[a(href="2020_prelim") Preliminary FY2020 Budget.]
+        p Upcoming Schedule:
+        ul.disc
+          li
+            | May 7: Budget Review
+          li
+            | May 14: Public Hearing
+          li
+            | May 21: City Commission Adoption
+          li
+            | May 23: If Needed
 
 
     .col-md-8
+      a(href="/budget-process.html")
+        h3 How The Budget Is Created
+        p July 1 of every year marks the beginning of a new Fiscal Year for the City of Grand Rapids. Learn about the steps taken prior to approval and how spending priorities are made.
+        img.img-responsive.thumbnail(src="/images/thumbnail-timeline.jpg")
+
       a(href="/2019-final-budget-flow.html")
         h3 FY2019 Cash Flow
         p Understand the big picture: where money comes from, and where it goes.
-        img.img-responsive.thumbnail(src="/images/flow_wyoming.png")
+        img.img-responsive.thumbnail(src="/images/flow.jpg")
 
       a(href="/final-budget-tree.html")
         h3 FY2019 Detailed Breakdown
         p Drill down into detailed spending and revenue data for each department.
-        img.img-responsive.thumbnail(src="/images/tree.jpg")
-
-
-
-
-section.container
-  .row
-    .col-sm-4.left-col
-      h3 How The Budget Is Created
-      p.lead July 1 of every year marks the beginning of a new Fiscal Year for the City of Grand Rapids. Learn about the steps taken prior to approval and how spending priorities are made.
-
-      a.btn.btn-info( href="/budget-process.html" ) Launch App
-      p.
-
-    .col-md-8
-      a(href="/budget-process.html")
-        img.img-responsive.thumbnail(src="/images/thumbnail-timeline.jpg")
-
-  .row
-    p.
-    .col-sm-4.left-col
-      h3 Cash Flow Overview
-      p.lead Understand the big picture: where money comes from and where it goes.
-
-      a.btn.btn-info( href="/final-budget-flow.html" ) Launch App
-      p.
-
-    .col-md-8
-      a(href="/final-budget-flow.html")
-        img.img-responsive.thumbnail(src="/images/flow-thumb-1517.jpg")
-
-  .row
-    p.
-    .col-sm-4.left-col
-      h3 Detailed Breakdown
-      p.lead Drill down into detailed spending and revenue data for each department and fund for a single year.
-
-      a.btn.btn-info( href="/final-budget-tree.html" ) Launch App
-      p.
-
-    .col-md-8
-      a(href="/final-budget-tree.html")
         img.img-responsive.thumbnail(src="/images/tree.jpg")

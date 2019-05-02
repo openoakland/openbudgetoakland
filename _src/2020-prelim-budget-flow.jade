@@ -1,0 +1,18 @@
+extends templates/flow-template.jade
+
+block title
+  h2 Cash Flow: 2020 Preliminary Budget
+
+block datasource
+  h6
+    | Data source:&nbsp;
+    a(href = "https://data.world/citizenlabs/grand-rapids-budget") City of Grand Rapids | Citizen Labs Data Collaborative
+
+block get_datafiles
+  script(type="text/javascript").
+    var datafiles = [
+      {filename: "FY20__prelim.csv"},
+      {filename: "FY19__final.csv"},
+      {filename: "FY18__final.csv"},
+      {filename: "FY17__final.csv"}
+    ];

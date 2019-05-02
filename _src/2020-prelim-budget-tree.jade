@@ -1,0 +1,28 @@
+extends templates/tree-template.jade
+
+block title
+  h1 Detailed Breakdown: FY2020 Preliminary Budget
+
+block datasource
+  h6
+    | Data source:&nbsp;
+    a(href = "https://data.world/citizenlabs/grand-rapids-budget") City of Grand Rapids | Citizen Labs Data Collaborative
+
+block datafiles
+  script.
+    var config = {
+      /* set values available in dropdown files */
+      dropdown_values: {
+        "Year": ["FY20"],
+        "Account": ["Revenue", "Expense"]
+      },
+      /* set the default values */
+      dropdown_choice: {
+        "Year": "FY20",
+        "Account": "Expense"
+      },
+      /* create the url to the data file based on the dropdown choices */
+      url: function() {
+        return 'data/tree/Prelim.' + this.dropdown_choice["Account"] + "." + this.dropdown_choice["Year"] + ".json";
+      }
+    };

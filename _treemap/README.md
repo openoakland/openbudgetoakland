@@ -9,6 +9,19 @@ To create the treemap data files perform the following steps:
 
 1. Save the budget in a commma-seperated-value (CSV) format.
 	> File > Save As... > budget.csv
+2. Rename/remove column headers
+	> Budget type > Rename... > Fiscal Year
+	> DEPARTMENT_NAME > Rename... > Department
+	> DIVISION_NAME > Rename... > Division
+	> ORG_NAME
+	> ORG_DESC
+	> FUND
+	> FUND_NAME > Rename... > Fund Description
+	> ACCT_TYPE > Rename... > Account Type
+	> ACCT_CAT > Rename... > Account Category
+	> ACCT_CODE
+	> ACCT_DESCR > Rename... > Account Description
+	> AMOUNT > Rename... > Amount
 2. Create or edit a configuration file.
 	> To view an existing configuration file, open the _src/_treemap/config.json
 
