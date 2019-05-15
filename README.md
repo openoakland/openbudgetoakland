@@ -17,7 +17,7 @@ Some of the other Issues are larger and require some deeper design or architectu
 1. Start the Harp server by running ```harp server```
 1. In a new terminal window, navigate to the _src/ again and run ```yarn install``` followed by ```yarn run watch```
 
-Open Budget Oakland's website should now be running at http://localhost:9000
+Your local copy of Open Budget Oakland's website should now be running at http://localhost:9000.
 
 ### Harp
 
