@@ -11,8 +11,13 @@ Some of the other Issues are larger and require some deeper design or architectu
 ### Quick-start Guide (in progress)
 
 1. Sign into GitHub and fork this repo
-1. Clone your fork onto your machine
-1. etc.
+1. Clone the fork onto your machine and navigate to the _src/ folder
+1. Install yarn (e.g., run ```brew update``` plus ```brew install yarn --ignore-dependencies``` on a Mac)
+1. Install Harp globally (e.g., run ```yarn global add harp``` on a Mac)
+1. Start the Harp server by running ```harp server```
+1. In a new terminal window, navigate to the _src/ again and run ```yarn install``` followed by ```yarn run watch```
+
+Open Budget Oakland's website should now be running at http://localhost:9000
 
 ### Harp
 
