@@ -8,6 +8,12 @@ Some of the other Issues are larger and require some deeper design or architectu
 
 ## Developing Locally
 
+### Quick-start Guide (in progress)
+
+1. Sign into GitHub and fork this repo
+1. Clone your fork onto your machine
+1. etc.
+
 ### Harp
 
 This site is built on Harp using Node.js. That means you can run it locally with minimal setup!
