@@ -8,7 +8,7 @@ Some of the other Issues are larger and require some deeper design or architectu
 
 ## Developing Locally
 
-### Quick-start Guide (in progress)
+### Quick Start Guide
 
 1. Sign into GitHub and fork this repo
 1. Clone the fork onto your machine and navigate to the _src/ folder
