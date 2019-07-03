@@ -30,10 +30,12 @@ export default class Total extends React.Component {
       }),
     };
 
+    // display the compared budget on the bottom
+    data.datasets.reverse();
+
     return <div>
       <h2>Total Change:
-        <DiffStyled diff={diff} colors={this.props.diffColors} usePct={this.props.usePct}>
-        </DiffStyled>
+        <DiffStyled diff={diff} colors={this.props.diffColors} usePct={this.props.usePct} />
       </h2>
       <HorizontalBar data={data} height={25} options={compareChartOptions}></HorizontalBar>
     </div>

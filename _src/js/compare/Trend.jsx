@@ -62,6 +62,9 @@ export default class Trend extends React.Component {
     });
     const data = {labels, datasets};
 
+    // display the compared budget on the right
+    data.datasets.reverse();
+
     return <Bar data={data} options={chartOpts} height={125}></Bar>
 
   }

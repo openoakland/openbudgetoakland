@@ -74,6 +74,9 @@ export default class DiffTable extends React.Component {
         ]
       };
 
+      // display the compared budget on the bottom
+      data.datasets.reverse();
+
       return <tr key={entry.key}>
         <td>
           <h4>
