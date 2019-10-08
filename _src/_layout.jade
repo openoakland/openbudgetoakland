@@ -59,8 +59,15 @@ html
                 li
                   a(href='/budget-visuals.html') Visualizations
 
-                li
-                  a(href='http://data.openoakland.org/dataset/city-oakland-budget', target='_blank') Data
+                li.dropdown
+                  a.dropdown-toggle(href='#', data-toggle='dropdown')
+                    | Data
+                    b.caret
+                  ul.dropdown-menu
+                    li
+                      a(href='https://github.com/openoakland/openbudgetoakland/wiki/API-Documentation') Open Budget Oakland API
+                    li
+                      a(href='http://data.openoakland.org/dataset/city-oakland-budget') Legacy Datasets
 
                 li.dropdown
                   a.dropdown-toggle(href='#', data-toggle='dropdown')
