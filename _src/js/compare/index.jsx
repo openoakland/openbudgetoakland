@@ -34,13 +34,13 @@ function getBudgetDefaults (budgets) {
   let index1 = 0;
   let index2 = 1;
   // 17-18 proposed, if we have it
+  // 19-20 proposed, if we have it
   const currI = budgets.findIndex(record => {
-    return record.label === 'FY17-18 Proposed';
+    return record.label === "FY19-20 Proposed";
   });
-  // 16-17 adjusted, if we have it
+  // 18-19 proposed, if we have it
   const prevI = budgets.findIndex(record => {
-    return record.label === 'FY16-17 Adjusted';
-  });
+    return record.label === "FY18-19 Proposed";
   // if we have both, use their indexes instead
   if (currI > -1 && prevI > -1) {
     index1 = currI;
