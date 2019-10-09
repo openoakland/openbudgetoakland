@@ -30,10 +30,6 @@ function getBudgetDefaults(budgets) {
   // or proposed to previous adopted, etc
   let index1 = 0;
   let index2 = 1;
-<<<<<<< HEAD
-=======
-  // 17-18 proposed, if we have it
->>>>>>> def956fb1c0d90b8854fc5ab5b58dc74913ee954
   // 19-20 proposed, if we have it
   const currI = budgets.findIndex(record => {
     return record.label === "FY19-20 Proposed";
@@ -41,10 +37,7 @@ function getBudgetDefaults(budgets) {
   // 18-19 proposed, if we have it
   const prevI = budgets.findIndex(record => {
     return record.label === "FY18-19 Proposed";
-<<<<<<< HEAD
   });
-=======
->>>>>>> def956fb1c0d90b8854fc5ab5b58dc74913ee954
   // if we have both, use their indexes instead
   if (currI > -1 && prevI > -1) {
     index1 = currI;
