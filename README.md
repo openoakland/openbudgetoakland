@@ -93,17 +93,6 @@ This project is coded with:
 ## Publishing Changes
 Make changes on your personal fork or branch. If you have repo access, and your changes are ready for review, you can merge them into the development branch and publish to the staging site for review. You can also publish changes to your own server and merge to development afterwards.
 
-### Publishing to Staging
-If you have access to the openoakland repo, you can easily publish a preview of your changes to [staging.openbudgetoakland.org](http://staging.openbudgetoakland.org) with the script below.
-
-Make sure you have initialized the git submodule in `/_staging` before doing this, or you'll wind up inadvertently committing your changes to your current branch instead of the openbudgetoakland-staging repo! (Run `git submodule init` and `git submodule update` if you're not sure ... it should either initialize it or yell at you, so you'll know what the status is either way. The submodule needs to be initialized and updated or the script will fail and print an error.)
-
-```
-# Run shell script to publish changes from your current branch to the staging site
-cd ../  # assuming you are in _src/
-bash _publish-preview.sh
-```
-
 ### Publishing to Production
 
 Even though Harp runs locally, static files need to be compiled for the live site (hosted on Github pages).
