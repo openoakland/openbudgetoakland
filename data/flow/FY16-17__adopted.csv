@@ -1,0 +1,243 @@
+account_category,account_type,amount,budget_year,department,fund_code
+Utility Consumption Tax,Revenue,50000000,FY16-17,,1010
+Transient Occupancy Tax,Revenue,4907317,FY16-17,,999999
+Transient Occupancy Tax,Revenue,17556000,FY16-17,,1010
+Transfers from Fund Balance,Revenue,14826566,FY16-17,,999999
+Transfers from Fund Balance,Revenue,12623820,FY16-17,,1010
+Service Charges,Revenue,123470725,FY16-17,,999999
+Service Charges,Revenue,48090899,FY16-17,,1010
+Sales Tax,Revenue,25138264,FY16-17,,999999
+Sales Tax,Revenue,54433806,FY16-17,,1010
+Real Estate Transfer Tax,Revenue,63182900,FY16-17,,1010
+Property Tax,Revenue,4937698,FY16-17,,999999
+Property Tax,Revenue,172469311,FY16-17,,1010
+Parking Tax,Revenue,8918272,FY16-17,,999999
+Parking Tax,Revenue,10492084,FY16-17,,1010
+Miscellaneous,Revenue,37513713,FY16-17,,999999
+Miscellaneous,Revenue,749320,FY16-17,,1010
+Local Tax,Revenue,149632568,FY16-17,,999999
+Licenses & Permits,Revenue,15426390,FY16-17,,999999
+Licenses & Permits,Revenue,2335747,FY16-17,,1010
+Internal Service Funds,Revenue,65475965,FY16-17,,999999
+Interfund Transfers,Revenue,131408327,FY16-17,,999999
+Interfund Transfers,Revenue,2206667,FY16-17,,1010
+Interest Income,Revenue,303530,FY16-17,,999999
+Interest Income,Revenue,740482,FY16-17,,1010
+Grants & Subsidies,Revenue,57682986,FY16-17,,999999
+Grants & Subsidies,Revenue,119435,FY16-17,,1010
+Gasoline Tax,Revenue,7060938,FY16-17,,999999
+Fines & Penalties,Revenue,4745152,FY16-17,,999999
+Fines & Penalties,Revenue,23967499,FY16-17,,1010
+Business License Tax,Revenue,71721300,FY16-17,,1010
+,Expense,2567901,FY16-17,Mayor,1010
+,Expense,4491097,FY16-17,City Council,1010
+,Expense,15267590,FY16-17,City Administrator,1010
+,Expense,5378125,FY16-17,City Attorney,1010
+,Expense,1826542,FY16-17,City Auditor,1010
+,Expense,1860152,FY16-17,City Clerk,1010
+,Expense,870223,FY16-17,Public Ethics Commission,1010
+,Expense,21887977,FY16-17,Finance,1010
+,Expense,4597188,FY16-17,Human Resources Management,1010
+,Expense,10355651,FY16-17,Information Technology,1010
+,Expense,312566,FY16-17,Race & Equity,1010
+,Expense,218529408,FY16-17,Police,1010
+,Expense,128688435,FY16-17,Fire,1010
+,Expense,5978003,FY16-17,Human Services,1010
+,Expense,15547529,FY16-17,Oakland Parks & Recreation,1010
+,Expense,11746848,FY16-17,Oakland Public Library,1010
+,Expense,4814541,FY16-17,Economic & Workforce Development,1010
+,Expense,41648,FY16-17,Planning & Building,1010
+,Expense,2897432,FY16-17,Oakland Public Works,1010
+,Expense,72798414,FY16-17,Non-Departmental,1010
+,Expense,252000,FY16-17,Capital Improvement Projects,1010
+,Expense,400786,FY16-17,Non-Departmental,1020
+,Expense,5068835,FY16-17,City Attorney,1100
+,Expense,5798011,FY16-17,Police,1100
+,Expense,936010,FY16-17,Fire,1100
+,Expense,414922,FY16-17,Oakland Parks & Recreation,1100
+,Expense,4845746,FY16-17,Oakland Public Works,1100
+,Expense,8245821,FY16-17,Non-Departmental,1100
+,Expense,492136,FY16-17,City Attorney,1150
+,Expense,31367,FY16-17,Finance,1150
+,Expense,1671835,FY16-17,Human Resources Management,1150
+,Expense,366766,FY16-17,Police,1150
+,Expense,29409,FY16-17,Fire,1150
+,Expense,272940,FY16-17,Oakland Public Works,1150
+,Expense,-2864453,FY16-17,Non-Departmental,1150
+,Expense,73974413,FY16-17,Non-Departmental,1200
+,Expense,753105,FY16-17,City Administrator,1610
+,Expense,1040402,FY16-17,City Attorney,1610
+,Expense,67965,FY16-17,City Clerk,1610
+,Expense,854415,FY16-17,Finance,1610
+,Expense,49369,FY16-17,Human Resources Management,1610
+,Expense,2852015,FY16-17,Economic & Workforce Development,1610
+,Expense,1587494,FY16-17,Housing & Community Development,1610
+,Expense,2074695,FY16-17,Finance,1700
+,Expense,336217,FY16-17,City Attorney,1710
+,Expense,50230,FY16-17,Fire,1710
+,Expense,258144,FY16-17,Economic & Workforce Development,1710
+,Expense,3722609,FY16-17,Oakland Public Works,1710
+,Expense,94699,FY16-17,Fire,1720
+,Expense,60000,FY16-17,Human Services,1720
+,Expense,15640,FY16-17,Economic & Workforce Development,1720
+,Expense,260866,FY16-17,Planning & Building,1720
+,Expense,21867200,FY16-17,Oakland Public Works,1720
+,Expense,52938,FY16-17,City Administrator,1750
+,Expense,2609119,FY16-17,Finance,1750
+,Expense,398350,FY16-17,Economic & Workforce Development,1750
+,Expense,1946959,FY16-17,Oakland Public Works,1750
+,Expense,2000000,FY16-17,Non-Departmental,1750
+,Expense,1534458,FY16-17,City Clerk,1760
+,Expense,40707,FY16-17,Finance,1760
+,Expense,142997,FY16-17,Information Technology,1760
+,Expense,50000,FY16-17,City Administrator,1770
+,Expense,673042,FY16-17,Economic & Workforce Development,1770
+,Expense,14471923,FY16-17,Human Services,1780
+,Expense,6795532,FY16-17,Oakland Parks & Recreation,1820
+,Expense,12513,FY16-17,Economic & Workforce Development,1820
+,Expense,4650000,FY16-17,Housing & Community Development,1870
+,Expense,1248851,FY16-17,Human Services,2102
+,Expense,5966711,FY16-17,Human Services,2103
+,Expense,2119000,FY16-17,Housing & Community Development,2107
+,Expense,50510,FY16-17,City Attorney,2108
+,Expense,181108,FY16-17,Finance,2108
+,Expense,1018782,FY16-17,Human Services,2108
+,Expense,313604,FY16-17,Economic & Workforce Development,2108
+,Expense,6596431,FY16-17,Housing & Community Development,2108
+,Expense,2061879,FY16-17,Housing & Community Development,2109
+,Expense,79116,FY16-17,Police,2113
+,Expense,1908637,FY16-17,Human Services,2114
+,Expense,399986,FY16-17,Human Services,2120
+,Expense,944958,FY16-17,Fire,2124
+,Expense,25748213,FY16-17,Human Services,2128
+,Expense,-125000,FY16-17,Economic & Workforce Development,2129
+,Expense,125000,FY16-17,Oakland Public Works,2129
+,Expense,945921,FY16-17,Human Services,2138
+,Expense,64042,FY16-17,Oakland Public Library,2148
+,Expense,13215,FY16-17,Human Services,2152
+,Expense,114123,FY16-17,Police,2159
+,Expense,370677,FY16-17,Human Services,2159
+,Expense,150121,FY16-17,Economic & Workforce Development,2159
+,Expense,-108725,FY16-17,Housing & Community Development,2159
+,Expense,1019453,FY16-17,Fire,2160
+,Expense,446013,FY16-17,Human Services,2160
+,Expense,72719,FY16-17,Oakland Public Library,2163
+,Expense,413477,FY16-17,Police,2172
+,Expense,25000,FY16-17,Fire,2190
+,Expense,81683,FY16-17,Finance,2195
+,Expense,180478,FY16-17,Human Services,2195
+,Expense,4637031,FY16-17,Economic & Workforce Development,2195
+,Expense,30405,FY16-17,City Attorney,2211
+,Expense,39527,FY16-17,Finance,2211
+,Expense,3124133,FY16-17,Oakland Public Works,2211
+,Expense,7249855,FY16-17,Capital Improvement Projects,2211
+,Expense,525589,FY16-17,Oakland Public Works,2212
+,Expense,798922,FY16-17,Capital Improvement Projects,2212
+,Expense,1243514,FY16-17,Human Services,2213
+,Expense,2109322,FY16-17,Oakland Public Works,2215
+,Expense,213372,FY16-17,Mayor,2216
+,Expense,1154158,FY16-17,Human Services,2216
+,Expense,5588988,FY16-17,Oakland Public Works,2216
+,Expense,5484066,FY16-17,Capital Improvement Projects,2216
+,Expense,7072038,FY16-17,Oakland Public Works,2230
+,Expense,150000,FY16-17,Capital Improvement Projects,2230
+,Expense,1582985,FY16-17,Oakland Public Works,2231
+,Expense,17657,FY16-17,City Administrator,2241
+,Expense,247446,FY16-17,Information Technology,2241
+,Expense,17428885,FY16-17,Oakland Public Library,2241
+,Expense,754121,FY16-17,Oakland Public Library,2242
+,Expense,9492,FY16-17,City Administrator,2250
+,Expense,1647874,FY16-17,Fire,2250
+,Expense,84506,FY16-17,Mayor,2252
+,Expense,675329,FY16-17,City Administrator,2252
+,Expense,23320,FY16-17,Finance,2252
+,Expense,13470983,FY16-17,Police,2252
+,Expense,2000000,FY16-17,Fire,2252
+,Expense,8953737,FY16-17,Human Services,2252
+,Expense,25973,FY16-17,City Administrator,2310
+,Expense,27876,FY16-17,Finance,2310
+,Expense,2625719,FY16-17,Oakland Parks & Recreation,2310
+,Expense,-763,FY16-17,Economic & Workforce Development,2310
+,Expense,15544496,FY16-17,Oakland Public Works,2310
+,Expense,1700899,FY16-17,Non-Departmental,2310
+,Expense,15000,FY16-17,Capital Improvement Projects,2310
+,Expense,1393582,FY16-17,Fire,2321
+,Expense,3200,FY16-17,Fire,2330
+,Expense,234847,FY16-17,Information Technology,2411
+,Expense,1379281,FY16-17,Police,2411
+,Expense,9453,FY16-17,City Administrator,2412
+,Expense,2370917,FY16-17,Fire,2412
+,Expense,530615,FY16-17,City Attorney,2413
+,Expense,452884,FY16-17,Finance,2413
+,Expense,1773209,FY16-17,Housing & Community Development,2413
+,Expense,316571,FY16-17,City Administrator,2415
+,Expense,1110384,FY16-17,City Attorney,2415
+,Expense,128095,FY16-17,Finance,2415
+,Expense,215777,FY16-17,Information Technology,2415
+,Expense,1722,FY16-17,Housing & Community Development,2415
+,Expense,26694031,FY16-17,Planning & Building,2415
+,Expense,5398060,FY16-17,Oakland Public Works,2415
+,Expense,200000,FY16-17,Capital Improvement Projects,2415
+,Expense,2363927,FY16-17,Police,2416
+,Expense,562837,FY16-17,Oakland Public Works,2416
+,Expense,433163,FY16-17,City Administrator,2417
+,Expense,44765,FY16-17,Finance,2417
+,Expense,598500,FY16-17,Economic & Workforce Development,2419
+,Expense,4308817,FY16-17,Non-Departmental,2419
+,Expense,89492,FY16-17,Housing & Community Development,2826
+,Expense,280000,FY16-17,Oakland Public Works,2990
+,Expense,20000,FY16-17,Police,2995
+,Expense,16847,FY16-17,Oakland Parks & Recreation,2996
+,Expense,751784,FY16-17,City Attorney,3100
+,Expense,2332370,FY16-17,Finance,3100
+,Expense,231265,FY16-17,Information Technology,3100
+,Expense,290537,FY16-17,Fire,3100
+,Expense,32244370,FY16-17,Oakland Public Works,3100
+,Expense,8293480,FY16-17,Non-Departmental,3100
+,Expense,18001000,FY16-17,Capital Improvement Projects,3100
+,Expense,500000,FY16-17,Oakland Public Works,3150
+,Expense,651082,FY16-17,Oakland Parks & Recreation,3200
+,Expense,8450,FY16-17,Economic & Workforce Development,3200
+,Expense,5521,FY16-17,Human Resources Management,4100
+,Expense,23423655,FY16-17,Oakland Public Works,4100
+,Expense,43741,FY16-17,Finance,4200
+,Expense,7247160,FY16-17,Information Technology,4200
+,Expense,308530,FY16-17,Information Technology,4210
+,Expense,1320007,FY16-17,Information Technology,4300
+,Expense,28170132,FY16-17,Oakland Public Works,4400
+,Expense,2794000,FY16-17,Non-Departmental,4400
+,Expense,516419,FY16-17,Finance,4500
+,Expense,910229,FY16-17,Finance,4550
+,Expense,2500000,FY16-17,Information Technology,4600
+,Expense,3320,FY16-17,City Administrator,5130
+,Expense,131100,FY16-17,Finance,5130
+,Expense,350000,FY16-17,Economic & Workforce Development,5610
+,Expense,100000,FY16-17,Economic & Workforce Development,5650
+,Expense,560547,FY16-17,Economic & Workforce Development,5670
+,Expense,162215,FY16-17,City Administrator,5671
+,Expense,1674678,FY16-17,Economic & Workforce Development,5671
+,Expense,1700899,FY16-17,Non-Departmental,6013
+,Expense,8966222,FY16-17,Non-Departmental,6029
+,Expense,44595002,FY16-17,Non-Departmental,6032
+,Expense,17142673,FY16-17,Non-Departmental,6036
+,Expense,14736725,FY16-17,Non-Departmental,6064
+,Expense,6667977,FY16-17,Non-Departmental,6312
+,Expense,35619,FY16-17,Non-Departmental,6540
+,Expense,236169,FY16-17,Non-Departmental,6555
+,Expense,28000,FY16-17,Non-Departmental,6570
+,Expense,64259,FY16-17,Finance,6587
+,Expense,381121,FY16-17,Non-Departmental,6587
+,Expense,9065650,FY16-17,Non-Departmental,6612
+,Expense,21500000,FY16-17,Non-Departmental,6999
+,Expense,130423,FY16-17,City Attorney,7100
+,Expense,3065872,FY16-17,Finance,7100
+,Expense,62955,FY16-17,Finance,7120
+,Expense,246452,FY16-17,Human Resources Management,7130
+,Expense,8462481,FY16-17,Non-Departmental,7320
+,Expense,110879,FY16-17,Oakland Public Library,7540
+,Expense,32610,FY16-17,Non-Departmental,7640
+,Expense,25000,FY16-17,City Administrator,7760
+,Expense,135752,FY16-17,City Attorney,7760
+,Expense,156413,FY16-17,Information Technology,7760
+,Expense,-317165,FY16-17,Oakland Public Works,7760
+,Expense,69270,FY16-17,Oakland Parks & Recreation,7999
