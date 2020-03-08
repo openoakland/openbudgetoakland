@@ -1,0 +1,41 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Node.js CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: macos-10.15
+
+    strategy:
+      matrix:
+        # node-version: [8.x, 10.x, 12.x]
+        node-version: [10.x]
+
+    steps:
+    - name: Checkout  
+      uses: actions/checkout@v2
+      with:
+        persist-credentials: false
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Run Webpack
+      run: cd _src && rm -rf node_modules && npm install && npm update --dev && npm run build --if-present
+      env:
+        CI: true
+    - name: Build
+      run: bash _src/_compile.sh
+      env:
+        CI: true
+    - name: Deploy to gh-pages
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        ACCESS_TOKEN: ${{secrets.DEPLOY_OBO}}
+        # SSH: true
+        BRANCH: gh-pages
+        FOLDER: build
