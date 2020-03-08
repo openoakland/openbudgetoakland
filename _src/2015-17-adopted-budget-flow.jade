@@ -1,0 +1,21 @@
+extends templates/flow-template.jade
+
+block title
+  h2 Cash Flow: 2015-17 Adopted Budget
+
+block datasource
+  h6
+    | Data source:&nbsp;
+    a(href = "http://www2.oaklandnet.com/government/o/CityAdministration/d/BudgetOffice/OAK055628") FY 2015-17 Adopted Policy Budget (PDF)
+  h6 Data was sourced from "Revenue Tables" and "Expenditure Tables" in #[em Section E: Financial Summaries]. Funds other than the General Purpose Fund are grouped under the heading "Non-discretionary funds." Source data contains an apparent anomaly where itemized General Purpose Fund revenues for 2016-17 differ from expected total by $20K.
+
+block disqus_config
+  script(type="text/javascript").
+    var disqus_identifier = "2015-17-adopted-budget-flow";
+
+block get_datafiles
+  script(type="text/javascript").
+    var datafiles = [
+      {filename: "FY16-17__adopted.csv"}, 
+      {filename: "FY15-16__adopted.csv"}
+    ];

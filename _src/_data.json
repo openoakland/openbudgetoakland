@@ -1,0 +1,117 @@
+{
+  "globals": {
+    "title": "Open Budget: Oakland",
+    "uri": "http://openbudgetoakland.com"
+  },
+
+  "index": {
+    "title": "Open Budget: Oakland",
+    "slug": "home"
+  },
+
+  "what-we-do": {
+    "title": "What and How - Open Budget: Oakland"
+  },
+
+  "who-we-are": {
+    "title": "Who We Are - Open Budget: Oakland"
+  },
+
+  "news": {
+    "title": "News - Open Budget: Oakland"
+  },
+
+  "contact": {
+    "title": "Contact Us - Open Budget: Oakland"
+  },
+
+  "discuss": {
+    "title": "Discuss - Open Budget: Oakland"
+  },
+
+  "feedback": {
+    "title": "Feedback - Open Budget: Oakland"
+  },
+
+  "oakland-budget-101": {
+    "title": "Oakland Budget 101 - Open Budget: Oakland"
+  },
+
+  "tools-projects": {
+    "title": "Tools & Projects - Open Budget: Oakland"
+  },
+
+  "budget-visuals": {
+    "title": "Budget Visualizations - Open Budget: Oakland"
+  },
+
+
+
+  "mayor-2013-2015-proposed": {
+    "title": "Mayor's Proposed Spending 2013-15 (Treemap) - Open Budget: Oakland"
+  },
+
+  "2011-2013-adopted-budget": {
+    "title": "Adopted Spending 2011-2013 (Treemap) - Open Budget: Oakland"
+  },
+
+  "2012-2013-sankey": {
+    "title": "Adopted Revenues & Spending 2012-2013 (Sankey) - Open Budget: Oakland"
+  },
+
+  "updated-mayor-2013-2015-proposed": {
+    "title": "UPDATED: 2013-2015 Mayor's Proposed Spending (Treemap) v2 - Open Budget: Oakland"
+  }, 
+
+  "2015-17-proposed-budget": {
+    "title": "Mayor's 2015-17 Proposed Policy Budget"
+  },
+
+  "2013-2015-adopted-budget-flow": {
+    "title": "Cash Flow: 2013-15 Adopted Budget - Open Budget: Oakland"
+  },
+  
+  "2013-2015-adopted-budget": {
+    "title": "Detailed Breakdown: 2013-15 Adopted Budget - Open Budget: Oakland"
+  },
+
+  "2014-15-adjusted-budget-flow": {
+    "title": "Cash Flow: 2014-15 Adjusted Budget - Open Budget: Oakland"
+  },
+
+  "2015-17-adopted-budget-flow": {
+    "title": "Cash Flow: 2015-17 Adopted Budget - Open Budget: Oakland"
+  },
+
+  "2015-17-adopted-budget-tree": {
+    "title": "Detailed Breakdown: 2015-17 Adopted Budget - Open Budget: Oakland"
+  },
+
+  "2015-17-proposed-budget-flow": {
+    "title": "Cash Flow: Mayor's 2015-17 Proposed Policy Budget - Open Budget: Oakland"
+  },
+
+  "2015-17-proposed-budget-tree": {
+    "title": "Detailed Breakdown: Mayor's 2015-17 Proposed Policy Budget - Open Budget: Oakland"
+  },
+
+  "2016-17-adjusted-budget-flow": {
+    "title": "Cash Flow: 2016-17 Adjusted Budget - Open Budget: Oakland"
+  },
+
+  "2016-17-adjusted-budget-tree": {
+    "title": "Detailed Breakdown: 2016-17 Adjusted Budget - Open Budget: Oakland"
+  },
+
+  "2017-19-proposed-budget-flow": {
+    "title": "Cash Flow: Mayor's 2017-19 Proposed Policy Budget - Open Budget: Oakland"
+  },
+
+  "2017-19-proposed-budget-tree": {
+    "title": "Detailed Breakdown: Mayor's 2017-19 Proposed Policy Budget - Open Budget: Oakland"
+  },
+
+  "compare": {
+    "title": "Compare Budgets - Open Budget: Oakland"
+  }
+}

@@ -1,0 +1,70 @@
+// styles for d3 Sankey flow diagram
+
+#hover_description {
+    position: absolute;
+    opacity: 0;
+    padding: 8px;
+    background-color: #dfdfdf;
+    visibility: hidden;
+    transition: visibility 0s 0.1s,opacity 0.1s;
+    font-size: 14px;
+
+    &.show {
+        visibility: visible;
+        opacity: 0.85;
+        transition-delay: 0s;
+    }
+}
+
+#sankey {
+    margin-top: 30px;
+}
+
+svg {
+    text {
+        font-family: $headings-font-family;
+    }
+    .node {
+        rect {
+            fill-opacity: .9;
+            shape-rendering: crispEdges;
+            stroke-width: 1px;
+            transition: stroke-width 0.1s;
+        }
+        text {
+            pointer-events: none;
+            font-size: 12px;
+            transition: font-size 0.3s;
+        }
+
+        &.highlight, &.hover {
+
+            text {
+              font-size: 15px;
+            }
+
+            rect {
+              stroke-width:2px;
+            }
+        }
+    }
+
+    .link {
+        fill: none;
+        stroke-opacity: .2;
+        transition: stroke-opacity 0.3s;
+
+        &.highlight {
+            stroke-opacity: .6;
+        }
+    }
+
+}
+
+
+
+
+
+#warning{
+    color: red;
+}

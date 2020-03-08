@@ -1,0 +1,28 @@
+extends templates/tree-template.jade
+
+block title 
+  h1 Detailed Breakdown: 2013-15 Adopted Budget 
+
+
+block disqus_config
+  script(type='text/javascript').
+    var disqus_identifier = "2013-2015-adopted-budget";
+
+block datafiles
+  script.
+    var config = {
+      /* set values available in dropdown files */
+      dropdown_values: {
+        "Year": ["FY13-14", "FY14-15"],
+        "Account": ["Revenue", "Expense"]
+      },
+      /* set the default values */
+      dropdown_choice: {
+        "Year": "FY14-15",
+        "Account": "Expense"
+      },
+      /* create the url to the data file based on the dropdown choices */
+      url: function() {
+        return 'data/tree/Adopted.' + this.dropdown_choice["Account"] + "." + this.dropdown_choice["Year"] + ".json";
+      }
+    };

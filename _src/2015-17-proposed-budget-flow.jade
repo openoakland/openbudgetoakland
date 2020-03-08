@@ -1,0 +1,21 @@
+extends templates/flow-template.jade
+
+block title
+  h2 Cash Flow: Mayor's 2015-17 Proposed Policy Budget
+
+block datasource
+  h6
+    | Data source:&nbsp;
+    a(href = "https://data.oaklandnet.com") data.oaklandnet.com
+  h6 Data transformation notes: Revenue rows are aggregated by the second "Account Type" column. Expense rows are aggregated by the "Department" column. Funds are aggregated by the "Funds - Description" column, and all values other than "1010 - General Fund: General Purpose" are grouped under the heading "Non-discretionary funds."
+
+block disqus_config
+  script(type="text/javascript").
+    var disqus_identifier = "2015-17-proposed-budget-flow";
+
+block get_datafiles
+  script(type="text/javascript").
+    var datafiles = [
+      {filename: "FY16-17__proposed.csv"},
+      {filename: "FY15-16__proposed.csv"}
+    ];

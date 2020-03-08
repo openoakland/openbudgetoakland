@@ -1,0 +1,18 @@
+extends templates/flow-template.jade
+
+block title
+  h2 Cash Flow: 2016-17 Adjusted Budget
+
+block datasource
+  h6
+    | Data source:&nbsp;
+    a(href="/files/BudgetData for Public Adopted FY2016-17 Midcycle.xlsx") BudgetData for Public Adopted FY2016-17 Midcycle
+  h6 Data provided by City of Oakland staff; publication on #[a(href="https://data.oaklandnet.com") data.oaklandnet.com] pending as of 8/21/16.
+
+block disqus_config
+  script(type="text/javascript").
+    var disqus_identifier = "2016-17-adjusted-budget-flow";
+
+block get_datafiles
+  script(type="text/javascript").
+    var datafiles = [{filename: "FY16-17__adjusted.csv"}];

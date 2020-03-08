@@ -1,0 +1,33 @@
+extends templates/tree-template.jade
+
+block title 
+  h1 Detailed Breakdown: 2016-17 Adjusted Budget 
+
+block datasource
+  h6
+    | Data source:&nbsp;
+    a(href="/files/BudgetData for Public Adopted FY2016-17 Midcycle.xlsx") BudgetData for Public Adopted FY2016-17 Midcycle
+  h6 Data provided by City of Oakland staff; publication on #[a(href="https://data.oaklandnet.com") data.oaklandnet.com] pending as of 8/23/16.
+
+block disqus_config
+  script(type='text/javascript').
+    var disqus_identifier = "2016-17 adjusted budget tree";
+
+block datafiles
+  script.
+    var config = {
+      /* set values available in dropdown files */
+      dropdown_values: {
+        "Year": ["FY16-17"],
+        "Account": ["Revenue", "Expense"]
+      },
+      /* set the default values */
+      dropdown_choice: {
+        "Year": "FY16-17",
+        "Account": "Expense"
+      },
+      /* create the url to the data file based on the dropdown choices */
+      url: function() {
+        return 'data/tree/Adjusted.' + this.dropdown_choice["Account"] + "." + this.dropdown_choice["Year"] + ".json";
+      }
+    };

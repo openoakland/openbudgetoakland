@@ -1,0 +1,257 @@
+
+style.
+  #chart {
+    height: 600px;
+  }
+  #hover_description{
+    height: 26px;
+  }
+  .node rect {
+    fill-opacity: .9;
+    shape-rendering: crispEdges;
+  }
+  .node text {
+    pointer-events: none;
+    text-shadow: 0 1px 0 #fff;
+    font-size: 12px;
+  }
+  .link {
+    fill: none;
+    stroke: #000;
+    stroke-opacity: .2;
+  }
+  .link:hover {
+    stroke-opacity: .5;
+  }
+  #warning{
+    color: red;
+  }
+.container
+  .row
+    .col-md-10
+      div
+        h4.subheader 2012-13 Adopted Revenues &amp; Spending
+        p
+          | Hover over the visual to see dollar amounts for funds and departments.
+
+      //- SHARE BUTTON
+      div
+        a.a2a_dd(href='http://www.addtoany.com/share_save')
+          img(src='http://static.addtoany.com/buttons/share_save_171_16.png', width='171', height='16', border='0', alt='Share')
+        script(type='text/javascript', src='http://static.addtoany.com/menu/page.js')
+      #sankey
+        p#chart
+        h5
+          | Source: FY2011-2013 Adopted Policy Budget 
+          a(href='http://www2.oaklandnet.com/oakca1/groups/cityadministrator/documents/report/oak032748.pdf')
+            | http://www2.oaklandnet.com/oakca1/groups/cityadministrator/documents/report/oak032748.pdf
+        h5 Notes:
+        p
+          ol
+            li
+              em This is intended as an illustrative prototype; the data should be reviewed and validated for accuracy.
+            li
+              | All General Fund revenues and expenditures are shown, but only non-GF transfers exceeding $2 million (rough threshold) are currently shown.
+            li
+              | We've tried to exclude revenue sources that are purely accounting records (e.g., equipment and facilities rental charges) but this needs some review by a content area expert.
+            li
+              | Bond items are generally excluded because we had some trouble interpreting revenues vs. expenditures.
+
+      #disqus_thread
+
+//- Sankey JS
+//- script(src='/js/d3.v2.min.js')
+script(src='/js/old/sankey.js')
+//- script(src='/js/jquery-1.8.3.min.js')
+script.
+  var margin = {top: 1, right: 1, bottom: 6, left: 1},
+  width = 960 - margin.left - margin.right,
+  height = 600 - margin.top - margin.bottom;
+  var formatNumber = d3.format(",.0f"),
+  format = function(d) { return "$" + formatNumber(d); },
+  color = d3.scale.category20();
+  var svg = d3.select("#chart").append("svg")
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  var sankey = d3.sankey()
+  .nodeWidth(30)
+  .nodePadding(5)
+  .size([width, height]);
+  var path = sankey.link();
+  // Changed to budget
+  function do_with_budget(energy) {
+  sankey
+  .nodes(energy.nodes)
+  .links(energy.links)
+  .layout(32);
+  var link = svg.append("g").selectAll(".link")
+  .data(energy.links)
+  .enter().append("path")
+  .attr("class", "link")
+  .attr("d", path)
+  .style("stroke-width", function(d) { return Math.max(1, d.dy); })
+  .sort(function(a, b) { return b.dy - a.dy; })
+  .on("mouseover", function(d){$("#hover_description").append($("<span>" + d.source.name + " to " + d.target.name + ":  " + format(d.value) + "</span>"));})
+  .on("mouseout", function(){$("#hover_description").find("span:last").remove();});;
+  link.append("title")
+  .text(function(d) { return d.source.name + " → " + d.target.name + "\\n" + format(d.value); })
+  var node = svg.append("g").selectAll(".node")
+  .data(energy.nodes)
+  .enter().append("g")
+  .attr("class", "node")
+  .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+  node.append("rect")
+  .attr("height", function(d) { return d.dy; })
+  .attr("width", sankey.nodeWidth())
+  .style("fill", function(d) { return d.color = color(d.name.replace(/ .*/, "")); })
+  .style("stroke", function(d) { return d3.rgb(d.color).darker(2); })
+  .append("title")
+  .text(function(d) { return d.name + "\\n" + format(d.value); });
+  node.append("text")
+  .attr("x", -6)
+  .attr("y", function(d) { return d.dy / 2; })
+  .attr("dy", ".35em")
+  .attr("text-anchor", "end")
+  .attr("transform", null)
+  .text(function(d) { return d.name; })
+  .filter(function(d) { return d.x < width / 2; })
+  .attr("x", 6 + sankey.nodeWidth())
+  .attr("text-anchor", "start");
+  };
+  /*
+  $.get("./js/oakland_v2.json", function(data){
+  do_with_budget(data);
+  });
+  */
+  oaklandData=
+  {"nodes":[
+  {"name":"General Fund"},
+  {"name":"Mayor"},
+  {"name":"City Council"},
+  {"name":"City Administrator"},
+  {"name":"City Attorney"},
+  {"name":"City Auditor"},
+  {"name":"City Clerk"},
+  {"name":"Human Resources"},
+  {"name":"Office of Communication and Information Systems"},
+  {"name":"Finance and Management Agency"},
+  {"name":"Police Services Agency"},
+  {"name":"Fire Services Agency"},
+  {"name":"Library"},
+  {"name":"Office of Parks and Recreation"},
+  {"name":"Department of Human Services"},
+  {"name":"Public Works Agency"},
+  {"name":"Community and Economic Development Agency"},
+  {"name":"Non Department and Port"},
+  {"name":"Capital Improvement Projects"},
+  {"name":"Property Tax"},
+  {"name":"Sales Tax"},
+  {"name":"Business License Tax"},
+  {"name":"Utility Consumption Tax"},
+  {"name":"Real Estate Transfer Tax"},
+  {"name":"Transient Occupancy Tax"},
+  {"name":"Parking Tax"},
+  {"name":"Licenses & Permits"},
+  {"name":"Fines & Penalties"},
+  {"name":"Interest Income"},
+  {"name":"Service Charges"},
+  {"name":"Miscellaneous"},
+  {"name":"Interfund Transfers"},
+  {"name":"Measure Y: Public Safety Act"},
+  {"name":"Kid's First Oakland Children's Fund"},
+  {"name":"Department of Health and Human Services (Federal)"},
+  {"name":"Measure B - ACTIA"},
+  {"name":"Measure Q - Library Services Retention & Enhancement"},
+  {"name":"Lighting & Landscaping Assessment District"},
+  {"name":"Development Service Fund"},
+  {"name":"Sewer Service Fund"},
+  {"name":"Workforce Investment Act"},
+  {"name":"State Gas Tax"},
+  {"name":"State Gas Tax-Prop 42 Replacement Funds"},
+  {"name":"Pension Override Tax Revenue"},
+  {"name":"Recycling Program"},
+  {"name":"Comprehensive Clean-Up"},
+  {"name":"HUD-ESG/SHP/HOPWA"},
+  {"name":"HUD-CDBG"},
+  {"name":"OPRCA Self-Sustaining Revolving Fund"},
+  {"name":"HUD-Home"},
+  {"name":"Oakland Redevelopment Agency Grants"},
+  {"name":"Transient Occupancy Tax (TOT) Surcharge"}
+  ],
+  "links":[
+  {"source":0,"target":1,"value":1168566},
+  {"source":0,"target":2,"value":2048936},
+  {"source":0,"target":3,"value":14069553},
+  {"source":0,"target":4,"value":4197692},
+  {"source":0,"target":5,"value":917733},
+  {"source":0,"target":6,"value":1814826},
+  {"source":0,"target":7,"value":3949757},
+  {"source":0,"target":8,"value":6649450},
+  {"source":0,"target":9,"value":19795473},
+  {"source":0,"target":10,"value":158846631},
+  {"source":0,"target":11,"value":95209445},
+  {"source":0,"target":12,"value":9062689},
+  {"source":0,"target":13,"value":12787886},
+  {"source":0,"target":14,"value":4663526},
+  {"source":0,"target":15,"value":1},
+  {"source":0,"target":16,"value":475840},
+  {"source":0,"target":17,"value":61568465},
+  {"source":0,"target":18,"value":252000},
+  {"source":19,"target":0,"value":125166501},
+  {"source":20,"target":0,"value":39524477},
+  {"source":21,"target":0,"value":51365918},
+  {"source":22,"target":0,"value":51199282},
+  {"source":23,"target":0,"value":28774900},
+  {"source":24,"target":0,"value":8902937},
+  {"source":25,"target":0,"value":7822736},
+  {"source":26,"target":0,"value":939660},
+  {"source":27,"target":0,"value":24011420},
+  {"source":28,"target":0,"value":800000},
+  {"source":29,"target":0,"value":44759576},
+  {"source":30,"target":0,"value":5928540},
+  {"source":31,"target":0,"value":8282521},
+  {"source":32,"target":10,"value":11636551},
+  {"source":32,"target":11,"value":4000000},
+  {"source":32,"target":14,"value":6285654},
+  {"source":33,"target":14,"value":10756257},
+  {"source":34,"target":14,"value":16790670},
+  {"source":35,"target":15,"value":4650750},
+  {"source":35,"target":18,"value":3500000},
+  {"source":36,"target":12,"value":14923021},
+  {"source":37,"target":15,"value":14365458},
+  {"source":37,"target":13,"value":4091501},
+  {"source":38,"target":16,"value":21280707},
+  {"source":39,"target":15,"value":22261648},
+  {"source":39,"target":17,"value":10161330},
+  {"source":39,"target":18,"value":15150000},
+  {"source":43,"target":17,"value":55185782},
+  {"source":44,"target":15,"value":8561107},
+  {"source":45,"target":15,"value":17199125},
+  {"source":46,"target":14,"value":6053421},
+  {"source":47,"target":16,"value":8655630},
+  {"source":48,"target":13,"value":3715781},
+  {"source":49,"target":16,"value":4695346},
+  {"source":50,"target":16,"value":2500000},
+  {"source":40,"target":16,"value":6038913},
+  {"source":41,"target":15,"value":6258343},
+  {"source":42,"target":18,"value":2550000},
+  {"source":51,"target":17,"value":2279150}
+  ]};
+  do_with_budget(oaklandData);
+
+//- DISQUS script
+script(type='text/javascript').
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'openbudgetoakland'; // required: replace example with your forum shortname
+  var disqus_identifier = '2012-13 Oakland Revenue and Expenditures Adopted Sankey';
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+noscript
+  | Please enable JavaScript to view the
+  a(href='http://disqus.com/?ref_noscript') comments powered by Disqus.

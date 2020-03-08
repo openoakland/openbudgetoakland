@@ -1,0 +1,20 @@
+extends templates/flow-template.jade
+
+block title
+  h2 Cash Flow: 2013-15 Adopted Budget
+
+block datasource
+  h6
+    | Data source:&nbsp;
+    a(href = "https://data.oaklandnet.com") data.oaklandnet.com
+
+block disqus_config
+  script(type="text/javascript").
+    var disqus_identifier = "2013-2015 adopted budget flow";
+
+block get_datafiles
+  script(type="text/javascript").
+    var datafiles = [
+      {filename: "FY13-14__adopted.csv"}, 
+      {filename: "FY14-15__adopted.csv"}
+    ];

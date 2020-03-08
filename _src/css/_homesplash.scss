@@ -1,0 +1,41 @@
+$overlay-shadow: 0 0 10px #000, 0 0px 12px #000, 0 0px 15px #000;
+
+.homesplash {
+  position: relative;
+  background-image: url(/images/home/oakland_night.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: 35%;
+  padding-top: 0;
+}
+
+.homesplash__head {
+  color: #fff !important;
+}
+
+.homesplash__text {
+  color: #fff;
+}
+
+.homesplash__photocredit {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: #fff;
+  padding: 8px;
+  font-size: 10px;
+
+  a,
+  a:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
+}
+
+.blurb__title {
+  margin-top: 0;
+}
+
+.left-col {
+  padding-top: 20px;
+}

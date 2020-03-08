@@ -1,0 +1,97 @@
+@import "variables";
+@import "mixins";
+@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "mid-small"; // adds mid-small breakpoint
+@import "bootstrap-overrides"; // custom styles to override Bootstrap defaults
+@import "base";
+@import "sections/sections";
+@import "compare";
+@import "homesplash";
+
+@import "treemap"; // D3 Treemap
+@import "flow"; // D3 Sankey diagram
+
+html {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+#wrapper {
+  min-height: 100%;
+  height: auto !important;
+  padding-bottom: 30px;
+}
+
+body {
+  height: 100%;
+  position: relative;
+  color: #333;
+  padding-top: 70px; // offset fixed navbar
+}
+
+nav.main-nav {
+  font-family: $headings-font-family;
+}
+
+.container .intro {
+  margin-bottom: 20px;
+}
+
+// Overwrite default dropdown styles on inverse navbars
+.navbar-inverse {
+  .dropdown-menu {
+    background-color: #222;
+    border-color: #080808;
+    & > li > a {
+      color: #ccc;
+      &:hover{
+        color: #fff;
+        background-color: #333;
+      }
+    }
+  }
+}
+
+section#comments {
+  margin-top: 40px;
+}
+
+
+footer {
+  border-top: 1px solid $gray-lighter;
+  padding-top: 20px;
+  background-color: lighten($gray-lighter, 5%);
+  color: $gray-light;
+  a {
+    color: lighten($gray-light, 20%);
+    &:hover {
+      color: lighten($gray-light, 10%);
+    }
+  }
+  ul.list-inline {
+    li {
+      margin-right: 10px;
+      a {
+        @include opacity(.8);
+        &:hover {
+          @include opacity(1);
+        }
+      }
+      img {
+        vertical-align: baseline;
+      }
+    }
+  }
+}
+
+// 'Responsive' sticky footer
+@mixin footer-height($height){
+  #wrapper { margin-bottom: -$height; }
+  #wrapper-footer { height: $height; }
+  #footer { min-height: $height; }
+}
+@include footer-height(150px);
+
+@media (max-width: $screen-sm-min){
+  @include footer-height(200px);
+}
