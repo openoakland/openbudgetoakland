@@ -93,17 +93,17 @@ This project is coded with:
 1. The Compare page communicates with a separately maintained API to fetch its data. Documentation for that API can be found [in our wiki](https://github.com/openoakland/openbudgetoakland/wiki/API-Documentation).
 
 ## Publishing Changes
-Make changes and push them to your personal fork. If you have repo access, and your changes are ready for review, submit a pull request to the **staging** branch on the upstream repo. An administrator will approve the pull request and test it. If everything looks good, your changes will be pushed to the master branch, which in turn triggers deployment to GitHub Pages.
+Make changes and push them to your personal fork. We'll take it from there!
 
-### Publishing to Production
+### Details
 
-Starting in March 2020, code changes pushed to the master branch of the (original) repo will use GitHub Actions to trigger a continuous integration process that
+Simply push your code changes to your repo in whatever branch you used locally. Once you have done this, anyone with admin privileges on the original repo will be able to create a pull request from your branch in your repo to the **staging** branch in the original repo. Your changes will then be reviewed, tested, and (if everything looks good) pushed into the master branch.
+
+Starting in March 2020, code changes pushed to the master branch of the (original) repo will use GitHub Actions to trigger a continuous integration process that (among other things):
  
  - runs WebPack;
  - builds static files with Harp; and
  - deploys the updated files to GitHub Pages
-
-Your code changes should be submitted via a pull request to the **staging** branch (as noted above) so that an administrator can review your changes, test them, and finally push them into the master branch.
 
 ## Generating the API
 
