@@ -93,7 +93,7 @@ This project is coded with:
 1. The Compare page communicates with a separately maintained API to fetch its data. Documentation for that API can be found [in our wiki](https://github.com/openoakland/openbudgetoakland/wiki/API-Documentation).
 
 ## Publishing Changes
-Make changes and push them to your personal fork. We'll take it from there!
+Make changes and review them on your local development site. If everyting looks good, push your changes to your personal fork. We'll take it from there!
 
 ### Details
 
