@@ -13,7 +13,8 @@ Some of the other Issues are larger and require some deeper design or architectu
 1. Sign into GitHub and fork this repo
 1. Clone the fork onto your machine and navigate to the _src/ folder
 1. Install yarn (e.g., run ```brew update``` plus ```brew install yarn --ignore-dependencies``` on a Mac)
-1. Install Harp globally (e.g., run ```yarn global add harp``` on a Mac) IMPORTANT - version 0.30.0 of the Harp NPM package seems to have introduced a conflict with our set-up; you may need to revert to v0.29.0 (e.g., run ```yarn global remove harp``` followed by ```yarn global add harp^0.29```)
+1. Install Harp globally (e.g., run ```yarn global add harp``` on a Mac) 
+ - NB If you cannot install the latest version of the Harp NPM package you may need to update your operating system, else revert to v0.29.0 (e.g., run ```yarn global remove harp``` followed by ```yarn global add harp^0.29```)
 1. Start the Harp server by running ```harp server```
 1. In a new terminal window, navigate to _src/ again and run ```yarn install``` followed by ```yarn run watch```
 
@@ -57,6 +58,7 @@ This project is coded with:
 
 ## Creating & Editing Pages
 
+- Please note that it is your responsibility to keep your fork of the repo up-to-date with changes made by others working on the project. Doing this diligently should go a long way towards protecting you from scary git merge conflicts.
 - All development activity occurs in `_src/`. The root folder is only for compiled output for deployment.
 - Make sure NODE_ENV in your shell environment is set to 'development'! Setting it to 'production' will trigger prod-only features such as Google Analytics that you don't want to run in any environment other than our live site.
 - Page content is inserted into the `layout.jade` file (which includes basic header and footer snippets)
@@ -91,61 +93,17 @@ This project is coded with:
 1. The Compare page communicates with a separately maintained API to fetch its data. Documentation for that API can be found [in our wiki](https://github.com/openoakland/openbudgetoakland/wiki/API-Documentation).
 
 ## Publishing Changes
-Make changes on your personal fork or branch. If you have repo access, and your changes are ready for review, you can merge them into the development branch and publish to the staging site for review. You can also publish changes to your own server and merge to development afterwards.
+Make changes and review them on your local development site. If everyting looks good, push your changes to your personal fork. We'll take it from there!
 
-### Publishing to Production
+### Details
 
-Even though Harp runs locally, static files need to be compiled for the live site (hosted on Github pages).
-Once you have made all your changes, you'll need to compile everything in order for it to run on gh-pages. Because of how Harp compiles (that it clears the target directory), this workflow gets a bit wonky. We'll try to make it a little less fragile if people begin publishing changes more often.
+Simply push your code changes to your repo in whatever branch you used locally. Once you have done this, anyone with admin privileges on the original repo will be able to create a pull request from your branch in your repo to the **staging** branch in the original repo. Your changes will then be reviewed, tested, and (if everything looks good) pushed into the master branch.
 
-If you're reasonably confident you have everything set up right in your local dev environment, merge your changes into `master` and run `$bash _production-publish.sh` ... but it does some slightly dangerous stuff (force-pushing to origin, :scream emoji:) so the more cautious among us can follow the manual deployment steps as described below.
-
-
-```
-# for the production site, we want production builds!
-# this will include Google Analytics (and maybe other stuff?)
-NODE_ENV=production
-
-# make sure your repo is up to date and you are on the master branch
-git fetch
-git checkout master
-
-# merge your changes from your branch or development into master
-git merge origin/development
-
-# here's where it gets hacky - open to suggestions for an improved workflow
-# delete the gh-pages branch and then recreate it as an orphan (untracked) branch
-git branch -D gh-pages
-git checkout --orphan gh-pages
-
-# move into the _src directory and compile source files
-cd _src
-# build a production-optimized webpack bundle
-yarn run build
-# exclude node dependencies from harp compilation
-mv node_modules _node_modules
-# compile source files to root directory
-harp compile ./ ../
-# restore node_modules before you forget
-mv _node_modules node_modules
-
-# move back to the root, and add and commit files
-cd ../
-git add -A
-git commit -m "deploy"
-
-# push changes to remote gh-pages branch using *gasp* --force!
-# !!! Never push --force on any public branch besides gh-pages!
-git push --set-upstream origin gh-pages --force
-
-# set this back to development so we don't go 
-# accidentally running prod code in dev environments
-NODE_ENV=development
-
-# make sure your changes are showing up and you didn't break anything
-```
-
-If you are on a forked branch, create a pull request to have your changes reviewed for merge!
+Starting in March 2020, code changes pushed to the master branch of the (original) repo will use GitHub Actions to trigger a continuous integration process that (among other things):
+ 
+ - runs WebPack;
+ - builds static files with Harp; and
+ - deploys the updated files to GitHub Pages
 
 ## Generating the API
 
