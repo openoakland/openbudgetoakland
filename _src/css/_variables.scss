@@ -27,7 +27,8 @@ $brand-primary:         $green-dark !default; // emerald
 
 //== Scaffolding
 //** Global textual link color.
-$link-color:            #009DB0 !default;
+// I darkened the $link-color. from #009DB0 to #007C8A CT
+$link-color:            #007C8A !default;
 //** Link hover color set via `darken()` function.
 $link-hover-color:      darken($link-color, 15%) !default;
 
