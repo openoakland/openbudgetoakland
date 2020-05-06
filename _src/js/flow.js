@@ -24,11 +24,14 @@ svg.append("text")
 // define color scales
 var fundColors = d3.scale.ordinal()
     .domain(["Discretionary Funds", "Non-discretionary Funds"])
-    .range(["#276419", "#4db029"]);
+    .range(["#4285ff", "#8249b7"]); //2020 renovation
+    // .range(["#276419", "#4db029"]);
     // .range(["#276419", "#b8e186"]);
 var erColors = d3.scale.ordinal()
     .domain(["expense", "revenue"])
-    .range(["#ffd92f", "#ffd92f"])
+    .range(["#ff8129", "#7fc97f"]);
+    // .range(["#ffb36b", "#7fc97f"]);
+    // .range(["#ffd92f", "#ffd92f"])
     // .range(["#c51b7d", "#8e0152"]);
 
 // create color gradients for links
@@ -309,6 +312,7 @@ function do_with_budget(data) {
           switch (d.type) {
               case "fund":
                   d.color = fundColors(d.name);
+                // d.color = "transparent";
                   break;
               default:
                   d.color = erColors(d.type);
@@ -316,7 +320,7 @@ function do_with_budget(data) {
           }
           return d.color;
       })
-      .style("stroke", function(d) { return d3.rgb(d.color).darker(1); })
+      .style("stroke", function(d) { if (d.type === "fund") {return d3.rgb(d.color);} else {return d3.rgb(d.color).darker(1);} })
       .on("mouseover", function(d){
           var thisnode = d3.select(this.parentNode);
 
