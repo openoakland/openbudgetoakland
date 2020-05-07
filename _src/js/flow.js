@@ -23,12 +23,15 @@ svg.append("text")
 
 // define color scales
 var fundColors = d3.scale.ordinal()
-    .domain(["General Fund", "Non-discretionary funds"])
-    .range(["#276419", "#4db029"]);
+    .domain(["Discretionary Funds", "Non-discretionary Funds"])
+    .range(["#4285ff", "#8249b7"]); //2020 renovation
+    // .range(["#276419", "#4db029"]);
     // .range(["#276419", "#b8e186"]);
 var erColors = d3.scale.ordinal()
     .domain(["expense", "revenue"])
-    .range(["#ffd92f", "#ffd92f"])
+    .range(["#ff8129", "#7fc97f"]);
+    // .range(["#ffb36b", "#7fc97f"]);
+    // .range(["#ffd92f", "#ffd92f"])
     // .range(["#c51b7d", "#8e0152"]);
 
 // create color gradients for links
@@ -39,7 +42,7 @@ svg.append('linearGradient')
     .selectAll("stop")
     .data([
         {offset: "10%", color: erColors("revenue")},
-        {offset: "90%", color: fundColors("General Fund")}
+        {offset: "90%", color: fundColors("Discretionary Funds")}
     ])
     .enter().append("stop")
     .attr("offset", function(d) { return d.offset; })
@@ -51,7 +54,7 @@ svg.append('linearGradient')
     .selectAll("stop")
     .data([
         {offset: "10%", color: erColors("revenue")},
-        {offset: "90%", color: fundColors("Non-discretionary funds")}
+        {offset: "90%", color: fundColors("Non-discretionary Funds")}
     ])
     .enter().append("stop")
     .attr("offset", function(d) { return d.offset; })
@@ -62,7 +65,7 @@ svg.append('linearGradient')
     .attr("x2", '100%').attr("y2", 0)
     .selectAll("stop")
     .data([
-        {offset: "10%", color: fundColors("Non-discretionary funds")},
+        {offset: "10%", color: fundColors("Non-discretionary Funds")},
         {offset: "90%", color: erColors("expense")}
     ])
     .enter().append("stop")
@@ -74,7 +77,7 @@ svg.append('linearGradient')
     .attr("x2", '100%').attr("y2", 0)
     .selectAll("stop")
     .data([
-        {offset: "10%", color: fundColors("General Fund")},
+        {offset: "10%", color: fundColors("Discretionary Funds")},
         {offset: "90%", color: erColors("expense")}
     ])
     .enter().append("stop")
@@ -119,9 +122,9 @@ function data_wrangle(dataset, fy){
         })
         .key(function(d){
             if (d.fund_code == "1010") {
-                return "General Fund";
+                return "Discretionary Funds";
             } else {
-                return "Non-discretionary funds";
+                return "Non-discretionary Funds";
             }
         })
         .rollup(function(v){
@@ -132,7 +135,7 @@ function data_wrangle(dataset, fy){
             return values;
         })
         .entries(rev);
-    nodes = [{"name": "General Fund", "type": "fund", "order": 0}, {"name": "Non-discretionary funds", "type": "fund", "order": 1}];
+    nodes = [{"name": "Discretionary Funds", "type": "fund", "order": 0}, {"name": "Non-discretionary Funds", "type": "fund", "order": 1}];
     nodeoffset = nodes.length;
     links = [];
     for (var i = 0; i < revcats.length; i++){
@@ -142,9 +145,9 @@ function data_wrangle(dataset, fy){
                 "source": i + nodeoffset,
                 "value": revcats[i].values[x].values.total,
             };
-            if (revcats[i].values[x].key == "General Fund"){
+            if (revcats[i].values[x].key == "Discretionary Funds"){
                 link.target = 0;
-            } else if (revcats[i].values[x].key == "Non-discretionary funds") {
+            } else if (revcats[i].values[x].key == "Non-discretionary Funds") {
                 link.target = 1;
             }
             links.push(link);
@@ -195,9 +198,9 @@ function data_wrangle(dataset, fy){
         })
         .key(function(d){
             if (d.fund_code == "1010") {
-                return "General Fund";
+                return "Discretionary Funds";
             } else {
-                return "Non-discretionary funds";
+                return "Non-discretionary Funds";
             }
         })
         .rollup(function(v){
@@ -215,9 +218,9 @@ function data_wrangle(dataset, fy){
                 "target": i + nodeoffset + revcats.length,
                 "value": expdivs[i].values[x].values.total,
             };
-            if (expdivs[i].values[x].key == "General Fund"){
+            if (expdivs[i].values[x].key == "Discretionary Funds"){
                 link.source = 0;
-            } else if (expdivs[i].values[x].key == "Non-discretionary funds") {
+            } else if (expdivs[i].values[x].key == "Non-discretionary Funds") {
                 link.source = 1;
             }
             links.push(link);
@@ -258,15 +261,15 @@ function do_with_budget(data) {
           return Math.max(1, d.dy); })
       .style("stroke", function(d){
           switch (d.target.name){
-              case "General Fund":
+              case "Discretionary Funds":
                   return "url('#gradientRtoGF')";
-              case "Non-discretionary funds":
+              case "Non-discretionary Funds":
                   return "url('#gradientRtoNF')";
           }
           switch (d.source.name) {
-              case "General Fund":
+              case "Discretionary Funds":
                   return "url('#gradientGFtoE')";
-              case "Non-discretionary funds":
+              case "Non-discretionary Funds":
                   return "url('#gradientNFtoE')";
           }
 
@@ -309,6 +312,7 @@ function do_with_budget(data) {
           switch (d.type) {
               case "fund":
                   d.color = fundColors(d.name);
+                // d.color = "transparent";
                   break;
               default:
                   d.color = erColors(d.type);
@@ -316,7 +320,7 @@ function do_with_budget(data) {
           }
           return d.color;
       })
-      .style("stroke", function(d) { return d3.rgb(d.color).darker(1); })
+      .style("stroke", function(d) { if (d.type === "fund") {return d3.rgb(d.color);} else {return d3.rgb(d.color).darker(1);} })
       .on("mouseover", function(d){
           var thisnode = d3.select(this.parentNode);
 
