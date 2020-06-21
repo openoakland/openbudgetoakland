@@ -1,45 +1,53 @@
 section.container
-  .row
+
+  h1.lead Follow the money.
+  p.lead Open Budget: Oakland takes current and past budget data published by the City of Oakland and transforms them into accessible visualizations. Our aim is to enable community members to examine their city's budget for themselves. Those who want to dig even deeper into the budget data may be interested in using the #[a(href='https://github.com/openoakland/openbudgetoakland/wiki/API-Documentation') Open Budget: Oakland API].
+  //- See Oakland's #[a(href='/budget-visuals.html') previous budgets], as well as the city's #[a(href='https://www.oaklandca.gov/documents/fiscal-year-2019-20-to-2023-24-five-year-financial-forecast' target='_blank') five-year forecast].
+
+  .row.main
     .col-sm-4.left-col
-      p.lead Open Budget: Oakland visualizes the city's current and past budget data into accessible charts for the public. Data is published by the city. See Oakland's #[a(href='/budget-visuals.html') previous budgets], as well as the city's #[a(href='https://www.oaklandca.gov/documents/fiscal-year-2019-20-to-2023-24-five-year-financial-forecast' target='_blank') five-year forecast].
+      a(href='/images/home/measurez.pdf' target='_blank')
+        p
+          h3.blurb_title Focus on Measure Z: How does Oakland fund violence prevention?
+          img.img-responsive.thumbnail(src="/images/home/measureZ12.png" alt="Does our city's budget reflect our commitment to violence prevention.")
+        .well
+          h3.blurb__title 2019-21 Adopted Budget
+          p The mayor's office released a #[a(href='https://data.oaklandnet.com/Financial/FY-2019-21-Biennial-Proposed-Budget/aeya-c8st' target='_blank') proposed policy budget] for fiscal years 2019 - 2020 and 2020 - 2021 in May 2019. The City Council approved a #[a(href="https://data.oaklandnet.com/Financial/FY-2019-21-Adopted-Budget/m4jd-q2c4") final (adopted) budget] at the June 24, 2019 City Council meeting.
 
-      .well
-        h3.blurb__title Mayor's 2019-21 Proposed Budget
-        p The mayor's office released a #[a(href='https://data.oaklandnet.com/Financial/FY-2019-21-Biennial-Proposed-Budget/aeya-c8st' target='_blank') proposed policy budget] for fiscal years 2019 - 2020 and 2020 - 2021 in May 2019. The City Council approved a final (adopted) budget at the June 24th City Council meeting.
-
-      p
+      //- p
         h3.blurb__title Did you know&hellip;
         p you can create your own visualizations with our free #[a(href='https://github.com/openoakland/openbudgetoakland/wiki/API-Documentation') Open Budget Oakland API]?
 
-      //-
-        p
+      //-p
         a.twitter-timeline(height=700, href='https://twitter.com/search?q=%23OAKbudget', data-widget-id='324560527676276736') Tweets about "#OAKbudget"
           script.
             !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 
 
     .col-md-8
+
+      p.intro We have a suite of data visualization tools to help you understand Oakland's budget.
+      a(href="/2019-21-adopted-budget-flow.html")
+        section
+          h2 Overview
+          p Get a bird's eye view of the big picture for a single year: where money comes from, and where it goes.
+          img.img-responsive.thumbnail(src="/images/home/2020-flow-thumb.png" alt="Our flow chart shows where the money comes from and where it goes. Are the things you care about underfunded? Find out!")
+
       a(href="/compare.html")
         section
-          h1 Comparison
+          h2 Comparison
           p Put two budgets head-to-head. How much did the budget grow or shrink? How are cuts and increases distributed across spending categories? How did revenue sources change?
-          img.img-responsive.thumbnail(src="/images/home/compare-thumb.jpg" alt="")
-
-      a(href="/2017-19-proposed-budget-flow.html")
-        section
-          h1 Overview
-          p Get a bird's eye view of the big picture for a single year: where money comes from, and where it goes.
-          img.img-responsive.thumbnail(src="/images/home/flow-thumb.jpg" alt="")
+          img.img-responsive.thumbnail(src="/images/home/compare-thumb.jpg" alt="Our comparison tool lets you compare two Oakland city budgets.")
 
       a(href="/2017-19-proposed-budget-tree.html")
         section
-          h1 Detail
+          h2 Detail
           p Drill down into detailed spending and revenue data for each department and fund for a single year.
-          img.img-responsive.thumbnail(src="/images/home/tree-thumb.jpg" alt="")
+          img.img-responsive.thumbnail(src="/images/home/tree-thumb.jpg" alt="Our drill-down tool lets you examine Oakland city spending and revenue in detail.")
 
       a(href="/budget-process.html")
         section
-          h1 Timeline
+          h2 Timeline
           p Orient yourself within the two-year cycle of Oakland's budget process.
-          img.img-responsive.thumbnail(src="/images/home/timeline-thumb.png" alt="")
+          img.img-responsive.thumbnail(src="/images/home/timeline-thumb.png" alt="Our timeline shows important events coming up in the budget process.")
 
