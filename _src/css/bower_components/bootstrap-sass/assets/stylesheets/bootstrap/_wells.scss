@@ -5,9 +5,9 @@
 
 // Base class
 .well {
-  min-height: 20px;
-  padding: 19px;
-  margin-bottom: 20px;
+  min-height: 2rem;
+  padding: 0 2rem;
+  margin: 2rem 0;
   background-color: $well-bg;
   border: 1px solid $well-border;
   border-radius: $border-radius-base;
