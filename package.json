@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "axios": "^0.15.3",
+    "axios": "^0.21.1",
     "chart.js": "^2.9.3",
     "d3-array": "^1.2.4",
     "d3-collection": "^1.0.7",
