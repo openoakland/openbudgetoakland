@@ -20,7 +20,7 @@ npx harp compile ./_src ./build
 # compile Pug files to HTML in same folder
 npm install pug-cli
 npx pug --version
-npx pug *.pug -o ./build -P
+npx pug ./_src/*.pug -o ./build -P
 # document contents
 ls -F ./build
 # set this back to development so we don't go 
