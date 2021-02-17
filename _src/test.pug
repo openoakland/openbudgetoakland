@@ -1,73 +1,35 @@
 extends partials/layout
 
 prepend pageTitle
-  - var title = "Testing"
+  - var title = "Cash Flow: 2019-21 Adopted Budget"
 
 block bodyClass
-  - var slug = "test-page"
+  - var slug = "flow"
 
 block content
   .container
     .row
-      .col-md-9
-        div
-          h2.subheader Who we are
-          p
-          | Open Budget: Oakland is the result of many contributors including coders, community advocates, and city officials. We're looking for ideas and help, so get in touch and stop by our weekly 
-          a(href='http://www.meetup.com/OpenOakland/') meetup
-          |  on Tuesdays 6:30–9pm at City Hall as part of 
-          a(href='http://openoakland.org/') OpenOakland
-          |  hack night (
-          a(href='contact.html') send us an email
-          |  ahead of time so we're sure to be available).
-          h4.subheader Current team:
-          ul.list-unstyled
-            //- li Ian MacFarland
-            //- li Adam Stiles
-            li Amy Johnson
-            li Cindy Terdiman
-            li Felicia Betancourt
-            li Beti G.
-            li Sean Martinez
-          h4.subheader City partners:
-          ul.list-unstyled
-            li Bradley Johnson, Assistant to the City Administrator, City of Oakland
-            li Mai-Ling Garcia, Online Communications Manager, City of Oakland
-          h4.subheader Contributors:
-          ul.list-unstyled
-            li Ian MacFarland
-            li Adam Stiles
-            li Nick Brooks
-            li Yumiko Abe-Jones
-            li Amanda Richardson
-            li Andrea Moed
-            li Elina Rubuliak
-            li Jeff French
-            li Mike Ubell
-            li Phil Popp
-            li Phil Wolff
-            li Tom Dooner
-            li Ben Wen
-            li Bob Sarnoff
-            li Dave Guarino
-            li David Ordal
-            li Deborah Acosta
-            li Diana Wu
-            li Ian McEachern
-            li Ikka Lynn
-            li Jehan Tremback
-            li Jon Katz
-            li Max Ogden
-            li Mohamed Gulaid
-            li Nic Aulston
-            li Rachel Li
-            li Shawn McDougal
-            li Sonya Rifkin
-            li Steve Berley
-            li Steve Spiker
-            li Tom Fite
-            li And the rest of the 
-              a(
-                href='https://oaklandnorth.net/2012/07/23/code-for-oakland-challenges-developers-to-turn-public-data-into-an-app/', target='_blank'
-              ) Code for Oakland
-              |  crew...
+      .intro.col-md-12
+        h2= title
+        include partials/flowIntro
+    .row
+      .col-md-3
+        h4 Fiscal Year
+        select#fy.form-control
+    #sankey
+      #chart
+
+    - var dataSource = "https://data.oaklandnet.com/Financial/FY-2019-21-Adopted-Budget/m4jd-q2c4"
+    include partials/linkToDataSource
+
+    #hover_description
+
+    - var disqus_identifier = "2019-21-adopted-budget-flow"
+    include partials/disqus
+    
+    - 
+      var datafiles = [
+        {filename: "FY19-20__adopted.csv"},
+        {filename: "FY20-21__adopted.csv"}
+      ]
+    include partials/flowScripts

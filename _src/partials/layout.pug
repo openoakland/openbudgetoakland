@@ -4,7 +4,7 @@ html
     meta(name='viewport', content='width=device-width')
     link(rel="stylesheet" href="/css/main.css")
     block pageTitle
-      title= title
+      title= title + " — Open Budget Oakland"
     if environment == "production"
       script.
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -30,6 +30,7 @@ html
   
   block bodyClass
     // - define slug here
+    - var slug = ""
 
   body(class= slug)
     #wrapper
