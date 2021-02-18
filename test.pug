@@ -28,8 +28,10 @@ block content
     include partials/disqus
     
     -
-      var datafiles = [
+      var fileNames = [
         {filename: "FY19-20__adopted.csv"},
         {filename: "FY20-21__adopted.csv"}
         ]
+    each fileObj in fileNames
+      input(class="filename-data", type="hidden", value=fileObj.filename)
     include partials/flowScripts
