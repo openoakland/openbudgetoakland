@@ -2,14 +2,20 @@ script(src='js/sankey.js', charset='utf-8')
 script(src='js/flow.js', charset='utf-8')
 script.
     // process filenames to generate display names
-    
-    datafiles = datafiles.map(function(datafile){
+    var filenameNodelist = document.querySelectorAll("input.filename-data");
+    // credit: https://stackoverflow.com/questions/3199588/fastest-way-to-convert-javascript-nodelist-to-array
+    var filenameArray = [];
+    for(var i = filenameNodelist.length; i--; filenameArray.unshift(filenameNodelist[i]));
+    //
+    var datafiles = filenameArray.map(function(inputEl){
+        var datafile = {filename: inputEl.value};
         var nameParts = datafile.filename.slice(0,-4).split("__");
         datafile.displayName = nameParts.join(" ");
         datafile.fy = nameParts[0];
         datafile.type = nameParts[1];
         return datafile;
     });
+    console.log(datafiles);
     datafiles.sort(function(a,b){
       // years in descending order, 
       // types in order of (adjusted, adopted, proposed)
