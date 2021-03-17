@@ -12,7 +12,7 @@ Some of the other Issues are larger and require some deeper design or architectu
 
 1. Sign into GitHub and fork this repo
 1. Clone the fork onto your machine and navigate to the _src/ folder
-1. Install yarn (e.g., run ````npm install -g yarn``` on a Mac)
+1. Install yarn (e.g. run ```npm install -g yarn``` on a Mac)
 1. Install Harp globally (e.g., run ```yarn global add harp``` on a Mac) 
  - NB If you cannot install the latest version of the Harp NPM package you may need to update your operating system, else revert to v0.29.0 (e.g., run ```yarn global remove harp``` followed by ```yarn global add harp^0.29```)
 1. Start the Harp server by running ```harp server```
