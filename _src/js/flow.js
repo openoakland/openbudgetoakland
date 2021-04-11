@@ -278,10 +278,20 @@ function do_with_budget(data) {
           return b.dy - a.dy;
           })
       .on("mouseover", function(d){
+          let definition = "";
+          const sourceWords = d.source.name.split(" ");
+          console.log(`hovering over ${sourceWords[sourceWords.length - 1]}`);
+          if ( sourceWords[sourceWords.length - 1] === "Funds" && window.localStorage.getItem(d.target.name)) {
+              definition = window.localStorage.getItem(d.target.name);
+          } else if (window.localStorage.getItem(d.source.name)) {
+              definition = window.localStorage.getItem(d.source.name);
+          } else {
+              definition = "definition unavailable"
+          }
         d3.select(this).classed("highlight", true);
         d3.select("#hover_description")
             .classed("show", true)
-            .text(d.source.name + " → " + d.target.name + ": " + format(d.value));
+            .text(d.source.name + " → " + d.target.name + ": " + format(d.value) + ` (${definition})`);
       })
       .on("mousemove", function(d){
           d3.select("#hover_description")
@@ -378,10 +388,13 @@ function do_with_budget(data) {
       .attr("x", -6)
       .attr("y", function(d) { return d.dy / 2; })
       .attr("dy", ".35em")
+      .attr("class", "main-text")
       .attr("text-anchor", "end")
       .attr("transform", null)
       .text(function(d) { return d.name; })
     .filter(function(d) { return d.x < width / 2; })
       .attr("x", 6 + sankey.nodeWidth())
       .attr("text-anchor", "start");
+
+    
 };
