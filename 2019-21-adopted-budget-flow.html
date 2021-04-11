@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/styles/main.css">
     <title>Cash Flow: 2019-21 Adopted Budget — Open Budget Oakland</title>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-migrate-1.2.1.js"></script>
@@ -66,19 +66,11 @@
         </div>
         <h6>Data Source:&nbsp;<a href="https://data.oaklandnet.com/Financial/FY-2019-21-Adopted-Budget/m4jd-q2c4">Oakland's Open Data Platform</a></h6>
         <div id="hover_description"></div>
-        <script type="text/javascript">
-          var disqus_shortname = 'openbudgetoakland';
-          (function() {
-          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-        </script>
-        <noscript>Please enable JavaScript to view the<a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
         <input class="filename-data" type="hidden" value="FY19-20__adopted.csv">
         <input class="filename-data" type="hidden" value="FY20-21__adopted.csv">
-        <script src="js/sankey.js" charset="utf-8"></script>
-        <script src="js/flow.js" charset="utf-8"></script>
+        <script src="../js/sankey.js" charset="utf-8"></script>
+        <script src="../js/flow.js" charset="utf-8"></script>
+        <script src="../js/budget-glossary.js" charset="utf-8"></script>
         <script>
           // process filenames to generate display names
           var filenameNodelist = document.querySelectorAll("input.filename-data");
@@ -125,7 +117,7 @@
               var filename = d3.select('#fy.form-control')[0][0].value;
               var fy = filename.split('__')[0];
           
-              d3.csv("data/flow/" + filename, function(error, data){
+              d3.csv("../data/flow/" + filename, function(error, data){
                   if (error) {
                       console.log('error', error);
                       return false;

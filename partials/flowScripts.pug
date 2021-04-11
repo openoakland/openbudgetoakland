@@ -1,5 +1,6 @@
-script(src='js/sankey.js', charset='utf-8')
-script(src='js/flow.js', charset='utf-8')
+script(src='../js/sankey.js', charset='utf-8')
+script(src='../js/flow.js', charset='utf-8')
+script(src='../js/budget-glossary.js', charset='utf-8')
 script.
     // process filenames to generate display names
     var filenameNodelist = document.querySelectorAll("input.filename-data");
@@ -46,7 +47,7 @@ script.
         var filename = d3.select('#fy.form-control')[0][0].value;
         var fy = filename.split('__')[0];
 
-        d3.csv("data/flow/" + filename, function(error, data){
+        d3.csv("../data/flow/" + filename, function(error, data){
             if (error) {
                 console.log('error', error);
                 return false;

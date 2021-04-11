@@ -4,15 +4,27 @@ function validateRes(res) {
   }
   return res;
 }
+
 function formatRes(res) {
   return res.json();
 }
+
 function saveRes(formattedRes) {
-  console.log(formattedRes);
+  if (window.localStorage) {
+    const ls = window.localStorage;
+    // skip column headings from spreadsheet before interating
+    formattedRes.data.budgetterms.shift();
+    formattedRes.data.budgetterms.forEach((term, i) => {
+      if ( term[2] && term[2].length > 0 ) {
+        ls.setItem(term[0], term[2]);
+      }
+    });
+  }
 }
 function logError(err) {
-  console.error('Oops!' + err);
+  console.error(`Oops! ${err}`);
 }
+
 function fetchDefinitions(url, options={}) {
   fetch(url, options)
   .then(validateRes)
@@ -21,31 +33,43 @@ function fetchDefinitions(url, options={}) {
   .catch(logError);
 }
 
-fetchDefinitions( 'https://oboterms7-g55nbvma6a-wn.a.run.app/Overview', {
-  headers: new Headers({
-    'Content-Type': 'text/plain, application/json',
-  })
-});
+// function prepareToAppendDefinitions() {
+//   const chart = document.querySelector("#chart svg");
+//   chart.addEventListener('click', (ev) => {
+//     if (isValidTarget(ev)) appendDefinitionOnce(ev);
+//   });
+  
+// }
 
-  // store data.overview in local storage
-  // if (window.localStorage) {
-  //   const ls = window.localStorage;
-  //   data.overview.forEach(term => {
-  //     if (term.description !== "") {ls.setItem(term.budgetTerm, term.description);}
-  //   });
-  // }
-  // // show tool tip when rect element is clicked
-  // // addEventListener() to common ancestor of all rects
-  // const chart = document.getElementById("chart");
-  // chart.addEventListener('click', (ev) => {
-  //   console.log( ev.target.nextElementSibling.textContent.split(":")[0] );
-  //   if (ev.target.nodeName === "rect" && ev.target.nextElementSibling.nodeName === "text") {
-  //     const term = ev.target.nextElementSibling.textContent.split(":")[0];
-  //     if (!localStorage[term]) {console.log("This term is missing from the API: " + term);}
-  //     const bkgColor = ev.target.style.fill;
-  //     // 
-  //   }
-  // });
+// function isValidTarget(ev) {
+//   return (ev.target.nodeName === "rect" && ev.target.nextElementSibling.nodeName === "text");
+// }
 
+// function appendDefinitionOnce(ev) {
+//   const mainText = ev.target.nextElementSibling;
+//   const term = mainText.textContent.split(":")[0];
+//   const def = window.localStorage.getItem(term);
 
-// function showDefinition(term) {}
+//   if ( def && (! mainText.nextElementSibling || mainText.nextElementSibling.nodeName !== 'text') ) {
+//     const bkgColor = ev.target.style.fill;
+//     console.log(`${term}: ${def} in ${bkgColor}`);
+//     const auxiliaryText = document.createElement('text');
+//     // auxiliaryText.classList.add('term-definition');
+//     auxiliaryText.textContent = `${def}`;
+//     auxiliaryText.setAttribute('style', `fill: ${bkgColor}`);
+//     auxiliaryText.setAttribute('x', mainText.getAttribute('x'));
+//     auxiliaryText.setAttribute('dy', mainText.getAttribute('dy'));
+//     auxiliaryText.setAttribute('text-anchor', mainText.getAttribute('text-anchor'));
+//     // debugger;
+//     auxiliaryText.setAttribute('y', parseInt(mainText.getAttribute('y')) * 2);
+//     // auxiliaryText.style('background-color', bkgColor);
+//     ev.target.parentNode.appendChild(auxiliaryText);
+//   } else {
+//     console.warn(`This term is missing from the API: ${term}. Please ask OBO staff to check for misspellings or missing information in their spreadsheet.`);
+//   }
+// }
+
+fetchDefinitions( 'https://oboterms-g55nbvma6a-wn.a.run.app/Overview' );
+
+// prepareToAppendDefinitions();
+

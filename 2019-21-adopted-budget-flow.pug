@@ -24,8 +24,9 @@ block content
 
     #hover_description
 
-    - var disqus_identifier = "2019-21-adopted-budget-flow"
-    include partials/disqus
+    //- remove comments
+    //- - var disqus_identifier = "2019-21-adopted-budget-flow"
+    //- include partials/disqus
     
     -
       var fileNames = [
@@ -34,4 +35,5 @@ block content
         ]
     each fileObj in fileNames
       input(class="filename-data", type="hidden", value=fileObj.filename)
+      
     include partials/flowScripts
