@@ -1,0 +1,58 @@
+script(src='../js/sankey.js', charset='utf-8')
+script(src='../js/flow.js', charset='utf-8')
+script(src='../js/budget-glossary.js', charset='utf-8')
+script.
+    // process filenames to generate display names
+    var filenameNodelist = document.querySelectorAll("input.filename-data");
+    // credit: https://stackoverflow.com/questions/3199588/fastest-way-to-convert-javascript-nodelist-to-array
+    var filenameArray = [];
+    for(var i = filenameNodelist.length; i--; filenameArray.unshift(filenameNodelist[i]));
+    //
+    var datafiles = filenameArray.map(function(inputEl){
+        var datafile = {filename: inputEl.value};
+        var nameParts = datafile.filename.slice(0,-4).split("__");
+        datafile.displayName = nameParts.join(" ");
+        datafile.fy = nameParts[0];
+        datafile.type = nameParts[1];
+        return datafile;
+    });
+    console.log(datafiles);
+    datafiles.sort(function(a,b){
+      // years in descending order, 
+      // types in order of (adjusted, adopted, proposed)
+      // (which happens to be ascending)
+      var sortYear = d3.descending(a.fy, b.fy);
+      var sortType = d3.ascending(a.type, b.type);
+      return sortYear !== 0 ? sortYear : sortType;
+    });
+
+    d3.select("#fy.form-control").selectAll('option')
+        .data(datafiles)
+        .enter()
+        .append('option')
+            .attr('value', function(d){ return d.filename; })
+            .property('selected', function(d,i){ return i == 0;})
+            .text(function(d){return d.displayName;})
+            ;
+
+    d3.select("#fy.form-control")
+        .on('change', drawFlow)
+        ;
+
+    // run once to initially populate the chart
+    drawFlow();
+
+    function drawFlow(){
+        // get currently selected value
+        var filename = d3.select('#fy.form-control')[0][0].value;
+        var fy = filename.split('__')[0];
+
+        d3.csv("../data/flow/" + filename, function(error, data){
+            if (error) {
+                console.log('error', error);
+                return false;
+            }
+            var final_data = data_wrangle(data, fy);
+            do_with_budget(final_data);
+        });
+    }
