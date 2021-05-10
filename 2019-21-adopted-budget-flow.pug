@@ -1,0 +1,43 @@
+extends partials/layout
+
+prepend pageTitle
+  - var title = "Cash Flow: 2019-21 Adopted Budget"
+
+block bodyClass
+  - var slug = "flow"
+
+block content
+  .container
+    .row
+      .intro.col-md-12
+        h2= title
+        include partials/flowIntro
+    .row
+      .col-md-3
+        h4 Fiscal Year
+        select#fy.form-control
+    #sankey
+      #chart
+
+    - var dataSource = "https://data.oaklandnet.com/Financial/FY-2019-21-Adopted-Budget/m4jd-q2c4"
+    include partials/linkToDataSource
+
+    #hover_description
+
+    //- remove comments
+    //- - var disqus_identifier = "2019-21-adopted-budget-flow"
+    //- include partials/disqus
+    
+    -
+      var fileNames = [
+        {filename: "FY13-14__adopted.csv"},
+        {filename: "FY14-15__adopted.csv"},
+        {filename: "FY15-16__adopted.csv"},
+        {filename: "FY16-17__adopted.csv"},
+        {filename: "FY19-20__adopted.csv"},
+        {filename: "FY20-21__adopted.csv"}
+        ]
+    each fileObj in fileNames
+      input(class="filename-data", type="hidden", value=fileObj.filename)
+      
+    include partials/flowScripts

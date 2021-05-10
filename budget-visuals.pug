@@ -1,0 +1,87 @@
+extends partials/layout
+
+prepend pageTitle
+  - var title = "Oakland Budget Charts and Posters"
+
+block bodyClass
+  - var slug = "visuals"
+
+block content
+  .container
+    .row
+      .col-md-12
+        h2.subheader Oakland Budget Data in Chart Form
+
+    .row
+      .col-md-4
+        a(href="/2017-19-proposed-budget-flow.html")
+          h3 Cash Flow: 2017-19 Proposed Budget
+          img.img-responsive(src="/images/flow-thumb-1517.jpg" alt="")
+      .col-md-4
+        a(href="/2017-19-proposed-budget-tree.html")
+          h3 Detailed Breakdown: 2017-19 Proposed Budget
+          img.img-responsive(src="/images/tree-thumb-1517.jpg" alt="")
+      .col-md-4
+        a(href="/2016-17-adjusted-budget-flow.html")
+          h3 Cash Flow: 2016-17 Adjusted Budget
+          img.img-responsive(src="/images/flow-thumb-1517.jpg" alt="")
+
+    .row
+      .col-md-4
+        a(href="/2016-17-adjusted-budget-tree.html")
+          h3 Detailed Breakdown: 2016-17 Adjusted Budget
+          img.img-responsive(src="/images/tree-thumb-1517.jpg" alt="")
+      .col-md-4
+        a(href="/2015-17-adopted-budget-flow.html")
+          h3 Cash Flow: 2015-17 Adopted Budget
+          img.img-responsive(src="/images/flow-thumb-1517.jpg" alt="")
+      .col-md-4
+        a(href="/2015-17-adopted-budget-tree.html")
+          h3 Detailed Breakdown: 2015-17 Adopted Budget
+          img.img-responsive(src="/images/tree-thumb-1517.jpg" alt="")
+
+    .row
+      .col-md-4
+        a(href="/2015-17-proposed-budget-flow.html")
+          h3 Cash Flow: 2015-17 Proposed Budget
+          img.img-responsive(src="/images/flow-thumb-1517.jpg" alt="")
+      .col-md-4
+        a(href="/2015-17-proposed-budget-tree.html")
+          h3 Detailed Breakdown: 2015-17 Proposed Budget
+          img.img-responsive(src="/images/tree-thumb-1517.jpg" alt="")
+      .col-md-4
+        a(href="/2014-15-adjusted-budget-flow.html")
+          h3 Cash Flow: 2014-15 Adjusted Budget
+          img.img-responsive(src="/images/flow-thumb.png" alt="")
+
+    .row
+      .col-md-4
+        a(href="/2013-2015-adopted-budget-flow.html")
+          h3 Cash Flow: 2013-15 Adopted Budget
+          img.img-responsive(src="/images/flow-thumb.png" alt="")
+      .col-md-4
+        a(href="/2013-2015-adopted-budget.html")
+          h3 Detailed Breakdown: 2013-15 Adopted Budget
+          img.img-responsive(src="/images/treemap-thumb.png" alt="")
+      .col-md-4
+        a(href="/2012-2013-sankey.html")
+          h3 2012-13 Adopted Revenues &amp; Spending
+          img.img-responsive(src="/images/old-sankey-thumb.png" alt="")
+
+    .row
+      .col-md-4
+        a(href="/2011-2013-adopted-budget.html")
+          h3 2011-13 Adopted Spending (Treemap)
+          img.img-responsive(src="/images/old-treemap-thumb.png" alt="")
+
+    hr
+    
+    .row
+      .col-md-12
+        h2.subheader Oakland Budget Features 
+    
+    .row
+      .col-md-4
+        a(href="/measure-z")
+          h3 Focus on Measure Z: How does Oakland fund violence prevention?
+          img.img-responsive(src="/images/home/measureZ12.png")
