@@ -1,89 +1,84 @@
 // styles for d3 Sankey flow diagram
 
-@mixin flow-chart-title {    
-    font-family: $font-family-sans-serif;
-    font-size: 16px;
-    text-transform: uppercase;
+@mixin flow-chart-title {
+  font-family: $font-family-sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
 }
 
 #hover_description {
-    position: absolute;
-    opacity: 0;
-    padding: 8px;
-    background-color: #dfdfdf;
-    visibility: hidden;
-    transition: visibility 0s 0.1s,opacity 0.1s;
-    font-size: 14px;
+  position: absolute;
+  opacity: 0;
+  padding: 8px;
+  background-color: #dfdfdf;
+  visibility: hidden;
+  transition: visibility 0s 0.1s, opacity 0.1s;
+  font-size: 14px;
 
-    &.show {
-        visibility: visible;
-        opacity: 0.85;
-        transition-delay: 0s;
-    }
+  &.show {
+    visibility: visible;
+    opacity: 0.85;
+    transition-delay: 0s;
+  }
 }
 
 #sankey {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 svg {
+  text {
+    @include flow-chart-title;
+    &:first-child {
+      fill: $revenue-color;
+    }
+    &:nth-child(2) {
+      fill: $expense-color;
+    }
+  }
+  .node {
+    rect {
+      fill-opacity: 0.9;
+      shape-rendering: crispEdges;
+      stroke-width: 1px;
+      transition: stroke-width 0.1s;
+    }
     text {
-        @include flow-chart-title;
-        &:first-child {
-            fill: $revenue-color;
-        }
-        &:nth-child(2) {
-            fill: $expense-color;
-        }
-    }
-    .node {
-        rect {
-            fill-opacity: .9;
-            shape-rendering: crispEdges;
-            stroke-width: 1px;
-            transition: stroke-width 0.1s;
-        }
-        text {
-            fill: black;
-            font-family: $headings-font-family;
-            font-size: 12px;
-            pointer-events: none;
-            text-transform: capitalize;
-            transition: font-size 0.3s;
-        }
-
-        &.highlight, &.hover {
-
-            text {
-              font-size: 15px;
-            }
-
-            rect {
-              stroke-width:2px;
-            }
-        }
+      fill: black;
+      font-family: $headings-font-family;
+      font-size: 12px;
+      pointer-events: none;
+      text-transform: capitalize;
+      transition: font-size 0.3s;
     }
 
-    .fund text {
-        @include flow-chart-title;
+    &.highlight,
+    &.hover {
+      text {
+        font-size: 15px;
+      }
+
+      rect {
+        stroke-width: 2px;
+      }
     }
+  }
 
-    .link {
-        fill: none;
-        stroke-opacity: .2;
-        transition: stroke-opacity 0.3s;
+  .fund text {
+    @include flow-chart-title;
+  }
 
-        &.highlight {
-            stroke-opacity: .6;
-        }
+  .link {
+    fill: none;
+    stroke-opacity: 0.2;
+    transition: stroke-opacity 0.3s;
+
+    &.highlight {
+      stroke-opacity: 0.6;
     }
-
+  }
 }
 
-
-
-
-
-#warning{
-    color: red;
+#warning {
+  color: red;
 }

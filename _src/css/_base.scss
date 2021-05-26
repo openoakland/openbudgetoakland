@@ -19,3 +19,12 @@
 * {
   background-repeat: no-repeat;
 }
+
+.auto-columns {
+  display: flex;
+  flex: 1 1 100%;
+  flex-wrap: nowrap;
+  li {
+    min-width: 15em;
+  }
+}
