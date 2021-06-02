@@ -12,11 +12,11 @@ npx harp -V
 echo "Harp version"
 # create build directory that will only exist on CI server
 mkdir ./build
-# get rid of the node_modules folder in _src
-rm -rf ./_src/node_modules
 ls -F ./_src
 # use Harp to compile source files to build folder
 npx harp compile ./_src ./build
+# clear node_modules folder before running Pug
+rm -rf ./_src/node_modules
 # compile Pug files to HTML in same folder
 npm install pug-cli
 npx pug --version
