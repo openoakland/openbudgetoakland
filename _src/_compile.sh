@@ -14,7 +14,7 @@ echo "Harp version"
 mkdir ./build
 ls -F ./_src
 # use Harp to compile source files to build folder
-npx harp compile ./_src ./build
+npx harp ./_src ./build
 # clear node_modules folder before running Pug
 rm -rf ./_src/node_modules
 # compile Pug files to HTML in same folder
