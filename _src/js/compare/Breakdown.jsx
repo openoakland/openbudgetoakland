@@ -1,6 +1,6 @@
 import React from 'react';
-import axios from '../../node_modules/axios/dist/axios';
-import Spinner from '../../node_modules/react-spinkit/dist/index';
+import axios from 'axios';
+import Spinner from 'react-spinkit';
 
 import DiffTable from './DiffTable.jsx';
 import Trend from './Trend.jsx';
