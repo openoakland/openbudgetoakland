@@ -8,7 +8,7 @@
 pwd
 # install Harp locally at root
 npm install harp 
-npx harp -V
+npx harp -v
 echo "Harp version"
 # create build directory that will only exist on CI server
 mkdir ./build
