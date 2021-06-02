@@ -7,7 +7,7 @@
 # Summary: compile source files from root
 pwd
 # install Harp locally at root
-npm install harp@0.34.0 
+npm install harp@0.33.0 
 npx harp -V
 echo "Harp version"
 # create build directory that will only exist on CI server
