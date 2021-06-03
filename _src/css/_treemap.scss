@@ -1,67 +1,43 @@
 // Styles for D3 Treemap
 
-// Treemap
 .treemap {
-  .grandparent,
-  .depth,
-  .groups,
-  .children,
-  .parent,
-  .text,
-  .textdiv,
-  .amount,
-  .name {
-
-  }
-  .grandparent text {
-    // header text
-    color: $gray-darker;
-    font-size: 18px;
-    font-family: $headings-font-family;
-  }
-  .amount {
-    font-family: $headings-font-family;
-  }
   rect {
     fill: none;
     stroke: #fff;
     &.parent {
+      pointer-events: all;
       stroke-width: 1px;
     }
   }
-}
-
-.grandparent rect {
-  stroke-width: 1px;
-}
-
-.treemap {
-  .grandparent rect {
-    fill: #fff;
+  text {
+    /*pointer-events: none;*/
+    cursor: pointer;
+  }
+  .amount {
+    font-family: $headings-font-family;
+  }
+  .grandparent {
+    text {
+      // header text
+      color: $gray-darker;
+      font-size: 18px;
+      font-family: $headings-font-family;
+    }
+    rect {
+      cursor: pointer;
+      fill: #fff;
+      stroke-width: 1px;
+    }
   }
   .children rect.parent {
     cursor: pointer;
   }
-}
-
-.grandparent rect {
-  cursor: pointer;
-}
-
-.treemap {
-  rect.parent {
-    pointer-events: all;
-  }
   .textdiv {
     /* text in the boxes */
+    color: white;
     font-size: small;
     padding: 5px;
-    color: white;
     pointer-events: none;
-  }
-  text {
-    /*pointer-events: none;*/
-	  cursor: pointer;
   }
 }
 
@@ -69,11 +45,10 @@
 
 #tooltip {
   background: #333;
-  color: #FFF;
+  color: #fff;
   padding: 5px;
   pointer-events: none;
 }
-
 
 // Spreadsheet
 
@@ -81,21 +56,22 @@
   table {
     display: block;
     margin: auto;
-    border-collapse:collapse;
+    border-collapse: collapse;
     border: 0px;
   }
   tbody {
-    border-collapse:collapse;
+    border-collapse: collapse;
     border: 0px;
   }
   th {
     text-align: left;
   }
-  th, td {
+  th,
+  td {
     border-top: 1px solid black;
     border-left: 0px;
     border-right: 0px;
-    border-collapse:collapse;
+    border-collapse: collapse;
     padding: 5px;
   }
   td {
