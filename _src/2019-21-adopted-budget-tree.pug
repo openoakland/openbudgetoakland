@@ -1,0 +1,35 @@
+extends partials/layout
+
+prepend pageTitle
+  - var title = "Detailed Budget Breakdown"
+
+block bodyClass
+  - var slug = "tree"
+
+block content
+  .container
+    .row
+      .intro.col-md-8
+        h2= title
+        include partials/treeIntro
+    //- .row
+    //-   .col-sm-12
+    //-     p#breadcrumbs 
+    .row
+      .col-sm-6
+        h3 Click on an area to start exploring
+      .col-sm-6#dropdown
+    #treemap
+    #spacer
+    #table(style="margin-bottom: 30px;")
+
+    - var dataSource = "https://data.oaklandnet.com"
+    - var dataName = "Oakland's Open Data Platform'"
+    include partials/linkToDataSource
+
+    #hover_description
+
+    include partials/treeScripts
+
+
+

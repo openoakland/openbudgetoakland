@@ -1,0 +1,13 @@
+extends partials/layout
+
+prepend pageTitle
+  - var title = "Who We Are"
+
+block bodyClass
+  - var slug = "about"
+
+block content
+  .container
+    #root
+  //- get app bundled by Webpack
+  script(src="/js/dist/compare.bundle.js") 

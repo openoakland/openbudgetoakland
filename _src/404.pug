@@ -1,0 +1,13 @@
+extends partials/layout
+
+prepend pageTitle
+  - var title = "Page Not Found"
+
+block bodyClass
+  - var slug = "http-error"
+
+block content
+  .container
+
+    h1 404
+    p Oops! The page you asked for can't be found.
