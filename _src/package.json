@@ -19,7 +19,7 @@
   "scripts": {
     "watch": "node_modules/.bin/webpack --config webpack.config.js --watch",
     "build": "node_modules/.bin/webpack --config webpack.config.js -p",
-    "build-css": "sass --style=compressed css/main.scss styles/main.css"
+    "build-css": "dart-sass --style=compressed css/main.scss styles/main.css"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
