@@ -5,22 +5,24 @@
 # NODE_ENV=production
 #
 # Summary: compile source files from root
+#
+# where am I?
 pwd
-# install Harp locally at root
-npm install harp 
-npx harp -v
-echo "Harp version"
-# create build directory that will only exist on CI server
-mkdir ./build
+# document contents of _src
 ls -F ./_src
-# use Harp to compile source files to build folder
-npx harp ./_src ./build
-# clear node_modules folder before running Pug
+# clear dependencies just in case???
+rm -rf ./node_modules
 rm -rf ./_src/node_modules
-# compile Pug files to HTML in same folder
-npm install pug-cli
-npx pug --version
-npx pug ./_src/*.pug -o ./build -P
+# create build directory that will only exist on CI/CD server
+mkdir ./build
+cd ./_src
+# install dependencies
+npm install
+# run Sass preprocessor
+npm run build-css
+# compile source files to build folder
+# NB: compilation by 11ty is configured in .eleventy.js
+npx @11ty/eleventy
 # document contents
 ls -F ./build
 # set this back to development so we don't go 
