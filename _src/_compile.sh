@@ -24,7 +24,7 @@ npm run build-css
 # NB: compilation by 11ty is configured in .eleventy.js
 npx @11ty/eleventy
 # document contents
-ls -F ./build
+ls -F ../build
 # set this back to development so we don't go 
 # accidentally running prod code in dev environments
 # NODE_ENV=development

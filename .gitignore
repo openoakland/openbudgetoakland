@@ -4,3 +4,4 @@ www/
 node_modules/
 tmp/
 _src/js/dist/
+build/
