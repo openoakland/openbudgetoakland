@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>Detailed Budget Breakdown — Open Budget Oakland</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.5/d3.min.js"></script>
+  </head>
+  <body class="tree">
+    <div id="wrapper">
+      <nav class="main-nav">
+        <div class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/">Open Budget: Oakland</a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">About<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/what-we-do">What and How</a></li>
+                    <li><a href="/who-we-are">Who We Are</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                  </ul>
+                </li>
+                <li><a href="/budget-visuals">Visualizations</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Data<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="https://github.com/openoakland/openbudgetoakland/wiki/API-Documentation">Open Budget Oakland API</a></li>
+                    <li><a href="https://cao-94612.s3.amazonaws.com/documents/FY-2019-21-Adopted-Budget-Policy-Book-FINAL-WEB-VERSION.pdf">Adopted Budget Policy Book</a></li>
+                    <li><a href="http://data.openoakland.org/dataset/city-oakland-budget">Legacy Datasets</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Resources<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/oakland-budget-basics">Oakland Budget Basics</a></li>
+                    <li><a href="/tools-projects">Tools and Projects</a></li>
+                  </ul>
+                  <li><a href="/feedback">Feedback</a></li>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="container">
+        <div class="row">
+          <div class="intro col-md-8">
+            <h2>Detailed Budget Breakdown</h2>
+            <p>Select year and account (revenues or expenses). Click on a fund to see the departments that receive its funding. Click on that department to see its spending or revenue.</p>
+            <p>The <strong>General Fund</strong> — roughly 40% of Oakland's total budget -- is decided by a <a href="/budget-process.html">budget process</a> that includes private and public meetings, surveys, and negotiations. The other 60% of the budget comes from taxes, ballot measures, grants, fees, and other sources.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <h3>Click on an area to start exploring</h3>
+          </div>
+          <div class="col-sm-6" id="dropdown"></div>
+        </div>
+        <div id="treemap"></div>
+        <div id="spacer"></div>
+        <div id="table" style="margin-bottom: 30px;"></div>
+        <h6>Data Source:&nbsp;<a href="https://data.oaklandnet.com">Oakland's Open Data Platform'</a></h6>
+        <div id="hover_description"></div>
+        <script src="../js/palette.js" charset="utf-8"></script>
+        <script src="../js/source.js" charset="utf-8"></script>
+        <script src="../js/data.js" charset="utf-8"></script>
+        <script src="../js/treemap.js" charset="utf-8"></script>
+        <script src="../js/spreadsheet.js" charset="utf-8"></script>
+        <script src="../js/tooltip.js" charset="utf-8"></script>
+        <script src="../js/budget-treemap.js" charset="utf-8"></script>
+        <script>
+            var config = {
+                /* set values available in dropdown files */
+                dropdown_values: {
+                "Year": ["FY19-20", "FY20-21", "FY16-17", "FY15-16", "FY14-15", "FY13-14"],
+                "Account": ["Revenue", "Expense"]
+                },
+                /* set the default values */
+                dropdown_choice: {
+                "Year": "FY20-21",
+                "Account": "Expense"
+                },
+                /* create the url to the data file based on the dropdown choices */
+                url: function() {
+                return '/data/tree/Adopted.' + this.dropdown_choice["Account"] + "." + this.dropdown_choice["Year"] + ".json";
+                }
+            };
+          function _hash_normalize(s) {
+            return s.toLowerCase().replace(/\s+/g, '');
+          }
+          
+          function _hash_compare(v1, v2) {
+            return _hash_normalize(v1) == _hash_normalize(v2) ? 0 : 1;
+          }
+          
+          function _parse_hash(hash) {
+            function _parse_hash_dropdown(arr, category) {
+              if (arr.length) {
+                var x = arr.shift();
+                /* see if hash array value matches to dropdown value, and set value
+                 * it matches */
+                var idx = ob.data.findIndex(
+                  config.dropdown_values[category], x, _hash_compare);
+                if (idx > -1) {
+                  config.dropdown_choice[category] = config.dropdown_values[category][idx];
+                }
+              }
+            }
+          
+            var hash_array = hash.split(".");
+            _parse_hash_dropdown(hash_array, "Year");
+            _parse_hash_dropdown(hash_array, "Account");
+            return hash_array.join(".");
+          }
+          
+          /* need to parse hash on load before creating treemap to make sure we 
+           * don't set the dropdown values before reading them from the hash */
+          _parse_hash(window.location.hash.replace("#",""));
+          
+          /* get width of container */
+          var parent = d3.select(".container");
+          var width = parent.node().offsetWidth - parseInt(parent.style("padding-left")) - parseInt(parent.style("padding-right"));
+          
+          
+          /* create display */
+          ob.display.budget_treemap()
+            .width(width)
+            .height(600)
+            .count(40)
+            .config(config)
+            .dropdown("#dropdown")
+            .spreadsheet("#table")
+            .treemap("#treemap")
+            .title("#title")
+            //- .breadcrumbs("#breadcrumbs")
+            .hashnorm(_hash_normalize)
+            .hashcmp(_hash_compare)
+            .on("set_hash", function(hash) {
+              /* add year and account to hash for linking */
+              var prefix = _hash_normalize(config.dropdown_choice["Year"]) + 
+                "." + 
+                _hash_normalize(config.dropdown_choice["Account"]);
+              return hash.length ? prefix + "." + hash : prefix;
+            })
+            .on("get_hash", function(hash) { return _parse_hash(hash); })
+            .url(config.url())
+            .create();
+        </script>
+      </div>
+      <div id="wrapper-footer"></div>
+    </div>
+    <footer id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-9">
+            <p>Open Budget: Oakland is an open-source project by<a href="https://openoakland.org">OpenOakland</a> that seeks to help residents understand Oakland's spending and budget process better.</p>
+            <ul class="list-inline">
+              <li><a href="http://openoakland.org"><img src="/images/global/openoakland-logo.png" width="150" alt="OpenOakland"></a></li>
+              <li><a href="https://twitter.com/openbudgetoak"><img src="/images/global/twitter-icon.png" alt="twitter"></a></li>
+              <li><a href="https://github.com/openoakland/openbudgetoakland"><img src="/images/global/github-icon.png" alt="github"></a></li>
+            </ul>
+          </div>
+          <div class="col-sm-3 col-md-push-3">
+            <ul class="list-unstyled">
+              <li><a href="/what-we-do">About the Project</a></li>
+              <li><a href="http://www.meetup.com/OpenOakland">Get Involved</a></li>
+              <li><a href="/feedback">Give Feedback</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <link href="https://fonts.googleapis.com/css?family=Arvo:400,700" rel="stylesheet" type="text/css">
+  </body>
+</html>
