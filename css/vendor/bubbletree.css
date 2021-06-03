@@ -1,0 +1,270 @@
+.bubbletree-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.bubbletree-widget-wrapper {
+    width: 100%;
+    height: 30em;
+    position: absolute;
+}
+
+.bubbletree-widget {
+    background: #fff;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+.bubbletree-widget .label {
+    position: absolute;
+    background-color: rgba(0,0,0,0);
+    text-transform: none;
+    font-weight: normal;
+    color: #fff;
+    text-align: center;
+    cursor: default;
+}
+
+.bubbletree-widget .amount {
+    font-family: Georgia, sans-serif;
+    font-size: 16px;
+}
+
+.bubbletree-widget .desc {
+    font-family: sans-serif;
+    font-size: 11px;
+
+}
+
+.bubbletree-widget .label2 {
+    position: absolute;
+    color: #000;
+    text-align: center;
+    cursor: default;
+    font-size: 11px;
+    font-family: sans-serif;
+    margin-top:5px;
+}
+
+.bubbletree-widget .label2 span {
+    background: #fff;
+}
+
+.bubbletree-widget .tooltip {
+    max-width: 220px;
+    border: 1px solid #999;
+    position: absolute;
+    background: #fff;
+    z-index: 9999;
+    box-shadow: 3px 3px 0px rgba(0,0,0,.2);
+    border-radius: 2px;
+    font-family: sans-serif;
+    font-size: 13px;
+    padding: 4px;
+}
+
+.bubbletree-widget .tooltip .header {
+    padding: 6px;
+}
+
+.bubbletree-widget .tooltip .header .icon {
+    width: 38px;
+    height: 38px;
+    float: left;
+    background: #600;
+    border-radius: 19px;
+    margin-right: 8px;
+}
+
+.bubbletree-widget .tooltip svg {
+    width: 100px; height: 100px; fill: black; display: block; position: relative; visibility: visible;
+    z-index: 10000;
+}
+
+.bubbletree-widget .tooltip svg path {
+    fill-opacity: 1; visiblity: visible;
+}
+
+.bubbletree-widget-wrapper .tooltip .row {
+    clear: both;
+    border-top: 1px solid #999; padding: 6px;
+}
+
+
+.bubbletree-widget #tooltip {
+    position: absolute;
+    z-index: 3000;
+    background-color: #fff;
+    padding: 5px;
+
+    border: 1px solid #999;
+    box-shadow: 3px 3px 0px rgba(0,0,0,.2);
+    border-radius: 2px;
+    font-family: sans-serif;
+    font-size: 13px;
+    padding: 4px;
+    max-width: 200px;
+}
+
+.bubbletree-widget #tooltip .amount {
+    font-weight: bold;
+}
+
+.bubbletree-widget #tooltip h3,
+.bubbletree-widget #tooltip div { margin: 0; }
+
+p#vtip #vtipArrow { position: absolute; top: -10px; left: 5px }
+
+
+
+
+/*
+* qTip2 - Pretty powerful tooltips
+* http://craigsworks.com/projects/qtip2/
+*
+* Version: nightly
+* Copyright 2009-2010 Craig Michael Thompson - http://craigsworks.com
+*
+* Dual licensed under MIT or GPLv2 licenses
+*   http://en.wikipedia.org/wiki/MIT_License
+*   http://en.wikipedia.org/wiki/GNU_General_Public_License
+*
+* Date: Mon Nov 21 13:18:18.0000000000 2011
+*/
+
+
+/* Core qTip styles */
+.ui-tooltip, .qtip{
+    position: absolute;
+    left: -28000px;
+    top: -28000px;
+    display: none;
+
+    max-width: 180px;
+    min-width: 50px;
+
+    font-size: 12px;
+    line-height: 15px;
+
+    z-index: 15000;
+}
+
+/* Fluid class for determining actual width in IE */
+.ui-tooltip-fluid{
+    display: block;
+    visibility: hidden;
+    position: static !important;
+    float: left !important;
+}
+
+.ui-tooltip-content{
+    position: relative;
+    padding: 5px 9px;
+    overflow: hidden;
+
+    border-width: 1px;
+    border-style: solid;
+
+    text-align: left;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+.ui-tooltip-titlebar{
+    position: relative;
+    min-height: 14px;
+    padding: 5px 35px 5px 10px;
+    overflow: hidden;
+
+    border-width: 1px 1px 0;
+    border-style: solid;
+
+    font-weight: bold;
+}
+
+.ui-tooltip-titlebar + .ui-tooltip-content{ border-top-width: 0px !important; }
+
+/*! Default close button class */
+.ui-tooltip-titlebar .ui-state-default{
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    margin-top: -9px;
+
+    cursor: pointer;
+    outline: medium none;
+
+    border-width: 1px;
+    border-style: solid;
+}
+
+* html .ui-tooltip-titlebar .ui-state-default{ top: 16px; } /* IE fix */
+
+.ui-tooltip-titlebar .ui-icon,
+.ui-tooltip-icon .ui-icon{
+    display: block;
+    text-indent: -1000em;
+}
+
+.ui-tooltip-icon, .ui-tooltip-icon .ui-icon{
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.ui-tooltip-icon .ui-icon{
+    width: 18px;
+    height: 14px;
+
+    text-align: center;
+    text-indent: 0;
+    font: normal bold 10px/13px Tahoma,sans-serif;
+
+    color: inherit;
+    background: transparent none no-repeat -100em -100em;
+}
+
+
+/* Applied to 'focused' tooltips e.g. most recently displayed/interacted with */
+.ui-tooltip-focus{
+
+}
+
+/* Applied on hover of tooltips i.e. added/removed on mouseenter/mouseleave respectively */
+.ui-tooltip-hover{
+
+}
+
+
+/*! Default tooltip style */
+.ui-tooltip-default .ui-tooltip-titlebar,
+.ui-tooltip-default .ui-tooltip-content{
+    border-color: #777;
+    background-color: #fff;
+    color: #000;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 3px 3px 5px rgba(0,0,0,.3);
+}
+
+.ui-tooltip-default .ui-tooltip-titlebar{
+    background-color: #222;
+    color: #fff;
+    border-radius: 5px 5px 0 0;
+    font-size: 12px;
+    font-weight: 300;
+    font-family: "OpenSansLight","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.ui-tooltip-default .ui-tooltip-icon{
+    border-color: #CCC;
+    background: #F1F1F1;
+    color: #777;
+
+}
+
+.ui-tooltip-default .ui-tooltip-titlebar .ui-state-hover{
+    border-color: #AAA;
+    color: #111;
+}
