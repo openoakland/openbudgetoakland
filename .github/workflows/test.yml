@@ -1,13 +1,13 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# This workflow will do a clean install of node dependencies, build the source code, and run unit tests.
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Testing
+name: Test on staging
 
 on:
-  push:
-    branches: [testing]
   pull_request:
-    branches: [testing]
+    branches: [staging]
+  push:
+    branches: [staging]
 
 jobs:
   build:
@@ -35,10 +35,3 @@ jobs:
         run: bash _src/_compile.sh
         env:
           CI: true
-      - name: Deploy to gh-pages
-        uses: JamesIves/github-pages-deploy-action@releases/v3
-        with:
-          ACCESS_TOKEN: ${{secrets.DEPLOY_OBO}}
-          # SSH: true
-          BRANCH: gh-pages
-          FOLDER: build
