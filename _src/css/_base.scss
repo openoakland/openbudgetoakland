@@ -28,3 +28,15 @@
     min-width: 15em;
   }
 }
+
+.navbar-toggle {
+  position: absolute;
+  right: 0;
+}
+
+.navbar-brand {
+  height: 75px;
+  .img-responsive {
+    max-height: 50px;
+  }
+}
