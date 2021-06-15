@@ -8,7 +8,7 @@ on:
     branches: [master]
 
 jobs:
-  build:
+  build_and_deploy:
     runs-on: macos-10.15
 
     strategy:
@@ -33,15 +33,6 @@ jobs:
         run: bash _src/_compile.sh
         env:
           CI: true
-  deploy:
-    runs-on: macos-10.15
-
-    strategy:
-      matrix:
-        # node-version: [8.x, 10.x, 12.x]
-        node-version: [15.x]
-
-    steps:
       - name: Deploy to gh-pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
