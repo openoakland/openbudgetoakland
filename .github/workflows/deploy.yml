@@ -1,16 +1,14 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# This workflow will do a clean install of node dependencies, build the source code, run integration and end-to-end tests, and deploy to GitHub Pages.
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Testing
+name: Deploy on pull-request to master
 
 on:
-  push:
-    branches: [testing]
   pull_request:
-    branches: [testing]
+    branches: [master]
 
 jobs:
-  build:
+  build_and_deploy:
     runs-on: macos-10.15
 
     strategy:
