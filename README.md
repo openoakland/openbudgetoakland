@@ -11,7 +11,7 @@ Some of the other Issues are larger and require some deeper design or architectu
 ### Quick Start Guide for Unix-based systems (Mac or Linux)
 
 1. Sign into GitHub and fork this repo
-1. Clone the fork onto your machine and navigate to the \_src/ folder
+1. Clone the fork onto your machine and navigate to the new folder
 1. While still in the root directory of the repo, create a new folder called "build". This folder will be ignored by our version control system.
 1. Navigate to the \_src/ folder, which is where all development work takes place.
 1. Install dependencies with `npm install`
