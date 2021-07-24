@@ -6,3 +6,4 @@ tmp/
 _src/js/dist/
 build/
 yarn.lock
+.sass-cache/
