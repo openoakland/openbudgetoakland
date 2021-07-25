@@ -16,9 +16,10 @@ Some of the other Issues are larger and require some deeper design or architectu
 1. Navigate to the \_src/ folder, which is where all development work takes place.
 1. Install dependencies with `npm install`
 1. Serve the website by entering `npx @11ty/eleventy --serve --port=8011`
-1. You're ready to do the codez! You may want to open a new terminal window, though, to regain access to the command line.
 
-Your local copy of Open Budget Oakland's website should now be running at http://localhost:8011.
+Congratulations! Your local copy of Open Budget Oakland's website should now be running at http://localhost:8011. That means you're ready to do the codez if you want to contribute to the codebase of Open Budget Oakland. You will probably want to open a new terminal window, though, to regain access to the command line.
+
+- Please note that after editing a SASS file you should run `npm run build-css` from the \_src/ folder in order to incorporate your changes into the CSS
 
 ### Eleventy
 
@@ -37,6 +38,8 @@ Once you have the NPM package manager installed, you can install Eleventy and th
 ```
 npm install
 ```
+
+This command usually runs without a glitch, but if you run into trouble, check your version of node. The latest version of node that we can confirm works with our set-up is **v15.14.0**.
 
 To start eleventy, simply enter the following. (You may choose any network port on your system that is available; 8011 is just a suggestion.)
 
