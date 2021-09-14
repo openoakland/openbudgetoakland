@@ -107,6 +107,7 @@ ob.display = ob.display || {};
 
 			disp.g = _svg.insert("g", ".grandparent")
 				.datum(d)
+				.attr("style", "cursor: pointer;")
 				.attr("class", "depth");
 
 			/* add in data */
