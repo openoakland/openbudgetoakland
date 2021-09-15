@@ -22,7 +22,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env'], // was 'es2015'
-            cacheDirectory: true
+            cacheDirectory: false
           }
         }
       },
