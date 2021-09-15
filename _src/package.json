@@ -17,8 +17,8 @@
     "react-spinkit": "^2.1.1"
   },
   "scripts": {
-    "watch": "node_modules/.bin/webpack --config webpack.config.js --watch",
-    "build": "node_modules/.bin/webpack --config webpack.config.js",
+    "watch": "npx webpack --config webpack.config.js --watch",
+    "build": "npx webpack --config webpack.config.js",
     "build-css": "dart-sass --style=compressed css/main.scss styles/main.css"
   },
   "devDependencies": {
