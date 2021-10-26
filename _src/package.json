@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@babel/helper-plugin-utils": "^7.14.5",
     "axios": "^0.21.2",
     "chart.js": "^2.9.3",
     "d3-array": "^1.2.4",
@@ -22,7 +23,7 @@
     "build-css": "dart-sass --style=compressed css/main.scss styles/main.css"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^0.11.1",
+    "@11ty/eleventy": "^0.12.1",
     "@babel/cli": "^7.15.4",
     "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.6",
