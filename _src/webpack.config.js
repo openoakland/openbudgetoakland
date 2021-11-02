@@ -4,7 +4,8 @@ module.exports = {
   mode: 'development',
   context: path.resolve(__dirname, 'js'),
   entry: {
-    compare: ['babel-polyfill', './compare/index.jsx'],
+    // before,compare: ['babel-polyfill', './compare/index.jsx'],
+    compare: ['@babel/polyfill', './compare/index.jsx'],
   },
   output: {
     filename: '[name].bundle.js',
