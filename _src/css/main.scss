@@ -44,7 +44,7 @@ nav.main-nav {
     border-color: #080808;
     & > li > a {
       color: #ccc;
-      &:hover{
+      &:hover {
         color: #fff;
         background-color: #333;
       }
@@ -75,7 +75,7 @@ footer {
     li {
       margin-right: 10px;
       a {
-        @include opacity(.8);
+        @include opacity(0.8);
         &:hover {
           @include opacity(1);
         }
@@ -88,13 +88,41 @@ footer {
 }
 
 // 'Responsive' sticky footer
-@mixin footer-height($height){
-  #wrapper { margin-bottom: -$height; }
-  #wrapper-footer { height: $height; }
-  #footer { min-height: $height; }
+@mixin footer-height($height) {
+  #wrapper {
+    margin-bottom: -$height;
+  }
+  #wrapper-footer {
+    height: $height;
+  }
+  #footer {
+    min-height: $height;
+  }
 }
 @include footer-height(150px);
 
-@media (max-width: $screen-sm-min){
+// iframes
+.iframe-container {
+  position: relative;
+  // 16:9 aspect ratio
+  // padding-bottom: 56.25%;
+  padding-bottom: 125%;
+  padding-top: 25px;
+  height: 0;
+  overflow: hidden;
+  iframe {
+    border: none;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: $screen-sm-max) {
   @include footer-height(200px);
+  .iframe-container {
+    padding-bottom: 180%;
+  }
 }
