@@ -13,44 +13,6 @@ block content
       .col-md-8.col-sm-12
         div
           h2.subheader How would you use Open Budget?
-          
-          #wufoo-za3gq4n1oevxis
-          //- | Fill out my#{' '}
-          //- a(href='https://openbudgetoakland.wufoo.com/forms/za3gq4n1oevxis') online form
-          //- | .
-        script(type='text/javascript').
-          var za3gq4n1oevxis;(function(d, t) {
-          var s = d.createElement(t), options = {
-          'userName':'openbudgetoakland',
-          'formHash':'za3gq4n1oevxis',
-          'autoResize':true,
-          'height':'377',
-          'async':true,
-          'host':'wufoo.com',
-          'header':'show',
-          'ssl':true};
-          s.src = ('https:' == d.location.protocol ? 'https://' : 'http://') + 'www.wufoo.com/scripts/embed/form.js';
-          s.onload = s.onreadystatechange = function() {
-          var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return;
-          try { za3gq4n1oevxis = new WufooForm();za3gq4n1oevxis.initialize(options);za3gq4n1oevxis.display(); } catch (e) {}};
-          var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
-          })(document, 'script');
+        .iframe-container.iframe-container-form-contact
+          iframe(src="https://docs.google.com/forms/d/e/1FAIpQLSezuIPmKyJ_Knayg9zd3VEcl5h1wZQWlevT23_zlLYYXfvCtQ/viewform?embedded=true" scrolling="no" onLoad="window.parent.scroll(0,0);").iframe-form-generic Loading&hellip;
 
-
-
-        //-#disqus_thread
-
-  // DISQUS script
-  script(type='text/javascript').
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'openbudgetoakland'; // required: replace example with your forum shortname
-    var disqus_identifier = 'Open Budget: Oakland feedback';
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-  noscript
-    | Please enable JavaScript to view the
-    a(href='http://disqus.com/?ref_noscript') comments powered by Disqus.
