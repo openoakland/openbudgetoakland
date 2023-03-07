@@ -5431,18 +5431,18 @@ FY19-20,Economic & Workforce Development,Revenue,2419,Transient Occupancy Tax,35
 FY19-20,Economic & Workforce Development,Revenue,2419,Transient Occupancy Tax,3984
 FY19-20,Economic & Workforce Development,Revenue,2419,Transient Occupancy Tax,4787
 FY19-20,Economic & Workforce Development,Revenue,2419,Transient Occupancy Tax,629
-FY19-20,Non,Revenue,2419,Transient Occupancy Tax,888273
-FY19-20,Non,Revenue,2419,Transient Occupancy Tax,888273
-FY19-20,Non,Revenue,2419,Transient Occupancy Tax,888273
-FY19-20,Non,Revenue,2419,Transient Occupancy Tax,3553093
-FY19-20,Non,Revenue,2419,Transient Occupancy Tax,14745
-FY19-20,Non,Revenue,2419,Transient Occupancy Tax,14745
-FY19-20,Non,Revenue,2419,Transient Occupancy Tax,14745
-FY19-20,Non,Revenue,2419,Transient Occupancy Tax,58976
-FY19-20,Non,Revenue,2419,Transient Occupancy Tax,44583
-FY19-20,Non,Revenue,2419,Transient Occupancy Tax,44583
-FY19-20,Non,Revenue,2419,Transient Occupancy Tax,44583
-FY19-20,Non,Revenue,2419,Transient Occupancy Tax,178329
+FY19-20,Non Departmental and Port,Revenue,2419,Transient Occupancy Tax,888273
+FY19-20,Non Departmental and Port,Revenue,2419,Transient Occupancy Tax,888273
+FY19-20,Non Departmental and Port,Revenue,2419,Transient Occupancy Tax,888273
+FY19-20,Non Departmental and Port,Revenue,2419,Transient Occupancy Tax,3553093
+FY19-20,Non Departmental and Port,Revenue,2419,Transient Occupancy Tax,14745
+FY19-20,Non Departmental and Port,Revenue,2419,Transient Occupancy Tax,14745
+FY19-20,Non Departmental and Port,Revenue,2419,Transient Occupancy Tax,14745
+FY19-20,Non Departmental and Port,Revenue,2419,Transient Occupancy Tax,58976
+FY19-20,Non Departmental and Port,Revenue,2419,Transient Occupancy Tax,44583
+FY19-20,Non Departmental and Port,Revenue,2419,Transient Occupancy Tax,44583
+FY19-20,Non Departmental and Port,Revenue,2419,Transient Occupancy Tax,44583
+FY19-20,Non Departmental and Port,Revenue,2419,Transient Occupancy Tax,178329
 FY19-20,Mayor,Expense,1010,Allowances & Premiums,9000
 FY19-20,City Administrator,Expense,1010,Allowances & Premiums,23490
 FY19-20,City Administrator,Expense,1010,Allowances & Premiums,630
@@ -7011,11 +7011,11 @@ FY19-20,City Administrator,Expense,2999,Misc. Personnel Adjustments,-104406
 FY19-20,City Administrator,Expense,5999,Misc. Personnel Adjustments,-250784
 FY19-20,Police Department,Expense,1010,Misc. Personnel Adjustments,596051
 FY19-20,Police Department,Expense,1010,Misc. Personnel Adjustments,775000
-FY19-20,Non,Revenue,6064,Local Tax,14810925
-FY19-20,Non,Revenue,6312,Local Tax,6661225
-FY19-20,Non,Revenue,6330,Local Tax,2244558
-FY19-20,Non,Revenue,6331,Local Tax,4137605
-FY19-20,Non,Revenue,6322,Local Tax,1451933
+FY19-20,Non Departmental and Port,Revenue,6064,Local Tax,14810925
+FY19-20,Non Departmental and Port,Revenue,6312,Local Tax,6661225
+FY19-20,Non Departmental and Port,Revenue,6330,Local Tax,2244558
+FY19-20,Non Departmental and Port,Revenue,6331,Local Tax,4137605
+FY19-20,Non Departmental and Port,Revenue,6322,Local Tax,1451933
 FY19-20,Finance Department,Revenue,1200,Local Tax,86457000
 FY19-20,Finance Department,Revenue,1200,Local Tax,5846399
 FY19-20,Finance Department,Revenue,1200,Local Tax,13513898
@@ -7558,8 +7558,8 @@ FY19-20,"Oakland Parks, Recreation & Youth Development",Expense,1010,Services & 
 FY19-20,Public Ethics Commission,Expense,1010,Services & Supplies,6000
 FY19-20,Police Commission,Expense,1010,Services & Supplies,3750
 FY19-20,Human Services,Expense,1010,Services & Supplies,4120
-FY19-20,Non,Expense,1010,Services & Supplies,100000
-FY19-20,Non,Expense,1010,Services & Supplies,-100000
+FY19-20,Non Departmental and Port,Expense,1010,Services & Supplies,100000
+FY19-20,Non Departmental and Port,Expense,1010,Services & Supplies,-100000
 FY19-20,City Council,Expense,1010,Services & Supplies,2010
 FY19-20,City Council,Expense,1010,Services & Supplies,1020
 FY19-20,Transportation,Expense,1010,Services & Supplies,600
@@ -8780,9 +8780,9 @@ FY19-20,Human Resources Management Department,Expense,1010,Services & Supplies,1
 FY19-20,Police Department,Expense,1010,Services & Supplies,7000
 FY19-20,Police Department,Expense,1010,Services & Supplies,7000
 FY19-20,Economic & Workforce Development,Expense,1010,Services & Supplies,105100
-FY19-20,Non,Expense,1010,Services & Supplies,730120
-FY19-20,Non,Expense,1010,Services & Supplies,20000
-FY19-20,Non,Expense,1010,Services & Supplies,-20000
+FY19-20,Non Departmental and Port,Expense,1010,Services & Supplies,730120
+FY19-20,Non Departmental and Port,Expense,1010,Services & Supplies,20000
+FY19-20,Non Departmental and Port,Expense,1010,Services & Supplies,-20000
 FY19-20,City Council,Expense,1010,Services & Supplies,100
 FY19-20,Oakland Public Works,Expense,1710,Services & Supplies,900
 FY19-20,Oakland Public Works,Expense,1710,Services & Supplies,7740
@@ -8859,7 +8859,7 @@ FY19-20,City Auditor,Expense,1010,Services & Supplies,840
 FY19-20,Oakland Public Works,Expense,1710,Services & Supplies,6990
 FY19-20,Finance Department,Expense,1010,Services & Supplies,5000
 FY19-20,Human Services,Expense,1010,Services & Supplies,380
-FY19-20,Non,Expense,1100,Services & Supplies,10315410
+FY19-20,Non Departmental and Port,Expense,1100,Services & Supplies,10315410
 FY19-20,Finance Department,Expense,1750,Services & Supplies,50800
 FY19-20,Human Services,Expense,2120,Services & Supplies,2932
 FY19-20,Human Resources Management Department,Expense,4100,Services & Supplies,69300
@@ -8868,18 +8868,18 @@ FY19-20,Police Department,Expense,1100,Services & Supplies,5995767
 FY19-20,Fire Department,Expense,1100,Services & Supplies,1786321
 FY19-20,Oakland Public Works,Expense,1100,Services & Supplies,4121388
 FY19-20,"Oakland Parks, Recreation & Youth Development",Expense,1100,Services & Supplies,550663
-FY19-20,Non,Expense,1100,Services & Supplies,5761361
-FY19-20,Non,Expense,3100,Services & Supplies,275000
+FY19-20,Non Departmental and Port,Expense,1100,Services & Supplies,5761361
+FY19-20,Non Departmental and Port,Expense,3100,Services & Supplies,275000
 FY19-20,City Administrator,Expense,1010,Services & Supplies,1000
 FY19-20,"Oakland Parks, Recreation & Youth Development",Expense,1010,Services & Supplies,1000
 FY19-20,"Oakland Parks, Recreation & Youth Development",Expense,1010,Services & Supplies,-1000
-FY19-20,Non,Expense,1010,Services & Supplies,262580
+FY19-20,Non Departmental and Port,Expense,1010,Services & Supplies,262580
 FY19-20,"Oakland Parks, Recreation & Youth Development",Expense,1030,Services & Supplies,1000
 FY19-20,Economic & Workforce Development,Expense,1750,Services & Supplies,10100
 FY19-20,"Oakland Parks, Recreation & Youth Development",Expense,1820,Services & Supplies,675
 FY19-20,Human Services,Expense,2128,Services & Supplies,8850
 FY19-20,Human Services,Expense,2128,Services & Supplies,6150
-FY19-20,Non,Expense,3100,Services & Supplies,4372480
+FY19-20,Non Departmental and Port,Expense,3100,Services & Supplies,4372480
 FY19-20,Oakland Public Works,Expense,4100,Services & Supplies,15000
 FY19-20,Oakland Public Works,Expense,4400,Services & Supplies,5000
 FY19-20,Oakland Public Works,Expense,4400,Services & Supplies,3000
@@ -9004,8 +9004,8 @@ FY19-20,Human Services,Expense,2120,Services & Supplies,22136
 FY19-20,Human Services,Expense,2128,Services & Supplies,1770
 FY19-20,Human Services,Expense,2128,Services & Supplies,1230
 FY19-20,Human Services,Expense,2128,Services & Supplies,950
-FY19-20,Non,Expense,1010,Services & Supplies,77500
-FY19-20,Non,Expense,1010,Services & Supplies,75000
+FY19-20,Non Departmental and Port,Expense,1010,Services & Supplies,77500
+FY19-20,Non Departmental and Port,Expense,1010,Services & Supplies,75000
 FY19-20,Human Resources Management Department,Expense,1010,Services & Supplies,500
 FY19-20,City Auditor,Expense,1010,Services & Supplies,100
 FY19-20,Fire Department,Expense,1010,Services & Supplies,20000
@@ -9100,8 +9100,8 @@ FY19-20,Human Services,Expense,1010,Services & Supplies,5800
 FY19-20,Economic & Workforce Development,Expense,1010,Services & Supplies,5000
 FY19-20,Economic & Workforce Development,Expense,1010,Services & Supplies,1200
 FY19-20,Economic & Workforce Development,Expense,1010,Services & Supplies,130
-FY19-20,Non,Expense,1010,Services & Supplies,100000
-FY19-20,Non,Expense,1010,Services & Supplies,100000
+FY19-20,Non Departmental and Port,Expense,1010,Services & Supplies,100000
+FY19-20,Non Departmental and Port,Expense,1010,Services & Supplies,100000
 FY19-20,Capital Improvement Projects,Expense,1010,Services & Supplies,279730
 FY19-20,City Council,Expense,1010,Services & Supplies,100
 FY19-20,Transportation,Expense,1010,Services & Supplies,2000
@@ -9270,10 +9270,10 @@ FY19-20,Economic & Workforce Development,Expense,1010,Contract Services,20000
 FY19-20,Economic & Workforce Development,Expense,1010,Contract Services,75000
 FY19-20,Economic & Workforce Development,Expense,1010,Contract Services,25000
 FY19-20,Economic & Workforce Development,Expense,1010,Contract Services,100000
-FY19-20,Non,Expense,1010,Contract Services,-256733
-FY19-20,Non,Expense,1010,Contract Services,100000
-FY19-20,Non,Expense,1010,Contract Services,240000
-FY19-20,Non,Expense,1010,Contract Services,5000
+FY19-20,Non Departmental and Port,Expense,1010,Contract Services,-256733
+FY19-20,Non Departmental and Port,Expense,1010,Contract Services,100000
+FY19-20,Non Departmental and Port,Expense,1010,Contract Services,240000
+FY19-20,Non Departmental and Port,Expense,1010,Contract Services,5000
 FY19-20,City Council,Expense,1010,Contract Services,34436
 FY19-20,Transportation,Expense,1010,Contract Services,28000
 FY19-20,"Oakland Parks, Recreation & Youth Development",Expense,1030,Contract Services,1000000
@@ -9284,12 +9284,12 @@ FY19-20,Human Services,Expense,1030,Contract Services,400000
 FY19-20,Human Services,Expense,1030,Contract Services,1800000
 FY19-20,Human Services,Expense,1030,Contract Services,2012996
 FY19-20,Economic & Workforce Development,Expense,1030,Contract Services,400000
-FY19-20,Non,Expense,1030,Contract Services,5484778
-FY19-20,Non,Expense,1030,Contract Services,-5054756
-FY19-20,Non,Expense,1030,Contract Services,-103943
-FY19-20,Non,Expense,1030,Contract Services,673921
+FY19-20,Non Departmental and Port,Expense,1030,Contract Services,5484778
+FY19-20,Non Departmental and Port,Expense,1030,Contract Services,-5054756
+FY19-20,Non Departmental and Port,Expense,1030,Contract Services,-103943
+FY19-20,Non Departmental and Port,Expense,1030,Contract Services,673921
 FY19-20,Capital Improvement Projects,Expense,1030,Contract Services,1889707
-FY19-20,Non,Expense,1150,Contract Services,1389568
+FY19-20,Non Departmental and Port,Expense,1150,Contract Services,1389568
 FY19-20,Economic & Workforce Development,Expense,1610,Contract Services,69332
 FY19-20,Finance Department,Expense,1700,Contract Services,137368
 FY19-20,Finance Department,Expense,1700,Contract Services,1140
@@ -9395,10 +9395,10 @@ FY19-20,Economic & Workforce Development,Expense,2419,Contract Services,3984
 FY19-20,Economic & Workforce Development,Expense,2419,Contract Services,4787
 FY19-20,Economic & Workforce Development,Expense,2419,Contract Services,10525
 FY19-20,Economic & Workforce Development,Expense,2419,Contract Services,629
-FY19-20,Non,Expense,2419,Contract Services,44583
-FY19-20,Non,Expense,2419,Contract Services,44583
-FY19-20,Non,Expense,2419,Contract Services,44583
-FY19-20,Non,Expense,2419,Contract Services,178329
+FY19-20,Non Departmental and Port,Expense,2419,Contract Services,44583
+FY19-20,Non Departmental and Port,Expense,2419,Contract Services,44583
+FY19-20,Non Departmental and Port,Expense,2419,Contract Services,44583
+FY19-20,Non Departmental and Port,Expense,2419,Contract Services,178329
 FY19-20,Planning & Building,Expense,2421,Contract Services,40000
 FY19-20,Capital Improvement Projects,Expense,2421,Contract Services,100000
 FY19-20,Planning & Building,Expense,2420,Contract Services,42315
@@ -9424,10 +9424,10 @@ FY19-20,Oakland Public Works,Expense,4400,Contract Services,5630
 FY19-20,Oakland Public Works,Expense,4400,Contract Services,-5630
 FY19-20,Oakland Public Works,Expense,4400,Contract Services,50000
 FY19-20,Oakland Public Works,Expense,4400,Contract Services,150000
-FY19-20,Non,Expense,4400,Contract Services,996100
-FY19-20,Non,Expense,4400,Contract Services,-996100
+FY19-20,Non Departmental and Port,Expense,4400,Contract Services,996100
+FY19-20,Non Departmental and Port,Expense,4400,Contract Services,-996100
 FY19-20,Finance Department,Expense,4500,Contract Services,80000
-FY19-20,Non,Expense,4500,Contract Services,80000
+FY19-20,Non Departmental and Port,Expense,4500,Contract Services,80000
 FY19-20,Economic & Workforce Development,Expense,5321,Contract Services,-9746
 FY19-20,Housing & Community Development,Expense,5331,Contract Services,-4048
 FY19-20,Housing & Community Development,Expense,5331,Contract Services,-5932
@@ -9445,7 +9445,7 @@ FY19-20,Capital Improvement Projects,Expense,5650,Contract Services,110516
 FY19-20,Economic & Workforce Development,Expense,5671,Contract Services,355237
 FY19-20,Finance Department,Expense,7100,Contract Services,4000
 FY19-20,Human Resources Management Department,Expense,7130,Contract Services,35683
-FY19-20,Non,Expense,7640,Contract Services,9500
+FY19-20,Non Departmental and Port,Expense,7640,Contract Services,9500
 FY19-20,City Administrator,Expense,7760,Contract Services,25000
 FY19-20,City Administrator,Expense,7760,Contract Services,30018
 FY19-20,Oakland Public Works,Expense,7760,Contract Services,25661
@@ -9516,7 +9516,7 @@ FY19-20,Transportation,Expense,7760,Contract Services,29766
 FY19-20,Police Commission,Expense,1010,Contract Services,281136
 FY19-20,Police Department,Expense,1100,Contract Services,1600000
 FY19-20,"Oakland Parks, Recreation & Youth Development",Expense,1100,Contract Services,60000
-FY19-20,Non,Expense,1100,Contract Services,1200000
+FY19-20,Non Departmental and Port,Expense,1100,Contract Services,1200000
 FY19-20,City Administrator,Expense,1610,Contract Services,40000
 FY19-20,City Administrator,Expense,1610,Contract Services,124000
 FY19-20,Economic & Workforce Development,Expense,5672,Contract Services,552321
@@ -9688,8 +9688,8 @@ FY19-20,Oakland Public Works,Expense,4400,Contract Services,68105
 FY19-20,Oakland Public Works,Expense,4400,Contract Services,10883
 FY19-20,Oakland Public Works,Expense,4400,Contract Services,68105
 FY19-20,Oakland Public Library,Expense,2241,Contract Services,18992
-FY19-20,Non,Expense,1010,Contract Services,150000
-FY19-20,Non,Expense,1010,Contract Services,28206
+FY19-20,Non Departmental and Port,Expense,1010,Contract Services,150000
+FY19-20,Non Departmental and Port,Expense,1010,Contract Services,28206
 FY19-20,Oakland Public Works,Expense,3100,Contract Services,381794
 FY19-20,Oakland Public Works,Expense,3100,Contract Services,-381794
 FY19-20,Oakland Public Works,Expense,3100,Contract Services,381794
@@ -9797,8 +9797,8 @@ FY19-20,Finance Department,Expense,1010,Contract Services,18863
 FY19-20,Finance Department,Expense,1010,Contract Services,7000
 FY19-20,Finance Department,Expense,1010,Contract Services,25480
 FY19-20,Information Technology,Expense,1010,Contract Services,25000
-FY19-20,Non,Expense,1010,Contract Services,70000
-FY19-20,Non,Expense,1010,Contract Services,-70000
+FY19-20,Non Departmental and Port,Expense,1010,Contract Services,70000
+FY19-20,Non Departmental and Port,Expense,1010,Contract Services,-70000
 FY19-20,City Council,Expense,1010,Contract Services,2000
 FY19-20,Finance Department,Expense,1700,Contract Services,3000
 FY19-20,Human Services,Expense,2128,Contract Services,29500
@@ -9869,7 +9869,7 @@ FY19-20,Human Services,Expense,1010,Contract Services,100000
 FY19-20,Human Services,Expense,1010,Contract Services,248000
 FY19-20,Economic & Workforce Development,Expense,1010,Contract Services,250000
 FY19-20,Economic & Workforce Development,Expense,1010,Contract Services,200000
-FY19-20,Non,Expense,1010,Contract Services,3200000
+FY19-20,Non Departmental and Port,Expense,1010,Contract Services,3200000
 FY19-20,"Oakland Parks, Recreation & Youth Development",Expense,1030,Contract Services,4000000
 FY19-20,"Oakland Parks, Recreation & Youth Development",Expense,1030,Contract Services,-4000000
 FY19-20,Human Services,Expense,1030,Contract Services,2000000
@@ -10047,15 +10047,15 @@ FY19-20,Human Services,Expense,1010,Contract Services,-500000
 FY19-20,Economic & Workforce Development,Expense,1010,Contract Services,1750
 FY19-20,Economic & Workforce Development,Expense,1010,Contract Services,6690
 FY19-20,Economic & Workforce Development,Expense,1010,Contract Services,195000
-FY19-20,Non,Expense,1010,Contract Services,838432
-FY19-20,Non,Expense,1010,Contract Services,130000
-FY19-20,Non,Expense,1010,Contract Services,150000
-FY19-20,Non,Expense,1010,Contract Services,25000
-FY19-20,Non,Expense,1010,Contract Services,20000
-FY19-20,Non,Expense,1010,Contract Services,-78000
-FY19-20,Non,Expense,1010,Contract Services,500000
-FY19-20,Non,Expense,1010,Contract Services,145000
-FY19-20,Non,Expense,1010,Contract Services,-170000
+FY19-20,Non Departmental and Port,Expense,1010,Contract Services,838432
+FY19-20,Non Departmental and Port,Expense,1010,Contract Services,130000
+FY19-20,Non Departmental and Port,Expense,1010,Contract Services,150000
+FY19-20,Non Departmental and Port,Expense,1010,Contract Services,25000
+FY19-20,Non Departmental and Port,Expense,1010,Contract Services,20000
+FY19-20,Non Departmental and Port,Expense,1010,Contract Services,-78000
+FY19-20,Non Departmental and Port,Expense,1010,Contract Services,500000
+FY19-20,Non Departmental and Port,Expense,1010,Contract Services,145000
+FY19-20,Non Departmental and Port,Expense,1010,Contract Services,-170000
 FY19-20,Capital Improvement Projects,Expense,1010,Contract Services,252000
 FY19-20,City Council,Expense,1010,Contract Services,500
 FY19-20,City Council,Expense,1010,Contract Services,750
@@ -10113,7 +10113,7 @@ FY19-20,Oakland Public Works,Expense,2310,Contract Services,154000
 FY19-20,Oakland Public Works,Expense,2310,Contract Services,50000
 FY19-20,Transportation,Expense,2310,Contract Services,12500
 FY19-20,Transportation,Expense,2310,Contract Services,-12500
-FY19-20,Non,Expense,2332,Contract Services,714939
+FY19-20,Non Departmental and Port,Expense,2332,Contract Services,714939
 FY19-20,Capital Improvement Projects,Expense,2332,Contract Services,714939
 FY19-20,Capital Improvement Projects,Expense,2332,Contract Services,-714939
 FY19-20,Police Department,Expense,2411,Contract Services,40000
@@ -10139,14 +10139,14 @@ FY19-20,Transportation,Expense,2415,Contract Services,52772
 FY19-20,Police Department,Expense,2416,Contract Services,19045
 FY19-20,City Administrator,Expense,2417,Contract Services,371675
 FY19-20,Finance Department,Expense,2417,Contract Services,44765
-FY19-20,Non,Expense,2419,Contract Services,888273
-FY19-20,Non,Expense,2419,Contract Services,888273
-FY19-20,Non,Expense,2419,Contract Services,888273
-FY19-20,Non,Expense,2419,Contract Services,3553093
-FY19-20,Non,Expense,2419,Contract Services,14745
-FY19-20,Non,Expense,2419,Contract Services,14745
-FY19-20,Non,Expense,2419,Contract Services,14745
-FY19-20,Non,Expense,2419,Contract Services,58976
+FY19-20,Non Departmental and Port,Expense,2419,Contract Services,888273
+FY19-20,Non Departmental and Port,Expense,2419,Contract Services,888273
+FY19-20,Non Departmental and Port,Expense,2419,Contract Services,888273
+FY19-20,Non Departmental and Port,Expense,2419,Contract Services,3553093
+FY19-20,Non Departmental and Port,Expense,2419,Contract Services,14745
+FY19-20,Non Departmental and Port,Expense,2419,Contract Services,14745
+FY19-20,Non Departmental and Port,Expense,2419,Contract Services,14745
+FY19-20,Non Departmental and Port,Expense,2419,Contract Services,58976
 FY19-20,Oakland Public Works,Expense,3100,Contract Services,25000
 FY19-20,Oakland Public Works,Expense,3100,Contract Services,10000
 FY19-20,Oakland Public Works,Expense,3100,Contract Services,337702
@@ -10174,8 +10174,8 @@ FY19-20,Information Technology,Expense,4600,Contract Services,240244
 FY19-20,Information Technology,Expense,4600,Contract Services,320593
 FY19-20,Information Technology,Expense,4600,Contract Services,528000
 FY19-20,Information Technology,Expense,4600,Contract Services,2172096
-FY19-20,Non,Expense,6557,Contract Services,7237
-FY19-20,Non,Expense,6587,Contract Services,34571
+FY19-20,Non Departmental and Port,Expense,6557,Contract Services,7237
+FY19-20,Non Departmental and Port,Expense,6587,Contract Services,34571
 FY19-20,Oakland Public Works,Expense,7760,Contract Services,20000
 FY19-20,Oakland Public Works,Expense,7760,Contract Services,320860
 FY19-20,Oakland Public Works,Expense,7760,Contract Services,25000
@@ -10217,8 +10217,8 @@ FY19-20,Transportation,Expense,2310,Contract Services,311188
 FY19-20,Fire Department,Expense,2330,Contract Services,65
 FY19-20,Fire Department,Expense,2412,Contract Services,36049
 FY19-20,Finance Department,Expense,5130,Contract Services,2334
-FY19-20,Non,Expense,6557,Contract Services,3440
-FY19-20,Non,Expense,6587,Contract Services,20355
+FY19-20,Non Departmental and Port,Expense,6557,Contract Services,3440
+FY19-20,Non Departmental and Port,Expense,6587,Contract Services,20355
 FY19-20,"Oakland Parks, Recreation & Youth Development",Expense,1820,Contract Services,14060
 FY19-20,City Administrator,Expense,1010,Contract Services,51891
 FY19-20,Human Resources Management Department,Expense,1010,Contract Services,92415
@@ -10226,8 +10226,8 @@ FY19-20,City Auditor,Expense,1010,Contract Services,14000
 FY19-20,Economic & Workforce Development,Expense,1010,Contract Services,3600
 FY19-20,Economic & Workforce Development,Expense,1010,Contract Services,35000
 FY19-20,Economic & Workforce Development,Expense,1010,Contract Services,20000
-FY19-20,Non,Expense,1010,Contract Services,150000
-FY19-20,Non,Expense,1150,Contract Services,2721829
+FY19-20,Non Departmental and Port,Expense,1010,Contract Services,150000
+FY19-20,Non Departmental and Port,Expense,1150,Contract Services,2721829
 FY19-20,City Clerk,Expense,1760,Contract Services,9161
 FY19-20,Human Services,Expense,2128,Contract Services,234019
 FY19-20,Human Services,Expense,2128,Contract Services,27834
@@ -10283,8 +10283,8 @@ FY19-20,Finance Department,Revenue,3100,Fines & Penalties,5000
 FY19-20,City Administrator,Revenue,1010,Fines & Penalties,57000
 FY19-20,Finance Department,Revenue,1010,Fines & Penalties,2500
 FY19-20,Finance Department,Revenue,1010,Fines & Penalties,320000
-FY19-20,Non,Revenue,7640,Interest Income,9500
-FY19-20,Non,Revenue,1010,Interest Income,69
+FY19-20,Non Departmental and Port,Revenue,7640,Interest Income,9500
+FY19-20,Non Departmental and Port,Revenue,1010,Interest Income,69
 FY19-20,Finance Department,Revenue,1010,Interest Income,94507
 FY19-20,Finance Department,Revenue,1010,Interest Income,1115493
 FY19-20,Housing & Community Development,Revenue,2108,Interest Income,50000
@@ -11033,9 +11033,9 @@ FY19-20,Information Technology,Expense,1010,Travel & Education,1000
 FY19-20,Public Ethics Commission,Expense,1010,Travel & Education,1000
 FY19-20,Human Services,Expense,1010,Travel & Education,60000
 FY19-20,Economic & Workforce Development,Expense,1010,Travel & Education,50000
-FY19-20,Non,Expense,1010,Travel & Education,155000
-FY19-20,Non,Expense,1010,Travel & Education,-75000
-FY19-20,Non,Expense,1010,Travel & Education,80775
+FY19-20,Non Departmental and Port,Expense,1010,Travel & Education,155000
+FY19-20,Non Departmental and Port,Expense,1010,Travel & Education,-75000
+FY19-20,Non Departmental and Port,Expense,1010,Travel & Education,80775
 FY19-20,Economic & Workforce Development,Expense,1770,Travel & Education,5280
 FY19-20,Human Services,Expense,2128,Travel & Education,5900
 FY19-20,Human Services,Expense,2128,Travel & Education,4100
@@ -12441,7 +12441,7 @@ FY19-20,Economic & Workforce Development,Expense,1010,Internal Services & Work O
 FY19-20,Economic & Workforce Development,Expense,1010,Internal Services & Work Orders,39859
 FY19-20,Economic & Workforce Development,Expense,1010,Internal Services & Work Orders,12949
 FY19-20,Economic & Workforce Development,Expense,1010,Internal Services & Work Orders,12949
-FY19-20,Non,Expense,1010,Internal Services & Work Orders,1968463
+FY19-20,Non Departmental and Port,Expense,1010,Internal Services & Work Orders,1968463
 FY19-20,City Council,Expense,1010,Internal Services & Work Orders,355504
 FY19-20,Transportation,Expense,1010,Internal Services & Work Orders,1614
 FY19-20,Transportation,Expense,1010,Internal Services & Work Orders,14866
@@ -17455,7 +17455,7 @@ FY19-20,City Administrator,Expense,1010,Internal Services & Work Orders,6362
 FY19-20,Police Department,Expense,1010,Internal Services & Work Orders,5709776
 FY19-20,Fire Department,Expense,1010,Internal Services & Work Orders,1469592
 FY19-20,Information Technology,Expense,1010,Internal Services & Work Orders,47714
-FY19-20,Non,Expense,1010,Internal Services & Work Orders,25447
+FY19-20,Non Departmental and Port,Expense,1010,Internal Services & Work Orders,25447
 FY19-20,Transportation,Expense,1010,Internal Services & Work Orders,12724
 FY19-20,Transportation,Expense,1010,Internal Services & Work Orders,31809
 FY19-20,Oakland Public Works,Expense,1720,Internal Services & Work Orders,340360
@@ -17855,7 +17855,7 @@ FY19-20,Police Department,Revenue,2411,Service Charges,100000
 FY19-20,Police Department,Revenue,2411,Service Charges,1560000
 FY19-20,Police Department,Revenue,2411,Service Charges,-342482
 FY19-20,Fire Department,Revenue,1010,Service Charges,100000
-FY19-20,Non,Expense,2421,Capital Acquistions,500000
+FY19-20,Non Departmental and Port,Expense,2421,Capital Acquistions,500000
 FY19-20,Capital Improvement Projects,Expense,2421,Capital Acquistions,2000000
 FY19-20,Capital Improvement Projects,Expense,2421,Capital Acquistions,-1500000
 FY19-20,Capital Improvement Projects,Expense,2421,Capital Acquistions,-500000
@@ -17891,7 +17891,7 @@ FY19-20,Capital Improvement Projects,Expense,2216,Capital Acquistions,460000
 FY19-20,Capital Improvement Projects,Expense,2230,Capital Acquistions,1888531
 FY19-20,Capital Improvement Projects,Expense,2230,Capital Acquistions,-1888531
 FY19-20,Capital Improvement Projects,Expense,2232,Capital Acquistions,200000
-FY19-20,Non,Expense,3100,Capital Acquistions,800000
+FY19-20,Non Departmental and Port,Expense,3100,Capital Acquistions,800000
 FY19-20,Capital Improvement Projects,Expense,3100,Capital Acquistions,2691300
 FY19-20,Capital Improvement Projects,Expense,3100,Capital Acquistions,1000000
 FY19-20,Capital Improvement Projects,Expense,3100,Capital Acquistions,250000
@@ -17975,9 +17975,9 @@ FY19-20,Oakland Public Works,Revenue,4100,Internal Service Funds,1600000
 FY19-20,Information Technology,Revenue,4200,Internal Service Funds,30000
 FY19-20,Finance Department,Expense,1010,Debt Payments,246609
 FY19-20,Finance Department,Expense,1010,Debt Payments,5500
-FY19-20,Non,Expense,1010,Debt Payments,2000
-FY19-20,Non,Expense,1010,Debt Payments,2500
-FY19-20,Non,Expense,3100,Debt Payments,5500
+FY19-20,Non Departmental and Port,Expense,1010,Debt Payments,2000
+FY19-20,Non Departmental and Port,Expense,1010,Debt Payments,2500
+FY19-20,Non Departmental and Port,Expense,3100,Debt Payments,5500
 FY19-20,Oakland Public Works,Expense,4100,Debt Payments,17500
 FY19-20,Oakland Public Works,Expense,4100,Debt Payments,2000
 FY19-20,Oakland Public Works,Expense,4100,Debt Payments,2000
@@ -17987,23 +17987,23 @@ FY19-20,Information Technology,Expense,4200,Debt Payments,2000
 FY19-20,Information Technology,Expense,4200,Debt Payments,2000
 FY19-20,Oakland Public Works,Expense,4400,Debt Payments,5500
 FY19-20,Information Technology,Expense,4600,Debt Payments,2000
-FY19-20,Non,Expense,4600,Debt Payments,2000
-FY19-20,Non,Expense,4600,Debt Payments,2000
+FY19-20,Non Departmental and Port,Expense,4600,Debt Payments,2000
+FY19-20,Non Departmental and Port,Expense,4600,Debt Payments,2000
 FY19-20,Finance Department,Expense,5610,Debt Payments,3750
 FY19-20,Finance Department,Expense,5650,Debt Payments,3750
-FY19-20,Non,Expense,6013,Debt Payments,5500
-FY19-20,Non,Expense,6029,Debt Payments,5500
-FY19-20,Non,Expense,6032,Debt Payments,5500
-FY19-20,Non,Expense,6036,Debt Payments,1000
-FY19-20,Non,Expense,6064,Debt Payments,7500
-FY19-20,Non,Expense,6312,Debt Payments,6500
-FY19-20,Non,Expense,6330,Debt Payments,5500
-FY19-20,Non,Expense,6331,Debt Payments,5500
-FY19-20,Non,Expense,6540,Debt Payments,20000
-FY19-20,Non,Expense,6557,Debt Payments,2000
-FY19-20,Non,Expense,6587,Debt Payments,2000
-FY19-20,Non,Expense,6613,Debt Payments,5500
-FY19-20,Non,Expense,6322,Debt Payments,5500
+FY19-20,Non Departmental and Port,Expense,6013,Debt Payments,5500
+FY19-20,Non Departmental and Port,Expense,6029,Debt Payments,5500
+FY19-20,Non Departmental and Port,Expense,6032,Debt Payments,5500
+FY19-20,Non Departmental and Port,Expense,6036,Debt Payments,1000
+FY19-20,Non Departmental and Port,Expense,6064,Debt Payments,7500
+FY19-20,Non Departmental and Port,Expense,6312,Debt Payments,6500
+FY19-20,Non Departmental and Port,Expense,6330,Debt Payments,5500
+FY19-20,Non Departmental and Port,Expense,6331,Debt Payments,5500
+FY19-20,Non Departmental and Port,Expense,6540,Debt Payments,20000
+FY19-20,Non Departmental and Port,Expense,6557,Debt Payments,2000
+FY19-20,Non Departmental and Port,Expense,6587,Debt Payments,2000
+FY19-20,Non Departmental and Port,Expense,6613,Debt Payments,5500
+FY19-20,Non Departmental and Port,Expense,6322,Debt Payments,5500
 FY19-20,Finance Department,Expense,1010,Debt Payments,250000
 FY19-20,Finance Department,Expense,1010,Debt Payments,27000
 FY19-20,Finance Department,Expense,1010,Debt Payments,566000
@@ -18018,20 +18018,20 @@ FY19-20,Planning & Building,Expense,2415,Debt Payments,200000
 FY19-20,Planning & Building,Expense,2415,Debt Payments,400000
 FY19-20,Planning & Building,Expense,2415,Debt Payments,12000
 FY19-20,Economic & Workforce Development,Expense,5671,Debt Payments,3300
-FY19-20,Non,Expense,2217,Debt Payments,13875000
-FY19-20,Non,Expense,6999,Debt Payments,25000000
-FY19-20,Non,Expense,3100,Debt Payments,2275000
-FY19-20,Non,Expense,6029,Debt Payments,10035000
-FY19-20,Non,Expense,6032,Debt Payments,14281275
-FY19-20,Non,Expense,6064,Debt Payments,10045000
-FY19-20,Non,Expense,6312,Debt Payments,3445000
-FY19-20,Non,Expense,6331,Debt Payments,2685000
-FY19-20,Non,Expense,6557,Debt Payments,50000
-FY19-20,Non,Expense,6587,Debt Payments,305000
-FY19-20,Non,Expense,6613,Debt Payments,5725000
-FY19-20,Non,Expense,6322,Debt Payments,500000
+FY19-20,Non Departmental and Port,Expense,2217,Debt Payments,13875000
+FY19-20,Non Departmental and Port,Expense,6999,Debt Payments,25000000
+FY19-20,Non Departmental and Port,Expense,3100,Debt Payments,2275000
+FY19-20,Non Departmental and Port,Expense,6029,Debt Payments,10035000
+FY19-20,Non Departmental and Port,Expense,6032,Debt Payments,14281275
+FY19-20,Non Departmental and Port,Expense,6064,Debt Payments,10045000
+FY19-20,Non Departmental and Port,Expense,6312,Debt Payments,3445000
+FY19-20,Non Departmental and Port,Expense,6331,Debt Payments,2685000
+FY19-20,Non Departmental and Port,Expense,6557,Debt Payments,50000
+FY19-20,Non Departmental and Port,Expense,6587,Debt Payments,305000
+FY19-20,Non Departmental and Port,Expense,6613,Debt Payments,5725000
+FY19-20,Non Departmental and Port,Expense,6322,Debt Payments,500000
 FY19-20,Finance Department,Expense,1010,Debt Payments,236148
-FY19-20,Non,Expense,1010,Debt Payments,420000
+FY19-20,Non Departmental and Port,Expense,1010,Debt Payments,420000
 FY19-20,Oakland Public Works,Expense,4100,Debt Payments,3330935
 FY19-20,Oakland Public Works,Expense,4100,Debt Payments,1371996
 FY19-20,Oakland Public Works,Expense,4100,Debt Payments,701448
@@ -18041,12 +18041,12 @@ FY19-20,Information Technology,Expense,4200,Debt Payments,1451309
 FY19-20,Information Technology,Expense,4200,Debt Payments,1878858
 FY19-20,Oakland Public Works,Expense,4400,Debt Payments,283148
 FY19-20,Information Technology,Expense,4600,Debt Payments,2808853
-FY19-20,Non,Expense,4600,Debt Payments,1334978
-FY19-20,Non,Expense,4600,Debt Payments,876844
-FY19-20,Non,Expense,6013,Debt Payments,1348583
+FY19-20,Non Departmental and Port,Expense,4600,Debt Payments,1334978
+FY19-20,Non Departmental and Port,Expense,4600,Debt Payments,876844
+FY19-20,Non Departmental and Port,Expense,6013,Debt Payments,1348583
 FY19-20,Finance Department,Expense,1010,Debt Payments,1830
-FY19-20,Non,Expense,1010,Debt Payments,59095
-FY19-20,Non,Expense,3100,Debt Payments,1368250
+FY19-20,Non Departmental and Port,Expense,1010,Debt Payments,59095
+FY19-20,Non Departmental and Port,Expense,3100,Debt Payments,1368250
 FY19-20,Oakland Public Works,Expense,4100,Debt Payments,366618
 FY19-20,Oakland Public Works,Expense,4100,Debt Payments,14072
 FY19-20,Oakland Public Works,Expense,4100,Debt Payments,29075
@@ -18056,20 +18056,20 @@ FY19-20,Information Technology,Expense,4200,Debt Payments,26990
 FY19-20,Information Technology,Expense,4200,Debt Payments,18905
 FY19-20,Oakland Public Works,Expense,4400,Debt Payments,9058
 FY19-20,Information Technology,Expense,4600,Debt Payments,183021
-FY19-20,Non,Expense,4600,Debt Payments,145120
-FY19-20,Non,Expense,4600,Debt Payments,67985
-FY19-20,Non,Expense,6013,Debt Payments,249897
-FY19-20,Non,Expense,6029,Debt Payments,8291223
-FY19-20,Non,Expense,6032,Debt Payments,34418725
-FY19-20,Non,Expense,6036,Debt Payments,911240
-FY19-20,Non,Expense,6064,Debt Payments,4758425
-FY19-20,Non,Expense,6312,Debt Payments,3209725
-FY19-20,Non,Expense,6330,Debt Payments,2239058
-FY19-20,Non,Expense,6331,Debt Payments,1447105
-FY19-20,Non,Expense,6557,Debt Payments,42795
-FY19-20,Non,Expense,6587,Debt Payments,55725
-FY19-20,Non,Expense,6613,Debt Payments,2602125
-FY19-20,Non,Expense,6322,Debt Payments,946433
+FY19-20,Non Departmental and Port,Expense,4600,Debt Payments,145120
+FY19-20,Non Departmental and Port,Expense,4600,Debt Payments,67985
+FY19-20,Non Departmental and Port,Expense,6013,Debt Payments,249897
+FY19-20,Non Departmental and Port,Expense,6029,Debt Payments,8291223
+FY19-20,Non Departmental and Port,Expense,6032,Debt Payments,34418725
+FY19-20,Non Departmental and Port,Expense,6036,Debt Payments,911240
+FY19-20,Non Departmental and Port,Expense,6064,Debt Payments,4758425
+FY19-20,Non Departmental and Port,Expense,6312,Debt Payments,3209725
+FY19-20,Non Departmental and Port,Expense,6330,Debt Payments,2239058
+FY19-20,Non Departmental and Port,Expense,6331,Debt Payments,1447105
+FY19-20,Non Departmental and Port,Expense,6557,Debt Payments,42795
+FY19-20,Non Departmental and Port,Expense,6587,Debt Payments,55725
+FY19-20,Non Departmental and Port,Expense,6613,Debt Payments,2602125
+FY19-20,Non Departmental and Port,Expense,6322,Debt Payments,946433
 FY19-20,Housing & Community Development,Expense,2108,Debt Payments,460000
 FY19-20,Housing & Community Development,Expense,2108,Debt Payments,92832
 FY19-20,Housing & Community Development,Expense,2109,Debt Payments,1353417
@@ -18154,7 +18154,7 @@ FY19-20,Human Services,Revenue,2160,Grants & Subsidies,4014935
 FY19-20,Human Services,Revenue,2160,Grants & Subsidies,315683
 FY19-20,Human Services,Revenue,2160,Grants & Subsidies,130000
 FY19-20,Human Services,Revenue,2160,Grants & Subsidies,11049
-FY19-20,Non,Revenue,2217,Grants & Subsidies,13875000
+FY19-20,Non Departmental and Port,Revenue,2217,Grants & Subsidies,13875000
 FY19-20,Police Department,Revenue,2995,Grants & Subsidies,10000
 FY19-20,"Oakland Parks, Recreation & Youth Development",Revenue,2996,Grants & Subsidies,16847
 FY19-20,Mayor,Revenue,2999,Grants & Subsidies,348861
@@ -18186,10 +18186,10 @@ FY19-20,Transportation,Revenue,5330,Miscellaneous Revenue,980000
 FY19-20,Oakland Public Works,Revenue,4100,Miscellaneous Revenue,69300
 FY19-20,Oakland Public Works,Revenue,4400,Miscellaneous Revenue,19800
 FY19-20,"Oakland Parks, Recreation & Youth Development",Revenue,1010,Miscellaneous Revenue,168064
-FY19-20,Non,Revenue,6999,Miscellaneous Revenue,25000000
-FY19-20,Non,Revenue,7320,Miscellaneous Revenue,5808570
-FY19-20,Non,Revenue,6557,Miscellaneous Revenue,105472
-FY19-20,Non,Revenue,6587,Miscellaneous Revenue,417651
+FY19-20,Non Departmental and Port,Revenue,6999,Miscellaneous Revenue,25000000
+FY19-20,Non Departmental and Port,Revenue,7320,Miscellaneous Revenue,5808570
+FY19-20,Non Departmental and Port,Revenue,6557,Miscellaneous Revenue,105472
+FY19-20,Non Departmental and Port,Revenue,6587,Miscellaneous Revenue,417651
 FY19-20,Human Resources Management Department,Revenue,7130,Miscellaneous Revenue,242212
 FY19-20,Human Resources Management Department,Revenue,7130,Miscellaneous Revenue,-36073
 FY19-20,Oakland Public Library,Revenue,7540,Miscellaneous Revenue,103399
@@ -19092,26 +19092,26 @@ FY19-20,Transportation,Expense,7760,Overhead Allocations,20753
 FY19-20,Transportation,Expense,7760,Overhead Allocations,18183
 FY19-20,Transportation,Expense,7760,Overhead Allocations,17188
 FY19-20,Transportation,Expense,5330,Overhead Allocations,19671
-FY19-20,Non,Revenue,1010,Interfund Transfers,3100000
-FY19-20,Non,Revenue,1010,Interfund Transfers,2500000
-FY19-20,Non,Revenue,1010,Interfund Transfers,806233
-FY19-20,Non,Revenue,1010,Interfund Transfers,400000
-FY19-20,Non,Revenue,1020,Interfund Transfers,196013
-FY19-20,Non,Revenue,1020,Interfund Transfers,-95573
-FY19-20,Non,Revenue,1020,Interfund Transfers,-79599
-FY19-20,Non,Revenue,1100,Interfund Transfers,13270093
-FY19-20,Non,Revenue,1100,Interfund Transfers,877512
-FY19-20,Non,Revenue,1100,Interfund Transfers,1745094
-FY19-20,Non,Revenue,1100,Interfund Transfers,5690583
-FY19-20,Non,Revenue,1100,Interfund Transfers,68569
-FY19-20,Non,Revenue,1100,Interfund Transfers,7206158
-FY19-20,Non,Revenue,1100,Interfund Transfers,636788
-FY19-20,Non,Revenue,1100,Interfund Transfers,408851
-FY19-20,Non,Revenue,1100,Interfund Transfers,708337
-FY19-20,Non,Revenue,1100,Interfund Transfers,2860000
-FY19-20,Non,Revenue,1600,Interfund Transfers,107700
-FY19-20,Non,Revenue,1700,Interfund Transfers,145850
-FY19-20,Non,Revenue,1700,Interfund Transfers,-145850
+FY19-20,Non Departmental and Port,Revenue,1010,Interfund Transfers,3100000
+FY19-20,Non Departmental and Port,Revenue,1010,Interfund Transfers,2500000
+FY19-20,Non Departmental and Port,Revenue,1010,Interfund Transfers,806233
+FY19-20,Non Departmental and Port,Revenue,1010,Interfund Transfers,400000
+FY19-20,Non Departmental and Port,Revenue,1020,Interfund Transfers,196013
+FY19-20,Non Departmental and Port,Revenue,1020,Interfund Transfers,-95573
+FY19-20,Non Departmental and Port,Revenue,1020,Interfund Transfers,-79599
+FY19-20,Non Departmental and Port,Revenue,1100,Interfund Transfers,13270093
+FY19-20,Non Departmental and Port,Revenue,1100,Interfund Transfers,877512
+FY19-20,Non Departmental and Port,Revenue,1100,Interfund Transfers,1745094
+FY19-20,Non Departmental and Port,Revenue,1100,Interfund Transfers,5690583
+FY19-20,Non Departmental and Port,Revenue,1100,Interfund Transfers,68569
+FY19-20,Non Departmental and Port,Revenue,1100,Interfund Transfers,7206158
+FY19-20,Non Departmental and Port,Revenue,1100,Interfund Transfers,636788
+FY19-20,Non Departmental and Port,Revenue,1100,Interfund Transfers,408851
+FY19-20,Non Departmental and Port,Revenue,1100,Interfund Transfers,708337
+FY19-20,Non Departmental and Port,Revenue,1100,Interfund Transfers,2860000
+FY19-20,Non Departmental and Port,Revenue,1600,Interfund Transfers,107700
+FY19-20,Non Departmental and Port,Revenue,1700,Interfund Transfers,145850
+FY19-20,Non Departmental and Port,Revenue,1700,Interfund Transfers,-145850
 FY19-20,Oakland Public Works,Revenue,1720,Interfund Transfers,89709
 FY19-20,Oakland Public Works,Revenue,1720,Interfund Transfers,-89709
 FY19-20,Human Services,Revenue,1780,Interfund Transfers,18084840
@@ -19206,26 +19206,26 @@ FY19-20,Oakland Public Library,Revenue,2242,Interfund Transfers,35000
 FY19-20,Oakland Public Library,Revenue,2242,Interfund Transfers,113723
 FY19-20,Oakland Public Works,Revenue,2310,Interfund Transfers,84084
 FY19-20,Oakland Public Works,Revenue,2310,Interfund Transfers,-84084
-FY19-20,Non,Revenue,2310,Interfund Transfers,835529
-FY19-20,Non,Revenue,2992,Interfund Transfers,281000
+FY19-20,Non Departmental and Port,Revenue,2310,Interfund Transfers,835529
+FY19-20,Non Departmental and Port,Revenue,2992,Interfund Transfers,281000
 FY19-20,Oakland Public Works,Revenue,3150,Interfund Transfers,500000
 FY19-20,Oakland Public Works,Revenue,3150,Interfund Transfers,-500000
-FY19-20,Non,Revenue,5012,Interfund Transfers,180000
-FY19-20,Non,Revenue,5500,Interfund Transfers,606900
-FY19-20,Non,Revenue,5510,Interfund Transfers,343500
-FY19-20,Non,Revenue,5510,Interfund Transfers,-220200
-FY19-20,Non,Revenue,5999,Interfund Transfers,123300
-FY19-20,Non,Revenue,5999,Interfund Transfers,220200
-FY19-20,Non,Revenue,6013,Interfund Transfers,1603980
-FY19-20,Non,Revenue,6029,Interfund Transfers,13435393
-FY19-20,Non,Revenue,6029,Interfund Transfers,4896330
-FY19-20,Non,Revenue,6032,Interfund Transfers,48705500
-FY19-20,Non,Revenue,6036,Interfund Transfers,912240
-FY19-20,Non,Revenue,6613,Interfund Transfers,8332625
-FY19-20,Non,Expense,1010,Other Expenditures and Disbursments,196013
-FY19-20,Non,Expense,1010,Other Expenditures and Disbursments,-95573
-FY19-20,Non,Expense,1010,Other Expenditures and Disbursments,-79599
-FY19-20,Non,Expense,1200,Other Expenditures and Disbursments,43410000
+FY19-20,Non Departmental and Port,Revenue,5012,Interfund Transfers,180000
+FY19-20,Non Departmental and Port,Revenue,5500,Interfund Transfers,606900
+FY19-20,Non Departmental and Port,Revenue,5510,Interfund Transfers,343500
+FY19-20,Non Departmental and Port,Revenue,5510,Interfund Transfers,-220200
+FY19-20,Non Departmental and Port,Revenue,5999,Interfund Transfers,123300
+FY19-20,Non Departmental and Port,Revenue,5999,Interfund Transfers,220200
+FY19-20,Non Departmental and Port,Revenue,6013,Interfund Transfers,1603980
+FY19-20,Non Departmental and Port,Revenue,6029,Interfund Transfers,13435393
+FY19-20,Non Departmental and Port,Revenue,6029,Interfund Transfers,4896330
+FY19-20,Non Departmental and Port,Revenue,6032,Interfund Transfers,48705500
+FY19-20,Non Departmental and Port,Revenue,6036,Interfund Transfers,912240
+FY19-20,Non Departmental and Port,Revenue,6613,Interfund Transfers,8332625
+FY19-20,Non Departmental and Port,Expense,1010,Other Expenditures and Disbursments,196013
+FY19-20,Non Departmental and Port,Expense,1010,Other Expenditures and Disbursments,-95573
+FY19-20,Non Departmental and Port,Expense,1010,Other Expenditures and Disbursments,-79599
+FY19-20,Non Departmental and Port,Expense,1200,Other Expenditures and Disbursments,43410000
 FY19-20,"Oakland Parks, Recreation & Youth Development",Expense,7999,Other Expenditures and Disbursments,23441
 FY19-20,Finance Department,Expense,1010,Other Expenditures and Disbursments,106100
 FY19-20,Oakland Public Works,Expense,1010,Other Expenditures and Disbursments,112000
@@ -19246,9 +19246,9 @@ FY19-20,Finance Department,Expense,7100,Other Expenditures and Disbursments,5126
 FY19-20,Finance Department,Expense,7100,Other Expenditures and Disbursments,9800
 FY19-20,Fire Department,Expense,2412,Other Expenditures and Disbursments,1618
 FY19-20,"Oakland Parks, Recreation & Youth Development",Expense,1820,Other Expenditures and Disbursments,2
-FY19-20,Non,Expense,1010,Other Expenditures and Disbursments,12500000
-FY19-20,Non,Expense,1010,Other Expenditures and Disbursments,400000
-FY19-20,Non,Expense,1010,Other Expenditures and Disbursments,-400000
+FY19-20,Non Departmental and Port,Expense,1010,Other Expenditures and Disbursments,12500000
+FY19-20,Non Departmental and Port,Expense,1010,Other Expenditures and Disbursments,400000
+FY19-20,Non Departmental and Port,Expense,1010,Other Expenditures and Disbursments,-400000
 FY19-20,Police Department,Expense,1010,Operating Transfers,158970
 FY19-20,Police Department,Expense,1010,Operating Transfers,52094
 FY19-20,Police Department,Expense,1010,Operating Transfers,-158970
@@ -19286,56 +19286,56 @@ FY19-20,Human Services,Expense,1010,Operating Transfers,1371
 FY19-20,Human Services,Expense,1010,Operating Transfers,924
 FY19-20,Human Services,Expense,1010,Operating Transfers,102478
 FY19-20,Human Services,Expense,1010,Operating Transfers,1414
-FY19-20,Non,Expense,1010,Operating Transfers,13270093
-FY19-20,Non,Expense,1010,Operating Transfers,2860000
-FY19-20,Non,Expense,1010,Operating Transfers,8332625
-FY19-20,Non,Expense,1010,Operating Transfers,196013
-FY19-20,Non,Expense,1010,Operating Transfers,107700
-FY19-20,Non,Expense,1010,Operating Transfers,18084840
-FY19-20,Non,Expense,1010,Operating Transfers,835529
-FY19-20,Non,Expense,1010,Operating Transfers,281000
-FY19-20,Non,Expense,1010,Operating Transfers,180000
-FY19-20,Non,Expense,1010,Operating Transfers,606900
-FY19-20,Non,Expense,1010,Operating Transfers,343500
-FY19-20,Non,Expense,1010,Operating Transfers,123300
-FY19-20,Non,Expense,1010,Operating Transfers,563205
-FY19-20,Non,Expense,1010,Operating Transfers,145850
-FY19-20,Non,Expense,1010,Operating Transfers,-145850
-FY19-20,Non,Expense,1010,Operating Transfers,-95573
-FY19-20,Non,Expense,1010,Operating Transfers,86787
-FY19-20,Non,Expense,1010,Operating Transfers,-220200
-FY19-20,Non,Expense,1010,Operating Transfers,220200
-FY19-20,Non,Expense,1010,Operating Transfers,-231860
-FY19-20,Non,Expense,1010,Operating Transfers,-79599
-FY19-20,Non,Expense,1010,Operating Transfers,66915
+FY19-20,Non Departmental and Port,Expense,1010,Operating Transfers,13270093
+FY19-20,Non Departmental and Port,Expense,1010,Operating Transfers,2860000
+FY19-20,Non Departmental and Port,Expense,1010,Operating Transfers,8332625
+FY19-20,Non Departmental and Port,Expense,1010,Operating Transfers,196013
+FY19-20,Non Departmental and Port,Expense,1010,Operating Transfers,107700
+FY19-20,Non Departmental and Port,Expense,1010,Operating Transfers,18084840
+FY19-20,Non Departmental and Port,Expense,1010,Operating Transfers,835529
+FY19-20,Non Departmental and Port,Expense,1010,Operating Transfers,281000
+FY19-20,Non Departmental and Port,Expense,1010,Operating Transfers,180000
+FY19-20,Non Departmental and Port,Expense,1010,Operating Transfers,606900
+FY19-20,Non Departmental and Port,Expense,1010,Operating Transfers,343500
+FY19-20,Non Departmental and Port,Expense,1010,Operating Transfers,123300
+FY19-20,Non Departmental and Port,Expense,1010,Operating Transfers,563205
+FY19-20,Non Departmental and Port,Expense,1010,Operating Transfers,145850
+FY19-20,Non Departmental and Port,Expense,1010,Operating Transfers,-145850
+FY19-20,Non Departmental and Port,Expense,1010,Operating Transfers,-95573
+FY19-20,Non Departmental and Port,Expense,1010,Operating Transfers,86787
+FY19-20,Non Departmental and Port,Expense,1010,Operating Transfers,-220200
+FY19-20,Non Departmental and Port,Expense,1010,Operating Transfers,220200
+FY19-20,Non Departmental and Port,Expense,1010,Operating Transfers,-231860
+FY19-20,Non Departmental and Port,Expense,1010,Operating Transfers,-79599
+FY19-20,Non Departmental and Port,Expense,1010,Operating Transfers,66915
 FY19-20,"Oakland Parks, Recreation & Youth Development",Expense,1030,Operating Transfers,3875245
-FY19-20,Non,Expense,1700,Operating Transfers,636788
-FY19-20,Non,Expense,1750,Operating Transfers,3100000
-FY19-20,Non,Expense,1750,Operating Transfers,2500000
-FY19-20,Non,Expense,2114,Operating Transfers,806233
+FY19-20,Non Departmental and Port,Expense,1700,Operating Transfers,636788
+FY19-20,Non Departmental and Port,Expense,1750,Operating Transfers,3100000
+FY19-20,Non Departmental and Port,Expense,1750,Operating Transfers,2500000
+FY19-20,Non Departmental and Port,Expense,2114,Operating Transfers,806233
 FY19-20,Oakland Public Works,Expense,2231,Operating Transfers,1604125
 FY19-20,Oakland Public Library,Expense,2241,Operating Transfers,35000
 FY19-20,Oakland Public Library,Expense,2241,Operating Transfers,113723
-FY19-20,Non,Expense,2310,Operating Transfers,877512
-FY19-20,Non,Expense,2310,Operating Transfers,1603980
-FY19-20,Non,Expense,2413,Operating Transfers,408851
-FY19-20,Non,Expense,2415,Operating Transfers,708337
+FY19-20,Non Departmental and Port,Expense,2310,Operating Transfers,877512
+FY19-20,Non Departmental and Port,Expense,2310,Operating Transfers,1603980
+FY19-20,Non Departmental and Port,Expense,2413,Operating Transfers,408851
+FY19-20,Non Departmental and Port,Expense,2415,Operating Transfers,708337
 FY19-20,Oakland Public Works,Expense,3100,Operating Transfers,500000
 FY19-20,Oakland Public Works,Expense,3100,Operating Transfers,-500000
-FY19-20,Non,Expense,3100,Operating Transfers,1745094
-FY19-20,Non,Expense,4100,Operating Transfers,5690583
-FY19-20,Non,Expense,4400,Operating Transfers,68569
-FY19-20,Non,Expense,6518,Operating Transfers,400000
-FY19-20,Non,Expense,7320,Operating Transfers,4896330
-FY19-20,Non,Expense,7320,Operating Transfers,912240
-FY19-20,Non,Expense,7760,Operating Transfers,7206158
-FY19-20,Non,Expense,1200,Operating Transfers,13435393
-FY19-20,Non,Expense,1200,Operating Transfers,48705500
+FY19-20,Non Departmental and Port,Expense,3100,Operating Transfers,1745094
+FY19-20,Non Departmental and Port,Expense,4100,Operating Transfers,5690583
+FY19-20,Non Departmental and Port,Expense,4400,Operating Transfers,68569
+FY19-20,Non Departmental and Port,Expense,6518,Operating Transfers,400000
+FY19-20,Non Departmental and Port,Expense,7320,Operating Transfers,4896330
+FY19-20,Non Departmental and Port,Expense,7320,Operating Transfers,912240
+FY19-20,Non Departmental and Port,Expense,7760,Operating Transfers,7206158
+FY19-20,Non Departmental and Port,Expense,1200,Operating Transfers,13435393
+FY19-20,Non Departmental and Port,Expense,1200,Operating Transfers,48705500
 FY19-20,"Oakland Parks, Recreation & Youth Development",Revenue,1820,Transfers from Fund Balance,107940
 FY19-20,Information Technology,Revenue,4200,Transfers from Fund Balance,277209
 FY19-20,Oakland Public Works,Revenue,7760,Transfers from Fund Balance,497123
-FY19-20,Non,Revenue,1010,Transfers from Fund Balance,2000000
-FY19-20,Non,Revenue,1010,Transfers from Fund Balance,2114375
+FY19-20,Non Departmental and Port,Revenue,1010,Transfers from Fund Balance,2000000
+FY19-20,Non Departmental and Port,Revenue,1010,Transfers from Fund Balance,2114375
 FY19-20,Finance Department,Revenue,1030,Transfers from Fund Balance,3875245
 FY19-20,Finance Department,Revenue,1030,Transfers from Fund Balance,3835205
 FY19-20,Oakland Public Works,Revenue,1710,Transfers from Fund Balance,522069
@@ -19344,7 +19344,7 @@ FY19-20,Oakland Public Works,Revenue,1720,Transfers from Fund Balance,1114110
 FY19-20,Finance Department,Revenue,1750,Transfers from Fund Balance,400000
 FY19-20,Housing & Community Development,Revenue,1870,Transfers from Fund Balance,1500000
 FY19-20,Housing & Community Development,Revenue,1885,Transfers from Fund Balance,9958000
-FY19-20,Non,Revenue,2114,Transfers from Fund Balance,806233
+FY19-20,Non Departmental and Port,Revenue,2114,Transfers from Fund Balance,806233
 FY19-20,Transportation,Revenue,2215,Transfers from Fund Balance,475000
 FY19-20,Transportation,Revenue,2231,Transfers from Fund Balance,1604125
 FY19-20,Fire Department,Revenue,2250,Transfers from Fund Balance,186301
@@ -19358,18 +19358,18 @@ FY19-20,Transportation,Revenue,2420,Transfers from Fund Balance,1250000
 FY19-20,Oakland Public Works,Revenue,4400,Transfers from Fund Balance,67500
 FY19-20,Oakland Public Works,Revenue,4450,Transfers from Fund Balance,644328
 FY19-20,Economic & Workforce Development,Revenue,5505,Transfers from Fund Balance,57165
-FY19-20,Non,Revenue,6518,Transfers from Fund Balance,400000
-FY19-20,Non,Revenue,6540,Transfers from Fund Balance,20000
+FY19-20,Non Departmental and Port,Revenue,6518,Transfers from Fund Balance,400000
+FY19-20,Non Departmental and Port,Revenue,6540,Transfers from Fund Balance,20000
 FY19-20,Finance Department,Revenue,7100,Transfers from Fund Balance,3525634
-FY19-20,Non,Expense,1010,Contributions to Fund Balances,231860
-FY19-20,Non,Expense,1010,Contributions to Fund Balances,50000
-FY19-20,Non,Expense,1020,Contributions to Fund Balances,196013
-FY19-20,Non,Expense,1020,Contributions to Fund Balances,-95573
-FY19-20,Non,Expense,1020,Contributions to Fund Balances,-79599
-FY19-20,Non,Expense,1100,Contributions to Fund Balances,2081075
-FY19-20,Non,Expense,1600,Contributions to Fund Balances,107700
-FY19-20,Non,Expense,1700,Contributions to Fund Balances,145850
-FY19-20,Non,Expense,1700,Contributions to Fund Balances,-145850
+FY19-20,Non Departmental and Port,Expense,1010,Contributions to Fund Balances,231860
+FY19-20,Non Departmental and Port,Expense,1010,Contributions to Fund Balances,50000
+FY19-20,Non Departmental and Port,Expense,1020,Contributions to Fund Balances,196013
+FY19-20,Non Departmental and Port,Expense,1020,Contributions to Fund Balances,-95573
+FY19-20,Non Departmental and Port,Expense,1020,Contributions to Fund Balances,-79599
+FY19-20,Non Departmental and Port,Expense,1100,Contributions to Fund Balances,2081075
+FY19-20,Non Departmental and Port,Expense,1600,Contributions to Fund Balances,107700
+FY19-20,Non Departmental and Port,Expense,1700,Contributions to Fund Balances,145850
+FY19-20,Non Departmental and Port,Expense,1700,Contributions to Fund Balances,-145850
 FY19-20,Oakland Public Works,Expense,1720,Contributions to Fund Balances,4844
 FY19-20,Finance Department,Expense,1750,Contributions to Fund Balances,359335
 FY19-20,Economic & Workforce Development,Expense,1770,Contributions to Fund Balances,63111
@@ -19384,7 +19384,7 @@ FY19-20,Oakland Public Library,Expense,2242,Contributions to Fund Balances,11372
 FY19-20,Finance Department,Expense,2270,Contributions to Fund Balances,-642111
 FY19-20,Finance Department,Expense,2270,Contributions to Fund Balances,-372296
 FY19-20,Oakland Public Works,Expense,2310,Contributions to Fund Balances,19030
-FY19-20,Non,Expense,2992,Contributions to Fund Balances,281000
+FY19-20,Non Departmental and Port,Expense,2992,Contributions to Fund Balances,281000
 FY19-20,Oakland Public Works,Expense,3150,Contributions to Fund Balances,500000
 FY19-20,Oakland Public Works,Expense,3150,Contributions to Fund Balances,-500000
 FY19-20,Information Technology,Expense,4210,Contributions to Fund Balances,260000
@@ -19392,15 +19392,15 @@ FY19-20,Information Technology,Expense,4210,Contributions to Fund Balances,-1677
 FY19-20,Information Technology,Expense,4300,Contributions to Fund Balances,177000
 FY19-20,Finance Department,Expense,4500,Contributions to Fund Balances,426500
 FY19-20,Finance Department,Expense,4550,Contributions to Fund Balances,53200
-FY19-20,Non,Expense,5012,Contributions to Fund Balances,180000
-FY19-20,Non,Expense,5500,Contributions to Fund Balances,606900
-FY19-20,Non,Expense,5510,Contributions to Fund Balances,343500
-FY19-20,Non,Expense,5510,Contributions to Fund Balances,-220200
+FY19-20,Non Departmental and Port,Expense,5012,Contributions to Fund Balances,180000
+FY19-20,Non Departmental and Port,Expense,5500,Contributions to Fund Balances,606900
+FY19-20,Non Departmental and Port,Expense,5510,Contributions to Fund Balances,343500
+FY19-20,Non Departmental and Port,Expense,5510,Contributions to Fund Balances,-220200
 FY19-20,Economic & Workforce Development,Expense,5614,Contributions to Fund Balances,105614
 FY19-20,Economic & Workforce Development,Expense,5671,Contributions to Fund Balances,56824
-FY19-20,Non,Expense,5999,Contributions to Fund Balances,123300
-FY19-20,Non,Expense,5999,Contributions to Fund Balances,220200
-FY19-20,Non,Expense,1200,Contributions to Fund Balances,7362316
+FY19-20,Non Departmental and Port,Expense,5999,Contributions to Fund Balances,123300
+FY19-20,Non Departmental and Port,Expense,5999,Contributions to Fund Balances,220200
+FY19-20,Non Departmental and Port,Expense,1200,Contributions to Fund Balances,7362316
 FY19-20,Oakland Public Works,Expense,7760,Recoveries,-10869444
 FY19-20,Oakland Public Works,Expense,7760,Recoveries,-871969
 FY19-20,Oakland Public Works,Expense,7760,Recoveries,-52581
@@ -19415,34 +19415,34 @@ FY19-20,Transportation,Expense,7760,Recoveries,-4810003
 FY19-20,Transportation,Expense,7760,Recoveries,-156560
 FY19-20,Transportation,Expense,7760,Recoveries,-561241
 FY19-20,Transportation,Expense,7760,Recoveries,-1132939
-FY19-20,Non,Expense,1010,Recoveries,-20486204
-FY19-20,Non,Expense,1010,Recoveries,-58162
-FY19-20,Non,Expense,1010,Recoveries,-93112
-FY19-20,Non,Expense,1010,Recoveries,-15550
-FY19-20,Non,Expense,1010,Recoveries,-25500
-FY19-20,Non,Expense,1010,Recoveries,-2473
-FY19-20,Non,Expense,1010,Recoveries,-265018
-FY19-20,Non,Expense,1010,Recoveries,-103054
-FY19-20,Non,Expense,1010,Recoveries,-361608
-FY19-20,Non,Expense,1010,Recoveries,-818933
-FY19-20,Non,Expense,1010,Recoveries,-6162
-FY19-20,Non,Expense,1010,Recoveries,-543114
-FY19-20,Non,Expense,1010,Recoveries,-74884
-FY19-20,Non,Expense,1010,Recoveries,-35849
-FY19-20,Non,Expense,1010,Recoveries,-94982
-FY19-20,Non,Expense,1010,Recoveries,-449423
-FY19-20,Non,Expense,1010,Recoveries,-70732
-FY19-20,Non,Expense,1010,Recoveries,-172351
-FY19-20,Non,Expense,1010,Recoveries,-97631
-FY19-20,Non,Expense,1010,Recoveries,-77562
-FY19-20,Non,Expense,1010,Recoveries,-16647
-FY19-20,Non,Expense,1010,Recoveries,-12189
-FY19-20,Non,Expense,1010,Recoveries,-31610
+FY19-20,Non Departmental and Port,Expense,1010,Recoveries,-20486204
+FY19-20,Non Departmental and Port,Expense,1010,Recoveries,-58162
+FY19-20,Non Departmental and Port,Expense,1010,Recoveries,-93112
+FY19-20,Non Departmental and Port,Expense,1010,Recoveries,-15550
+FY19-20,Non Departmental and Port,Expense,1010,Recoveries,-25500
+FY19-20,Non Departmental and Port,Expense,1010,Recoveries,-2473
+FY19-20,Non Departmental and Port,Expense,1010,Recoveries,-265018
+FY19-20,Non Departmental and Port,Expense,1010,Recoveries,-103054
+FY19-20,Non Departmental and Port,Expense,1010,Recoveries,-361608
+FY19-20,Non Departmental and Port,Expense,1010,Recoveries,-818933
+FY19-20,Non Departmental and Port,Expense,1010,Recoveries,-6162
+FY19-20,Non Departmental and Port,Expense,1010,Recoveries,-543114
+FY19-20,Non Departmental and Port,Expense,1010,Recoveries,-74884
+FY19-20,Non Departmental and Port,Expense,1010,Recoveries,-35849
+FY19-20,Non Departmental and Port,Expense,1010,Recoveries,-94982
+FY19-20,Non Departmental and Port,Expense,1010,Recoveries,-449423
+FY19-20,Non Departmental and Port,Expense,1010,Recoveries,-70732
+FY19-20,Non Departmental and Port,Expense,1010,Recoveries,-172351
+FY19-20,Non Departmental and Port,Expense,1010,Recoveries,-97631
+FY19-20,Non Departmental and Port,Expense,1010,Recoveries,-77562
+FY19-20,Non Departmental and Port,Expense,1010,Recoveries,-16647
+FY19-20,Non Departmental and Port,Expense,1010,Recoveries,-12189
+FY19-20,Non Departmental and Port,Expense,1010,Recoveries,-31610
 FY19-20,Transportation,Expense,7760,Recoveries,-5070950
 FY19-20,Transportation,Expense,7760,Recoveries,-175035
 FY19-20,Transportation,Expense,7760,Recoveries,-654222
 FY19-20,Transportation,Expense,7760,Recoveries,-1700912
-FY19-20,Non,Expense,1010,Recoveries,600000
+FY19-20,Non Departmental and Port,Expense,1010,Recoveries,600000
 FY19-20,Oakland Public Works,Expense,7760,Recoveries,209070
 FY19-20,Oakland Public Works,Expense,7760,Recoveries,117828
 FY19-20,Oakland Public Works,Expense,7760,Recoveries,-11398854
@@ -19454,4 +19454,4 @@ FY19-20,Transportation,Expense,7760,Recoveries,394961
 FY19-20,Transportation,Expense,7760,Recoveries,-15258363
 FY19-20,Finance Department,Expense,1010,Recoveries,-1639318
 FY19-20,Finance Department,Expense,1010,Recoveries,-25000
-FY19-20,Non,Expense,1150,Recoveries,-7579450
+FY19-20,Non Departmental and Port,Expense,1150,Recoveries,-7579450
