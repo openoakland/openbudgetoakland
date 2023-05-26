@@ -28,8 +28,9 @@ This site is built with [Eleventy](https://11ty.dev), a JavaScript-based static 
 
 You'll need these installed globally:
 
-- [Node](http://nodejs.org/download/) is a prerequisite for NPM
-- [NPM](https://npmjs.com) or [Yarn](https://yarnpkg.com/en/)
+- [Node](http://nodejs.org/download/) v15.14.0 is a prerequisite for NPM
+- [NPM](https://npmjs.com) 
+- [Yarn](https://yarnpkg.com/en/) for the Comparison page
 - [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md) is optional, but very handy for downloading, updating, and switching between versions of NPM
 
 ### Install & Run Eleventy in \_src/
