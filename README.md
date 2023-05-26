@@ -15,7 +15,8 @@ Some of the other Issues are larger and require some deeper design or architectu
 1. While still in the root directory of the repo, create a new folder called "build". This folder will be ignored by our version control system.
 1. Navigate to the \_src/ folder, which is where all development work takes place.
 1. Install dependencies with `npm install`
-1. Serve the website by entering `npx @11ty/eleventy --serve --port=8011`
+1. Run yarn run watch (see Instructions for Compare Page, below)
+3. Serve the website by entering `npx @11ty/eleventy --serve --port=8011`
 
 Congratulations! Your local copy of Open Budget Oakland's website should now be running at http://localhost:8011. That means you're ready to do the codez if you want to contribute to the codebase of Open Budget Oakland. You will probably want to open a new terminal window, though, to regain access to the command line.
 
