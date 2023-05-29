@@ -121,7 +121,7 @@ The WordPress plugin (OBO Custom Routes) that generates our API can be installed
 
 To develop new features for the API, you may want to run Wordpress locally.
 This repo includes a configuration file for doing so with [Docker Compose](https://docs.docker.com/compose/).
-With Docker Compose installed, simply run `docker-compose up` in `wordpress plugin for custom API endpoints/`
+With Docker Compose installed, simply run `docker compose up` in `wordpress plugin for custom API endpoints/`
 to activate linked containers for Wordpress, MySQL, and PhpMyAdmin. The Wordpress container will
 mount that directory as though it were Wordpress' `plugins/` directory, allowing your edits to
 the plugin files in `obo_custom_routes/` to be reflected in your Wordpress instance. (Additional plugins that
