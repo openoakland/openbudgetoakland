@@ -8,7 +8,7 @@
     "d3-format": "^1.4.3",
     "d3-scale-chromatic": "^1.5.0",
     "dart-sass": "^1.25.0",
-    "fsevents": "^2.3.2",
+    "fsevents": "^2.3.3",
     "pug-cli": "^1.0.0-alpha6",
     "react": "^15.6.2",
     "react-bootstrap": "^0.30.8",
