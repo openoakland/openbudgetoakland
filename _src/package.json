@@ -6,7 +6,7 @@
     "d3-array": "^1.2.4",
     "d3-collection": "^1.0.7",
     "d3-format": "^1.4.3",
-    "d3-scale-chromatic": "^1.5.0",
+    "d3-scale-chromatic": "^3.0.0",
     "dart-sass": "^1.25.0",
     "fsevents": "^2.3.2",
     "pug-cli": "^1.0.0-alpha6",
